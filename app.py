@@ -2,29 +2,28 @@
 Aviation RAG — Streamlit Interface
 ====================================
 Production-grade aviation regulatory document Q&A system.
-
-Features:
-    - Chat interface with conversation memory
-    - Hybrid search (Dense + Sparse + Reranking)
-    - Source citations with expandable previews
-    - Document category filtering
-    - System analytics dashboard
 """
-import os, subprocess
+
+import os
+import sys
+import logging
 from pathlib import Path
 
-# Rebuild vectorstore on cloud if needed
-if not Path("data/processed/bm25_index.pkl").exists() or not Path("vectorstore/chroma.sqlite3").exists():
-    if os.path.exists("/mount/src"):  # Only on Streamlit Cloud
-        result = subprocess.run(["python3", "ingest.py"], capture_output=True, text=True)
-        if result.returncode != 0:
-            import streamlit as st
-            st.error(f"Ingestion failed:\n{result.stderr[-2000:]}")
-            st.stop()
+# ─── Auto-ingestion on cloud ──────────────────────────────────────────────
+bm25_exists = Path("data/processed/bm25_index.pkl").exists()
+vs_exists = Path("vectorstore").exists() and any(Path("vectorstore").iterdir()) if Path("vectorstore").exists() else False
 
+if not bm25_exists or not vs_exists:
+    if os.path.exists("/mount/src"):  # Streamlit Cloud
+        logging.info("Running ingestion on cloud...")
+        # Add current directory to path
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from ingest import run_ingestion
+        run_ingestion()
+
+# ─── Main App ─────────────────────────────────────────────────────────────
 import streamlit as st
 import time
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -36,13 +35,32 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-st.markdown("""<style>section[data-testid="stSidebar"]{min-width:300px !important; max-width:300px !important; transform:none !important;}</style>""", unsafe_allow_html=True)
+
 # ─── Custom CSS ────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
     /* Global */
     .stApp {
         background-color: #0a0f1a;
+    }
+    
+    /* Sidebar always visible fix */
+    section[data-testid="stSidebar"] {
+        min-width: 300px !important;
+        max-width: 300px !important;
+        transform: none !important;
+        background-color: #0f172a;
+        border-right: 1px solid #1e3a5f;
+    }
+    
+    /* Sidebar toggle always visible */
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarCollapsedControl"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: #e2e8f0 !important;
+        z-index: 9999999 !important;
     }
     
     /* Header */
@@ -147,12 +165,6 @@ st.markdown("""
     .cat-aic { background: #1e2a3f; color: #60a5fa; border: 1px solid #1e40af; }
     .cat-icao { background: #2a1e3f; color: #a78bfa; border: 1px solid #5b21b6; }
     .cat-notam { background: #3f2a1e; color: #fb923c; border: 1px solid #9a3412; }
-
-    /* Sidebar */
-    section[data-testid="stSidebar"] {
-        background-color: #0f172a;
-        border-right: 1px solid #1e3a5f;
-    }
     
     /* Chat */
     .stChatMessage {
@@ -165,28 +177,6 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
-            
-    /* Fix sidebar toggle button visibility */
-    [data-testid="collapsedControl"],
-    [data-testid="stSidebarCollapsedControl"],
-    .st-emotion-cache-1dp5vir,
-    .st-emotion-cache-eczf16 {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: 2.5rem !important;
-        height: 2.5rem !important;
-        color: #ffffff !important;
-        background-color: #3b82f6 !important;
-        border: none !important;
-        border-radius: 50% !important;
-        z-index: 9999999 !important;
-        position: fixed !important;
-        top: 14px !important;
-        left: 14px !important;
-        cursor: pointer !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -200,7 +190,6 @@ def load_engine():
 
 
 def get_category_pill(category: str) -> str:
-    """Generate colored pill HTML for document category."""
     cat_class = {
         "dgca_cars": "cat-dgca",
         "aai_circulars": "cat-aic",
@@ -220,12 +209,10 @@ def get_category_pill(category: str) -> str:
 
 # ─── Sidebar ───────────────────────────────────────────────────────────────
 def render_sidebar(engine):
-    """Render sidebar with stats, settings, and info."""
     with st.sidebar:
         st.markdown("## ✈️ Aviation RAG")
         st.markdown("---")
         
-        # Stats
         stats = engine.get_stats()
         
         col1, col2 = st.columns(2)
@@ -246,7 +233,6 @@ def render_sidebar(engine):
         
         st.markdown("---")
         
-        # Search Settings
         st.markdown("### ⚙️ Search Settings")
         
         search_mode = st.selectbox(
@@ -266,7 +252,6 @@ def render_sidebar(engine):
         
         st.markdown("---")
         
-        # Architecture info
         st.markdown("### 🏗️ Architecture")
         st.markdown(f"""
         - **Embeddings:** `{stats['embedding_model']}`
@@ -279,7 +264,6 @@ def render_sidebar(engine):
         
         st.markdown("---")
         
-        # Category breakdown
         st.markdown("### 📊 Document Breakdown")
         for cat, count in stats.get("chunks_per_category", {}).items():
             cat_display = {
@@ -293,7 +277,6 @@ def render_sidebar(engine):
         
         st.markdown("---")
         
-        # Clear chat
         if st.button("🗑️ Clear Chat", use_container_width=True):
             st.session_state.messages = []
             st.session_state.chat_history = []
@@ -312,7 +295,6 @@ def render_sidebar(engine):
 
 # ─── Main Chat Interface ──────────────────────────────────────────────────
 def render_header():
-    """Render the main header."""
     st.markdown("""
     <div class="main-header">
         <h1>✈️ Aviation Regulatory Intelligence System</h1>
@@ -330,7 +312,6 @@ def render_header():
 
 
 def render_sources(sources: list[dict]):
-    """Render source citations in expandable cards."""
     if not sources:
         return
     
@@ -355,14 +336,12 @@ def render_sources(sources: list[dict]):
 
 
 def main():
-    # Initialize session state
     if "messages" not in st.session_state:
         st.session_state.messages = []
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
     
-    # Check for required files
-    vectorstore_exists = Path("vectorstore").exists() and any(Path("vectorstore").iterdir())
+    vectorstore_exists = Path("vectorstore").exists() and any(Path("vectorstore").iterdir()) if Path("vectorstore").exists() else False
     bm25_exists = Path("data/processed/bm25_index.pkl").exists()
     
     if not vectorstore_exists or not bm25_exists:
@@ -372,29 +351,23 @@ def main():
         st.info("This will process all PDFs in data/raw/ and build the search indexes.")
         return
     
-    # Load engine
     with st.spinner("Loading Aviation RAG Engine..."):
         engine = load_engine()
     
-    # Render UI
     search_mode, category_filter = render_sidebar(engine)
     render_header()
     
-    # Display chat history
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
             if msg["role"] == "assistant" and "sources" in msg:
                 render_sources(msg["sources"])
     
-    # Chat input
     if prompt := st.chat_input("Ask about aviation regulations..."):
-        # Display user message
         with st.chat_message("user"):
             st.markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
         
-        # Generate response
         with st.chat_message("assistant"):
             with st.spinner("Searching & analyzing..."):
                 start_time = time.time()
@@ -408,10 +381,8 @@ def main():
                 
                 elapsed = time.time() - start_time
             
-            # Display answer
             st.markdown(response.answer)
             
-            # Display metadata
             st.markdown(
                 f'<p style="color:#64748b;font-size:0.75rem;margin-top:0.5rem;">'
                 f'⚡ {elapsed:.1f}s · {response.retrieval_mode} search · '
@@ -419,21 +390,17 @@ def main():
                 unsafe_allow_html=True
             )
             
-            # Display sources
             render_sources(response.sources)
         
-        # Save to session state
         st.session_state.messages.append({
             "role": "assistant",
             "content": response.answer,
             "sources": response.sources,
         })
         
-        # Update chat history for context
         st.session_state.chat_history.append({"role": "user", "content": prompt})
         st.session_state.chat_history.append({"role": "assistant", "content": response.answer})
         
-        # Keep only last 6 messages in history
         if len(st.session_state.chat_history) > 6:
             st.session_state.chat_history = st.session_state.chat_history[-6:]
 
