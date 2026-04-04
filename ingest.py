@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Optional
 from dataclasses import dataclass, field, asdict
 
-import fitz  # PyMuPDF
+import fitz # PyMuPDF # PyMuPDF
 import numpy as np
 import chromadb
 from chromadb.utils import embedding_functions
