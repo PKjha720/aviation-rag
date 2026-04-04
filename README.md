@@ -177,13 +177,25 @@ aviation-rag/
 
 ## 👤 Author
 
-**Prabhat** — Junior Executive (Technical), Airports Authority of India
+**Prabhat Kumar Jha** — Junior Executive (Technical), Airports Authority of India
 
 Building at the intersection of aviation domain expertise and AI/ML engineering. Currently preparing for MS CS (Fall 2027) with focus on ML Systems and Information Retrieval.
 
+### Achievements
+
+| Exam | Score | Year |
+|------|-------|------|
+| GRE | **339/340** (170Q + 169V) | 2026 |
+| TOEFL | **110/120** | 2026 |
+| GATE (ME) | **99.28 percentile** | 2022 |
+| JEE Advanced | **99.2 percentile** | 2014 |
+| AAI National Exam | **All India Rank 3** | 2021 |
+| HPCL GET Recruitment | **165/170** | 2021 |
+| AMCAT Tata Steel | **Rank 1** | — |
+
 - Domain: Indian Civil Aviation (DGCA, AAI)
 - Focus: RAG Systems, ML Infrastructure, NLP
-- GRE: 339/340 (170Q + 169V)
+- University Batch Topper — BIT Mesra
 
 ---
 
