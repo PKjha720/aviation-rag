@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Optional
 from dataclasses import dataclass, field, asdict
 
-import fitz # PyMuPDF # PyMuPDF
+import pymupdf # PyMuPDF # PyMuPDF
 import numpy as np
 import chromadb
 from chromadb.utils import embedding_functions
@@ -134,7 +134,7 @@ def extract_text_from_pdf(pdf_path: Path) -> list[dict]:
     """
     pages = []
     try:
-        doc = fitz.open(str(pdf_path))
+        doc = pymupdf.open(str(pdf_path))
         for page_num in range(len(doc)):
             page = doc[page_num]
             text = page.get_text("text")
