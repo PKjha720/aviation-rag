@@ -7,3 +7,5 @@ Thumbs.db
 .vscode/
 .idea/
 data/raw/
+vectorstore/
+data/processed/

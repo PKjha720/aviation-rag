@@ -10,11 +10,17 @@ Features:
     - Document category filtering
     - System analytics dashboard
 """
+import os, subprocess
+from pathlib import Path
+
+# Rebuild vectorstore on cloud if needed
+if not Path("data/processed/bm25_index.pkl").exists() or not Path("vectorstore/chroma.sqlite3").exists():
+    if os.path.exists("/mount/src"):  # Only on Streamlit Cloud
+        subprocess.run(["python", "ingest.py"], check=True)
 
 import streamlit as st
 import time
-import os
-from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv()
