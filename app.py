@@ -16,7 +16,7 @@ from pathlib import Path
 # Rebuild vectorstore on cloud if needed
 if not Path("data/processed/bm25_index.pkl").exists() or not Path("vectorstore/chroma.sqlite3").exists():
     if os.path.exists("/mount/src"):  # Only on Streamlit Cloud
-        subprocess.run(["python", "ingest.py"], check=True)
+        subprocess.run(["python3", "ingest.py"], check=True)
 
 import streamlit as st
 import time
