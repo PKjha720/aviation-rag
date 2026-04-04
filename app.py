@@ -157,18 +157,25 @@ st.markdown("""
     header {visibility: hidden;}
             
     /* Fix sidebar toggle button visibility */
-    button[data-testid="stSidebarCollapsedControl"],
-    button[data-testid="collapsedControl"] {
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarCollapsedControl"],
+    .st-emotion-cache-1dp5vir,
+    .st-emotion-cache-eczf16 {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        color: #e2e8f0 !important;
-        background-color: #1e293b !important;
-        border: 1px solid #334155 !important;
-        z-index: 999999 !important;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        color: #ffffff !important;
+        background-color: #3b82f6 !important;
+        border: none !important;
+        border-radius: 50% !important;
+        z-index: 9999999 !important;
         position: fixed !important;
-        top: 0.5rem !important;
-        left: 0.5rem !important;
+        top: 14px !important;
+        left: 14px !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
     }
 </style>
 """, unsafe_allow_html=True)
