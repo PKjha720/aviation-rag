@@ -26,7 +26,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
+st.markdown("""<style>section[data-testid="stSidebar"]{min-width:300px !important; max-width:300px !important; transform:none !important;}</style>""", unsafe_allow_html=True)
 # ─── Custom CSS ────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
