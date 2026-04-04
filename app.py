@@ -155,6 +155,21 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+            
+    /* Fix sidebar toggle button visibility */
+    button[data-testid="stSidebarCollapsedControl"],
+    button[data-testid="collapsedControl"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: #e2e8f0 !important;
+        background-color: #1e293b !important;
+        border: 1px solid #334155 !important;
+        z-index: 999999 !important;
+        position: fixed !important;
+        top: 0.5rem !important;
+        left: 0.5rem !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
