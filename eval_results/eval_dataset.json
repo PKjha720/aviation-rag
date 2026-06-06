@@ -1,0 +1,802 @@
+[
+  {
+    "question_id": "Q001",
+    "question": "What are the key questions that should be asked to assess compliance of a process or procedure in the internal audit process?",
+    "category": "direct_regulation",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 163,
+    "ground_truth_chunk_id": "b221841f0c39"
+  },
+  {
+    "question_id": "Q002",
+    "question": "What are the specific flying time requirements for a pilot to be eligible for a flight test, in terms of total flying time and time as PIC on twin engined aircraft and type?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_t_p2_flight_testing.pdf",
+    "source_page": 7,
+    "ground_truth_chunk_id": "3f09e4bf8f30"
+  },
+  {
+    "question_id": "Q003",
+    "question": "What is the amount of CO2 emissions saved from being released into the atmosphere by usage of Free Route Airspace in Kano FIR?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 276,
+    "ground_truth_chunk_id": "eb4f324e0f35"
+  },
+  {
+    "question_id": "Q004",
+    "question": "What is the responsibility of mentors after verifying and countersigning off the tasks performed during On-the-Job Training?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 143,
+    "ground_truth_chunk_id": "9f118298babf"
+  },
+  {
+    "question_id": "Q005",
+    "question": "What is the regulatory requirement for reporting a Major Defect in an aircraft registered in India, as per Rule 59 of Aircraft Rules 1937?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_c_p1_defect_recording_reporting.pdf",
+    "source_page": 1,
+    "ground_truth_chunk_id": "40bb4b9f6994"
+  },
+  {
+    "question_id": "Q006",
+    "question": "What does the acronym GASP stand for in the context of global aviation safety regulations?",
+    "category": "direct_regulation",
+    "source_file": "icao_gasp_global_safety_plan.pdf",
+    "source_page": 17,
+    "ground_truth_chunk_id": "6e862eab93ed"
+  },
+  {
+    "question_id": "Q007",
+    "question": "What ICAO events or meetings are referenced in the context of the United Nations Framework Convention on Climate Change implementation review?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 34,
+    "ground_truth_chunk_id": "d6e5adab40d8"
+  },
+  {
+    "question_id": "Q008",
+    "question": "What are the specific, measurable, and time-bound actions required to address climate change and biodiversity loss in the aviation sector as per the given regulatory guidelines?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 457,
+    "ground_truth_chunk_id": "f7a85316374f"
+  },
+  {
+    "question_id": "Q009",
+    "question": "What action will be taken against personnel found to have made a false statement regarding the compliance status of a mandatory modification or inspection?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_m_p1_mandatory_modifications.pdf",
+    "source_page": 4,
+    "ground_truth_chunk_id": "3c93f95a991f"
+  },
+  {
+    "question_id": "Q010",
+    "question": "What are the key areas of focus for CORSIA capacity-building activities and emissions reporting obligations in 2024?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 302,
+    "ground_truth_chunk_id": "e152f7626a10"
+  },
+  {
+    "question_id": "Q011",
+    "question": "What applications are considered mandatory for recording, as per the regulations outlined in this section?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 10,
+    "ground_truth_chunk_id": "7de830a190d5"
+  },
+  {
+    "question_id": "Q012",
+    "question": "What parameters are required to satisfy the requirements for ADRS as listed in the regulations?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 19,
+    "ground_truth_chunk_id": "ebfd3d5e474b"
+  },
+  {
+    "question_id": "Q013",
+    "question": "What assessment methods are considered acceptable for confirming achievement of competence according to section 6.2 of the regulations?",
+    "category": "direct_regulation",
+    "source_file": "circular_cabin_safety_2025_01_training.pdf",
+    "source_page": 7,
+    "ground_truth_chunk_id": "d707ce9de014"
+  },
+  {
+    "question_id": "Q014",
+    "question": "What are the conditions under which a CA Form 1 may be issued for serviceable aircraft components removed from a non-Indian registered aircraft, as per CAR 145?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 84,
+    "ground_truth_chunk_id": "c80d0396ccb5"
+  },
+  {
+    "question_id": "Q015",
+    "question": "What are the key benefits of implementing a robust SAF accounting system for tracking environmental attributes and verifying claims related to Sustainable Aviation Fuel purchases?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 199,
+    "ground_truth_chunk_id": "9dd191600909"
+  },
+  {
+    "question_id": "Q016",
+    "question": "What are the key challenges associated with the production and use of Sustainable Aviation Fuel that must be considered for its widespread availability and adoption?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 273,
+    "ground_truth_chunk_id": "747511b4baa7"
+  },
+  {
+    "question_id": "Q017",
+    "question": "What specific global regulations have fostered unparalleled safety in aviation as mentioned in the context of SAF uptake?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 96,
+    "ground_truth_chunk_id": "de868b4eb0f1"
+  },
+  {
+    "question_id": "Q018",
+    "question": "What programme is ICAO using to provide courses on CORSIA, including the CORSIA Verification Course launched in 2019?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 221,
+    "ground_truth_chunk_id": "a9a9bc1c6da8"
+  },
+  {
+    "question_id": "Q019",
+    "question": "What are the alternative systems to Auxiliary Power Units that are being considered to reduce environmental footprint of aircraft ground operations?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 397,
+    "ground_truth_chunk_id": "236a86fd75c8"
+  },
+  {
+    "question_id": "Q020",
+    "question": "What guidance should the State use to develop its National Aviation Safety Plan (NASP), according to the regulations?",
+    "category": "direct_regulation",
+    "source_file": "icao_gasp_global_safety_plan.pdf",
+    "source_page": 26,
+    "ground_truth_chunk_id": "e9b2b0ef02db"
+  },
+  {
+    "question_id": "Q021",
+    "question": "What are the primary objectives of the 2026-2028 edition of the Global Aviation Safety Plan (GASP) in relation to existing Regional Aviation Safety Plans (RASPs) and National Aviation Safety Plans (NASPs)?",
+    "category": "direct_regulation",
+    "source_file": "icao_gasp_global_safety_plan.pdf",
+    "source_page": 7,
+    "ground_truth_chunk_id": "99805246d1d4"
+  },
+  {
+    "question_id": "Q022",
+    "question": "What are the specific topics covered under Module 10L of CAR-66 regarding gas balloons?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 198,
+    "ground_truth_chunk_id": "8f09b80417a8"
+  },
+  {
+    "question_id": "Q023",
+    "question": "What are the different parts of an organisation that may use a common system for maintenance activities, such as engine workshops or aircraft base maintenance, according to the regulations?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 68,
+    "ground_truth_chunk_id": "e3a23dcc6304"
+  },
+  {
+    "question_id": "Q024",
+    "question": "What ATA specification chapter corresponds to the C1 component rating for Air Conditioning and Pressurization systems?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 16,
+    "ground_truth_chunk_id": "6154578f2002"
+  },
+  {
+    "question_id": "Q025",
+    "question": "What is the purpose of designating a critical area about the localizer and glide path antennas during ILS operations?",
+    "category": "direct_regulation",
+    "source_file": "circular_air_nav_2026_01_installation.pdf",
+    "source_page": 2,
+    "ground_truth_chunk_id": "58755a939965"
+  },
+  {
+    "question_id": "Q026",
+    "question": "What is the CAR number that defines the requirements for the production planning function in aviation maintenance organizations?",
+    "category": "numerical",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 69,
+    "ground_truth_chunk_id": "d7c9c3c4c81a"
+  },
+  {
+    "question_id": "Q027",
+    "question": "What is the chapter number that discusses the Carbon Offsetting and Reduction Scheme for International Aviation?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 254,
+    "ground_truth_chunk_id": "a36cd59420b7"
+  },
+  {
+    "question_id": "Q028",
+    "question": "What is the page number of the AEAC NO. 01 of 2024 document where the requirements for baggage and cargo compartments are specified?",
+    "category": "numerical",
+    "source_file": "circular_aircraft_eng_2024_01_advisory.pdf",
+    "source_page": 17,
+    "ground_truth_chunk_id": "109c4082023a"
+  },
+  {
+    "question_id": "Q029",
+    "question": "What is the target year for the SAF Roadmap in the development and adoption of Sustainable Aviation Fuel?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 267,
+    "ground_truth_chunk_id": "627ab86ab5b0"
+  },
+  {
+    "question_id": "Q030",
+    "question": "What is the rule number under which this CAR is issued, as stipulated in the Aircraft Rules of 1937?",
+    "category": "numerical",
+    "source_file": "car_s2_i_p7_gpws.pdf",
+    "source_page": 1,
+    "ground_truth_chunk_id": "abbb8c597cb0"
+  },
+  {
+    "question_id": "Q031",
+    "question": "What is the minimum number of services or operations listed that are related to air traffic flow management or interval management?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 136,
+    "ground_truth_chunk_id": "d3cca6ad1076"
+  },
+  {
+    "question_id": "Q032",
+    "question": "What is the maximum altitude above which aircraft continuing airworthiness issues must be reported to the relevant department, as specified in the regulations for technical co-ordination with the person or organisation responsible for the aircraft's continuing airworthiness?",
+    "category": "numerical",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 87,
+    "ground_truth_chunk_id": "ffd10c6a0402"
+  },
+  {
+    "question_id": "Q033",
+    "question": "What is the year in which ICAO adopted the global framework for cleaner aviation fuels?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 253,
+    "ground_truth_chunk_id": "296a02e8541a"
+  },
+  {
+    "question_id": "Q034",
+    "question": "What is the minimum number of categories of certifying staff that an organisation must have for aircraft line maintenance, as accepted by the DGCA?",
+    "category": "numerical",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 45,
+    "ground_truth_chunk_id": "98a9e009062b"
+  },
+  {
+    "question_id": "Q035",
+    "question": "What is the DOI number for the CLIMaCCF V1.0 non-CO2 algorithmic climate change functions publication in Geoscientific Model Development Discussions?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 166,
+    "ground_truth_chunk_id": "74dd6654c1f3"
+  },
+  {
+    "question_id": "Q036",
+    "question": "What is the minimum altitude at which sustainable aviation fuel production incentives are applicable according to international cooperation agreements?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 303,
+    "ground_truth_chunk_id": "f90fa7b97e21"
+  },
+  {
+    "question_id": "Q037",
+    "question": "What is the page number where the section on taxonomies begins in this regulatory document?",
+    "category": "numerical",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 7,
+    "ground_truth_chunk_id": "b1a0c40015e2"
+  },
+  {
+    "question_id": "Q038",
+    "question": "What is the minimum altitude or performance requirement that must be met to ensure effective implementation of Sustainable Aviation Fuel strategies in accordance with regulatory standards?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 195,
+    "ground_truth_chunk_id": "4d83953e7cea"
+  },
+  {
+    "question_id": "Q039",
+    "question": "What is the minimum altitude above which service providers must ensure their Standard Operating Procedures are compatible with the safety management system interfaces?",
+    "category": "numerical",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 53,
+    "ground_truth_chunk_id": "01595916f014"
+  },
+  {
+    "question_id": "Q040",
+    "question": "What is the minimum number of days within which a candidate can appear for a failed module related to limitation papers after the amendment to Appendix \u2013II (Basic Examination Standard) para 1.5?",
+    "category": "numerical",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 5,
+    "ground_truth_chunk_id": "354e638754c3"
+  },
+  {
+    "question_id": "Q041",
+    "question": "What is the chapter number that discusses Multistakeholder Cooperation in the context of the Convention on Biological Diversity?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 488,
+    "ground_truth_chunk_id": "327775ee6f5f"
+  },
+  {
+    "question_id": "Q042",
+    "question": "What is the maximum weight or other limiting characteristic of a UA that can be operated under a conditional Remote Pilot Licence with restrictions on the make and model of the aircraft?",
+    "category": "numerical",
+    "source_file": "icao_uas_guidance.pdf",
+    "source_page": 18,
+    "ground_truth_chunk_id": "13979c64679f"
+  },
+  {
+    "question_id": "Q043",
+    "question": "What is the mean diameter threshold below which particles are classified as ultrafine particles in aircraft main engine and APU core exhaust emissions?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 375,
+    "ground_truth_chunk_id": "fd96a744bf34"
+  },
+  {
+    "question_id": "Q044",
+    "question": "What is the subsection number that addresses Commitment to safety under the Safety Culture/Organisational factors category?",
+    "category": "numerical",
+    "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+    "source_page": 68,
+    "ground_truth_chunk_id": "a714fc47fc0b"
+  },
+  {
+    "question_id": "Q045",
+    "question": "What is the target year by which several Airspace-Scale Living Labs must be established?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 214,
+    "ground_truth_chunk_id": "51e62180767a"
+  },
+  {
+    "question_id": "Q046",
+    "question": "What is the specific competency designation for workload management as outlined in the regulatory guidelines?",
+    "category": "numerical",
+    "source_file": "circular_cabin_safety_2025_01_training.pdf",
+    "source_page": 5,
+    "ground_truth_chunk_id": "bd0fa78bc8d4"
+  },
+  {
+    "question_id": "Q047",
+    "question": "What is the typical flight cruise level at which accurate water vapour monitoring is performed in aircraft?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 54,
+    "ground_truth_chunk_id": "8a85457dc265"
+  },
+  {
+    "question_id": "Q048",
+    "question": "What is the minimum altitude above which the use of sustainable aviation fuels is mandated for commercial aircraft operations in Japan?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 186,
+    "ground_truth_chunk_id": "6321659be14f"
+  },
+  {
+    "question_id": "Q049",
+    "question": "What is the target year by which all States are expected to improve their EI score for the resolution of safety issues in AGA to equal or greater than the baseline global average?",
+    "category": "numerical",
+    "source_file": "icao_gasp_global_safety_plan.pdf",
+    "source_page": 43,
+    "ground_truth_chunk_id": "f725d9b5cccf"
+  },
+  {
+    "question_id": "Q050",
+    "question": "What is the minimum altitude above which an aircraft must be flying in order to be considered in cruise configuration according to the regulatory guidelines for environmentally sustainable aviation practices?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 70,
+    "ground_truth_chunk_id": "fdc024deb056"
+  },
+  {
+    "question_id": "Q051",
+    "question": "What steps are involved in establishing a Regional ICAO Office, such as the European and North Atlantic Office, to ensure a safe and efficient civil aviation system?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 295,
+    "ground_truth_chunk_id": "6c9189d97c8c"
+  },
+  {
+    "question_id": "Q052",
+    "question": "What are the two complementary approaches employed by the CORSIA scheme to mitigate the climate impact of the aviation sector?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 251,
+    "ground_truth_chunk_id": "0016a50fa16b"
+  },
+  {
+    "question_id": "Q053",
+    "question": "What are the typical inputs used for day-by-day system reliability monitoring in aviation regulatory compliance?",
+    "category": "procedural",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 130,
+    "ground_truth_chunk_id": "45cd36283345"
+  },
+  {
+    "question_id": "Q054",
+    "question": "What steps are involved in the process of providing Aircraft-based Observations data by national meteorological and hydrological services into the WMO Information Systems?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 55,
+    "ground_truth_chunk_id": "001674791aac"
+  },
+  {
+    "question_id": "Q055",
+    "question": "What steps is CICONIA taking to address its top challenges, specifically with regards to improving weather forecasting capabilities for operational mitigation concepts?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 165,
+    "ground_truth_chunk_id": "ec06ba8080a4"
+  },
+  {
+    "question_id": "Q056",
+    "question": "What steps are involved in implementing the Capacity Building for CO2 Mitigation from International Aviation project in the Caribbean Region, as undertaken by the Kenya Civil Aviation Authority and the Kenya Airport Authority?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 311,
+    "ground_truth_chunk_id": "f12b38918c82"
+  },
+  {
+    "question_id": "Q057",
+    "question": "What steps should be taken to determine whether to assign the role of analysing safety information to an existing position or to establish a new position, outsource the role, or use a hybrid approach?",
+    "category": "procedural",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 81,
+    "ground_truth_chunk_id": "6174228b3dd3"
+  },
+  {
+    "question_id": "Q058",
+    "question": "What steps are involved in monitoring the effectiveness of safety mitigations using lagging Safety Performance Indicators in the context of aviation regulatory compliance?",
+    "category": "procedural",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 55,
+    "ground_truth_chunk_id": "db8731ae763c"
+  },
+  {
+    "question_id": "Q059",
+    "question": "What is the recommended form of levies by the ICAO Council and the preferred application of the funds collected from them?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 259,
+    "ground_truth_chunk_id": "d2e912db8878"
+  },
+  {
+    "question_id": "Q060",
+    "question": "What steps are involved in calculating the Reference Flight Level for the purpose of a study or performance monitoring in Indian civil aviation?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 146,
+    "ground_truth_chunk_id": "da2a0b70e03b"
+  },
+  {
+    "question_id": "Q061",
+    "question": "What steps are involved in comparing the resulting emissions over the certification LTO for different combustor types in turbofan and mixed turbofan engines?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 376,
+    "ground_truth_chunk_id": "cc3983bc6eff"
+  },
+  {
+    "question_id": "Q062",
+    "question": "What steps must the holder of an aircraft maintenance engineer's licence take to prevent their licence from becoming invalid after five or ten years, as per the revised Aircraft Rule 61?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 30,
+    "ground_truth_chunk_id": "8883bdfa36a5"
+  },
+  {
+    "question_id": "Q063",
+    "question": "What activities are considered as maintenance for an aircraft or component, as per the regulatory definition?",
+    "category": "procedural",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 11,
+    "ground_truth_chunk_id": "2abdda2d7e38"
+  },
+  {
+    "question_id": "Q064",
+    "question": "What maintenance tasks are considered a representative cross section for the category B2L licence, in terms of demonstrating experience for system ratings?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 30,
+    "ground_truth_chunk_id": "5246837920e7"
+  },
+  {
+    "question_id": "Q065",
+    "question": "What is the step-by-step procedure for recording engine gas generator speed in turbine-engined helicopters, including the minimum recording range, maximum recording interval, and minimum recording accuracy?",
+    "category": "procedural",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 36,
+    "ground_truth_chunk_id": "bcbc068a9972"
+  },
+  {
+    "question_id": "Q066",
+    "question": "What steps are involved in manufacturing the organic matrix composite blades for the Open Fan architecture?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 121,
+    "ground_truth_chunk_id": "e4d3f759a13b"
+  },
+  {
+    "question_id": "Q067",
+    "question": "What steps should an organisation take to ensure that its report includes all necessary information and addresses the relevant mandatory data fields for certificate holders?",
+    "category": "procedural",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 93,
+    "ground_truth_chunk_id": "6ecc4464d2c1"
+  },
+  {
+    "question_id": "Q068",
+    "question": "What steps should be taken when recording level 1 and 2 findings in the CAR 145 approval recommendation report, particularly in regards to rectified and non-rectified findings?",
+    "category": "procedural",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 162,
+    "ground_truth_chunk_id": "be04af5ce628"
+  },
+  {
+    "question_id": "Q069",
+    "question": "Where can I find more information about the competence requirements for the accountable executive or safety manager in an aviation organization?",
+    "category": "procedural",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 133,
+    "ground_truth_chunk_id": "1bad1e88cfb0"
+  },
+  {
+    "question_id": "Q070",
+    "question": "What steps are involved in the implementation and capacity building process for sustainable aviation fuels under the EU-funded ACT-SAF Africa-India Project?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 304,
+    "ground_truth_chunk_id": "ac944faa68ae"
+  },
+  {
+    "question_id": "Q071",
+    "question": "What are the steps involved in the maintenance and servicing of the landing gear and brake systems of an aircraft?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 203,
+    "ground_truth_chunk_id": "16dd7e95003d"
+  },
+  {
+    "question_id": "Q072",
+    "question": "What steps should be taken to address the impact of climate change on global weather and climate extremes in the aviation industry?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 412,
+    "ground_truth_chunk_id": "9f9de2b309cb"
+  },
+  {
+    "question_id": "Q073",
+    "question": "What steps are involved in gathering and analyzing safety performance data and information to assess a given situation and determine the impact of a change?",
+    "category": "procedural",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 166,
+    "ground_truth_chunk_id": "c37f40e60b81"
+  },
+  {
+    "question_id": "Q074",
+    "question": "What is the step-by-step procedure for assigning roles and responsibilities to Environment Officers within the organization, specifically for market-based measures, environmental tools, and other specialized areas such as noise and SAF?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 490,
+    "ground_truth_chunk_id": "a783df140d02"
+  },
+  {
+    "question_id": "Q075",
+    "question": "What steps should be taken to address the urgency for the aviation sector to achieve sustainability goals and secure the future of the industry?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 66,
+    "ground_truth_chunk_id": "d8e54717b6a7"
+  },
+  {
+    "question_id": "Q076",
+    "question": "What are the primary concerns that regulatory bodies need to address when dealing with aircraft operations away from airports, and are there any established frameworks for managing one of these concerns, specifically noise?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 349,
+    "ground_truth_chunk_id": "8e5cc9fa07b5"
+  },
+  {
+    "question_id": "Q077",
+    "question": "What steps can be taken to ensure the effective communication of changes to relevant personnel and service providers within the State, and how does this relate to the overall safety promotion strategy?",
+    "category": "cross_document",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 139,
+    "ground_truth_chunk_id": "a5ff0872a616"
+  },
+  {
+    "question_id": "Q078",
+    "question": "What initiatives is the International Civil Aviation Organization undertaking to support the aviation industry's transition to cleaner energy sources as part of its efforts to achieve the Long-Term Aspirational Goal and drive climate change mitigation?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 79,
+    "ground_truth_chunk_id": "d16c417b60ad"
+  },
+  {
+    "question_id": "Q079",
+    "question": "What are the potential benefits of co-processing in supporting the growing demand for Sustainable Aviation Fuel, and how can it enable fuel producers to introduce it into the market?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 181,
+    "ground_truth_chunk_id": "1635dd808d9f"
+  },
+  {
+    "question_id": "Q080",
+    "question": "What are the key principles and properties that a compliance officer should be aware of when considering the effects of magnetism on aircraft systems, including the theory of magnetism and the characteristics of magnetic materials?",
+    "category": "cross_document",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 65,
+    "ground_truth_chunk_id": "11234bb6ad2b"
+  },
+  {
+    "question_id": "Q081",
+    "question": "What types of policy tools are being considered to support the adoption of sustainable aviation fuels, and how do international regulations such as the EU's ReFuel Aviation regulation and the US Inflation Reduction Act contribute to this effort?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 196,
+    "ground_truth_chunk_id": "61ab7776cd3d"
+  },
+  {
+    "question_id": "Q082",
+    "question": "Who should an organisation report to when an event or condition affects an aircraft component, and what regulatory points govern the reporting of such events to the person or organisation responsible for the continuing airworthiness of the aircraft?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 92,
+    "ground_truth_chunk_id": "07d0a1b4d743"
+  },
+  {
+    "question_id": "Q083",
+    "question": "What organizations does SuM4All collaborate with to support the development of low-carbon aviation policies and promote the adoption of sustainable aviation fuel?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 483,
+    "ground_truth_chunk_id": "6bb3e6689a9b"
+  },
+  {
+    "question_id": "Q084",
+    "question": "What are the names of the editors of the Intergovernmental Panel on Climate Change's Sixth Assessment Report referenced in the IPCC 2021 document Climate Change 2021: The Physical Science Basis?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 159,
+    "ground_truth_chunk_id": "c216500cf25c"
+  },
+  {
+    "question_id": "Q085",
+    "question": "What types of high-lift devices and drag-inducing devices are typically used in aeroplane aerodynamics and flight controls to manage roll, pitch, and yaw control during various phases of flight?",
+    "category": "cross_document",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 93,
+    "ground_truth_chunk_id": "6eefcb7c1871"
+  },
+  {
+    "question_id": "Q086",
+    "question": "What resources or assistance does the International Civil Aviation Organization provide to its Member States to enhance their capacity, and where can more information on these initiatives be found?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 313,
+    "ground_truth_chunk_id": "71deb810215d"
+  },
+  {
+    "question_id": "Q087",
+    "question": "Where can operators find industry specifications for the electronic documentation of flight recorder parameters that need to be provided to accident investigation authorities?",
+    "category": "cross_document",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 14,
+    "ground_truth_chunk_id": "68a88ef87c07"
+  },
+  {
+    "question_id": "Q088",
+    "question": "What steps must a CAR-145 organisation take to ensure effective communication and occurrence reporting with contracted maintenance organisations, particularly in cases of subcontracted activities?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 133,
+    "ground_truth_chunk_id": "59c67675d3b2"
+  },
+  {
+    "question_id": "Q089",
+    "question": "What factors contribute to the need for collective action among various parts of the aviation industry to address the challenges posed by climate-related hazards?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 419,
+    "ground_truth_chunk_id": "e1c0c4ab63a6"
+  },
+  {
+    "question_id": "Q090",
+    "question": "What type of engine was used for in-flight emission measurements in the research project coordinated by Airbus and involving the DLR research aircraft Falcon and an Airbus A320neo?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 211,
+    "ground_truth_chunk_id": "07cd953dfcae"
+  },
+  {
+    "question_id": "Q091",
+    "question": "What steps must a pilot take if they have not flown a particular variant of an aircraft within 2 years of completing the initial differences training programme for that class or type of aircraft?",
+    "category": "cross_document",
+    "source_file": "circular_flight_crew_2025_01_training.pdf",
+    "source_page": 4,
+    "ground_truth_chunk_id": "3d8da41bf8d0"
+  },
+  {
+    "question_id": "Q092",
+    "question": "What criteria must eligible emissions unit programmes meet in order to supply emissions units to CORSIA, as approved by the ICAO Council in 2019?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 224,
+    "ground_truth_chunk_id": "e6032376f5da"
+  },
+  {
+    "question_id": "Q093",
+    "question": "Who is primarily responsible for proactively considering the safety implications of a change, regardless of its magnitude, and what stakeholders need to be engaged for its successful implementation?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 123,
+    "ground_truth_chunk_id": "ca5666af83b2"
+  },
+  {
+    "question_id": "Q094",
+    "question": "What happens to the share of aircraft passing without needing technical records when the stringency of emissions standards increases from CSO A to CSO D, and how does this impact the overall emissions reduction in the aviation industry?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 113,
+    "ground_truth_chunk_id": "788aef806207"
+  },
+  {
+    "question_id": "Q095",
+    "question": "What type of training should personnel involved in the delivery of basic continuing airworthiness management services of an organisation receive, in terms of safety management principles including human factors?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+    "source_page": 65,
+    "ground_truth_chunk_id": "01faeb5a8455"
+  },
+  {
+    "question_id": "Q096",
+    "question": "What are the key considerations that must be integrated into the design of a hydrogen-electric aircraft to maximise its performance and efficiency, and how do they differ from those of traditional aircraft?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 128,
+    "ground_truth_chunk_id": "780698623160"
+  },
+  {
+    "question_id": "Q097",
+    "question": "What sources can be utilized to identify hazards in the aviation industry, beyond the mandatory safety reporting system for incidents that have occurred?",
+    "category": "cross_document",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 156,
+    "ground_truth_chunk_id": "16ea49d1fa12"
+  },
+  {
+    "question_id": "Q098",
+    "question": "What information must a maintenance organisation include in its Maintenance Organisation Exposition to define the limits of its approval within the established class(es) and rating(s) granted by the DGCA?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 143,
+    "ground_truth_chunk_id": "4a4cbbfc21f4"
+  },
+  {
+    "question_id": "Q099",
+    "question": "What measures should be taken to prevent deterioration and damage of stored aircraft components and material, and who is permitted to access the storage facilities?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 18,
+    "ground_truth_chunk_id": "28bbb51acbcb"
+  },
+  {
+    "question_id": "Q100",
+    "question": "What factors should be considered when evaluating the effectiveness of a mitigation strategy to reduce safety risks in Indian civil aviation, in terms of its feasibility and acceptance by stakeholders?",
+    "category": "cross_document",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 40,
+    "ground_truth_chunk_id": "54e8ec534e94"
+  }
+]

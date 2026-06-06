@@ -1,10 +1,16 @@
-# ✈️ Aviation Regulatory Intelligence System
+# ✈️ Aviation Regulatory Intelligence System (AeroRAG)
 
 > Production-grade RAG system for Indian civil aviation regulatory documents — built from scratch without LangChain.
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-Live_Demo-FF4B4B?logo=streamlit)](https://aviation-rag-by-prabhat.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+<!-- Uncomment when paper is submitted/accepted:
+[![Paper](https://img.shields.io/badge/Paper-NeurIPS_2026_Workshop-blue)](LINK_TO_PAPER)
+-->
+
+**📄 Paper:** *AeroRAG: A Domain-Adaptive Hybrid Retrieval-Augmented Generation System for Civil Aviation Regulatory Intelligence* — submitted to NeurIPS 2026 Workshop (link forthcoming).
 
 ---
 
@@ -78,16 +84,31 @@ This system lets you **ask natural language questions about Indian aviation regu
 
 ---
 
+## 📊 Results (from paper)
+
+| Query Category | Dense R@5 | Sparse R@5 | Hybrid R@5 | Full AeroRAG R@5 |
+|---|---|---|---|---|
+| (A) Direct Regulation | 0.72 | **0.92** | 0.80 | **0.92** |
+| (B) Numerical Threshold | 0.60 | 0.56 | **0.72** | 0.64 |
+| (C) Procedural | 0.80 | 0.80 | **0.84** | **0.84** |
+| (D) Cross-Document | 0.88 | **0.96** | **0.96** | **0.96** |
+| **Overall** | 0.75 | 0.81 | 0.83 | **0.84** |
+| **MRR@10** | 0.690 | 0.753 | 0.665 | **0.773** |
+
+Full details and ablation analysis in the paper.
+
+---
+
 ## 📊 Document Corpus
 
 | Source | Type | Count | Description |
 |--------|------|-------|-------------|
-| DGCA CARs | Regulatory | ~15 | Civil Aviation Requirements across airworthiness, operations, licensing |
-| AICs | Advisory | ~13 | Aeronautical Information Circulars — tariffs, policies, medical standards |
-| DGCA Circulars | Operational | ~12 | Air safety, cabin safety, dangerous goods, aircraft engineering |
-| ICAO | International | ~5-8 | Safety management, global aviation safety plan |
+| DGCA CARs | Regulatory | 14 | Civil Aviation Requirements across airworthiness, operations, licensing |
+| AICs | Advisory | 10 | Aeronautical Information Circulars — tariffs, policies, medical standards |
+| DGCA Circulars | Operational | 10 | Air safety, cabin safety, dangerous goods, aircraft engineering |
+| ICAO | International | 5 | Safety management, global aviation safety plan |
 
-**Total: ~300MB of aviation regulatory documents**
+**Total: 39 documents → 9,445 chunks after ingestion**
 
 ---
 
@@ -101,33 +122,37 @@ This system lets you **ask natural language questions about Indian aviation regu
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/aviation-rag.git
+git clone https://github.com/PKjha720/aviation-rag.git
 cd aviation-rag
 
 # Create virtual environment
 python -m venv venv
-venv\Scripts\activate        # Windows
-# source venv/bin/activate   # Mac/Linux
+source venv/bin/activate   # Linux/Mac
+# venv\Scripts\activate    # Windows
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Configure environment
-copy .env.example .env       # Windows
-# cp .env.example .env       # Mac/Linux
+cp .env.example .env
 # Edit .env and add your GROQ_API_KEY
 ```
 
 ### Run Ingestion
 ```bash
 # Place your aviation PDFs in data/raw/ subdirectories
-# Then run:
 python ingest.py
 ```
 
 ### Launch App
 ```bash
 streamlit run app.py
+```
+
+### Run Evaluation
+```bash
+# Generates 100-question benchmark and runs 4-way ablation
+python evaluate_rag.py
 ```
 
 ---
@@ -138,13 +163,13 @@ streamlit run app.py
 Dense search (vector similarity) excels at semantic understanding but can miss exact terminology. BM25 catches specific regulation numbers, aircraft codes, and technical terms. Combining both via RRF gives the best of both worlds.
 
 ### Why Cross-Encoder Reranking?
-Bi-encoder embeddings are fast but approximate. Cross-encoder processes query-document pairs jointly, providing much higher precision for the final top-5 results. This is the same architecture used by Google Search.
+Bi-encoder embeddings are fast but approximate. Cross-encoder processes query-document pairs jointly, providing much higher precision for the final top-5 results. Our ablation shows this contributes primarily to rank precision (MRR@10) rather than raw coverage (Recall@5).
 
 ### Why No LangChain?
-Building from scratch demonstrates understanding of each component's role. It also eliminates the abstraction overhead, making the system faster, more debuggable, and more impressive to technical reviewers.
+Building from scratch makes each component's role explicit and auditable. For safety-critical aviation applications, auditability is not optional.
 
 ### Why Aviation Domain?
-Aviation regulations are the perfect RAG challenge: dense technical language, cross-referenced documents, precise terminology, and real-world safety implications where accuracy is non-negotiable.
+Aviation regulations are an ideal RAG challenge: dense technical language, cross-referenced documents, precise terminology, and real-world safety implications where accuracy is non-negotiable.
 
 ---
 
@@ -155,6 +180,7 @@ aviation-rag/
 ├── app.py                    # Streamlit frontend
 ├── ingest.py                 # Document processing pipeline
 ├── rag_engine.py             # Retrieval + generation engine
+├── evaluate_rag.py           # Evaluation pipeline (100-Q ablation)
 ├── requirements.txt          # Python dependencies
 ├── .env.example              # Environment template
 ├── .gitignore
@@ -164,13 +190,37 @@ aviation-rag/
 │   ├── raw/                  # Source PDFs (not in git)
 │   │   ├── dgca_cars/
 │   │   ├── aai_circulars/
+│   │   ├── dgca_circulars/
 │   │   ├── icao/
 │   │   └── notams/
 │   └── processed/            # BM25 index + metadata
 │       ├── bm25_index.pkl
 │       └── chunks_metadata.json
+├── eval_results/             # Evaluation outputs
+│   ├── results.csv
+│   ├── summary_table.csv
+│   ├── recall_chart.png
+│   ├── mrr_chart.png
+│   └── eval_dataset.json
 ├── vectorstore/              # ChromaDB persistent storage
 └── README.md
+```
+
+---
+
+## 📝 Citation
+
+If you use AeroRAG in your research, please cite:
+
+```bibtex
+@inproceedings{jha2026aerorag,
+  title={AeroRAG: A Domain-Adaptive Hybrid Retrieval-Augmented Generation
+         System for Civil Aviation Regulatory Intelligence},
+  author={Jha, Prabhat Kumar},
+  booktitle={NeurIPS 2026 Workshop},
+  year={2026},
+  url={https://github.com/PKjha720/aviation-rag}
+}
 ```
 
 ---
@@ -179,23 +229,12 @@ aviation-rag/
 
 **Prabhat Kumar Jha** — Junior Executive (Technical), Airports Authority of India
 
-Building at the intersection of aviation domain expertise and AI/ML engineering. Currently preparing for MS CS (Fall 2027) with focus on ML Systems and Information Retrieval.
+Building at the intersection of aviation domain expertise and AI/ML engineering.
 
-### Achievements
-
-| Exam | Score | Year |
-|------|-------|------|
-| GRE | **339/340** (170Q + 169V) | 2026 |
-| TOEFL | **110/120** | 2026 |
-| GATE (ME) | **99.28 percentile** | 2022 |
-| JEE Advanced | **99.2 percentile** | 2014 |
-| AAI National Exam | **All India Rank 3** | 2021 |
-| HPCL GET Recruitment | **165/170** | 2021 |
-| AMCAT Tata Steel | **Rank 1** | — |
-
-- Domain: Indian Civil Aviation (DGCA, AAI)
-- Focus: RAG Systems, ML Infrastructure, NLP
-- University Batch Topper — BIT Mesra
+- 📧 prabhatbit2016@gmail.com
+- 🔗 [LinkedIn](https://linkedin.com/in/prabhat-kumar-jha-46a777100/)
+- 🌐 [Portfolio](https://pkjha720.github.io/portfolio)
+- 💻 [GitHub](https://github.com/PKjha720)
 
 ---
 
