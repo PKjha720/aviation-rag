@@ -76,7 +76,6 @@ class DocumentChunk:
     doc_subject: str = ""        # extracted subject/title
     word_count: int = 0
     char_count: int = 0
-    is_table: bool = False   # NEW: chunk came from a detected table
 
 
 # ─── Metadata Extraction ──────────────────────────────────────────────────
@@ -119,98 +118,24 @@ def extract_metadata_from_filename(filename: str, parent_folder: str) -> dict:
 
 
 # ─── PDF Processing ────────────────────────────────────────────────────────
-def _table_to_markdown(rows) -> str:
-    """Turn find_tables() output into a pipe table so columns survive."""
-    clean = []
-    for r in rows:
-        cells = [("" if c is None else str(c)).replace("\n", " ").replace("|", "/").strip()
-                 for c in r]
-        if any(cells):
-            clean.append(cells)
-    if not clean:
-        return ""
-    width = max(len(r) for r in clean)
-    clean = [r + [""] * (width - len(r)) for r in clean]
-    header = clean[0] if any(clean[0]) else [f"col{i+1}" for i in range(width)]
-    body = clean[1:] if any(clean[0]) else clean
-    out = ["| " + " | ".join(header) + " |",
-           "|" + "|".join(["---"] * width) + "|"]
-    out += ["| " + " | ".join(r) + " |" for r in body]
-    return "\n".join(out)
-
-
-def _is_real_table(md: str, min_cols: int = 2, min_rows: int = 3) -> bool:
-    """
-    find_tables() fires on numbered lists and indented prose. A genuine table
-    has >= min_cols columns that are populated in most rows. Anything else is
-    sent back through the normal prose path instead.
-    """
-    lines = [l for l in md.splitlines()
-             if l.startswith("|") and not set(l) <= set("|- ")]
-    if len(lines) < min_rows:
-        return False
-    rows = [[c.strip() for c in l.strip("|").split("|")] for l in lines]
-    w = max(len(r) for r in rows)
-    rows = [r + [""] * (w - len(r)) for r in rows]
-    populated = sum(1 for j in range(w)
-                    if sum(1 for r in rows if r[j]) > 0.5 * len(rows))
-    return populated >= min_cols
-
-
 def extract_text_from_pdf(pdf_path: Path) -> list[dict]:
-    """
-    Returns one entry per page:
-        {"page_number": int, "blocks": [{"text": str, "is_table": bool}, ...]}
-
-    Tables are detected with find_tables() and emitted as markdown BEFORE the
-    plain-text pass. Text blocks that sit inside a detected table are dropped
-    from the prose pass so content is not indexed twice.
-    """
     pages = []
     try:
         doc = fitz.open(str(pdf_path))
         for page_num in range(len(doc)):
             page = doc[page_num]
-            blocks = []
-
-            # --- tables first ---
-            table_rects = []
-            try:
-                found = page.find_tables()
-                for t in found.tables:
-                    md = _table_to_markdown(t.extract())
-                    # reject false positives; their region stays in the prose pass
-                    if md and _is_real_table(md):
-                        blocks.append({"text": md, "is_table": True})
-                        table_rects.append(fitz.Rect(t.bbox))
-            except Exception:
-                pass
-
-            # --- prose, minus anything covered by a table ---
-            prose = []
-            for b in page.get_text("blocks"):
-                if len(b) > 6 and b[6] != 0:
-                    continue                              # image block
-                r = fitz.Rect(b[:4])
-                area = r.get_area()
-                covered = any(
-                    area > 0 and (r & tr).get_area() > 0.5 * area
-                    for tr in table_rects
-                )
-                if not covered:
-                    prose.append(b[4])
-
-            text = "\n".join(prose)
+            text = page.get_text("text")
             text = re.sub(r"\n{3,}", "\n\n", text)
-            text = re.sub(r" {2,}", " ", text).strip()
+            text = re.sub(r" {2,}", " ", text)
+            text = text.strip()
             if text and len(text) > 20:
-                blocks.append({"text": text, "is_table": False})
-
-            if blocks:
-                pages.append({"page_number": page_num + 1, "blocks": blocks})
+                pages.append({
+                    "page_number": page_num + 1,
+                    "text": text,
+                })
         doc.close()
     except Exception as e:
-        log.warning(f"  \u26a0 Failed to process {pdf_path.name}: {e}")
+        log.warning(f"  ⚠ Failed to process {pdf_path.name}: {e}")
     return pages
 
 
@@ -253,27 +178,6 @@ def chunk_text(text: str, chunk_size: int = CHUNK_SIZE, overlap: int = CHUNK_OVE
     return chunks
 
 
-def chunk_table(md: str, max_chars: int = 1500) -> list[str]:
-    """
-    Split a markdown table by ROWS, never mid-row, repeating the header on
-    every piece so each chunk stays independently readable.
-    """
-    lines = md.splitlines()
-    if len(md) <= max_chars or len(lines) < 3:
-        return [md]
-    header, sep, rows = lines[0], lines[1], lines[2:]
-    prefix = header + "\n" + sep + "\n"
-    chunks, cur = [], prefix
-    for row in rows:
-        if len(cur) + len(row) + 1 > max_chars and cur != prefix:
-            chunks.append(cur.rstrip())
-            cur = prefix
-        cur += row + "\n"
-    if cur.strip() != prefix.strip():
-        chunks.append(cur.rstrip())
-    return chunks or [md[:max_chars]]
-
-
 # ─── Main Ingestion Pipeline ──────────────────────────────────────────────
 def generate_chunk_id(source_file: str, page: int, chunk_idx: int) -> str:
     raw = f"{source_file}::page{page}::chunk{chunk_idx}"
@@ -305,13 +209,8 @@ def process_all_documents() -> list[DocumentChunk]:
         
         doc_chunks = []
         for page_data in pages:
-            page_chunks = []          # list of (text, is_table)
-            for block in page_data["blocks"]:
-                if block["is_table"]:
-                    page_chunks += [(t, True) for t in chunk_table(block["text"])]
-                else:
-                    page_chunks += [(t, False) for t in chunk_text(block["text"])]
-            for chunk_idx, (chunk_text_content, block_is_table) in enumerate(page_chunks):
+            page_chunks = chunk_text(page_data["text"])
+            for chunk_idx, chunk_text_content in enumerate(page_chunks):
                 chunk_id = generate_chunk_id(filename, page_data["page_number"], chunk_idx)
                 chunk = DocumentChunk(
                     chunk_id=chunk_id,
@@ -325,7 +224,6 @@ def process_all_documents() -> list[DocumentChunk]:
                     doc_subject=meta["doc_subject"],
                     word_count=len(chunk_text_content.split()),
                     char_count=len(chunk_text_content),
-                    is_table=block_is_table,
                 )
                 doc_chunks.append(chunk)
         
@@ -333,13 +231,10 @@ def process_all_documents() -> list[DocumentChunk]:
             c.total_chunks_in_doc = len(doc_chunks)
         
         all_chunks.extend(doc_chunks)
-        n_tab = sum(1 for c in doc_chunks if c.is_table)
-        log.info(f"  ✓ {len(pages)} pages → {len(doc_chunks)} chunks ({n_tab} from tables)")
+        log.info(f"  ✓ {len(pages)} pages → {len(doc_chunks)} chunks")
     
     log.info("─" * 60)
-    tab = sum(1 for c in all_chunks if c.is_table)
     log.info(f"Total: {len(all_chunks)} chunks from {len(pdf_files)} documents")
-    log.info(f"  table-derived chunks: {tab} ({tab/max(len(all_chunks),1):.1%})")
     return all_chunks
 
 
@@ -383,7 +278,6 @@ def build_vectorstore(chunks: list[DocumentChunk]) -> None:
                 "doc_subject": c.doc_subject,
                 "word_count": c.word_count,
                 "total_chunks_in_doc": c.total_chunks_in_doc,
-                "is_table": c.is_table,
             }
             for c in batch
         ]

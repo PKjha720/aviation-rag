@@ -1,0 +1,3 @@
+slice,mode,hits,n,recall
+PROSE,hybrid_rrf,83,100,0.83
+PROSE,full,84,100,0.84

@@ -1,7 +1,7 @@
 Query Category,Dense R@5,Sparse R@5,Hybrid R@5,Full R@5
-(A) Direct Regulation,0.72,0.92,0.8,0.92
-(B) Numerical Threshold,0.6,0.56,0.72,0.64
-(C) Procedural,0.8,0.8,0.84,0.84
-(D) Cross-Document,0.88,0.96,0.96,0.96
-Overall,0.75,0.81,0.83,0.84
-MRR@10,0.69,0.75,0.66,0.77
+(A) Direct Regulation,0.65,0.75,0.75,0.75
+(B) Numerical Threshold,0.65,0.75,0.8,0.7
+(C) Procedural,0.7,0.9,0.75,0.9
+(D) Cross-Document,0.75,0.8,0.75,0.85
+Overall,0.69,0.8,0.76,0.8
+MRR@10,0.66,0.73,0.655,0.725

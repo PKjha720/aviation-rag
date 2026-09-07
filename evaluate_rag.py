@@ -31,6 +31,7 @@
 import os
 import sys
 import json
+import re
 import time
 import random
 import logging
@@ -77,8 +78,11 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 # ── Config ────────────────────────────────────────────────────────────────────
 NUM_EVAL_QUESTIONS   = 100    # total questions to generate
+N_TABLE_QUESTIONS    = 40     # NEW: forced quota from table-derived chunks
+N_PROSE_QUESTIONS    = 40     # NEW: forced quota from prose chunks
 QUESTIONS_PER_CHUNK  = 1      # questions generated per sampled chunk
-GROQ_MODEL           = "llama-3.1-8b-instant"
+GROQ_MODEL           = "qwen/qwen3.8-27b"   # separate daily quota from gpt-oss
+SKIP_ANSWER_JUDGING  = True   # retrieval metrics need NO LLM calls -- saves ~95% of tokens
 RERANK_TOP_K         = 5      # final chunks used for retrieval eval
 
 # Query categories — balanced across the eval set
@@ -103,6 +107,7 @@ class EvalQuestion:
     source_file:   str    # the chunk this was generated from
     source_page:   int
     ground_truth_chunk_id: str   # the chunk that should be retrieved
+    gold_is_table: bool = False  # NEW: does the gold chunk come from a table?
 
 
 def load_chunks_metadata() -> list[dict]:
@@ -118,6 +123,28 @@ def load_chunks_metadata() -> list[dict]:
     return chunks
 
 
+TABLE_PROMPT = """You are creating an evaluation dataset for a retrieval system over
+Indian civil aviation regulatory documents.
+
+Below is a TABLE extracted from a regulatory document, in markdown form.
+Write EXACTLY ONE realistic question whose answer requires reading a specific
+value out of this table -- a threshold, a fee, a limit, a category, a date.
+
+Requirements:
+- The answer must be a specific value found IN THIS TABLE
+- The question must make sense without seeing the table (name the thing being looked up)
+- Do NOT include the answer
+- Do NOT say "in the table" or "according to the table"
+- Output only the question
+
+Table:
+\"\"\"
+{content}
+\"\"\"
+
+Question:"""
+
+
 def generate_question_from_chunk(
     groq_client: Groq,
     chunk: dict,
@@ -129,6 +156,10 @@ def generate_question_from_chunk(
     Ask Groq LLM to write one realistic aviation question from a chunk of text.
     Returns the question string, or None if it fails.
     """
+    if chunk.get("is_table"):
+        prompt = TABLE_PROMPT.format(content=chunk["text"][:1200])
+        return _ask_groq(groq_client, prompt, retries)
+
     prompt = f"""You are creating an evaluation dataset for a Retrieval-Augmented Generation system
 built for Indian civil aviation regulatory documents.
 
@@ -150,6 +181,10 @@ Aviation regulatory text:
 
 Question:"""
 
+    return _ask_groq(groq_client, prompt, retries)
+
+
+def _ask_groq(groq_client: Groq, prompt: str, retries: int = 3) -> str | None:
     for attempt in range(retries):
         try:
             response = groq_client.chat.completions.create(
@@ -158,8 +193,12 @@ Question:"""
                 max_tokens=150,
                 temperature=0.7,
             )
-            question = response.choices[0].message.content.strip()
-            # Basic sanity check — must end with ? and be non-trivial
+            question = (response.choices[0].message.content or "").strip()
+            # keep the last line containing a '?' -- drops gpt-oss preamble
+            cands = [l.strip().strip('"').lstrip("-*0123456789. ")
+                     for l in question.splitlines() if "?" in l]
+            if cands:
+                question = cands[-1]
             if "?" in question and len(question) > 20:
                 return question
         except Exception as e:
@@ -171,71 +210,63 @@ Question:"""
 
 def build_eval_dataset(groq_client: Groq, chunks: list[dict]) -> list[EvalQuestion]:
     """
-    Generate NUM_EVAL_QUESTIONS questions balanced across 4 categories.
-    Saves to eval_results/eval_dataset.json and returns the list.
+    STRATIFIED: forces N_TABLE_QUESTIONS from table-derived chunks and
+    N_PROSE_QUESTIONS from prose chunks, so both slices have enough n to
+    compare. Random sampling gives ~7 table questions at 7.5% -- useless.
     """
-    # Check if we already have a saved dataset — skip regeneration
-    saved_path = OUTPUT_DIR / "eval_dataset.json"
+    saved_path = OUTPUT_DIR / "eval_dataset_v2.json"
     if saved_path.exists():
-        log.info(f"✓ Found existing eval dataset at {saved_path} — loading it.")
-        log.info("  (Delete this file to regenerate fresh questions)")
-        with open(saved_path, "r") as f:
-            raw = json.load(f)
-        return [EvalQuestion(**q) for q in raw]
+        log.info(f"Found existing {saved_path} - loading it (delete to regenerate).")
+        return [EvalQuestion(**q) for q in json.load(open(saved_path))]
 
-    log.info("═" * 60)
-    log.info("STEP 1: Generating evaluation dataset from your documents")
-    log.info("═" * 60)
+    log.info("=" * 60)
+    log.info("STEP 1: Generating STRATIFIED evaluation dataset")
+    log.info("=" * 60)
 
-    # Filter out very short chunks — not useful for question generation
-    good_chunks = [c for c in chunks if len(c.get("text", "")) > 200]
-    log.info(f"  {len(good_chunks)} chunks qualify for question generation (>200 chars)")
+    good = [c for c in chunks if len(c.get("text", "")) > 200]
+    tables = [c for c in good if c.get("is_table")]
+    prose  = [c for c in good if not c.get("is_table")]
+    log.info(f"  eligible chunks: {len(tables)} table, {len(prose)} prose")
 
+    if len(tables) < N_TABLE_QUESTIONS:
+        log.warning(f"  Only {len(tables)} table chunks available - "
+                    f"quota reduced from {N_TABLE_QUESTIONS}.")
+
+    cats = list(CATEGORIES.items())
     eval_questions: list[EvalQuestion] = []
     q_id = 0
 
-    for cat_key, cat_desc in CATEGORIES.items():
-        log.info(f"\n  Generating {CAT_QUOTA} questions for category: [{cat_key}]")
+    for stratum, pool, quota in (("TABLE", tables, N_TABLE_QUESTIONS),
+                                 ("PROSE", prose,  N_PROSE_QUESTIONS)):
+        target = min(quota, len(pool))
+        log.info(f"\n  Generating {target} questions from {stratum} chunks")
         generated = 0
-        attempts   = 0
-        max_attempts = CAT_QUOTA * 5   # allow retries
-
-        # Shuffle chunks so we get variety across documents
-        shuffled = random.sample(good_chunks, min(len(good_chunks), max_attempts))
-
-        for chunk in shuffled:
-            if generated >= CAT_QUOTA:
+        for i, chunk in enumerate(random.sample(pool, min(len(pool), target * 5))):
+            if generated >= target:
                 break
-            attempts += 1
-
-            question_text = generate_question_from_chunk(
-                groq_client, chunk, cat_key, cat_desc
-            )
-            if question_text is None:
+            cat_key, cat_desc = cats[generated % len(cats)]
+            qt = generate_question_from_chunk(groq_client, chunk, cat_key, cat_desc)
+            if qt is None:
                 continue
-
             q_id += 1
             eval_questions.append(EvalQuestion(
-                question_id            = f"Q{q_id:03d}",
-                question               = question_text,
-                category               = cat_key,
-                source_file            = chunk.get("source_file", ""),
-                source_page            = chunk.get("page_number", 0),
-                ground_truth_chunk_id  = chunk.get("chunk_id", ""),
+                question_id           = f"Q{q_id:03d}",
+                question              = qt,
+                category              = cat_key,
+                source_file           = chunk.get("source_file", ""),
+                source_page           = chunk.get("page_number", 0),
+                ground_truth_chunk_id = chunk.get("chunk_id", ""),
+                gold_is_table         = bool(chunk.get("is_table", False)),
             ))
             generated += 1
-
-            # Small delay to stay within Groq rate limits
             time.sleep(0.3)
-            log.info(f"    [{generated}/{CAT_QUOTA}] {question_text[:80]}...")
+            log.info(f"    [{stratum} {generated}/{target}] {qt[:70]}...")
 
-    log.info(f"\n✓ Generated {len(eval_questions)} evaluation questions total.")
-
-    # Save so you don't have to regenerate every time
-    with open(saved_path, "w") as f:
-        json.dump([asdict(q) for q in eval_questions], f, indent=2)
+    n_tab = sum(1 for q in eval_questions if q.gold_is_table)
+    log.info(f"\n Generated {len(eval_questions)} questions "
+             f"({n_tab} table / {len(eval_questions)-n_tab} prose)")
+    json.dump([asdict(q) for q in eval_questions], open(saved_path, "w"), indent=2)
     log.info(f"  Saved to {saved_path}")
-
     return eval_questions
 
 
@@ -249,6 +280,7 @@ class QueryResult:
     question_id:    str
     category:       str
     mode:           str
+    gold_is_table:  bool
     recall_at_5:    float    # 1.0 if ground truth chunk in top-5, else 0.0
     reciprocal_rank: float   # 1/rank if found in top-10, else 0.0
     answer_accuracy: float   # 1.0 / 0.5 / 0.0 from LLM judge
@@ -333,10 +365,14 @@ Respond with ONLY a single number: 1.0 or 0.5 or 0.0"""
                 max_tokens=10,
                 temperature=0.0,
             )
-            score_str = response.choices[0].message.content.strip()
-            score = float(score_str)
-            if score in (0.0, 0.5, 1.0):
-                return score
+            score_str = (response.choices[0].message.content or "").strip()
+            # gpt-oss often prefixes reasoning; take the LAST number it emits
+            nums = re.findall(r"(?<![\d.])(1\.0|0\.5|0\.0|1|0)(?![\d.])", score_str)
+            if nums:
+                score = float(nums[-1])
+                if score in (0.0, 0.5, 1.0):
+                    return score
+            log.warning(f"  Judge returned unparseable: {score_str[:80]!r}")
         except Exception as e:
             wait = 60 if "429" in str(e) else 2
             log.warning(f"  Judge attempt {attempt+1} failed — waiting {wait}s: {e}")
@@ -424,7 +460,7 @@ def run_retrieval_evaluation(
 
             # Answer accuracy: only run LLM judge on "full" mode to save API calls
             # For others, accuracy = recall (proxy) — common in ablation studies
-            if mode == "full" and gt_text:
+            if mode == "full" and gt_text and not SKIP_ANSWER_JUDGING:
                 # Generate an answer first, then judge it
                 try:
                     rag_response = engine.query(q.question, mode="hybrid")
@@ -445,6 +481,7 @@ def run_retrieval_evaluation(
                 question_id     = q.question_id,
                 category        = q.category,
                 mode            = mode,
+                gold_is_table   = q.gold_is_table,
                 recall_at_5     = recall,
                 reciprocal_rank = mrr,
                 answer_accuracy = accuracy,
@@ -604,6 +641,30 @@ def plot_mrr_chart(results: list[QueryResult], save_path: Path):
     log.info(f"  Chart saved: {save_path}")
 
 
+def print_table_vs_prose(results: list[QueryResult]):
+    """THE headline result: does reranking help or hurt on table evidence?"""
+    df = pd.DataFrame([asdict(r) for r in results])
+    print("\n" + "=" * 62)
+    print("  TABLE vs PROSE  —  Recall@5 by retrieval mode")
+    print("=" * 62)
+    print(f"{'slice':<10}{'mode':<14}{'hits':>7}{'n':>6}{'recall':>10}")
+    print("-" * 62)
+    for label, want in (("TABLE", True), ("PROSE", False)):
+        for mode in ["dense", "sparse", "hybrid_rrf", "full"]:
+            s_ = df[(df.gold_is_table == want) & (df["mode"] == mode)]["recall_at_5"]
+            if len(s_):
+                print(f"{label:<10}{mode:<14}{int(s_.sum()):>7}{len(s_):>6}{s_.mean():>10.3f}")
+        print("-" * 62)
+    for label, want in (("TABLE", True), ("PROSE", False)):
+        h = df[(df.gold_is_table == want) & (df["mode"] == "hybrid_rrf")]["recall_at_5"]
+        f_ = df[(df.gold_is_table == want) & (df["mode"] == "full")]["recall_at_5"]
+        if len(h) and len(f_):
+            print(f"  reranker effect on {label:<6}: {f_.mean()-h.mean():+.3f}  (n={len(h)})")
+    print("=" * 62)
+    df.to_csv(OUTPUT_DIR / "results_v2.csv", index=False)
+    print(f"  per-query detail -> {OUTPUT_DIR / 'results_v2.csv'}\n")
+
+
 def export_all_results(results: list[QueryResult], summary_df: pd.DataFrame):
     """Save everything to eval_results/."""
     # Raw per-query CSV
@@ -674,6 +735,7 @@ def main():
 
     summary_df = build_summary_table(results)
     export_all_results(results, summary_df)
+    print_table_vs_prose(results)
 
     plot_recall_chart(summary_df, OUTPUT_DIR / "recall_chart.png")
     plot_mrr_chart(results,       OUTPUT_DIR / "mrr_chart.png")

@@ -1,0 +1,722 @@
+[
+  {
+    "question_id": "Q001",
+    "question": "What is the minimum OJT task selection requirement percentage for the FOT category under B1 ratings?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 224,
+    "ground_truth_chunk_id": "f1e1ea462879",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q002",
+    "question": "What is the High Limit speed specified for a high speed taxi in a turn for the B787-9 aircraft?",
+    "category": "numerical",
+    "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
+    "source_page": 2,
+    "ground_truth_chunk_id": "c1bebb780ad6",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q003",
+    "question": "How many examination questions are allocated to the \"Construction methods\" sub-topic under Module 11 Airframe structures for the B1.2 license category?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 116,
+    "ground_truth_chunk_id": "ac74fa8ae0b0",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q004",
+    "question": "What is the deadline established for all States to assess the level of implementation of their State safety programme (SSP) under the new Target 3.1?",
+    "category": "cross_document",
+    "source_file": "icao_gasp_global_safety_plan.pdf",
+    "source_page": 9,
+    "ground_truth_chunk_id": "6838cdc05156",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q005",
+    "question": "Which maintenance task involving the compass is listed as required for structures made of wooden or metal tube?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 208,
+    "ground_truth_chunk_id": "4565d756efca",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q006",
+    "question": "What is the proficiency level assigned to the \"Engine indication systems\" topic (8L.9) for turbine engines in Module 8L of the Power Plant curriculum?",
+    "category": "numerical",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 172,
+    "ground_truth_chunk_id": "093ba73b5574",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q007",
+    "question": "What is the competency level assigned to the task of engine/propeller storage and preservation for turbine power plants under Module 8L?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 173,
+    "ground_truth_chunk_id": "488e693fd05c",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q008",
+    "question": "What are the examples of contributing factors listed for the G-HRC code MAC?",
+    "category": "cross_document",
+    "source_file": "icao_gasp_global_safety_plan.pdf",
+    "source_page": 31,
+    "ground_truth_chunk_id": "ad8191ead6b7",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q009",
+    "question": "How many examination questions are allocated to the \"Electrical terminology\" sub-topic for the B1 license category under Module 3?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 111,
+    "ground_truth_chunk_id": "7d2dd88a933b",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q010",
+    "question": "What is the maintenance level assigned to the On-board maintenance systems (ATA 45) under section 13.10?",
+    "category": "numerical",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 59,
+    "ground_truth_chunk_id": "dec883199f98",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q011",
+    "question": "How many questions are allocated to the Regulatory framework sub-topic for the B1 assessment in Module 10 of the Aviation Legislation curriculum?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 116,
+    "ground_truth_chunk_id": "9d56b31c37c3",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q012",
+    "question": "Based on the OJT task selection requirements for a B1 license, what is the minimum percentage of task categories required for INS (Initial Skill Training)?",
+    "category": "cross_document",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 218,
+    "ground_truth_chunk_id": "d46e91776689",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q013",
+    "question": "How many hours of training are allocated for the overall system description and theory under the Transmission curriculum?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 119,
+    "ground_truth_chunk_id": "f8bf6903be63",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q014",
+    "question": "What is the required calibration schedule for RVR Instruments under the aviation MET equipment standards?",
+    "category": "numerical",
+    "source_file": "circular_air_nav_2024_01_installation.pdf",
+    "source_page": 4,
+    "ground_truth_chunk_id": "bb8f085f2a7b",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q015",
+    "question": "How many questions are allocated to the Electrostatic sensitive devices topic in the Module 5 Digital Techniques / Electronic Instrument Systems examination for a B1 rated student?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 113,
+    "ground_truth_chunk_id": "a497b17c9336",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q016",
+    "question": "What is the credit value assigned to the topic of Abnormal events under the 7L series of aircraft maintenance training subjects?",
+    "category": "cross_document",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 172,
+    "ground_truth_chunk_id": "8524fcecdcea",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q017",
+    "question": "For the maintenance task of replacing the pressurisation controller, which specific air conditioning system chapter number is referenced?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 229,
+    "ground_truth_chunk_id": "f1a4cb3502cb",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q018",
+    "question": "How many aircraft types from different manufacturers must a maintenance engineer demonstrate practical experience on to obtain a Full Group 3 Rating for piston engine aeroplanes?",
+    "category": "numerical",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 36,
+    "ground_truth_chunk_id": "cf58fbebd606",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q019",
+    "question": "What is the maximum sampling and recording interval specified for the Date parameter in an aircraft's flight data recorder?",
+    "category": "procedural",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 26,
+    "ground_truth_chunk_id": "de3e17e3bbcc",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q020",
+    "question": "What is the name of the subject listed as item 5 in the curriculum matrix for B1.1 and other maintenance categories?",
+    "category": "cross_document",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 48,
+    "ground_truth_chunk_id": "44f2f0f093cc",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q021",
+    "question": "How many questions are allocated to the \"Propeller pitch control\" section in the Module 17 Proppeller examination for the A1 certificate?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 124,
+    "ground_truth_chunk_id": "a5196b4662e6",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q022",
+    "question": "What is the threshold for excess banking considered a deviation between 100 ft and 0 ft altitude?",
+    "category": "numerical",
+    "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
+    "source_page": 17,
+    "ground_truth_chunk_id": "0e952f2b083c",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q023",
+    "question": "How many kilograms of CO2 emissions were saved from aviation fuel conservation in March 2023?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 275,
+    "ground_truth_chunk_id": "acf146124a04",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q024",
+    "question": "How many examination questions are allocated to the topic of airborne towing devices under Module 11 Aeroplane Aerodynamics, Structures and?",
+    "category": "cross_document",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 116,
+    "ground_truth_chunk_id": "741d97625942",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q025",
+    "question": "What is the designated Level for the \"Envelope\" module within the 10L \u2013 Balloons \u2013 Gas (Free/Tethered) Balloons training curriculum?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 173,
+    "ground_truth_chunk_id": "3e5029da75cc",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q026",
+    "question": "Which organization operates the SAFc Registry, and which accounting methodology does it utilize for SAF credits?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 203,
+    "ground_truth_chunk_id": "3f925a3c3460",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q027",
+    "question": "What is the maximum sampling and recording interval for longitudinal acceleration on aircraft with type certification applications submitted on or after 1 January 2016?",
+    "category": "procedural",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 23,
+    "ground_truth_chunk_id": "75b965c61dbf",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q028",
+    "question": "What is the deadline for Aeroplane Operators to submit their State Report for CORSIA in 2028?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 229,
+    "ground_truth_chunk_id": "79b138bce80b",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q029",
+    "question": "What is the definition of a \"Just culture\" in the context of Indian civil aviation regulations?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 11,
+    "ground_truth_chunk_id": "2abdda2d7e38",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q030",
+    "question": "What is the specific procedure required under item 3.21 of the CAR-145 Approval Recommendation Report?",
+    "category": "numerical",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 160,
+    "ground_truth_chunk_id": "5e207135f644",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q031",
+    "question": "What is the number of hours allocated for the training on system operation (1) for the hydraulic power system (ATA 29) under DGCA regulations?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 121,
+    "ground_truth_chunk_id": "4ab11f07621f",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q032",
+    "question": "What is the ICAO aspirational safety goal for the year 2030 and beyond?",
+    "category": "cross_document",
+    "source_file": "icao_gasp_global_safety_plan.pdf",
+    "source_page": 44,
+    "ground_truth_chunk_id": "846b65b21ad2",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q033",
+    "question": "For a B1 license holder, which specific chapter under the Piston Engines section requires a 'Standard' (S) level of knowledge?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 140,
+    "ground_truth_chunk_id": "b1f5e78e29c4",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q034",
+    "question": "What is the competency level assigned to the constructional arrangement and operation of electric and hybrid engines, their electric energy storage and control systems, under Module 14 Propulsion?",
+    "category": "numerical",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 100,
+    "ground_truth_chunk_id": "bbaa9b2eed21",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q035",
+    "question": "Under the ICAO Global Framework for SAF, LCAF and other Aviation Cleaner Energies, which specific mechanism corresponds to the Paris Agreement's Article 6 mechanisms?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 477,
+    "ground_truth_chunk_id": "107e4282aa92",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q036",
+    "question": "What is the maximum permissible pitch attitude for a flight data monitoring event recorded 2000 feet below the runway threshold?",
+    "category": "cross_document",
+    "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
+    "source_page": 17,
+    "ground_truth_chunk_id": "3ddb0014be0d",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q037",
+    "question": "What is the specific MTOM limitation for a single engined helicopter under the A3 aircraft category?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 148,
+    "ground_truth_chunk_id": "55733c4fdfb8",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q038",
+    "question": "What is the total cost of medical investigations at the Delhi IAF Boarding Centre?",
+    "category": "numerical",
+    "source_file": "circular_flight_crew_2025_01_medical.pdf",
+    "source_page": 6,
+    "ground_truth_chunk_id": "27c57a1e5c26",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q039",
+    "question": "According to the DGCA maintenance classification guidelines, which specific aircraft system is the only one listed that does not require a B1 license holder to perform maintenance, as indicated by a dash in the B1 column?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 138,
+    "ground_truth_chunk_id": "971a911f44cb",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q040",
+    "question": "What is the specific requirement listed under item 2.23 in the CAR-145 Approval Recommendation Report compliance section?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 159,
+    "ground_truth_chunk_id": "f7c50e55a7a8",
+    "gold_is_table": true
+  },
+  {
+    "question_id": "Q041",
+    "question": "What specific role does the APAC Regional Office play in supporting States regarding the incorporation of quantified data into their SAPs?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 288,
+    "ground_truth_chunk_id": "e47f923061a9",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q042",
+    "question": "Which specific software module has Lufthansa Systems added for flight planning to avoid climate-sensitive regions?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 163,
+    "ground_truth_chunk_id": "95ccd05ac95c",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q043",
+    "question": "What are the specific activities undertaken by ICAO\u2019s Regional Offices to advance environmental objectives and reduce aviation's carbon footprint?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 287,
+    "ground_truth_chunk_id": "de7780ba4ae2",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q044",
+    "question": "What are the specific operational familiarities and resource access requirements that an AMO must ensure for its personnel regarding technical documentation, release-to-service procedures, and maintenance tools?",
+    "category": "cross_document",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 154,
+    "ground_truth_chunk_id": "301c5093b108",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q045",
+    "question": "Under what circumstances are prospective certifying staff and support staff exempt from the requirement to be assessed for competency related to their intended duties?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 53,
+    "ground_truth_chunk_id": "e98b631a1102",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q046",
+    "question": "What are the three specific categories of records and performance evaluations used to assess competency?",
+    "category": "numerical",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 29,
+    "ground_truth_chunk_id": "55025b74d1a4",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q047",
+    "question": "What are the two primary purposes of the Means of Organisation Exposition (MOE) regarding the scope of work and personnel duties?",
+    "category": "procedural",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 99,
+    "ground_truth_chunk_id": "7fe652c7231b",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q048",
+    "question": "How does the recommended approach for implementing safety management components differ from simply adding a separate framework, and what specific option is available to organisations that hold multiple certificates under the Aircraft Rules, 1937?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 114,
+    "ground_truth_chunk_id": "af2d2a6569c9",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q049",
+    "question": "What are the specific flight data recording equipment requirements for turbine-engined helicopters with a maximum certificated take-off mass over 2250 kg up to and including 3175 kg, where the application for type certification was submitted on or after 1 January 2018?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 6,
+    "ground_truth_chunk_id": "4ee3d6a5e24e",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q050",
+    "question": "How many survey respondents are expected to be impacted by higher average and extreme temperatures?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 413,
+    "ground_truth_chunk_id": "75b9c7eaabff",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q051",
+    "question": "What specific conditions must be met regarding reporting lines and staff notification to ensure the effectiveness of a safety risk management process?",
+    "category": "procedural",
+    "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+    "source_page": 34,
+    "ground_truth_chunk_id": "0fe828893c42",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q052",
+    "question": "What are the principal functions of the feedback system regarding independent audit findings, and where must the independent audit reports referenced in AMC2 CAMO.A.200(a)(6) be directed?",
+    "category": "cross_document",
+    "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+    "source_page": 40,
+    "ground_truth_chunk_id": "eb5b1f7662ec",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q053",
+    "question": "What specific action are States encouraged to take when granting certificates, authorizations, or approvals to service providers from other States, particularly regarding the application of requirements?",
+    "category": "direct_regulation",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 125,
+    "ground_truth_chunk_id": "4f91ac5e006f",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q054",
+    "question": "What is the projected range of temperature increase, in degrees Celsius, resulting from the various emissions pathways illustrated in the document?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 278,
+    "ground_truth_chunk_id": "6c6b18a71e3e",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q055",
+    "question": "How does the SHELL Model position the human within the system, and what is the significance of the four satellite components in illustrating the relationship between the human and workplace elements?",
+    "category": "procedural",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 26,
+    "ground_truth_chunk_id": "6560d94f515c",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q056",
+    "question": "How does Annex 19 differentiate the regulatory status of protecting safety data from voluntary safety reporting systems compared to that of mandatory safety reporting systems?",
+    "category": "cross_document",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 98,
+    "ground_truth_chunk_id": "0547fde9548c",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q057",
+    "question": "What is the requirement for risk assessments when an organization makes changes that require prior approval under CAR 145.A.85?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 108,
+    "ground_truth_chunk_id": "b10c7fdc4b3c",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q058",
+    "question": "What is the specific chapter number in the document that covers Climate Change Mitigation through Aviation Cleaner Energies?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 202,
+    "ground_truth_chunk_id": "e9556652ade4",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q059",
+    "question": "What are the specific types of proceedings against employees, operational personnel, or organizations for which the use of safety data and safety information is prohibited under Annex 19, unless a principle of exception applies?",
+    "category": "procedural",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 101,
+    "ground_truth_chunk_id": "08eb085f8ba6",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q060",
+    "question": "How does the Rolls-Royce UltraFan project demonstrate advancements in fuel efficiency and emission reductions, and how does this align with the UK's commitment to sustainable aviation?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 341,
+    "ground_truth_chunk_id": "6a139b3b0c9f",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q061",
+    "question": "Under CAR 145, Issue 3, R0, what is the requirement regarding the combination of experience when a certifying staff authorisation is intended to cover several aircraft types?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 54,
+    "ground_truth_chunk_id": "a55d3fff170f",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q062",
+    "question": "What is the abbreviation for the Air Navigation Service Providers involved in the operational control network?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 165,
+    "ground_truth_chunk_id": "3be7e3d3318e",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q063",
+    "question": "What is the primary purpose of the Cascade Climate Impact Model developed by Boeing?",
+    "category": "procedural",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 98,
+    "ground_truth_chunk_id": "b97ca0038772",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q064",
+    "question": "What was the total coverage percentage of CO2 emissions under CORSIA, and how did the ICAO Secretariat account for the remaining 1.0% of emissions from States that failed to submit data through the CCR?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 231,
+    "ground_truth_chunk_id": "01ddc52fcca9",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q065",
+    "question": "What specific safety precautions and working practices are required for personnel when dealing with electricity, gases, oils, and chemicals in an aircraft workshop environment?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 74,
+    "ground_truth_chunk_id": "6a44fddc7b0c",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q066",
+    "question": "What is the acronym used to refer to the Runway Safety Team?",
+    "category": "numerical",
+    "source_file": "circular_air_safety_2024_01_mitigation.pdf",
+    "source_page": 4,
+    "ground_truth_chunk_id": "93a79577d88e",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q067",
+    "question": "What are the specific qualifications and experience requirements for an individual to be eligible based on options (ii) and (iii) regarding practical maintenance experience and education or training?",
+    "category": "procedural",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 26,
+    "ground_truth_chunk_id": "b8cb7b80a36a",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q068",
+    "question": "What specific capability must an aircraft demonstrate during a controlled emergency landing if it can no longer provide the commanded power or thrust required for continued safe flight?",
+    "category": "cross_document",
+    "source_file": "circular_aircraft_eng_2024_01_advisory.pdf",
+    "source_page": 5,
+    "ground_truth_chunk_id": "be405181df36",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q069",
+    "question": "Who served as the Chairperson of the Technical Advisory Body (TAB) of the ICAO Council until March 2025?",
+    "category": "direct_regulation",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 235,
+    "ground_truth_chunk_id": "29f410a6e660",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q070",
+    "question": "What condition determines whether parameters designated by an asterisk (*) are required to be recorded on a helicopter's flight data recorder?",
+    "category": "numerical",
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "source_page": 19,
+    "ground_truth_chunk_id": "884e67a062eb",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q071",
+    "question": "What is the maximum distance before the landing threshold where a sensor should be installed to obtain the best practicable indications of cloud amount and base height?",
+    "category": "procedural",
+    "source_file": "circular_air_nav_2024_01_installation.pdf",
+    "source_page": 3,
+    "ground_truth_chunk_id": "3dddd520520a",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q072",
+    "question": "What are the specific minimum total flying experience, pilot-in-command (PIC) hours, on-type hours, and recent PIC experience requirements for a pilot to be eligible for the flight test of a piston-engined aircraft?",
+    "category": "cross_document",
+    "source_file": "car_s2_t_p2_flight_testing.pdf",
+    "source_page": 8,
+    "ground_truth_chunk_id": "135f896242a3",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q073",
+    "question": "What are the four specific technical categories of knowledge required for aviation maintenance licenses, and what specific system or material variations are listed under each category?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "source_page": 22,
+    "ground_truth_chunk_id": "7e40998e9390",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q074",
+    "question": "At what engine power setting are the concentrations of these compounds found in engine exhaust at their lowest?",
+    "category": "numerical",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 372,
+    "ground_truth_chunk_id": "4d48b579ad4d",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q075",
+    "question": "Under what specific conditions and with what approvals can an organization with up to 10 maintenance staff subcontract the independent audit element of its compliance monitoring function?",
+    "category": "procedural",
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "source_page": 127,
+    "ground_truth_chunk_id": "b549fea06e5d",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q076",
+    "question": "How does the Authority propose to incorporate stakeholder feedback into its regulatory process before finalizing the proposal for aeronautical revenue and per-passenger charges?",
+    "category": "cross_document",
+    "source_file": "aic_2025_12_tariff_noida_nia.pdf",
+    "source_page": 4,
+    "ground_truth_chunk_id": "9f26b27904d4",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q077",
+    "question": "Under what circumstances are lessors permitted to fly, and what restrictions apply to the personnel allowed on board during such flights?",
+    "category": "direct_regulation",
+    "source_file": "car_s2_f_p7_special_flight_permits.pdf",
+    "source_page": 3,
+    "ground_truth_chunk_id": "4f1c667d0093",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q078",
+    "question": "What is the name of the ICAO document that provides guidance on specific operating regulations and adapting regulations from another State?",
+    "category": "numerical",
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "source_page": 115,
+    "ground_truth_chunk_id": "552efeddbc3f",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q079",
+    "question": "What specific changes to a CAMO organisation require prior approval under CAMO.A.130?",
+    "category": "procedural",
+    "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+    "source_page": 17,
+    "ground_truth_chunk_id": "73062e789bca",
+    "gold_is_table": false
+  },
+  {
+    "question_id": "Q080",
+    "question": "How do newer aviation startups leverage their agility and freedom from established constraints to accelerate the maturation of disruptive innovations?",
+    "category": "cross_document",
+    "source_file": "icao_environment_report.pdf",
+    "source_page": 130,
+    "ground_truth_chunk_id": "ed9886559250",
+    "gold_is_table": false
+  }
+]
