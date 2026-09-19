@@ -1,0 +1,992 @@
+==============================================================================
+HAND-CHECK: 20 QUESTIONS FROM THE FRESH POOL
+==============================================================================
+
+BIAS LABEL: this pool was generated from page.get_text('text'), which is
+ARM B's extraction path. It is BIASED TOWARD ARM B. It is not neutral and
+must not be described as unbiased. The bias runs against the expected
+effect, so an Arm A advantage measured here is a lower bound.
+
+Sampled 20 of 31 accepted questions, seeded, stratified
+(10 from table-bearing pages, 10 from prose-only pages).
+
+Check each one:
+  1. Does the question stand alone, with no pointer to a page you cannot see?
+  2. Does the gold span actually answer it?
+  3. Is the span the right answer, not just a plausible-looking string?
+
+Mark any you reject and I will drop them and recount before any retrieval runs.
+
+==============================================================================
+[01]  F001   stratum=table   span=72 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 165
+------------------------------------------------------------------------------
+QUESTION:
+  What is the title of the section in CAR-66 that details the endorsements inherited from a previous AME licence?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > XIV (a) LICENCE ENDORSEMENTS INHERITED FROM THE AME LICENCE HELD PRIOR TO CAR-66 LICENCE
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | CAR-66 
+  |  
+  | Issue III, Rev 2 dated 29th September 2025 
+  |  
+  |  
+  |  
+  |  
+  |  
+  | Page 165 of 247 
+  |  
+  | XIII. LIMITATIONS 
+  | XIV. LICENCE VALIDITY 
+  | AIRCRA
+  | FT 
+  | TYPE 
+  | OR 
+  | GROUP 
+  | CATEGO
+  | RY 
+  | LIMIT
+  | ATI 
+  | ON 
+  | CODE 
+  | SIGNATURE 
+  | WITH 
+  | DATE 
+  | (REMOVAL 
+  | OF 
+  | LIMITATIO
+  | N) 
+  | VALID TILL 
+  | SIGNATURE 
+  | WITH 
+  | DATE 
+  | SE
+  | AL 
+  | III. LIC No. 
+  | 5 
+  | III. LIC No 
+  | 6 
+  |  
+  |  
+  | >>>SPAN>>>XIV (a) LICENCE ENDORSEMENTS 
+  | INHERITED FROM THE AME LICENCE 
+  | HELD PRIOR TO CAR-66 LICENCE<<<SPAN<<< 
+  | XIV (b). REMARKS 
+  | RATI
+  | NG 
+  | CATEGO
+  | RY 
+  | SIGNATURE 
+  | WITH 
+  | DATE 
+  | III. LIC No. 
+  | 7 
+  | III. LIC No. 
+  | 8
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[02]  F003   stratum=table   span=41 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 233
+------------------------------------------------------------------------------
+QUESTION:
+  Under CAR 66, which ATA chapter is associated with the task of replacing a hydraulic filter?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 171 
+  > 29 Hydraulic power 
+  > Replace hydraulic filter
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | CAR 66 
+  |  
+  | Issue III, Rev 2 dated 29th September 2025 
+  |  
+  |  
+  |  
+  |  
+  | Page 233 of 247 
+  |  
+  | Task 
+  | No 
+  | ATA chapter 
+  | Task description 
+  | B1.1 
+  | B2 
+  | 170 
+  | 29 Hydraulic power 
+  | Perform shut-off valve operational test 
+  | X 
+  | X 
+  | >>>SPAN>>>171 
+  | 29 Hydraulic power 
+  | Replace hydraulic filter<<<SPAN<<< 
+  | X 
+  | — 
+  | 172 
+  | 29 Hydraulic power 
+  | Replace engine-driven pump 
+  | X 
+  | — 
+  | 173 
+  | 29 Hydraulic power 
+  | Replace hydraulic system valve 
+  | X 
+  | — 
+  | 174 
+  | 29 Hydraulic power 
+  | Replace hydraulic system line 
+  | X 
+  | — 
+  | 175 
+  | 29 Hydraulic power 
+  | Perform power transfer unit operational test 
+  | X 
+  | X 
+  | 176 
+  | 29 Hydraulic power 
+  | Remove/install power transfer unit 
+  | X 
+  | — 
+  | 177 
+  | 29 Hydraulic power 
+  | Troubleshoot faulty system 
+  | X 
+  | X 
+  | 178 
+  | 30 Ice and rain prot
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[03]  F004   stratum=table   span=40 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 123
+------------------------------------------------------------------------------
+QUESTION:
+  How many questions are allocated to the 'Engine monitoring and ground operation' topic under Module 15 Gas-Turbine Engine for the B1.3 category?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 15.21 Engine monitoring and ground operation 
+  > 4 
+  > 7
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | CAR-66 
+  |  
+  | Issue III, Rev 2 dated 29th September 2025 
+  |  
+  |  
+  |  
+  |  
+  |  
+  | Page 123 of 247 
+  |  
+  |  
+  | MODULE 15 GAS-TURBINE ENGINE 
+  | Nr of questions 
+  | A1 
+  | A3 
+  | B1.1 
+  | B1.3 
+  | 15.19 Power plant installation 
+  | 2 
+  | 3 
+  | 15.20 Fire protection systems 
+  | 2 
+  | 3 
+  | >>>SPAN>>>15.21 Engine monitoring and ground operation 
+  | 4 
+  | 7<<<SPAN<<< 
+  | 15.22 Engine storage and preservation 
+  | ─ 
+  | 3 
+  | MODULE 16 PISTON ENGINE 
+  |  
+  |  
+  | MODULE 16 PISTON ENGINE 
+  | Nr of questions 
+  | A1 
+  | A3 
+  | B1.1 
+  | B1.3 
+  | Total number for the module:
+  | 52 
+  | 76 
+  | 16.1 Fundamentals of piston engines 
+  | 5 
+  | 5 
+  | 16.2 Engine performance 
+  | 3 
+  | 5 
+  | 16.3 Engine construction 
+  | 7 
+  | 8 
+  | 16.4 Engine fuel systems 
+  | ─ 
+  | ─ 
+  | 16.4.1 Carburettors 
+  | 3 
+  | 4 
+  | 16.4.2 Fuel injection systems 
+  | 2 
+  | 4 
+  | 16.4.3 Electronic engine control 
+  | 2 
+  | 4 
+  | 16.
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[04]  F005   stratum=table   span=63 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 231
+------------------------------------------------------------------------------
+QUESTION:
+  Under CAR 66, which maintenance tasks in ATA chapter 27 (Flight controls) require both B1.1 and B2 certification?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 110 
+  > 27 Flight controls 
+  > Perform horizontal stabiliser operational test 
+  > X 
+  > X
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | on 
+  | Remove/install smoke detectors 
+  | X 
+  | X 
+  | 105 
+  | 26 Fire protection 
+  | Perform fire protection system inspection 
+  | X 
+  | X 
+  | 106 
+  | 26 Fire protection 
+  | Perform fire protection system functional test 
+  | X 
+  | X 
+  | 107 
+  | 26 Fire protection 
+  | Perform engine fire detection system 
+  | inspection 
+  | X 
+  | X 
+  | 108 
+  | 26 Fire protection 
+  | Troubleshoot faulty system 
+  | X 
+  | X 
+  | 109 
+  | 27 Flight controls 
+  | Perform horizontal stabiliser components 
+  | inspection 
+  | X 
+  | — 
+  | >>>SPAN>>>110 
+  | 27 Flight controls 
+  | Perform horizontal stabiliser operational test 
+  | X 
+  | X<<<SPAN<<< 
+  | 111 
+  | 27 Flight controls 
+  | Remove/install horizontal stabiliser 
+  | X 
+  | — 
+  | 112 
+  | 27 Flight controls 
+  | Perform elevator components inspection 
+  | X 
+  | — 
+  | 113 
+  | 27 Flight controls 
+  | Perform elevator operational test 
+  | X 
+  | X 
+  | 114 
+  | 27 Flight controls 
+  | Remove/install elevator 
+  | X 
+  | — 
+  | 115 
+  | 27 Flight controls 
+  | Perform aileron components inspection 
+  | X 
+  | — 
+  | 116 
+  | 27 Flight controls 
+  | Perform aileron operational test 
+  | X 
+  | X 
+  | 117 
+  | 27 Flight contro
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[05]  F006   stratum=table   span=50 norm chars
+      icao_environment_report.pdf  page 392
+------------------------------------------------------------------------------
+QUESTION:
+  How many e-publications have been published on the ICAO Environment website as part of the Eco-Airport Toolkit e-collection?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > To date, 13 e-publications have been published on the website
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | tee on Aviation Environmental Protection (CAEP). 
+  | The Eco-Airport Toolkit e-collection, a series of concise 
+  | publications accessible on ICAO’s Environment website, 
+  | is designed to ensure the fast dissemination of valuable 
+  | insights. These papers provide practical, ready-to-use 
+  | information to support the planning and implementation 
+  | of airport infrastructure projects that deliver significant 
+  | environmental benefits.
+  | >>>SPAN>>>To date, 13 e-publications have been published on 
+  | the website<<<SPAN<<<, each focused on a specific case study of 
+  | environmental planning and at airports. This report will 
+  | cover the publications developed and approved at the 
+  | CAEP/12 and CAEP/13 Meetings:
+  | 1.	 Climate Resilient Airports
+  | As climate change intensifies, airports must adapt to 
+  | extreme weather events, rising temperatures, and evolving 
+  | environmental conditions to ensure safe and efficient 
+  | operations. Key climate risks incl
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[06]  F007   stratum=table   span=61 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 110
+------------------------------------------------------------------------------
+QUESTION:
+  How many multiple-choice questions and how many minutes are allowed for the Category B2L examination in Module 14 (Propulsion)?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Category B2L: 32 multiple-choice questions and time allowed is 40 minutes.
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | ategory B2L: 
+  |  
+  |  
+  | System 
+  | rating 
+  | Number of 
+  | multiple- choice 
+  | questions 
+  | Time allowed 
+  | (minutes) 
+  | Basic requirements 
+  | (Submodules 13.1, 13.2, 13.5 and 
+  | 13.9) 
+  | 32 
+  | 40 
+  | COM/NAV 
+  | (Submodule 13.4(a)) 
+  | 24 
+  | 30 
+  | INSTRUMENTS 
+  | (Submodule 13.8) 
+  | 20 
+  | 25 
+  | AUTOFLIGHT 
+  | (Submodules 13.3(a) and 13.7) 
+  | 28 
+  | 35 
+  | SURVEILLANCE 
+  | (Submodule 13.4(b)) 
+  | 20 
+  | 25 
+  | AIRFRAME SYSTEMS 
+  | (Submodules 13.11 to 13.18) 
+  | 52 
+  | 65 
+  |  
+  | MODULE 14 — PROPULSION 
+  | >>>SPAN>>>Category B2L: 32 multiple-choice questions and time allowed is 40 minutes<<<SPAN<<<. 
+  | NOTE: The B2L examination for module 14 is only applicable to the ‘Instruments’ and 
+  | ‘Airframe Systems’ ratings. 
+  |  
+  |  
+  | AMC1 Appendix II – Basic Examnination standard (Except for Category L Licence 
+  |  
+  | The tables below show the acceptable number of questions for the submodules. Justified 
+  | deviations from these values are also acceptable, provided the sum of the questions complies 
+  | with the total number of questions f
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[07]  F008   stratum=table   span=44 norm chars
+      circular_cabin_safety_2025_01_training.pdf  page 4
+------------------------------------------------------------------------------
+QUESTION:
+  What is the description for Competency 3 (LTW) in the Indian civil aviation regulatory framework?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Influences others to contribute to a shared purpose
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | 4 
+  |  
+  |  
+  |  
+  | Competency 3: 
+  | LTW 
+  |  
+  | Leadership 
+  | and 
+  | teamwork 
+  |  
+  |  
+  | >>>SPAN>>>Influences others to 
+  | contribute to a shared 
+  | purpose<<<SPAN<<< 
+  |  
+  | Collaborates 
+  | to 
+  | accomplish the goals 
+  | of the team 
+  | OB 3.1 Encourages crew participation and open 
+  | communication 
+  | OB 3.2 Demonstrates initiative and provides direction 
+  | when required 
+  | OB 3.3 Engages others in planning 
+  | OB 3.4 Considers inputs from others 
+  | OB 3.5 Gives and receives feedback constructively 
+  | OB 3.6 Addresses and resolves conflicts and 
+  | disagreements in a constructive manner 
+  | OB 3.7 Exercises decisi
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[08]  F009   stratum=table   span=56 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 129
+------------------------------------------------------------------------------
+QUESTION:
+  According to CAR-66, what is the minimum number of hours required for the 'Introduction module' chapter for B1 Level 1 personnel on Turbine Aeroplane types?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Introduction module: 
+  > 05 Time limits/ maintenance 
+  > checks 
+  > 1 
+  > 1 
+  > 1 
+  > 1 
+  > 1 
+  > 1 
+  > 1 
+  > 1 
+  > 1
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | 
+  | The training syllabus shall be focused on mechanical and electrical aspects for B1 personnel, and 
+  | electrical and avionic aspects for B2. 
+  | If it exists, the minimum syllabus of the operational suitability data (OSD), established shall be 
+  | included 
+  |  
+  | Level Chapters 
+  | Aeroplanes 
+  | Turbine 
+  | Aeroplane 
+  | Piston 
+  | Helicopter 
+  | turbine 
+  | Helicopter 
+  | Piston 
+  | Avionics 
+  | B1 Level 1 
+  |  
+  | B1 Level 1 
+  |  
+  | B1 
+  | Level 1 
+  |  
+  | B1 Level 1 
+  |  
+  | B2 
+  | >>>SPAN>>>Introduction module: 
+  | 05 Time limits/ maintenance 
+  | checks 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1<<<SPAN<<< 
+  | 06 Dimensions/Areas 
+  | (MTOM, etc.) 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 07 Lifting and Shoring 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 08 Levelling and weighing 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 09 Towing and taxiing 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1 
+  | 1
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[09]  F012   stratum=table   span=44 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 235
+------------------------------------------------------------------------------
+QUESTION:
+  Under CAR 66, which maintenance task number corresponds to the replacement of the inertial reference unit?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 265 34 Navigation Replace inertial reference unit — X
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  |  drain 
+  | fitting 
+  | — 
+  | X 
+  | 258 
+  | 34 Navigation 
+  | Perform static pressure port inspection 
+  | — 
+  | X 
+  | 259 
+  | 34 Navigation 
+  | Replace static pressure port 
+  | — 
+  | X 
+  | 260 
+  | 34 Navigation 
+  | Replace VOR/ILS 
+  | — 
+  | X 
+  | 261 
+  | 34 Navigation 
+  | Perform VOR/ILS functional test 
+  | — 
+  | X 
+  | 262 
+  | 34 Navigation 
+  | Replace DME 
+  | — 
+  | X 
+  | 263 
+  | 34 Navigation 
+  | Perform DME functional test 
+  | — 
+  | X 
+  | 264 
+  | 34 Navigation 
+  | Perform inertial reference system functional 
+  | test 
+  | — 
+  | X 
+  | >>>SPAN>>>265 
+  | 34 Navigation 
+  | Replace inertial reference unit 
+  | — 
+  | X<<<SPAN<<< 
+  | 266 
+  | 34 Navigation 
+  | Perform altimeter functional test 
+  | — 
+  | X 
+  | 267 
+  | 34 Navigation 
+  | Replace altimeter 
+  | — 
+  | X 
+  | 268 
+  | 34 Navigation 
+  | Perform air data computer functional test 
+  | — 
+  | X
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[10]  F013   stratum=table   span=88 norm chars
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 107
+------------------------------------------------------------------------------
+QUESTION:
+  What is the minimum waiting period before a failed CAR-66 module examination can be retaken?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > A failed module may not be retaken for at least 30 days following the date of the failed module examination.
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | stions must have more than two alternative answers of which 
+  | only one must be the correct answer and the candidate shall be allowed a time per module 
+  | which is based upon a nominal average of 75 seconds per question. 
+  | 1.3 The pass mark for each CAR-66 module and sub-module multiple choice part of the 
+  | examination is 75%. 
+  | 1.4 Penalty marking systems shall not be used to determine whether a candidate has passed. 
+  | 1.5 >>>SPAN>>>A failed module may not be retaken for at least 30 days following the date of the failed 
+  | module examination<<<SPAN<<<. 
+  | 1.6 
+  | The maximum number of attempts for each examination is three in a 12-month period. 
+  | The applicant shall provide in a written statement to the competent authority (DGCA), the 
+  | number, and dates of attempts during the 12 months preceding the examination. 
+  | 1.7 
+  | While it is accepted that the subject matter of the questions may be the same, the questions 
+  | used as part of the MBT learning programme shall not be use
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[11]  F015   stratum=prose   span=78 norm chars
+      icao_environment_report.pdf  page 238
+------------------------------------------------------------------------------
+QUESTION:
+  What is the deadline for aeroplane operators to cancel emissions units for the first phase of CORSIA?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > January 2028 deadline for aeroplane operators to cancel emissions units for the first phase
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | are accountable for the integrity 
+  | and transparency of CORSIA Eligible Emissions Units, 
+  | the decision to issue attestation letters is ultimately the 
+  | responsibility of the host countries to GHG mitigation 
+  | activities. Therefore, to ensure availability of CORSIA 
+  | Eligible Emissions Units with mitigation years 2021-2026, 
+  | ICAO Member States are encouraged to finalize their 
+  | authorization letters well in advance of the >>>SPAN>>>January 2028 
+  | deadline for aeroplane operators to cancel emissions units 
+  | for the first phase<<<SPAN<<<.
+  | 4	 Also known as host country authorization under the Article 6 of the UNFCCC Paris Agreement
+  | In addition to the above, market dynamics, including 
+  | the price of carbon credits and the demand from other 
+  | sectors, will also influence the future supply of CORSIA 
+  | Eligible Emissions Units.
+  | Future of CORSIA Eligible Emissions 
+  | Units and TAB assessment
+  | The recent updates on CORSIA Eligible Emissions Units 
+  | and the role o
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[12]  F016   stratum=prose   span=59 norm chars
+      icao_environment_report.pdf  page 194
+------------------------------------------------------------------------------
+QUESTION:
+  What percentage of total aviation fuel demand is projected to be provided by sustainable aviation fuels (SAFs) by 2035 in the IEA's Net Zero Emissions by 2050 Scenario?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > depends on SAFs providing near 25% of total aviation fuel demand by 2035
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | pproaching 5% of global 
+  | aviation demand by 2030. Such growth would make a 
+  | significant contribution toward ICAO’s aspirational target 
+  | of a 5% reduction in international aviation CO₂ emissions 
+  | by 2030, with announced SAF projects offering more than 
+  | enough capacity to meet this level of demand. However, 
+  | even this more optimistic trajectory falls well short of 
+  | the IEA’s Net Zero Emissions by 2050 Scenario, which 
+  | >>>SPAN>>>depends on SAFs providing near 25% of total aviation 
+  | fuel demand by 2035<<<SPAN<<<.
+  | FIGURE 1: Sustainable aviation fuel demand, 2023 to 2035 main, accelerated case and announced capacity. Source: IEA (2024) 
+  | Renewables 20242, IEA (2024) Oil 20243 and IEA (2024) World Energy Outlook4. Announced project capacity adapted from 
+  | Argus Direct5 (2024) Global sustainable aviation fuel & renewable diesel refinery database. Note: “Commercial” includes HEFA 
+  | and “Emerging” includes alcohol-to-jet and Fischer
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[13]  F018   stratum=prose   span=67 norm chars
+      icao_environment_report.pdf  page 306
+------------------------------------------------------------------------------
+QUESTION:
+  What are the major challenges remaining for Sustainable Aviation Fuel (SAF) progress as identified in the EU's capacity building and implementation support framework?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > High SAF costs, infrastructure gaps, policy uncertainty, financing constraints.
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | Greening Aviation through Global Aviation Partnerships – the contribution of the European Union
+  | CHAPTER EIGHT Capacity Building and Implementation Support
+  | 292
+  | The Path Forward: Coordination and 
+  | Strategic Scaling
+  | While progress on SAF is clear, major challenges remain:
+  | >>>SPAN>>>High SAF costs, infrastructure gaps, policy uncertainty, 
+  | financing constraints<<<SPAN<<<. Regulatory incentives and long-
+  | term targets are needed, and projects need de-risking.
+  | To address these, the EU and its partners in the Aviation 
+  | Environmental Protection Coordination Group (AEPCG) 
+  | play a key role in aligning EU institutions, States, and 
+  | stakeholders around shared objectives. This forum facilitates 
+  | collective planning, efficient resource use, and a more 
+  | coherent EU presence in international env
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[14]  F020   stratum=prose   span=84 norm chars
+      icao_environment_report.pdf  page 320
+------------------------------------------------------------------------------
+QUESTION:
+  What is the specific name of the ICAO initiative that Boeing joined in 2023 to support sustainable aviation fuels?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > ICAO Assistance, Capacity-building and Training for Sustainable Aviation Fuels (ACT-SAF) initiative
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | ecarbonization including 
+  | its adoption of a long-term aspirational goal for international 
+  | aviation to achieve net-zero emissions goal by 2050, as 
+  | well as its aspiration to reduce carbon emissions by 5% for 
+  | international aviation by 2030 using sustainable aviation 
+  | fuels (SAF), Lower Carbon Aviation Fuel (LCAF) and other 
+  | aviation cleaner energies.
+  | Boeing supports ICAO’s efforts and in 2023 the company 
+  | joined the >>>SPAN>>>ICAO Assistance, Capacity-building and Training 
+  | for Sustainable Aviation Fuels (ACT-SAF) initiative<<<SPAN<<<. ACT-SAF 
+  | creates opportunities for countries to develop their full 
+  | potential in SAF development and deployment.
+  | In support of ICAO’s initiative, Boeing has helped develop 
+  | region-specific roadmaps and SAF feedstock analyses 
+  | together with local partners to help scale SAF production 
+  | locally to drive regional energy resilience and help meet 
+  | demand globally. These roadmaps help to identify which 
+  | feedstocks are the
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[15]  F022   stratum=prose   span=66 norm chars
+      icao_doc9859_safety_management_manual.pdf  page 156
+------------------------------------------------------------------------------
+QUESTION:
+  According to the Safety Management Manual, who is the only person allowed to know the identifying information of a reporter in a voluntary safety reporting system?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > any identifying information about the reporter is known only to the custodian
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | le, enforcement action may be waived for reports of errors, or in some circumstances, 
+  | rule-breaking. It should be clearly stated that reported information will be used solely to support the enhancement of 
+  | safety. The intent is to promote an effective reporting culture and proactive identification of potential safety deficiencies. 
+  |  
+  | 9.4.4.5 
+  | Voluntary safety reporting systems should be confidential, requiring that >>>SPAN>>>any identifying information about 
+  | the reporter is known only to the custodian<<<SPAN<<< to allow for follow-up action. The role of custodian should be kept to a few 
+  | individuals, typically restricted to the safety manager and personnel involved in the safety investigation. Maintaining 
+  | confidentiality will help facilitate the disclosure of hazards leading to human error, without fear of retribution or 
+  | embarrassment. Voluntary safety reports may be de-identified and archived once necessary follow-up ac
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[16]  F023   stratum=prose   span=58 norm chars
+      icao_environment_report.pdf  page 378
+------------------------------------------------------------------------------
+QUESTION:
+  What is the maximum volume percentage of aromatic compounds that can constitute jet fuel?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Aromatic compounds, which can constitute up to 25% by volume of jet fuel
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | 20
+  | 3	 Holladay et al., 2020
+  | 4	 Schripp et al. 2022
+  | Introduction
+  | Aircraft engines combust fuel imperfectly and incompletely, 
+  | emitting combustion side products derived from fuel 
+  | impurities and high-temperature reactions with air. Among 
+  | these products, fine particulate matter with aerodynamic 
+  | diameters of 2.5 microns and below (PM2.5) have an 
+  | outsized impact on regional air quality, public health and 
+  | the climate.
+  | >>>SPAN>>>Aromatic compounds, which can constitute up to 25% 
+  | by volume of jet fuel<<<SPAN<<<, are responsible for substantial non-
+  | volatile PM2.5 formation, a primary or direct source of 
+  | particulate matter.1 Low levels of sulphur compounds in jet 
+  | fuel are responsible for sulphur dioxide (SO2) formation, 
+  | a volatile particulate matter (vPM) that is the precursor 
+  | of sulphate aerosols, a potent secondary PM2.5.2
+  | Interventions focused on jointly reducing jet fuel aromatic 
+  | and sulphur content present an oppo
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[17]  F026   stratum=prose   span=98 norm chars
+      icao_environment_report.pdf  page 167
+------------------------------------------------------------------------------
+QUESTION:
+  According to CICONIA, what is considered the most promising short-term approach to non-CO2 climate impact mitigation?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > airline-led trajectory optimization is the most promising short term approach to non-CO2 climate impact mitigation
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | s well 
+  | benefit from their full knowledge of the existing 
+  | airspace capacity to influence the traffic flows toward 
+  | climate optimized re-routing that could be proposed 
+  | to airlines in pre-tactical.
+  | As well, during the flight, ANSPs and especially FMP 
+  | (Flow Management Position) could propose climate-
+  | optimized re-routing options.
+  | Progress to date is encouraging, 
+  | collaborations need to continue
+  | CICONIA believes that >>>SPAN>>>airline-led trajectory optimization 
+  | is the most promising short term approach to non-CO2 
+  | climate impact mitigation<<<SPAN<<<, based on reliable forecast 
+  | tools, and on the consideration that the most anticipated 
+  | trajectory is the easiest to integrate for ATC.
+  | The collaboration between individual airlines optimizing 
+  | their flight, and the ATC and Network, will help solve 
+  | forecasted traffic congestion, which are only considered 
+  | at the moment as induced capacity reductions.
+  | Provisions for inflight re-routings require consideration, 
+  | due t
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[18]  F028   stratum=prose   span=73 norm chars
+      car_s2_e_car145_maintenance_org_2025.pdf  page 168
+------------------------------------------------------------------------------
+QUESTION:
+  What is the maximum type certified passenger capacity threshold that defines a large aeropne for the purpose of Fuel Tank Safety Training under CAR 145 Appendix VIII?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Large aeroplanes as defined as maximum type certified passenger capacity of 30 or more
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | CAR 145 
+  | Issue 3, R0, 31st July 2024 
+  |  
+  |  168 
+  |  
+  | Appendix VIII - Appendix to AMC 145.A.30 (e) Fuel Tank Safety Training 
+  |  
+  | This appendix includes general instructions for providing training on Fuel Tank 
+  | Safety issues. 
+  | A) Effectivity: 
+  | - 
+  | >>>SPAN>>>Large aeroplanes as defined as maximum type certified passenger 
+  | capacity of 30 or more<<<SPAN<<< or a maximum certified payload capacity of 7500 
+  | lbs (3402 kg) cargo or more. 
+  |  
+  | B) Affected organisations: 
+  | - 
+  | CAR-145 
+  | approved 
+  | maintenance 
+  | organisations 
+  | involved 
+  | in 
+  | the 
+  | maintenance of aeroplanes specified in paragraph A) and fuel system 
+  | components installed on such aeroplanes when the maintenance data are 
+  | affected by CDCCL. 
+  |  
+  | C) Persons from affected organisations who should receive training: 
+  | Phase 1 on
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[19]  F029   stratum=prose   span=85 norm chars
+      icao_doc9859_safety_management_manual.pdf  page 169
+------------------------------------------------------------------------------
+QUESTION:
+  According to Annex 19, what is the specific requirement regarding the scope of the safety training programme in relation to an individual's involvement in the SMS?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > the scope of the safety training programme be appropriate to each individual’s involvement in the SMS
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | rategic direction from the 
+  | top of the organization and the enabling of “bottom-up” communication that encourages open and constructive feedback 
+  | from all personnel. 
+  |  
+  |  
+  | 9.6.4 Training and education 
+  |  
+  | 9.6.4.1 
+  | Annex 19 requires that “the service provider shall develop and maintain a safety training programme that 
+  | ensures that personnel are trained and competent to perform their SMS duties.” It also requires that “>>>SPAN>>>the scope of the 
+  | safety training programme be appropriate to each individual’s involvement in the SMS<<<SPAN<<<.” The safety manager is 
+  | responsible for ensuring there is a suitable safety training programme in place. This includes providing appropriate 
+  | safety information relevant to specific safety issues met by the organization. Personnel who are trained and competent 
+  | to perform their SMS duties, regardless of their level in the organization, is an indication of management’s commitment 
+  | to an effective SMS. The training p
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[20]  F030   stratum=prose   span=57 norm chars
+      icao_environment_report.pdf  page 403
+------------------------------------------------------------------------------
+QUESTION:
+  What interim emission reduction targets has iGA Istanbul Airport set for 2030 and 2040 in alignment with ICAO's Long-Term Aspirational Goal?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > setting interim goals to reduce emissions by 45% by 2030 and 73% by 2040
+
+PAGE CONTEXT (raw extraction, as the generator saw it):
+  | irational Goal (LTAG) of net-zero 
+  | carbon emissions by 2050, iGA has adopted energy 
+  | efficiency as a core strategy. This approach extends beyond 
+  | operational improvements to encompass governance, 
+  | technology, and behavioural change, contributing directly 
+  | to the United Nations Sustainable Development Goals 
+  | (SDGs), particularly SDG 7, SDG 9, and SDG 13.
+  | iGA’s decarbonization roadmap aligns with ICAO’s LTAG, 
+  | setting >>>SPAN>>>interim goals to reduce emissions by 45% by 2030 
+  | and 73% by 2040. Yet, it is<<<SPAN<<< not targets but the systemic 
+  | integration of sustainability, into infrastructure, training, 
+  | operations, and partnerships, that drives lasting impact.
+  | Through investments in real-time analytics, electrification, 
+  | sustainable architecture, and behavioural, approaches, 
+  | iGA is advancing a greener, smarter, and more human-
+  | centred airport model. This article outlines our journey 
+  | and aims to contribute insights to the 
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
