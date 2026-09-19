@@ -1,33 +1,38 @@
 """
 Write 20 fresh-pool questions out for human review.
 
-Stratified 10 table-page / 10 prose-page, seeded. Each entry carries everything
-needed to judge it without opening the PDF: the question, the gold span, and the
-surrounding page text so the span can be checked in context.
+The table half is NOT random: it is weighted toward items the row-pairing check
+flagged (different_row first, then undetermined), because those are the ones
+where a gold could be WRONG rather than merely weak. The prose half is a seeded
+random sample.
 
-Three things are worth checking on each one:
-  1. Does the question stand alone? (no pointer back to a page you cannot see)
-  2. Does the gold span actually answer it?
-  3. Is the span the RIGHT answer, not merely a plausible-looking string?
+Each table entry shows the find_tables() row-wise reconstruction next to the raw
+column-wise page text, so the two views can be compared without opening the PDF.
 
 Writes: ablation/out/HANDCHECK_20.txt
 """
 
 import json
 import random
+from collections import Counter
 from pathlib import Path
+
+import pandas as pd
 
 from arms import list_pdfs, extract_flat
 from judgments import _NON_ALNUM
+from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY
 
 OUT = Path("ablation/out")
 CONTEXT = 420
+N_TABLE = 10
+N_PROSE = 10
 
 
 def norm_map(text):
-    """Normalized string plus a map from each normalized index back to its raw
-    index, so a span that passed validation on normalized text can still be
-    shown in its raw context even when it straddles line breaks."""
+    """Normalized string plus a map back to raw indices, so a span validated on
+    normalized text can still be shown in raw context when it straddles line
+    breaks."""
     out, idx = [], []
     for i, ch in enumerate(text):
         c = ch.lower()
@@ -38,7 +43,6 @@ def norm_map(text):
 
 
 def locate(page_text, span):
-    """(raw_start, raw_end) of the span in page_text, or None."""
     pn, pmap = norm_map(page_text)
     sn, _ = norm_map(span)
     if not sn:
@@ -50,44 +54,78 @@ def locate(page_text, span):
 
 
 def main():
-    pool = json.loads((OUT / "fresh_pool.json").read_text(encoding="utf-8"))
-    if not pool:
-        print("FAILED: fresh_pool.json is empty. Nothing to hand-check.")
-        return
+    src = OUT / "fresh_pool_v2.json"
+    if not src.exists():
+        src = OUT / "fresh_pool.json"
+    pool = json.loads(src.read_text(encoding="utf-8"))
+    print(f"pool: {src.name} ({len(pool)} questions)")
+
+    rp = {}
+    rp_path = OUT / "row_pairing_check.csv"
+    if rp_path.exists():
+        for _, r in pd.read_csv(rp_path).iterrows():
+            rp[r["question_id"]] = r.to_dict()
+        print(f"row-pairing verdicts loaded: {len(rp)}")
+    else:
+        print("row-pairing check NOT found - table entries will show 'not run'")
 
     tab = [q for q in pool if q["page_stratum"] == "table"]
     pro = [q for q in pool if q["page_stratum"] == "prose"]
+
+    def priority(q):
+        v = rp.get(q["question_id"], {})
+        verdict = str(v.get("verdict"))
+        in_tab = bool(v.get("gold_in_table_chunk", False))
+        if verdict == "different_row":
+            return 0                      # label/value may come from two rows
+        if verdict == "undetermined" and in_tab:
+            return 1                      # tabular content we could not place
+        if verdict == "undetermined":
+            return 2                      # prose on a table page: benign
+        return 3                          # same_row
+    tab.sort(key=lambda q: (priority(q), q["question_id"]))
     rng = random.Random(0)
-    pick = (rng.sample(tab, min(10, len(tab))) + rng.sample(pro, min(10, len(pro))))
-    pick.sort(key=lambda q: q["question_id"])
+    pick_t = tab[:N_TABLE]
+    pick_p = rng.sample(pro, min(N_PROSE, len(pro)))
+    pick = pick_t + sorted(pick_p, key=lambda q: q["question_id"])
 
     flat = {}
     for p in list_pdfs():
         for pg in extract_flat(p):
             flat[(p.name, pg["page_number"])] = pg["text"]
 
-    n_unloc = [0]
+    n_unloc = 0
     L = []
     w = L.append
     w("=" * 78)
-    w("HAND-CHECK: 20 QUESTIONS FROM THE FRESH POOL")
+    w("HAND-CHECK: 20 QUESTIONS FROM THE FRESH POOL (v2)")
     w("=" * 78)
     w("")
-    w("BIAS LABEL: this pool was generated from page.get_text('text'), which is")
-    w("ARM B's extraction path. It is BIASED TOWARD ARM B. It is not neutral and")
-    w("must not be described as unbiased. The bias runs against the expected")
-    w("effect, so an Arm A advantage measured here is a lower bound.")
+    w(BIAS)
     w("")
-    w(f"Sampled {len(pick)} of {len(pool)} accepted questions, seeded, stratified")
-    w(f"({sum(1 for q in pick if q['page_stratum']=='table')} from table-bearing pages, "
-      f"{sum(1 for q in pick if q['page_stratum']=='prose')} from prose-only pages).")
+    w(PROMPT_ASYMMETRY)
+    w("")
+    w(ATTRIBUTION)
+    w("")
+    w("-" * 78)
+    w("SELECTION: the table half is NOT random. It is weighted toward items the")
+    w("row-pairing check flagged different_row or undetermined, because those are")
+    w("the ones where the gold may be WRONG rather than merely weak. The prose")
+    w("half is a seeded random sample. Do NOT read the flag rate in this file as")
+    w("the pool's flag rate - row_pairing_check.csv has that.")
+    w("")
+    w("ROW-PAIRING VERDICTS ARE EVIDENCE, NOT GROUND TRUTH. find_tables() is Arm")
+    w("A's own view of the page and can itself be wrong. Nothing was dropped on")
+    w("the strength of a verdict.")
     w("")
     w("Check each one:")
     w("  1. Does the question stand alone, with no pointer to a page you cannot see?")
     w("  2. Does the gold span actually answer it?")
-    w("  3. Is the span the right answer, not just a plausible-looking string?")
+    w("  3. TABLE ITEMS: does the span pair a label with the value from the SAME")
+    w("     row? Compare the raw text against the reconstruction shown above it.")
     w("")
-    w("Mark any you reject and I will drop them and recount before any retrieval runs.")
+    w("Mark any you reject and I will drop them and recount before retrieval runs.")
+    w("-" * 78)
     w("")
 
     for i, q in enumerate(pick, 1):
@@ -96,7 +134,7 @@ def main():
         if loc is None:
             ctx = page_text[:CONTEXT * 2]
             marker = "(span not locatable for display; it passed normalized validation)"
-            n_unloc[0] += 1
+            n_unloc += 1
         else:
             a, b = loc
             s_, e_ = max(0, a - CONTEXT), min(len(page_text), b + CONTEXT)
@@ -104,21 +142,55 @@ def main():
                    + "<<<SPAN<<<" + page_text[b:e_])
             marker = ""
 
+        v = rp.get(q["question_id"], {})
+        verdict = v.get("verdict", "not run" if q["page_stratum"] == "table" else "n/a")
+
         w("=" * 78)
         w(f"[{i:02d}]  {q['question_id']}   stratum={q['page_stratum']}   "
-          f"span={q['gold_span_norm_len']} norm chars")
+          f"span={q['gold_span_norm_len']} norm chars   "
+          f"prompt={q.get('prompt_version', 'v1_generic')}")
         w(f"      {q['source_file']}  page {q['page_number']}")
+        if q["page_stratum"] == "table":
+            extra = ""
+            if v:
+                extra = (f"   (best-row token coverage {v.get('best_row_cov')}, "
+                         f"two-row {v.get('pair_row_cov')})")
+            w(f"      ROW-PAIRING: {str(verdict).upper()}{extra}")
+            if v:
+                w(f"      GOLD SITS IN: "
+                  + ("a TABLE chunk" if v.get("gold_in_table_chunk")
+                     else "a PROSE chunk (page has a table elsewhere)"))
         w("-" * 78)
         w("QUESTION:")
         w(f"  {q['question']}")
         w("")
         w("GOLD SPAN (must answer the question, verbatim from the page):")
-        for line in q["gold_span"].splitlines() or [q["gold_span"]]:
+        for line in (q["gold_span"].splitlines() or [q["gold_span"]]):
             w(f"  > {line}")
         if marker:
             w(f"  {marker}")
         w("")
-        w("PAGE CONTEXT (raw extraction, as the generator saw it):")
+
+        if q["page_stratum"] == "table" and v:
+            w("find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):")
+            br = str(v.get("best_row_text", "") or "").strip()
+            pr_ = str(v.get("pair_row_text", "") or "").strip()
+            w(f"  best-matching row : {br if br else '(none located)'}")
+            if str(verdict) == "different_row" and pr_:
+                w(f"  second row needed : {pr_}")
+                w("  ^^ the span's content required TWO rows. Check whether the label")
+                w("     and the value it pairs actually belong together.")
+            elif str(verdict) == "undetermined":
+                if v.get("gold_in_table_chunk"):
+                    w("  ^^ the gold IS tabular content but could not be placed in any")
+                    w("     reconstructed row. Worth your attention.")
+                else:
+                    w("  ^^ the gold is PROSE on a page that happens to contain a table")
+                    w("     elsewhere, so there is no row to match. Benign - undetermined")
+                    w("     here is expected, not a warning.")
+            w("")
+
+        w("RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):")
         for line in ctx.splitlines():
             w(f"  | {line}")
         w("")
@@ -127,9 +199,13 @@ def main():
 
     w("=" * 78)
     (OUT / "HANDCHECK_20.txt").write_text("\n".join(L), encoding="utf-8")
-    print(f"wrote {OUT/'HANDCHECK_20.txt'} — {len(pick)} questions "
-          f"({sum(1 for q in pick if q['page_stratum']=='table')} table / "
-          f"{sum(1 for q in pick if q['page_stratum']=='prose')} prose)")
+    print(f"wrote {OUT/'HANDCHECK_20.txt'} - {len(pick)} questions "
+          f"({len(pick_t)} table / {len(pick_p)} prose)")
+    if rp:
+        shown = [str(rp.get(q["question_id"], {}).get("verdict")) for q in pick_t]
+        print(f"  table half verdicts shown: {dict(Counter(shown))}")
+    if n_unloc:
+        print(f"  note: {n_unloc}/{len(pick)} spans not locatable for raw display")
 
 
 if __name__ == "__main__":
