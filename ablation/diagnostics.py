@@ -27,6 +27,7 @@ import pandas as pd
 
 from judgments import (THRESHOLDS, normalize, coverage, coverage_blocks,
                        union_coverage)
+from notes import ATTRIBUTION
 
 random.seed(0)
 np.random.seed(0)

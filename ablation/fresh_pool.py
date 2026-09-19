@@ -86,6 +86,10 @@ Page text:
 """
 
 
+class QuotaExhausted(RuntimeError):
+    """Daily token budget is gone; waiting will not help."""
+
+
 def ask(client, prompt, retries=4):
     for attempt in range(retries):
         try:
@@ -96,8 +100,14 @@ def ask(client, prompt, retries=4):
             )
             return (r.choices[0].message.content or "").strip()
         except Exception as e:
-            wait = 30 if "429" in str(e) else 3
-            print(f"      retry {attempt + 1}: {str(e)[:80]} (waiting {wait}s)")
+            msg = str(e)
+            # A per-day quota will not clear by waiting 30s. Retrying just burns
+            # wall-clock and fills the pool with empties that look like rejects.
+            if "tokens per day" in msg or "TPD" in msg:
+                print(f"      DAILY TOKEN QUOTA EXHAUSTED - aborting: {msg[:140]}")
+                raise QuotaExhausted(msg)
+            wait = 30 if "429" in msg else 3
+            print(f"      retry {attempt + 1}: {msg[:80]} (waiting {wait}s)")
             time.sleep(wait)
     return None
 
