@@ -44,14 +44,49 @@ def matched_blocks(gold_norm: str, chunk_norm: str):
 
 
 def coverage(gold_norm: str, chunk_norm: str) -> float:
-    """Fraction of gold characters that appear, in order, in this chunk."""
+    """PRIMARY criterion: longest CONTIGUOUS run of gold characters present in
+    this chunk, as a fraction of the gold.
+
+    Contiguity is the whole point. A table row that PyMuPDF read column-wise has
+    all of its characters somewhere on the page but in scattered order; a
+    criterion that summed separated runs (or counted characters as a bag) would
+    score that as a near-match and erase the effect being measured.
+    """
+    if not gold_norm:
+        return 0.0
+    sm = SequenceMatcher(None, gold_norm, chunk_norm, autojunk=False)
+    return sm.find_longest_match(0, len(gold_norm), 0, len(chunk_norm)).size / len(gold_norm)
+
+
+def coverage_blocks(gold_norm: str, chunk_norm: str) -> float:
+    """DIAGNOSTIC ONLY — never used for a relevance decision.
+
+    Sum of all order-preserving matching runs. Compared against coverage(), it
+    detects scattering: blocks high + contiguous low means the gold's content is
+    present in the chunk but broken into pieces, which is the signature of
+    column-wise extraction of a row-wise table.
+    """
     if not gold_norm:
         return 0.0
     return sum(size for _, size in matched_blocks(gold_norm, chunk_norm)) / len(gold_norm)
 
 
 def covered_mask(gold_norm: str, chunk_norm: str) -> set[int]:
-    """Which gold character positions this chunk covers. Used for union-over-k."""
+    """Gold positions covered by this chunk's LONGEST CONTIGUOUS run.
+
+    Each chunk contributes one contiguous run, not a scatter of fragments, so
+    the union criterion below inherits the contiguity rule instead of quietly
+    relaxing it.
+    """
+    if not gold_norm:
+        return set()
+    m = SequenceMatcher(None, gold_norm, chunk_norm, autojunk=False).find_longest_match(
+        0, len(gold_norm), 0, len(chunk_norm))
+    return set(range(m.a, m.a + m.size))
+
+
+def covered_mask_blocks(gold_norm: str, chunk_norm: str) -> set[int]:
+    """DIAGNOSTIC ONLY — all matching runs, used for scatter detection."""
     out: set[int] = set()
     for start, size in matched_blocks(gold_norm, chunk_norm):
         out.update(range(start, start + size))
@@ -59,10 +94,11 @@ def covered_mask(gold_norm: str, chunk_norm: str) -> set[int]:
 
 
 def union_coverage(gold_norm: str, chunk_norms: list[str]) -> float:
-    """Fraction of gold characters covered by ANY chunk in the list.
+    """SECONDARY criterion: fraction of gold covered by ANY chunk in the list,
+    where each chunk contributes only its longest contiguous run.
 
-    This is the secondary criterion: it asks whether the evidence is present
-    across the returned set, not whether any single chunk holds it.
+    Asks whether the evidence is present across the returned set, rather than
+    whether one chunk holds it. Still contiguity-bound per chunk.
     """
     if not gold_norm:
         return 0.0
@@ -72,8 +108,20 @@ def union_coverage(gold_norm: str, chunk_norms: list[str]) -> float:
     return len(seen) / len(gold_norm)
 
 
+def scatter_signature(gold_norm: str, chunk_norm: str) -> dict:
+    """Is the gold present but broken up in this chunk?
+
+    Returns the contiguous and block-sum coverages and their gap. A large gap
+    means the characters are there but out of order — column-wise extraction of
+    a row-wise table.
+    """
+    contig = coverage(gold_norm, chunk_norm)
+    blocks = coverage_blocks(gold_norm, chunk_norm)
+    return {"contiguous": contig, "blocks": blocks, "scatter_gap": blocks - contig}
+
+
 def best_coverage(gold_norm: str, chunk_norms: list[str]) -> tuple[float, int]:
-    """(max per-chunk coverage, index of the chunk achieving it)."""
+    """(max per-chunk CONTIGUOUS coverage, index of the chunk achieving it)."""
     best, best_i = 0.0, -1
     for i, cn in enumerate(chunk_norms):
         c = coverage(gold_norm, cn)

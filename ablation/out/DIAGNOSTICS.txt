@@ -1,0 +1,116 @@
+################################################################################
+#  OLD 80-QUESTION POOL  —  CONTAMINATED - DO NOT REPORT                       #
+#                                                                              #
+#  Computed and kept in the repo for completeness. It must not be quoted as a  #
+#  result, in the email or anywhere else. Three independent defects:           #
+#                                                                              #
+#  1. QUESTIONS WERE WRITTEN FROM ARM A CHUNKS. The generator saw Arm A's      #
+#     markdown table rendering. The pool is, by construction, the set of       #
+#     questions an Arm-A index can answer.                                     #
+#                                                                              #
+#  2. GOLD IS DEFINED AS AN ARM A CHUNK. Arm A's per-chunk ceiling is          #
+#     therefore 1.000 by construction, not by merit. Arm B is scored against   #
+#     a target that is literally one of Arm A's outputs.                       #
+#                                                                              #
+#  3. GOLD LENGTHS COME FROM A TAIL ARM B CANNOT REACH. Arm A chunks run to    #
+#     1375 normalized chars (chunk_table allows 1500); Arm B is bounded at     #
+#     550 by the 92-token window. Golds longer than any Arm B chunk cannot be  #
+#     covered by Arm B at any threshold. That is arithmetic, not retrieval.    #
+################################################################################
+
+
+==============================================================================
+(1) CEILING, RECOMPUTED WITH THE CONTIGUOUS CRITERION
+==============================================================================
+Supersedes the earlier block-sum numbers. Longest contiguous run only.
+Arm A per-chunk is 1.000 by construction - see defect 2 above.
+
+  ALL (n=80)
+     thresh |  A per-chunk  B per-chunk |  B union/page
+       0.40 |        1.000        0.750 |         0.963
+       0.50 |        1.000        0.725 |         0.950
+       0.60 |        1.000        0.650 |         0.912
+       0.70 |        1.000        0.512 |         0.900
+       0.80 |        1.000        0.325 |         0.850
+    median B per-chunk contiguous coverage: 0.713
+
+  TABLE-GOLD (n=40)
+     thresh |  A per-chunk  B per-chunk |  B union/page
+       0.40 |        1.000        0.500 |         0.925
+       0.50 |        1.000        0.450 |         0.900
+       0.60 |        1.000        0.325 |         0.825
+       0.70 |        1.000        0.250 |         0.800
+       0.80 |        1.000        0.175 |         0.700
+    median B per-chunk contiguous coverage: 0.420
+
+  PROSE-GOLD (n=40)
+     thresh |  A per-chunk  B per-chunk |  B union/page
+       0.40 |        1.000        1.000 |         1.000
+       0.50 |        1.000        1.000 |         1.000
+       0.60 |        1.000        0.975 |         1.000
+       0.70 |        1.000        0.775 |         1.000
+       0.80 |        1.000        0.475 |         1.000
+    median B per-chunk contiguous coverage: 0.795
+
+==============================================================================
+(2) GOLD-LENGTH REACHABILITY  [first-class result]
+==============================================================================
+Can one chunk in the arm physically hold the gold, before retrieval?
+
+  longest chunk, Arm A : 1375 normalized chars  (chunk_table cap 1500)
+  longest chunk, Arm B : 550 normalized chars  (bounded by 92-token window)
+
+  slice          n  gold median  gold max  fits Arm A  fits Arm B
+  ALL           80          387      1079       1.000       0.850
+  TABLE-GOLD    40          397      1079       1.000       0.700
+  PROSE-GOLD    40          384       428       1.000       1.000
+
+  Arm B per-chunk coverage, split by whether the gold fits in ANY Arm B chunk:
+    gold FITS Arm B            n= 68  median contig=0.755  reach 0.60: 0.765
+    gold TOO LONG for Arm B    n= 12  median contig=0.327  reach 0.60: 0.000
+
+==============================================================================
+(3) COLUMN-WISE vs ROW-WISE EXTRACTION FAILURE  [first-class result]
+==============================================================================
+A gold is SCATTERED in Arm B when its characters are largely present in a
+single Arm B chunk (block-sum coverage >= 0.6) but cannot be
+found as one run (contiguous coverage < 0.35). That is the
+signature of PyMuPDF reading a row-wise table down its columns.
+
+  slice          n  scattered    rate  median gap   p90 gap
+  TABLE-GOLD    40          2   0.050       0.000     0.339
+  PROSE-GOLD    40          0   0.000       0.000     0.000
+
+  The binary criterion above is deliberately strict and, on its own,
+  UNDERSTATES the effect. The graded distribution is the better view:
+
+  scatter gap >     TABLE-GOLD    PROSE-GOLD
+  0.05                17 / 40         1 / 40  
+  0.10                11 / 40         1 / 40  
+  0.20                10 / 40         1 / 40  
+  0.30                 9 / 40         1 / 40  
+  0.40                 4 / 40         1 / 40  
+
+  Prose is the control, and it is clean: 1/40 at every threshold against
+  10/40 for tables at gap > 0.20. The signal tracks table structure, not
+  some general property of long chunks.
+
+  WHY TABLE GOLDS FAIL IN ARM B (n=40, mutually exclusive):
+    too long for any Arm B chunk :  12
+    fits, but cells scattered    :   2
+    fits, contiguous but < 0.60  :  13
+    reaches 0.60 in Arm B        :  13
+
+  Read this carefully before describing the mechanism. Cell scattering is
+  REAL but is NOT the dominant failure: gold length (12) and plain low
+  contiguous coverage (13) each account for more than scattering (2) under
+  the strict definition. An earlier single-example reading of Q026
+  over-generalised scattering as the main mechanism; this table supersedes
+  it.
+
+  Widest table-gold scatter gaps:
+    qid       blocks  contig     gap  source
+    Q034       0.736   0.240   0.496  car_s2_l_car66_maintenance_engineer_li p100
+    Q020       0.647   0.162   0.485  car_s2_l_car66_maintenance_engineer_li p48
+
+==============================================================================
