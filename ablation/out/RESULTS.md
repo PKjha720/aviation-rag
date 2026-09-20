@@ -183,7 +183,7 @@ MECHANISM ATTRIBUTION — REQUIRED IN ANY SUMMARY OF THIS EXPERIMENT
   describe it as the mechanism.
 ```
 
-HAND-CHECK PROVENANCE: the 20-item hand-check (HANDCHECK_20.txt) was model-annotated by the AI assistant at the author's instruction on 2026-09-20 — not a human review. 19 accepted, 1 rejected (T013).
+HAND-CHECK PROVENANCE: every pool item was reviewed by a model at the author's instruction on 2026-09-20; none was reviewed by a human. Three passes: (1) a 20-item check of the 39-item pool (HANDCHECK_20.txt), 19 accepted, 1 rejected (T013); (2) an independent model reviewer, blind to pass 1 and briefed to reject wherever it could, over the same 20, rejecting 5 more (T003 T004 T006 T010 P005), rule: reject if either pass rejects; (3) a single-pass review at the stricter standard of the 19 items no pass had seen (HANDCHECK_REMAINING_19.txt), rejecting 4 (T012 T016 T018 P016). Pool 39 -> 33 -> 29. All 39 items were reviewed at least once and 20 of them twice; of the 29 that remain, 14 were reviewed twice and 15 once.
 
 nDCG@10 NOTE: with a single relevant chunk nDCG@10 = 1/log2(rank+1), a re-expression of the same rank MRR uses. It is not independent evidence. Overlapping windows can make >1 chunk relevant, in which case IDCG uses the count of relevant chunks in that arm.
 
