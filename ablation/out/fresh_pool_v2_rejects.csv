@@ -1,0 +1,173 @@
+stratum,file,page,stage,detail
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,100,V5_span_too_short,14
+table,circular_air_safety_2023_01_flight_data_analysis.pdf,3,V5_span_too_short,22
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,78,V5_span_over_cap,161
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,224,V5_span_too_short,32
+table,circular_flight_crew_2025_01_medical.pdf,4,V5_span_too_short,23
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,137,V1_unparseable,"{
+""question"": ""According to CAR-66 Issue III Rev 2, what is the maintenance requirement code for the '62 Rotors' task un"
+table,car_s2_e_car145_maintenance_org_2025.pdf,11,V7_no_fit_armB,"‘Large Aircraft’ 
+means an aircraft, classified as an aeroplane with a maximum take-
+off mass of more than 5700 kg"
+table,circular_cabin_safety_2025_01_training.pdf,11,V5_span_over_cap,126
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,159,V6_no_fit_armA,"B1.1 
+
+None 
+
+16. 
+
+12. 
+
+12, 16. 
+
+Non
+e 
+
+16. 
+
+12. 
+
+12, 16. 
+4, 5, 
+13,14 
+4, 5, 
+13SQ, 
+14SQ 
+
+16. 
+
+12L. 
+
+12L. 
+8"
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,169,V5_span_too_short,24
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,114,V5_span_too_short,12
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,228,V6_no_fit_armA,"1 
+05 Time limits /maintenance 
+checks 
+Perform (assist) in A-Check"
+table,icao_doc9859_safety_management_manual.pdf,47,V5_span_over_cap,128
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,167,V5_span_too_short,27
+table,icao_doc9859_safety_management_manual.pdf,61,V5_span_too_short,35
+table,car_s2_f_p14_microlight_aircraft.pdf,32,V5_span_too_short,28
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,170,V5_span_too_short,34
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,197,V5_span_too_short,14
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,230,V5_span_too_short,38
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,173,V5_span_too_short,13
+table,car_s2_i_p5_flight_data_recorders.pdf,30,V5_span_over_cap,274
+table,car_s2_e_car145_maintenance_org_2025.pdf,156,V5_span_too_short,21
+table,circular_air_safety_2023_01_flight_data_analysis.pdf,18,V5_span_too_short,19
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,194,V6_no_fit_armA,"7L-Airframe general mechanical and electrical
+systems’ 
+60 
+75"
+table,car_s2_i_p5_flight_data_recorders.pdf,27,V5_span_too_short,33
+table,car_s2_e_car145_maintenance_org_2025.pdf,130,V5_span_too_short,34
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,158,V5_span_too_short,22
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,36,V5_span_over_cap,124
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,196,V5_span_too_short,33
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,54,V5_span_too_short,33
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,59,V5_span_too_short,19
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,223,V5_span_too_short,30
+table,circular_air_safety_2023_01_flight_data_analysis.pdf,12,V5_span_too_short,15
+table,icao_environment_report.pdf,427,V5_span_over_cap,272
+table,icao_environment_report.pdf,204,V6_no_fit_armA,"German 
+Nabisy 
+System
+German Federal 
+Ministry of 
+Economics and 
+Energy (BMWi)
+Regulatory
+Active since 2020"
+table,car_s2_e_camo_continuing_airworthiness_mgmt.pdf,8,V5_span_over_cap,155
+table,icao_gasp_global_safety_plan.pdf,11,V5_span_over_cap,188
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,51,V5_span_too_short,13
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,117,V5_span_too_short,19
+table,circular_air_safety_2023_01_flight_data_analysis.pdf,8,V5_span_too_short,28
+table,icao_environment_report.pdf,410,V5_span_over_cap,124
+table,icao_environment_report.pdf,275,V5_span_too_short,35
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,116,V8_ambiguous_span,matches 2 pages
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,52,V5_span_too_short,25
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,111,V5_span_too_short,19
+table,car_s2_e_car145_maintenance_org_2025.pdf,17,V5_span_too_short,29
+table,car_s2_e_car145_maintenance_org_2025.pdf,129,V5_span_too_short,25
+table,car_s2_e_car145_maintenance_org_2025.pdf,12,V8_ambiguous_span,matches 2 pages
+table,car_s2_e_car145_maintenance_org_2025.pdf,165,V8_ambiguous_span,matches 2 pages
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,55,V8_ambiguous_span,matches 2 pages
+table,car_s2_i_p5_flight_data_recorders.pdf,26,V5_span_over_cap,121
+table,icao_environment_report.pdf,149,V5_span_too_short,17
+table,car_s2_i_p5_flight_data_recorders.pdf,32,V7_no_fit_armB,"Lateral 
+acceleration 
+±1 g (*) 
+0.25 (0.125 
+if available) 
+As installed 
+(±0.015 g 
+excluding a 
+datum error of 
+±0.05"
+table,car_s2_e_camo_continuing_airworthiness_mgmt.pdf,9,V5_span_over_cap,107
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,240,V5_span_too_short,37
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,225,V5_span_too_short,22
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,50,V5_span_too_short,26
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,164,V5_span_too_short,27
+table,car_s2_e_car145_maintenance_org_2025.pdf,145,V8_ambiguous_span,matches 2 pages
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,236,V5_span_too_short,37
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,49,V5_span_too_short,31
+table,icao_gasp_global_safety_plan.pdf,27,V5_span_too_short,35
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,53,V5_span_too_short,12
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,131,V5_span_too_short,22
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,210,V6_no_fit_armA,"Five annual inspections (covering at 
+least 2 different types) (*) 
+x (Free)"
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,109,V5_span_too_short,23
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,74,V5_span_over_cap,170
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,160,V6_no_fit_armA,"L1C 
+All 
+All 
+All 
+All 
+All 
+All 
+All 
+All 
+All 
+All 
+None 
+4L, 6L. 
+8L. 
+4L, 6L, 
+8L. 
+9L. 
+10L. 
+8L,9L, 
+11L. 
+8L, 10"
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,241,V5_span_too_short,36
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,61,V5_span_too_short,19
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,121,V5_span_too_short,18
+table,circular_air_nav_2024_01_installation.pdf,2,V5_span_too_short,28
+table,icao_doc9859_safety_management_manual.pdf,65,V3_deictic,"'the preceding': According to the example in Figure 4-5, what specific statistical threshold from the mean "
+table,icao_environment_report.pdf,265,V5_span_too_short,9
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,113,V5_span_too_short,16
+table,icao_doc9859_safety_management_manual.pdf,49,V5_span_over_cap,206
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,58,V5_span_too_short,22
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,136,V5_span_too_short,26
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,115,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,138,QUOTA_empty_response,Groq daily token quota exhausted
+table,icao_gasp_global_safety_plan.pdf,42,QUOTA_empty_response,Groq daily token quota exhausted
+table,icao_doc9859_safety_management_manual.pdf,46,V5_span_over_cap,190
+table,car_s2_e_car145_maintenance_org_2025.pdf,159,QUOTA_empty_response,Groq daily token quota exhausted
+table,circular_air_safety_2023_01_flight_data_analysis.pdf,13,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,163,V5_span_over_cap,104
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,135,QUOTA_empty_response,Groq daily token quota exhausted
+table,circular_air_safety_2023_01_flight_data_analysis.pdf,17,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_e_car145_maintenance_org_2025.pdf,16,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,104,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_i_p5_flight_data_recorders.pdf,31,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,124,V5_span_too_short,26
+table,car_s2_e_car145_maintenance_org_2025.pdf,9,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,226,QUOTA_empty_response,Groq daily token quota exhausted
+table,car_s2_l_car66_maintenance_engineer_licensing.pdf,174,QUOTA_empty_response,Groq daily token quota exhausted
+table,icao_environment_report.pdf,230,QUOTA_empty_response,Groq daily token quota exhausted

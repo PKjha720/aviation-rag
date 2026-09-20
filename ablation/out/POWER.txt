@@ -1,0 +1,35 @@
+MINIMUM DETECTABLE EFFECT - paired binary Recall, McNemar exact test
+==========================================================================
+alpha = 0.05 two-sided, power = 0.8. Not a measurement of this data:
+the discordant rate is unknown until retrieval runs. Read the row that
+matches the observed rate.
+
+  n    = number of paired queries
+  disc = fraction of queries where exactly one arm succeeds
+  d    = number of discordant pairs the test actually uses
+  MDE  = smallest difference in Recall (Arm A minus Arm B, in points of
+         proportion) detectable at 80% power
+  b*   = smallest number of Arm-A-only wins out of d that rejects H0
+
+     n   disc    d     MDE   power   b*
+    42   0.10    4   no rejection region at this d
+    42   0.20    8   0.189   0.803    8
+    42   0.30   13   0.228   0.802   11
+    42   0.40   17   0.250   0.801   13
+    80   0.10    8   0.095   0.803    8
+    80   0.20   16   0.141   0.800   13
+    80   0.30   24   0.178   0.800   18
+    80   0.40   32   0.213   0.803   23
+    90   0.10    9   0.082   0.802    8
+    90   0.20   18   0.130   0.802   14
+    90   0.30   27   0.173   0.803   20
+    90   0.40   36   0.194   0.803   25
+
+How to read it: at n=80 with a 20% discordant rate there are 16 usable
+pairs, and the arms must disagree lopsidedly enough that the difference in
+Recall is at least the MDE shown before an 80%-power test would call it.
+Differences below the MDE are not detectable, whatever their sign.
+
+Discordant pairs and the test statistic must be REPORTED alongside any
+delta, because a delta with few discordant pairs is a delta the test
+cannot see.
