@@ -219,16 +219,17 @@ estimate; an Arm B advantage measured on this pool would be uninterpretable.
 This label is carried in `notes.py` and injected into every artifact the pool
 touches.
 
-Current state (`POOL_STATUS.txt`): **42 accepted questions, 21 table-gold and 21
-prose-gold**, against a target of 45 and 45.
+Current state (`POOL_STATUS.txt`): **39 accepted questions, 21 table and 18
+prose**, against a target of 45 and 45. Every remaining item has
+`page_stratum == gold_stratum`.
 
-Those counts key on the *gold*, not the page it was sampled from. Three items
-(T001, T009, T020) came from table-bearing pages but their gold span sits in a
-prose chunk; an earlier draft called that benign, which was wrong for a
-table-versus-prose comparison. They are now counted as prose-gold, not dropped.
-`page_stratum` retains the sampling provenance (24 from table pages, 18 from
-prose pages) and `prompt_version` records that those three were generated with
-the table prompt, so the prose-gold stratum now mixes two prompts.
+Three items (T001, T009, T020) came from table-bearing pages but their gold span
+sits in a prose chunk. An earlier draft called that benign, which was wrong for a
+table-versus-prose comparison; a later revision *moved* them into the prose
+stratum, which is **retracted** here — it made the prose stratum a mix of two
+generator prompts and reintroduced the asymmetry the strata exist to avoid. They
+are **dropped**. IDs were assigned before the drop, so the table IDs have gaps
+where those three were.
 
 The table sweep stopped at 119 of 199 table-bearing pages because Groq's free
 tier daily token quota was exhausted (`Limit 200000, Used 199856`). Fourteen

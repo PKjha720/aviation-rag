@@ -71,15 +71,16 @@ PROMPT ASYMMETRY — TABLE vs PROSE STRATUM
 
 # Stratum labels were originally assigned by PAGE (did Arm A find a table
 # anywhere on the page). Three table-page golds turned out to sit in prose
-# chunks. Analysis now keys on the GOLD, not the page; page_stratum is retained
-# as sampling provenance.
-STRATUM_RELABEL = """\
-STRATUM LABELS
+# chunks. They are DROPPED, not moved.
+STRATUM_DROP = """STRATUM LABELS AND THE THREE DROPPED ITEMS
   page_stratum : which sampling frame the page came from (table-bearing page or
                  prose-only page). Provenance only.
   gold_stratum : whether the gold span sits inside an Arm A chunk that ingest
                  flagged is_table. This is the label every table-vs-prose
-                 comparison uses. Three items sampled from table-bearing pages
-                 have prose golds and are counted as PROSE here; they were
-                 generated with the table prompt, which prompt_version records.\
-"""
+                 comparison uses.
+  Three items sampled from table-bearing pages (T001, T009, T020) had prose
+  golds. They are DROPPED from the pool. An earlier revision moved them into
+  the prose stratum instead; that decision is RETRACTED, because it made the
+  prose stratum a mix of two generator prompts and reintroduced exactly the
+  asymmetry the strata are meant to avoid. Every remaining item has
+  page_stratum == gold_stratum."""

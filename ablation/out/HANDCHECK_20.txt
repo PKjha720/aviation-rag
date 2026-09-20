@@ -18,14 +18,18 @@ PROMPT ASYMMETRY — TABLE vs PROSE STRATUM
   page text, and both pass identical deterministic validation. Compare strata
   with this difference in mind.
 
-STRATUM LABELS
+STRATUM LABELS AND THE THREE DROPPED ITEMS
   page_stratum : which sampling frame the page came from (table-bearing page or
                  prose-only page). Provenance only.
   gold_stratum : whether the gold span sits inside an Arm A chunk that ingest
                  flagged is_table. This is the label every table-vs-prose
-                 comparison uses. Three items sampled from table-bearing pages
-                 have prose golds and are counted as PROSE here; they were
-                 generated with the table prompt, which prompt_version records.
+                 comparison uses.
+  Three items sampled from table-bearing pages (T001, T009, T020) had prose
+  golds. They are DROPPED from the pool. An earlier revision moved them into
+  the prose stratum instead; that decision is RETRACTED, because it made the
+  prose stratum a mix of two generator prompts and reintroduced exactly the
+  asymmetry the strata are meant to avoid. Every remaining item has
+  page_stratum == gold_stratum.
 
 MECHANISM ATTRIBUTION — REQUIRED IN ANY SUMMARY OF THIS EXPERIMENT
   Of 40 table golds, 27 fail to reach 0.60 contiguous
@@ -852,44 +856,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[12]  P004   gold_stratum=prose   page_stratum=prose   span=84 norm chars   prompt=v1_generic
-      icao_environment_report.pdf  page 321
-------------------------------------------------------------------------------
-QUESTION:
-  According to the ICF-led study, what is the potential SAF production capacity for Japan by 2030?
-
-GOLD SPAN (must answer the question, verbatim from the page):
-  > identified potential for Japan to produce up to 441 million gallons (1.67 billion liters) of SAF by 2030.
-
-RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | gional 
-  | paths towards net zero is provided by the Boeing Cascade 
-  | Climate Impact Model, a digital tool that quantifies the 
-  | potential of commercial aviation’s strategies to reduce 
-  | carbon emissions.
-  | Key takeaways from a few Boeing-
-  | sponsored SAF roadmaps:
-  | Japan
-  | •	 A SAF feedstock study in Japan1, undertaken by 
-  | strategic consultancy firm ICF and led by Boeing, 
-  | Mitsubishi Heavy Industries and SMBC Aviation Capital, 
-  | >>>SPAN>>>identified potential for Japan to produce up to 441 
-  | million gallons (1.67 billion liters) of SAF by 2030<<<SPAN<<<.
-  | •	 Promising feedstocks include woody biomass, municipal 
-  | solid waste and renewable electricity.
-  | •	 Scaling up local production of SAF could allow Japan 
-  | to nearly meet its 2030 goal of using 10% SAF for 
-  | international flights.
-  | Southeast Asia
-  | •	 RSB’s report on Southeast Asia2 noted the region 
-  | boasts significant potential to produce SAF due to 
-  | its abundant bio-based feedstock resources such as 
-  | agricultural resid
-
-  ACCEPT / REJECT: ______    notes: ______________________________
-
-==============================================================================
-[13]  P005   gold_stratum=prose   page_stratum=prose   span=67 norm chars   prompt=v1_generic
+[12]  P005   gold_stratum=prose   page_stratum=prose   span=67 norm chars   prompt=v1_generic
       icao_environment_report.pdf  page 306
 ------------------------------------------------------------------------------
 QUESTION:
@@ -918,7 +885,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[14]  P006   gold_stratum=prose   page_stratum=prose   span=47 norm chars   prompt=v1_generic
+[13]  P006   gold_stratum=prose   page_stratum=prose   span=47 norm chars   prompt=v1_generic
       icao_environment_report.pdf  page 439
 ------------------------------------------------------------------------------
 QUESTION:
@@ -949,71 +916,83 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[15]  P010   gold_stratum=prose   page_stratum=prose   span=58 norm chars   prompt=v1_generic
-      icao_environment_report.pdf  page 378
+[14]  P007   gold_stratum=prose   page_stratum=prose   span=84 norm chars   prompt=v1_generic
+      icao_environment_report.pdf  page 320
 ------------------------------------------------------------------------------
 QUESTION:
-  What is the maximum volume percentage of aromatic compounds that can constitute jet fuel?
+  What is the specific name of the ICAO initiative that Boeing joined in 2023 to support sustainable aviation fuels?
 
 GOLD SPAN (must answer the question, verbatim from the page):
-  > Aromatic compounds, which can constitute up to 25% by volume of jet fuel
+  > ICAO Assistance, Capacity-building and Training for Sustainable Aviation Fuels (ACT-SAF) initiative
 
 RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | 20
-  | 3	 Holladay et al., 2020
-  | 4	 Schripp et al. 2022
-  | Introduction
-  | Aircraft engines combust fuel imperfectly and incompletely, 
-  | emitting combustion side products derived from fuel 
-  | impurities and high-temperature reactions with air. Among 
-  | these products, fine particulate matter with aerodynamic 
-  | diameters of 2.5 microns and below (PM2.5) have an 
-  | outsized impact on regional air quality, public health and 
-  | the climate.
-  | >>>SPAN>>>Aromatic compounds, which can constitute up to 25% 
-  | by volume of jet fuel<<<SPAN<<<, are responsible for substantial non-
-  | volatile PM2.5 formation, a primary or direct source of 
-  | particulate matter.1 Low levels of sulphur compounds in jet 
-  | fuel are responsible for sulphur dioxide (SO2) formation, 
-  | a volatile particulate matter (vPM) that is the precursor 
-  | of sulphate aerosols, a potent secondary PM2.5.2
-  | Interventions focused on jointly reducing jet fuel aromatic 
-  | and sulphur content present an oppo
+  | ecarbonization including 
+  | its adoption of a long-term aspirational goal for international 
+  | aviation to achieve net-zero emissions goal by 2050, as 
+  | well as its aspiration to reduce carbon emissions by 5% for 
+  | international aviation by 2030 using sustainable aviation 
+  | fuels (SAF), Lower Carbon Aviation Fuel (LCAF) and other 
+  | aviation cleaner energies.
+  | Boeing supports ICAO’s efforts and in 2023 the company 
+  | joined the >>>SPAN>>>ICAO Assistance, Capacity-building and Training 
+  | for Sustainable Aviation Fuels (ACT-SAF) initiative<<<SPAN<<<. ACT-SAF 
+  | creates opportunities for countries to develop their full 
+  | potential in SAF development and deployment.
+  | In support of ICAO’s initiative, Boeing has helped develop 
+  | region-specific roadmaps and SAF feedstock analyses 
+  | together with local partners to help scale SAF production 
+  | locally to drive regional energy resilience and help meet 
+  | demand globally. These roadmaps help to identify which 
+  | feedstocks are the
 
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[16]  P011   gold_stratum=prose   page_stratum=prose   span=69 norm chars   prompt=v1_generic
-      car_s2_i_p5_flight_data_recorders.pdf  page 1
+[15]  P008   gold_stratum=prose   page_stratum=prose   span=84 norm chars   prompt=v1_generic
+      circular_air_nav_2026_01_installation.pdf  page 1
 ------------------------------------------------------------------------------
 QUESTION:
-  Under which rule of the Aircraft Rules, 1937, was the Civil Aviation Requirement for Flight Data Recorders and related systems issued?
+  To which entities is Advisory Circular ANSS AC 01 of 2026 regarding the installation and maintenance of CNS equipment applicable?
 
 GOLD SPAN (must answer the question, verbatim from the page):
-  > This CAR has been issued under the provisions of Rule 29C of the Aircraft Rules, 1937.
+  > This Advisory Circular is applicable to all civil ANSPs responsible for provisioning CNS Services.
 
 RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | ed. 
+  | h can distort or disrupt the navigation
+  | signals. Avoiding such interference is crucial to maintaining operational integrity.
+  | Over time, environmental conditions such as weather, vegetation growth or nearby
+  | construction projects may change the suitability of the CNS equipment. Regular calibration
+  | and maintenance of CNS system ensures that environmental changes do not degrade the
+  | system's effectiveness.
+  | Applicability:
+  | >>>SPAN>>>This Advisory Circular is applicable to all civil ANSPs responsible for provisioning
+  | CNS Services<<<SPAN<<<.
+  | ANSS AC 01 of 2026
+  | Page 1 of 11
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[16]  P009   gold_stratum=prose   page_stratum=prose   span=66 norm chars   prompt=v1_generic
+      icao_doc9859_safety_management_manual.pdf  page 156
+------------------------------------------------------------------------------
+QUESTION:
+  According to the Safety Management Manual, who is the only person allowed to know the identifying information of a reporter in a voluntary safety reporting system?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > any identifying information about the reporter is known only to the custodian
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | le, enforcement action may be waived for reports of errors, or in some circumstances, 
+  | rule-breaking. It should be clearly stated that reported information will be used solely to support the enhancement of 
+  | safety. The intent is to promote an effective reporting culture and proactive identification of potential safety deficiencies. 
   |  
-  | This part of Civil Aviation Requirement lays down the requirements for fitment of 
-  | Flight Data Recorders, Combination Recorders, Data link Recorders, Airborne Image 
-  | Recorders, Airborne Image Recording System and Aircraft Data Recording System 
-  | on aircraft registered in India. All aircraft imported/ purchased or leased for operation 
-  | in India shall meet the applicability requirements laid down in this CAR. 
-  |  
-  | >>>SPAN>>>This CAR has been issued under the provisions of Rule 29C of the Aircraft Rules, 
-  | 1937<<<SPAN<<<. 
-  |  
-  | 2. 
-  | DEFINITIONS: 
-  |  
-  | Flight Recorder: Any type of recorder installed in the aircraft for the purpose of 
-  | complementing accident/incident investigation. 
-  |  
-  | Automatic deployable flight recorder (ADFR): A combination flight recorder 
-  | installed on the aircraft which is capable of automatically deploying from the aircraft. 
-  |  
-  | Commercial Operation: An aircraft operation involving the transport of passengers,
+  | 9.4.4.5 
+  | Voluntary safety reporting systems should be confidential, requiring that >>>SPAN>>>any identifying information about 
+  | the reporter is known only to the custodian<<<SPAN<<< to allow for follow-up action. The role of custodian should be kept to a few 
+  | individuals, typically restricted to the safety manager and personnel involved in the safety investigation. Maintaining 
+  | confidentiality will help facilitate the disclosure of hazards leading to human error, without fear of retribution or 
+  | embarrassment. Voluntary safety reports may be de-identified and archived once necessary follow-up ac
 
   ACCEPT / REJECT: ______    notes: ______________________________
 
@@ -1083,7 +1062,51 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[19]  P018   gold_stratum=prose   page_stratum=prose   span=64 norm chars   prompt=v1_generic
+[19]  P015   gold_stratum=prose   page_stratum=prose   span=73 norm chars   prompt=v1_generic
+      car_s2_e_car145_maintenance_org_2025.pdf  page 168
+------------------------------------------------------------------------------
+QUESTION:
+  What is the maximum type certified passenger capacity threshold that defines a large aeropne for the purpose of Fuel Tank Safety Training under CAR 145 Appendix VIII?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Large aeroplanes as defined as maximum type certified passenger capacity of 30 or more
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | CAR 145 
+  | Issue 3, R0, 31st July 2024 
+  |  
+  |  168 
+  |  
+  | Appendix VIII - Appendix to AMC 145.A.30 (e) Fuel Tank Safety Training 
+  |  
+  | This appendix includes general instructions for providing training on Fuel Tank 
+  | Safety issues. 
+  | A) Effectivity: 
+  | - 
+  | >>>SPAN>>>Large aeroplanes as defined as maximum type certified passenger 
+  | capacity of 30 or more<<<SPAN<<< or a maximum certified payload capacity of 7500 
+  | lbs (3402 kg) cargo or more. 
+  |  
+  | B) Affected organisations: 
+  | - 
+  | CAR-145 
+  | approved 
+  | maintenance 
+  | organisations 
+  | involved 
+  | in 
+  | the 
+  | maintenance of aeroplanes specified in paragraph A) and fuel system 
+  | components installed on such aeroplanes when the maintenance data are 
+  | affected by CDCCL. 
+  |  
+  | C) Persons from affected organisations who should receive training: 
+  | Phase 1 on
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[20]  P018   gold_stratum=prose   page_stratum=prose   span=64 norm chars   prompt=v1_generic
       icao_doc9859_safety_management_manual.pdf  page 43
 ------------------------------------------------------------------------------
 QUESTION:
@@ -1124,38 +1147,6 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | Whether an organization realizes it or not, it will have a number of different “safety cultures” that reflect 
   | group-level attitudes and behaviours. No two organizations are identical, and even within the same organization, 
   | different groups may have various ways of thinking about
-
-  ACCEPT / REJECT: ______    notes: ______________________________
-
-==============================================================================
-[20]  T009   gold_stratum=prose   page_stratum=table   span=67 norm chars   prompt=v2_label_plus_value
-      icao_environment_report.pdf  page 477
-------------------------------------------------------------------------------
-QUESTION:
-  What is the estimated percentage of global greenhouse gas emissions attributed to international aviation according to the UNFCCC-ICAO cooperation context?
-
-GOLD SPAN (must answer the question, verbatim from the page):
-  > emissions from 
-  > international aviation—estimated at 1.2% of global GHG 
-  > emissions
-
-RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | Working Together for Net-Zero by 2050: UNFCCC and ICAO’s Joint Efforts
-  | CHAPTER SIXTEEN Multistakeholder Cooperation
-  | 463
-  | under the UNFCCC and are not included in national totals; 
-  | instead, they are reported separately.2
-  | While under the UNFCCC process, the focus has been 
-  | on emissions from domestic sources, >>>SPAN>>>emissions from 
-  | international aviation—estimated at 1.2% of global GHG 
-  | emissions<<<SPAN<<<​3— are addressed through ICAO as recognized 
-  | in both UNFCCC and Paris Agreement negotiations. This 
-  | distinction underpins the division of responsibilities: 
-  | countries account for domestic emissions under their 
-  | NDCs, while international aviation emissions are managed 
-  | through ICAO-led initiatives, including the ICAO Long-
-  | Term Aspirational Goal (LTAG) and Carbon Offsetting and 
-  | Reduction Scheme for International Avi
 
   ACCEPT / REJECT: ______    notes: ______________________________
 

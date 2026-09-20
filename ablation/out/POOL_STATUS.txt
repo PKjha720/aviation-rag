@@ -12,23 +12,21 @@ RUN WAS CUT SHORT BY AN EXTERNAL QUOTA, NOT BY THE CORPUS.
     empty (post-quota)      : 14   <- failures, not samples
     pages never attempted   : 80
 
-  COUNTS BY GOLD STRATUM (the label every table-vs-prose comparison uses):
-    TABLE-gold : 21   (target 45)
-    PROSE-gold : 21   (target 45)
-    POOL TOTAL : 42
+  POOL COUNTS (page_stratum == gold_stratum for every item):
+    TABLE : 21   (target 45;  v2 label+value prompt)
+    PROSE : 18   (target 45;  v1 generic prompt, carry-over)
+    TOTAL : 39
 
-  COUNTS BY PAGE STRATUM (sampling provenance only):
-    from table-bearing pages : 24  (v2 label+value prompt)
-    from prose-only pages    : 18  (v1 generic prompt, carry-over)
-
-  3 item(s) sampled from table-bearing pages have a gold span that
-  sits in a PROSE chunk. They are counted as PROSE-gold above, not dropped:
+  DROPPED 3 of 42 validated items whose gold sits in a PROSE chunk
+  although they were sampled from a table-bearing page:
     T001, T009, T020
-  The prose-gold stratum therefore mixes two prompts; prompt_version records
-  which for every item.
+  An earlier revision MOVED these into the prose stratum. That is RETRACTED:
+  it mixed two generator prompts inside one stratum. Dropping keeps each
+  stratum on a single prompt. IDs were assigned before the drop, so the
+  remaining table IDs have gaps where these three were.
 
-  acceptance rate on real table-page responses: 24/105 = 0.229
-  projection if all 199 table pages were swept at that rate: 45
+  acceptance rate on real table-page responses (after the drop): 21/105 = 0.200
+  projection if all 199 table pages were swept at that rate: 40
   That projection is an ARITHMETIC EXTRAPOLATION, not a measurement, and
   must not be reported as a result.
 
@@ -60,14 +58,18 @@ PROMPT ASYMMETRY — TABLE vs PROSE STRATUM
   page text, and both pass identical deterministic validation. Compare strata
   with this difference in mind.
 
-STRATUM LABELS
+STRATUM LABELS AND THE THREE DROPPED ITEMS
   page_stratum : which sampling frame the page came from (table-bearing page or
                  prose-only page). Provenance only.
   gold_stratum : whether the gold span sits inside an Arm A chunk that ingest
                  flagged is_table. This is the label every table-vs-prose
-                 comparison uses. Three items sampled from table-bearing pages
-                 have prose golds and are counted as PROSE here; they were
-                 generated with the table prompt, which prompt_version records.
+                 comparison uses.
+  Three items sampled from table-bearing pages (T001, T009, T020) had prose
+  golds. They are DROPPED from the pool. An earlier revision moved them into
+  the prose stratum instead; that decision is RETRACTED, because it made the
+  prose stratum a mix of two generator prompts and reintroduced exactly the
+  asymmetry the strata are meant to avoid. Every remaining item has
+  page_stratum == gold_stratum.
 
 MECHANISM ATTRIBUTION — REQUIRED IN ANY SUMMARY OF THIS EXPERIMENT
   Of 40 table golds, 27 fail to reach 0.60 contiguous
