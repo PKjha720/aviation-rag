@@ -13,6 +13,13 @@ Changes from v1:
 Unchanged: the 40-char floor, the 98-char cap, and every deterministic
 validation stage. The floor is not relaxed to buy yield.
 
+PROVENANCE NOTE. The fresh_raw_v2.jsonl on disk was produced by an earlier
+revision of this script whose ask() retried through 429s and returned None
+after four attempts, which is why that file contains 14 empty records after
+the quota ran out. The QuotaExhausted handling below was added afterwards. A
+resume run under this code stops on the first quota error instead of writing
+empties; the 14 existing empties are handled by assemble_pool_v2.py.
+
 Writes: ablation/out/fresh_raw_v2.jsonl
         ablation/out/fresh_pool_v2.json
         ablation/out/fresh_pool_v2_rejects.csv
@@ -33,8 +40,8 @@ from groq import Groq
 
 from arms import list_pdfs, extract_flat
 from judgments import normalize, coverage
-from fresh_pool import (DEICTIC, GROQ_MODEL, PAGE_TEXT_LIMIT, SPAN_CAP_NORM,
-                        SPAN_MIN_NORM, PROMPT as PROMPT_PROSE, ask, parse_json)
+from fresh_pool import (DEICTIC, PAGE_TEXT_LIMIT, SPAN_CAP_NORM, SPAN_MIN_NORM,
+                        PROMPT as PROMPT_PROSE, QuotaExhausted, ask, parse_json)
 from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY
 
 load_dotenv()
@@ -190,6 +197,7 @@ def main():
     raw_f = (OUT / "fresh_raw_v2.jsonl").open("a", encoding="utf-8")
     accepted, rejects = [], []
     n_api, n_cached = 0, 0
+    quota_hit = None
 
     for stratum, order, prompt, target in (
             ("table", table_order, PROMPT_TABLE, TARGET_TABLE),
@@ -209,7 +217,15 @@ def main():
                 raw, src = cache[k], "cache"
                 n_cached += 1
             else:
-                raw, src = ask(client, prompt.format(page=page_text)), "api_v2"
+                try:
+                    raw, src = ask(client, prompt.format(page=page_text)), "api_v2"
+                except QuotaExhausted as e:
+                    # Stop cleanly, keep everything accepted so far, and still
+                    # write the pool and rejects. The page that triggered this
+                    # is NOT recorded as a sample.
+                    quota_hit = str(e)[:200]
+                    print(f"  {stratum}: stopping at page {i}/{len(order)} - daily quota")
+                    break
                 n_api += 1
                 time.sleep(0.2)
 
@@ -233,6 +249,8 @@ def main():
         else:
             print(f"  {stratum}: EXHAUSTED all {len(order)} pages with {got} accepted "
                   f"(target was {target})")
+        if quota_hit:
+            break
 
     raw_f.close()
 

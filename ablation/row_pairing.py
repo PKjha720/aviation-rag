@@ -136,8 +136,11 @@ def main():
         print("FAILED: fresh_pool_v2.json not found. Nothing to check.")
         return
     pool = json.loads(src.read_text(encoding="utf-8"))
-    table_items = [q for q in pool if q["page_stratum"] == "table"]
-    print(f"checking {len(table_items)} table-stratum items")
+    # Row pairing is a question about table content, so it runs on table GOLDS.
+    # Older pool files lack gold_stratum; fall back to page_stratum.
+    table_items = [q for q in pool
+                   if q.get("gold_stratum", q["page_stratum"]) == "table"]
+    print(f"checking {len(table_items)} table-gold items")
 
     # Does the gold span sit inside an Arm A chunk that ingest flagged as a
     # table? This separates "prose on a table-bearing page" (undetermined is
@@ -187,7 +190,7 @@ def main():
         print("")
         print(f"  of the {len(und)} undetermined:")
         print(f"    gold sits in a TABLE chunk  : {in_tab}  <- worth reviewing")
-        print(f"    gold is PROSE on a table page: {len(und)-in_tab}  <- expected, benign")
+        print(f"    gold is PROSE (mislabelled)  : {len(und)-in_tab}  <- should be 0 when keyed on gold_stratum")
     print("=" * 66)
     print("find_tables() is Arm A's own view of the page. These verdicts are")
     print("EVIDENCE, NOT GROUND TRUTH. Nothing has been dropped on this basis.")

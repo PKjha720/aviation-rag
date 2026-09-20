@@ -1,5 +1,5 @@
 ################################################################################
-#  OLD 80-QUESTION POOL  —  CONTAMINATED - DO NOT REPORT                       #
+#  OLD 80-QUESTION POOL  -  CONTAMINATED - DO NOT REPORT                       #
 #                                                                              #
 #  Computed and kept in the repo for completeness. It must not be quoted as a  #
 #  result, in the email or anywhere else. Three independent defects:           #
@@ -12,17 +12,21 @@
 #     therefore 1.000 by construction, not by merit. Arm B is scored against   #
 #     a target that is literally one of Arm A's outputs.                       #
 #                                                                              #
-#  3. GOLD LENGTHS COME FROM A TAIL ARM B CANNOT REACH. Arm A chunks run to    #
-#     1375 normalized chars (chunk_table allows 1500); Arm B is bounded at     #
-#     550 by the 92-token window. Golds longer than any Arm B chunk cannot be  #
-#     covered by Arm B at any threshold. That is arithmetic, not retrieval.    #
+#  3. GOLD LENGTHS COME FROM A TAIL ARM B CANNOT MATCH. Arm A chunks run to    #
+#     1375 normalized chars (1688 raw; chunk_table's 1500 is a SOFT cap that
+#     a single long row can exceed). Arm B is bounded at 550 normalized chars
+#     by the 92-token window. A gold longer than 550 cannot be FULLY
+#     covered by one Arm B chunk; how much of it CAN be is a per-gold number
+#     (column armB_max_possible_cov), not a blanket statement.
 ################################################################################
 
 
 ==============================================================================
 (1) CEILING, RECOMPUTED WITH THE CONTIGUOUS CRITERION
 ==============================================================================
-Supersedes the earlier block-sum numbers. Longest contiguous run only.
+Longest contiguous run only. This supersedes the block-sum figures that an
+earlier version of reground.py wrote to ceiling.csv / ceiling_report.txt;
+those files have been removed from the repository.
 Arm A per-chunk is 1.000 by construction - see defect 2 above.
 
   ALL (n=80)
@@ -55,10 +59,12 @@ Arm A per-chunk is 1.000 by construction - see defect 2 above.
 ==============================================================================
 (2) GOLD-LENGTH REACHABILITY  [first-class result]
 ==============================================================================
-Can one chunk in the arm physically hold the gold, before retrieval?
+Can one chunk in the arm physically hold the gold, and if not, how much of
+it could one chunk hold at best?
 
-  longest chunk, Arm A : 1375 normalized chars  (chunk_table cap 1500)
-  longest chunk, Arm B : 550 normalized chars  (bounded by 92-token window)
+  longest chunk, Arm A : 1375 normalized / 1688 raw chars
+      (chunk_table's max_chars=1500 is a SOFT cap; one long row exceeds it)
+  longest chunk, Arm B : 550 normalized chars  (bounded by the 92-token window)
 
   slice          n  gold median  gold max  fits Arm A  fits Arm B
   ALL           80          387      1079       1.000       0.850
@@ -68,6 +74,35 @@ Can one chunk in the arm physically hold the gold, before retrieval?
   Arm B per-chunk coverage, split by whether the gold fits in ANY Arm B chunk:
     gold FITS Arm B            n= 68  median contig=0.755  reach 0.60: 0.765
     gold TOO LONG for Arm B    n= 12  median contig=0.327  reach 0.60: 0.000
+
+  THE 12 TOO-LONG TABLE GOLDS, BY WHAT ONE ARM B CHUNK COULD HOLD AT BEST
+  (armB_max_possible_cov = Arm B max chunk length / gold length):
+    max possible < 0.60  (arithmetically barred from 0.60) :  7
+    max possible < 0.50                                       :  0
+    max possible < 0.40                                       :  0
+    max possible >= 0.60 (COULD reach 0.60, measured not to) :  5
+    of the 12, number that actually reached 0.60 :  0
+
+  Read the distinction carefully. 'Too long' means one Arm B chunk cannot
+  hold ALL of the gold. Only the subset with max possible < 0.60 is barred
+  from the 0.60 threshold by arithmetic. The rest were MEASURED at zero
+  reach; that is an observation about alignment, not a ceiling. None of the
+  12 is arithmetically barred at 0.40 or 0.50.
+
+  Per-gold values:
+    qid      gold len max possible  measured
+    Q040         1079        0.510     0.370
+    Q008         1074        0.512     0.383
+    Q029         1032        0.533     0.394
+    Q019          997        0.552     0.326
+    Q018          959        0.574     0.065
+    Q017          926        0.594     0.314
+    Q027          926        0.594     0.328
+    Q026          904        0.608     0.128
+    Q022          873        0.630     0.276
+    Q004          811        0.678     0.392
+    Q038          695        0.791     0.446
+    Q002          597        0.921     0.317
 
 ==============================================================================
 (3) COLUMN-WISE vs ROW-WISE EXTRACTION FAILURE  [first-class result]
@@ -91,22 +126,21 @@ signature of PyMuPDF reading a row-wise table down its columns.
   0.30                 9 / 40         1 / 40  
   0.40                 4 / 40         1 / 40  
 
-  Prose is the control, and it is clean: 1/40 at every threshold against
-  10/40 for tables at gap > 0.20. The signal tracks table structure, not
-  some general property of long chunks.
+  Prose is the control. It never exceeds 1/40 at any scatter-gap cutoff,
+  against 10/40 for tables at gap > 0.20. The signal tracks table
+  structure, not some general property of long chunks.
 
-  WHY TABLE GOLDS FAIL IN ARM B (n=40, mutually exclusive):
-    too long for any Arm B chunk :  12
-    fits, but cells scattered    :   2
-    fits, contiguous but < 0.60  :  13
-    reaches 0.60 in Arm B        :  13
+  WHY TABLE GOLDS FAIL IN ARM B (n=40, structurally exclusive buckets):
+    longer than any single Arm B chunk :  12
+    fits, but cells scattered          :   2
+    fits, contiguous but < 0.60       :  13
+    reaches 0.60 in Arm B              :  13
 
-  Read this carefully before describing the mechanism. Cell scattering is
-  REAL but is NOT the dominant failure: gold length (12) and plain low
-  contiguous coverage (13) each account for more than scattering (2) under
-  the strict definition. An earlier single-example reading of Q026
-  over-generalised scattering as the main mechanism; this table supersedes
-  it.
+  27 of 40 fail to reach 0.60; 13 reach it.
+  Cell scattering explains 2 of the 27 failures.
+  Gold length explains 12 and plain low contiguous coverage
+  13. An earlier single-example reading of Q026 over-generalised
+  scattering as the main mechanism; this table supersedes it.
 
   Widest table-gold scatter gaps:
     qid       blocks  contig     gap  source
@@ -114,3 +148,20 @@ signature of PyMuPDF reading a row-wise table down its columns.
     Q020       0.647   0.162   0.485  car_s2_l_car66_maintenance_engineer_li p48
 
 ==============================================================================
+
+MECHANISM ATTRIBUTION — REQUIRED IN ANY SUMMARY OF THIS EXPERIMENT
+  Of 40 table golds, 27 fail to reach 0.60 contiguous
+  coverage in Arm B and 13 reach it. The 40 split into
+  mutually exclusive categories:
+      gold longer than any single Arm B chunk ... 12
+          (of these, 7 are arithmetically barred from 0.60;
+           the other 5 could reach it and were
+           measured not to)
+      fits, contiguous coverage < 0.60 ......... 13
+      fits, but cells scattered ................  2
+      reaches 0.60 in Arm B .................... 13
+  Cell scattering explains 2 of the 27 failures. Gold length
+  explains 12 and plain low coverage 13. Scattering is REAL
+  (prose control: 1/40 at scatter gap > 0.20 against
+  10/40 for tables) but it is NOT the mechanism. Do not
+  describe it as the mechanism.

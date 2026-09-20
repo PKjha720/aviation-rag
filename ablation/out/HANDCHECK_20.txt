@@ -12,21 +12,37 @@ BIAS LABEL — FRESH POOL
 PROMPT ASYMMETRY — TABLE vs PROSE STRATUM
   The table stratum was regenerated with a prompt requiring the span to carry a
   row LABEL plus its VALUE, because the original generic prompt returned bare
-  cell values (median 22 normalized chars) that fell under the 40-char floor.
-  The prose stratum keeps the original generic prompt, unchanged and un-rerun.
-  Both strata see only raw flat page text, and both pass identical deterministic
-  validation. Compare strata with this difference in mind.
+  cell values (median 22 normalized chars, from replay_validation.py console
+  output) that fell under the 40-char floor. The prose stratum keeps the
+  original generic prompt, unchanged and un-rerun. Both strata see only raw flat
+  page text, and both pass identical deterministic validation. Compare strata
+  with this difference in mind.
+
+STRATUM LABELS
+  page_stratum : which sampling frame the page came from (table-bearing page or
+                 prose-only page). Provenance only.
+  gold_stratum : whether the gold span sits inside an Arm A chunk that ingest
+                 flagged is_table. This is the label every table-vs-prose
+                 comparison uses. Three items sampled from table-bearing pages
+                 have prose golds and are counted as PROSE here; they were
+                 generated with the table prompt, which prompt_version records.
 
 MECHANISM ATTRIBUTION — REQUIRED IN ANY SUMMARY OF THIS EXPERIMENT
-  Of 40 table-gold failures in Arm B (mutually exclusive categories):
-      gold too long for any Arm B chunk ... 12
-      fits, contiguous coverage < 0.60 .... 13
-      fits, but cells scattered ...........  2
-      reaches 0.60 in Arm B ............... 13
-  Cell scattering explains 2 of 40. Gold length explains 12 and plain low
-  coverage 13. Scattering is REAL (prose control: 1/40 at every scatter-gap
-  threshold, against 10/40 for tables at gap > 0.20) but it is NOT the
-  mechanism. Do not describe it as the mechanism.
+  Of 40 table golds, 27 fail to reach 0.60 contiguous
+  coverage in Arm B and 13 reach it. The 40 split into
+  mutually exclusive categories:
+      gold longer than any single Arm B chunk ... 12
+          (of these, 7 are arithmetically barred from 0.60;
+           the other 5 could reach it and were
+           measured not to)
+      fits, contiguous coverage < 0.60 ......... 13
+      fits, but cells scattered ................  2
+      reaches 0.60 in Arm B .................... 13
+  Cell scattering explains 2 of the 27 failures. Gold length
+  explains 12 and plain low coverage 13. Scattering is REAL
+  (prose control: 1/40 at scatter gap > 0.20 against
+  10/40 for tables) but it is NOT the mechanism. Do not
+  describe it as the mechanism.
 
 ------------------------------------------------------------------------------
 SELECTION: the table half is NOT random. It is weighted toward items the
@@ -49,7 +65,7 @@ Mark any you reject and I will drop them and recount before retrieval runs.
 ------------------------------------------------------------------------------
 
 ==============================================================================
-[01]  T013   stratum=table   span=44 norm chars   prompt=v2_label_plus_value
+[01]  T013   gold_stratum=table   page_stratum=table   span=44 norm chars   prompt=v2_label_plus_value
       car_s2_l_car66_maintenance_engineer_licensing.pdf  page 208
       ROW-PAIRING: UNDETERMINED   (best-row token coverage 0.5714, two-row 0.5714)
       GOLD SITS IN: a TABLE chunk
@@ -114,121 +130,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[02]  T001   stratum=table   span=67 norm chars   prompt=v2_label_plus_value
-      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 141
-      ROW-PAIRING: UNDETERMINED   (best-row token coverage 0.0, two-row 0.0)
-      GOLD SITS IN: a PROSE chunk (page has a table elsewhere)
-------------------------------------------------------------------------------
-QUESTION:
-  According to CAR-66 Issue III, Rev 2, what is the nominal average time allowed per question for the theoretical element examination of aircraft type training?
-
-GOLD SPAN (must answer the question, verbatim from the page):
-  > the time for answering is based upon a nominal average of 
-  > 90 seconds per question.
-
-find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
-  best-matching row : nan
-  ^^ the gold is PROSE on a page that happens to contain a table
-     elsewhere, so there is no row to match. Benign - undetermined
-     here is expected, not a warning.
-
-RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | ement examination standard 
-  | After the theoretical portion of the aircraft type training has been completed, a written examination 
-  | shall be performed, which shall comply with the following: 
-  | (a) Format of the examination is of the multi-choice type. Each multi-choice question shall have 3 
-  | alternative answers of which only one shall be the correct answer. The total time is based on 
-  | the total number of questions and >>>SPAN>>>the time for answering is based upon a nominal average of 
-  | 90 seconds per question<<<SPAN<<<. 
-  | (b) The incorrect alternatives shall seem equally plausible to anyone ignorant of the subject. All 
-  | the alternatives shall be clearly related to the question and of similar vocabulary, grammatical 
-  | construction and length. 
-  | (c) In numerical questions, the incorrect answers shall correspond to procedural errors such as the 
-  | use of incorrect sense (+ versus -) or incorrect measurement units. They shall not be mere 
-
-  ACCEPT / REJECT: ______    notes: ______________________________
-
-==============================================================================
-[03]  T009   stratum=table   span=67 norm chars   prompt=v2_label_plus_value
-      icao_environment_report.pdf  page 477
-      ROW-PAIRING: UNDETERMINED   (best-row token coverage 0.2222, two-row 0.2222)
-      GOLD SITS IN: a PROSE chunk (page has a table elsewhere)
-------------------------------------------------------------------------------
-QUESTION:
-  What is the estimated percentage of global greenhouse gas emissions attributed to international aviation according to the UNFCCC-ICAO cooperation context?
-
-GOLD SPAN (must answer the question, verbatim from the page):
-  > emissions from 
-  > international aviation—estimated at 1.2% of global GHG 
-  > emissions
-
-find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
-  best-matching row : Global Stocktake (GST) outcomes | LTAG and ICAO Global Framework for SAF, LCAF and other Aviation Cleaner Energies
-  ^^ the gold is PROSE on a page that happens to contain a table
-     elsewhere, so there is no row to match. Benign - undetermined
-     here is expected, not a warning.
-
-RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | Working Together for Net-Zero by 2050: UNFCCC and ICAO’s Joint Efforts
-  | CHAPTER SIXTEEN Multistakeholder Cooperation
-  | 463
-  | under the UNFCCC and are not included in national totals; 
-  | instead, they are reported separately.2
-  | While under the UNFCCC process, the focus has been 
-  | on emissions from domestic sources, >>>SPAN>>>emissions from 
-  | international aviation—estimated at 1.2% of global GHG 
-  | emissions<<<SPAN<<<​3— are addressed through ICAO as recognized 
-  | in both UNFCCC and Paris Agreement negotiations. This 
-  | distinction underpins the division of responsibilities: 
-  | countries account for domestic emissions under their 
-  | NDCs, while international aviation emissions are managed 
-  | through ICAO-led initiatives, including the ICAO Long-
-  | Term Aspirational Goal (LTAG) and Carbon Offsetting and 
-  | Reduction Scheme for International Avi
-
-  ACCEPT / REJECT: ______    notes: ______________________________
-
-==============================================================================
-[04]  T020   stratum=table   span=53 norm chars   prompt=v2_label_plus_value
-      icao_environment_report.pdf  page 431
-      ROW-PAIRING: UNDETERMINED   (best-row token coverage 0.1111, two-row 0.2222)
-      GOLD SITS IN: a PROSE chunk (page has a table elsewhere)
-------------------------------------------------------------------------------
-QUESTION:
-  What is the risk level assigned to the Runway exposed element under the RCP 2.6 scenario for extreme heat events with a 50-year return period?
-
-GOLD SPAN (must answer the question, verbatim from the page):
-  > Specifically, the “Runway” 
-  > shows a “Low” risk for the RCP2.6 scenario
-
-find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
-  best-matching row : RISK MATRIX |  |  |  |
-  ^^ the gold is PROSE on a page that happens to contain a table
-     elsewhere, so there is no row to match. Benign - undetermined
-     here is expected, not a warning.
-
-RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | lity 12 (19), 8123. https://doi.org/10.3390/su12198123.
-  | Principle results
-  | For confidentiality reasons, only the extreme heat events 
-  | results are presented, using the runway as an exposed sample. 
-  | The results show that the final risk is strongly influenced by 
-  | the variations of the hazards in different scenarios (RCP 2.6, 
-  | RCP 4.5 and RCP8.5) and by the vulnerability characteristics 
-  | identified by the questionnaires. >>>SPAN>>>Specifically, the “Runway” 
-  | shows a “Low” risk for the RCP2.6 scenario<<<SPAN<<< and “High” risk 
-  | level in the RCP4.5 and RCP8.5 scenarios, considering events 
-  | with a return period of 50 years. Analyses highlighted that 
-  | the adoption of a mitigation scenario (RCP 2.6) can lead to 
-  | a substantial decrease in climate risk in the area compared 
-  | to stabilization scenarios with higher concentrations (such as 
-  | RCP 4.5), and compared to the scenario with high emissions 
-  | and no mitigation strategy (RCP 8
-
-  ACCEPT / REJECT: ______    notes: ______________________________
-
-==============================================================================
-[05]  T002   stratum=table   span=72 norm chars   prompt=v2_label_plus_value
+[02]  T002   gold_stratum=table   page_stratum=table   span=72 norm chars   prompt=v2_label_plus_value
       icao_doc9859_safety_management_manual.pdf  page 103
       ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
       GOLD SITS IN: a TABLE chunk
@@ -274,7 +176,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[06]  T003   stratum=table   span=65 norm chars   prompt=v2_label_plus_value
+[03]  T003   gold_stratum=table   page_stratum=table   span=65 norm chars   prompt=v2_label_plus_value
       circular_air_safety_2023_01_flight_data_analysis.pdf  page 4
       ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
       GOLD SITS IN: a TABLE chunk
@@ -393,7 +295,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[07]  T004   stratum=table   span=43 norm chars   prompt=v2_label_plus_value
+[04]  T004   gold_stratum=table   page_stratum=table   span=43 norm chars   prompt=v2_label_plus_value
       icao_doc9859_safety_management_manual.pdf  page 48
       ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
       GOLD SITS IN: a TABLE chunk
@@ -462,7 +364,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[08]  T005   stratum=table   span=50 norm chars   prompt=v2_label_plus_value
+[05]  T005   gold_stratum=table   page_stratum=table   span=50 norm chars   prompt=v2_label_plus_value
       car_s2_i_p5_flight_data_recorders.pdf  page 24
       ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
       GOLD SITS IN: a TABLE chunk
@@ -569,7 +471,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[09]  T006   stratum=table   span=45 norm chars   prompt=v2_label_plus_value
+[06]  T006   gold_stratum=table   page_stratum=table   span=45 norm chars   prompt=v2_label_plus_value
       circular_air_safety_2023_01_flight_data_analysis.pdf  page 14
       ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
       GOLD SITS IN: a TABLE chunk
@@ -662,7 +564,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[10]  T007   stratum=table   span=77 norm chars   prompt=v2_label_plus_value
+[07]  T007   gold_stratum=table   page_stratum=table   span=77 norm chars   prompt=v2_label_plus_value
       circular_cabin_safety_2025_01_training.pdf  page 5
       ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
       GOLD SITS IN: a TABLE chunk
@@ -734,7 +636,190 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[11]  P002   stratum=prose   span=78 norm chars   prompt=v1_generic
+[08]  T008   gold_stratum=table   page_stratum=table   span=45 norm chars   prompt=v2_label_plus_value
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 232
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  Which ATA chapter is associated with the task 'Perform slat operational test' in the CAR 66 Issue III, Rev 2 regulatory document?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 134 
+  > 27 Flight controls 
+  > Perform slat operational test
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : 134 | 27 Flight controls | Perform slat operational test | X | X
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | CAR 66 
+  |  
+  | Issue III, Rev 2 dated 29th September 2025 
+  |  
+  |  
+  |  
+  |  
+  | Page 232 of 247 
+  |  
+  | Task 
+  | No 
+  | ATA chapter 
+  | Task description 
+  | B1.1 
+  | B2 
+  | >>>SPAN>>>134 
+  | 27 Flight controls 
+  | Perform slat operational test<<<SPAN<<< 
+  | X 
+  | X 
+  | 135 
+  | 27 Flight controls 
+  | Remove/install slat 
+  | X 
+  | — 
+  | 136 
+  | 27 Flight controls 
+  | Replace control cable and fittings 
+  | X 
+  | — 
+  | 137 
+  | 27 Flight controls 
+  | Perform control cable tension adjustment 
+  | X 
+  | — 
+  | 138 
+  | 27 Flight controls 
+  | Remove/install actuator 
+  | X 
+  | — 
+  | 139 
+  | 27 Flight controls 
+  | Remove/install powered control unit 
+  | X 
+  | — 
+  | 140 
+  | 27 Flight controls 
+  | Perform flight controls functional test 
+  | X 
+  | X 
+  | 141 
+  | 27 Flight controls 
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[09]  T010   gold_stratum=table   page_stratum=table   span=40 norm chars   prompt=v2_label_plus_value
+      car_s2_e_car145_maintenance_org_2025.pdf  page 10
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  According to CAR 145 Issue 3, what is the maximum take-off mass threshold for a helicopter to be classified under the specified certification criteria?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > (i) 
+  > For a maximum take-off mass exceeding 3175 Kg, or
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : | least two pilots, or (iv) Equipped with (a) turbojet engine(s) or more than one turboprop engine, or (2) A helicopter certificated: (i) For a maximum take-off mass exceeding 3175 Kg, or (ii) for a maximum passenger seating configuration of more than nine, or (iii) for operation with a minimum cre
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | CAR 145 
+  | Issue 3, R0, 31st July 2024 
+  |  
+  |  10 
+  |  
+  | least two pilots, or 
+  | (iv) 
+  | Equipped with (a) turbojet engine(s) or more than one 
+  | turboprop engine, or 
+  |  
+  | (2) A helicopter certificated: 
+  | (>>>SPAN>>>i) 
+  | For a maximum take-off mass exceeding 3175 Kg, or<<<SPAN<<<
+  | (ii) 
+  | for a maximum passenger seating configuration of 
+  | more than nine, or 
+  | (iii) 
+  | for operation with a minimum crew of at least two 
+  | pilots, or 
+  |  
+  | (3) A tilt rotor aircraft. 
+  | Component 
+  | means any engine, propeller, part or appliance. 
+  | Correction 
+  | is the action to eliminate a detected non-compliance. 
+  | Corrective action 
+  | is the action to eliminate or mitigate the root cause(s) and prevent 
+  | the recurrence of an existi
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[10]  T011   gold_stratum=table   page_stratum=table   span=64 norm chars   prompt=v2_label_plus_value
+      icao_doc9859_safety_management_manual.pdf  page 54
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  According to the examples of safety objectives in the Safety Management Manual, what is the specific outcome-oriented objective for a State regarding sector X?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > outcome-oriented 
+  > State 
+  > Reduce the annual number of safety events in sector X.
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : outcome-oriented | State | Reduce the annual number of safety events in sector X.
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | nstrate whether it is 
+  | maintaining or improving its safety performance. 
+  |  
+  |  
+  |  
+  |  
+  |  
+  | Table 6. Examples of safety objectives 
+  |  
+  | Examples of safety objectives 
+  | process-oriented 
+  | State or service provider 
+  | Increase safety reporting levels. 
+  | outcome-oriented 
+  | service provider 
+  | Reduce rate of adverse apron safety events. (high-level) 
+  |  
+  | or 
+  |  
+  | Reduce the annual number of adverse apron safety events from 
+  | the previous year. 
+  | >>>SPAN>>>outcome-oriented 
+  | State 
+  | Reduce the annual number of safety events in sector X<<<SPAN<<<. 
+  |  
+  |  
+  |  
+  | 4.2.4 
+  | An organization may also choose to identify safety objectives at the tactical or operational level or apply 
+  | them to specific projects, products and processes. A safety objective may also be expressed by the use of other terms 
+  | with a similar meaning (e.g. goal or target). 
+  |  
+  |  
+  |  
+  | 4.3 SAFETY PERFORMANCE INDICATORS AND SAFETY PERFORMANCE TARGETS 
+  |  
+  |  
+  | 4.3.1 Types of safety performance indicators 
+  |  
+  |  
+  | Qua
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[11]  P002   gold_stratum=prose   page_stratum=prose   span=78 norm chars   prompt=v1_generic
       icao_environment_report.pdf  page 238
 ------------------------------------------------------------------------------
 QUESTION:
@@ -767,7 +852,44 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[12]  P005   stratum=prose   span=67 norm chars   prompt=v1_generic
+[12]  P004   gold_stratum=prose   page_stratum=prose   span=84 norm chars   prompt=v1_generic
+      icao_environment_report.pdf  page 321
+------------------------------------------------------------------------------
+QUESTION:
+  According to the ICF-led study, what is the potential SAF production capacity for Japan by 2030?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > identified potential for Japan to produce up to 441 million gallons (1.67 billion liters) of SAF by 2030.
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | gional 
+  | paths towards net zero is provided by the Boeing Cascade 
+  | Climate Impact Model, a digital tool that quantifies the 
+  | potential of commercial aviation’s strategies to reduce 
+  | carbon emissions.
+  | Key takeaways from a few Boeing-
+  | sponsored SAF roadmaps:
+  | Japan
+  | •	 A SAF feedstock study in Japan1, undertaken by 
+  | strategic consultancy firm ICF and led by Boeing, 
+  | Mitsubishi Heavy Industries and SMBC Aviation Capital, 
+  | >>>SPAN>>>identified potential for Japan to produce up to 441 
+  | million gallons (1.67 billion liters) of SAF by 2030<<<SPAN<<<.
+  | •	 Promising feedstocks include woody biomass, municipal 
+  | solid waste and renewable electricity.
+  | •	 Scaling up local production of SAF could allow Japan 
+  | to nearly meet its 2030 goal of using 10% SAF for 
+  | international flights.
+  | Southeast Asia
+  | •	 RSB’s report on Southeast Asia2 noted the region 
+  | boasts significant potential to produce SAF due to 
+  | its abundant bio-based feedstock resources such as 
+  | agricultural resid
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[13]  P005   gold_stratum=prose   page_stratum=prose   span=67 norm chars   prompt=v1_generic
       icao_environment_report.pdf  page 306
 ------------------------------------------------------------------------------
 QUESTION:
@@ -796,7 +918,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[13]  P006   stratum=prose   span=47 norm chars   prompt=v1_generic
+[14]  P006   gold_stratum=prose   page_stratum=prose   span=47 norm chars   prompt=v1_generic
       icao_environment_report.pdf  page 439
 ------------------------------------------------------------------------------
 QUESTION:
@@ -827,88 +949,76 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[14]  P007   stratum=prose   span=84 norm chars   prompt=v1_generic
-      icao_environment_report.pdf  page 320
+[15]  P010   gold_stratum=prose   page_stratum=prose   span=58 norm chars   prompt=v1_generic
+      icao_environment_report.pdf  page 378
 ------------------------------------------------------------------------------
 QUESTION:
-  What is the specific name of the ICAO initiative that Boeing joined in 2023 to support sustainable aviation fuels?
+  What is the maximum volume percentage of aromatic compounds that can constitute jet fuel?
 
 GOLD SPAN (must answer the question, verbatim from the page):
-  > ICAO Assistance, Capacity-building and Training for Sustainable Aviation Fuels (ACT-SAF) initiative
+  > Aromatic compounds, which can constitute up to 25% by volume of jet fuel
 
 RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | ecarbonization including 
-  | its adoption of a long-term aspirational goal for international 
-  | aviation to achieve net-zero emissions goal by 2050, as 
-  | well as its aspiration to reduce carbon emissions by 5% for 
-  | international aviation by 2030 using sustainable aviation 
-  | fuels (SAF), Lower Carbon Aviation Fuel (LCAF) and other 
-  | aviation cleaner energies.
-  | Boeing supports ICAO’s efforts and in 2023 the company 
-  | joined the >>>SPAN>>>ICAO Assistance, Capacity-building and Training 
-  | for Sustainable Aviation Fuels (ACT-SAF) initiative<<<SPAN<<<. ACT-SAF 
-  | creates opportunities for countries to develop their full 
-  | potential in SAF development and deployment.
-  | In support of ICAO’s initiative, Boeing has helped develop 
-  | region-specific roadmaps and SAF feedstock analyses 
-  | together with local partners to help scale SAF production 
-  | locally to drive regional energy resilience and help meet 
-  | demand globally. These roadmaps help to identify which 
-  | feedstocks are the
+  | 20
+  | 3	 Holladay et al., 2020
+  | 4	 Schripp et al. 2022
+  | Introduction
+  | Aircraft engines combust fuel imperfectly and incompletely, 
+  | emitting combustion side products derived from fuel 
+  | impurities and high-temperature reactions with air. Among 
+  | these products, fine particulate matter with aerodynamic 
+  | diameters of 2.5 microns and below (PM2.5) have an 
+  | outsized impact on regional air quality, public health and 
+  | the climate.
+  | >>>SPAN>>>Aromatic compounds, which can constitute up to 25% 
+  | by volume of jet fuel<<<SPAN<<<, are responsible for substantial non-
+  | volatile PM2.5 formation, a primary or direct source of 
+  | particulate matter.1 Low levels of sulphur compounds in jet 
+  | fuel are responsible for sulphur dioxide (SO2) formation, 
+  | a volatile particulate matter (vPM) that is the precursor 
+  | of sulphate aerosols, a potent secondary PM2.5.2
+  | Interventions focused on jointly reducing jet fuel aromatic 
+  | and sulphur content present an oppo
 
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[15]  P008   stratum=prose   span=84 norm chars   prompt=v1_generic
-      circular_air_nav_2026_01_installation.pdf  page 1
+[16]  P011   gold_stratum=prose   page_stratum=prose   span=69 norm chars   prompt=v1_generic
+      car_s2_i_p5_flight_data_recorders.pdf  page 1
 ------------------------------------------------------------------------------
 QUESTION:
-  To which entities is Advisory Circular ANSS AC 01 of 2026 regarding the installation and maintenance of CNS equipment applicable?
+  Under which rule of the Aircraft Rules, 1937, was the Civil Aviation Requirement for Flight Data Recorders and related systems issued?
 
 GOLD SPAN (must answer the question, verbatim from the page):
-  > This Advisory Circular is applicable to all civil ANSPs responsible for provisioning CNS Services.
+  > This CAR has been issued under the provisions of Rule 29C of the Aircraft Rules, 1937.
 
 RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | h can distort or disrupt the navigation
-  | signals. Avoiding such interference is crucial to maintaining operational integrity.
-  | Over time, environmental conditions such as weather, vegetation growth or nearby
-  | construction projects may change the suitability of the CNS equipment. Regular calibration
-  | and maintenance of CNS system ensures that environmental changes do not degrade the
-  | system's effectiveness.
-  | Applicability:
-  | >>>SPAN>>>This Advisory Circular is applicable to all civil ANSPs responsible for provisioning
-  | CNS Services<<<SPAN<<<.
-  | ANSS AC 01 of 2026
-  | Page 1 of 11
-
-  ACCEPT / REJECT: ______    notes: ______________________________
-
-==============================================================================
-[16]  P009   stratum=prose   span=66 norm chars   prompt=v1_generic
-      icao_doc9859_safety_management_manual.pdf  page 156
-------------------------------------------------------------------------------
-QUESTION:
-  According to the Safety Management Manual, who is the only person allowed to know the identifying information of a reporter in a voluntary safety reporting system?
-
-GOLD SPAN (must answer the question, verbatim from the page):
-  > any identifying information about the reporter is known only to the custodian
-
-RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | le, enforcement action may be waived for reports of errors, or in some circumstances, 
-  | rule-breaking. It should be clearly stated that reported information will be used solely to support the enhancement of 
-  | safety. The intent is to promote an effective reporting culture and proactive identification of potential safety deficiencies. 
+  | ed. 
   |  
-  | 9.4.4.5 
-  | Voluntary safety reporting systems should be confidential, requiring that >>>SPAN>>>any identifying information about 
-  | the reporter is known only to the custodian<<<SPAN<<< to allow for follow-up action. The role of custodian should be kept to a few 
-  | individuals, typically restricted to the safety manager and personnel involved in the safety investigation. Maintaining 
-  | confidentiality will help facilitate the disclosure of hazards leading to human error, without fear of retribution or 
-  | embarrassment. Voluntary safety reports may be de-identified and archived once necessary follow-up ac
+  | This part of Civil Aviation Requirement lays down the requirements for fitment of 
+  | Flight Data Recorders, Combination Recorders, Data link Recorders, Airborne Image 
+  | Recorders, Airborne Image Recording System and Aircraft Data Recording System 
+  | on aircraft registered in India. All aircraft imported/ purchased or leased for operation 
+  | in India shall meet the applicability requirements laid down in this CAR. 
+  |  
+  | >>>SPAN>>>This CAR has been issued under the provisions of Rule 29C of the Aircraft Rules, 
+  | 1937<<<SPAN<<<. 
+  |  
+  | 2. 
+  | DEFINITIONS: 
+  |  
+  | Flight Recorder: Any type of recorder installed in the aircraft for the purpose of 
+  | complementing accident/incident investigation. 
+  |  
+  | Automatic deployable flight recorder (ADFR): A combination flight recorder 
+  | installed on the aircraft which is capable of automatically deploying from the aircraft. 
+  |  
+  | Commercial Operation: An aircraft operation involving the transport of passengers,
 
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[17]  P013   stratum=prose   span=98 norm chars   prompt=v1_generic
+[17]  P013   gold_stratum=prose   page_stratum=prose   span=98 norm chars   prompt=v1_generic
       icao_environment_report.pdf  page 167
 ------------------------------------------------------------------------------
 QUESTION:
@@ -943,7 +1053,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[18]  P014   stratum=prose   span=60 norm chars   prompt=v1_generic
+[18]  P014   gold_stratum=prose   page_stratum=prose   span=60 norm chars   prompt=v1_generic
       car_s2_e_camo_continuing_airworthiness_mgmt.pdf  page 90
 ------------------------------------------------------------------------------
 QUESTION:
@@ -973,51 +1083,7 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   ACCEPT / REJECT: ______    notes: ______________________________
 
 ==============================================================================
-[19]  P015   stratum=prose   span=73 norm chars   prompt=v1_generic
-      car_s2_e_car145_maintenance_org_2025.pdf  page 168
-------------------------------------------------------------------------------
-QUESTION:
-  What is the maximum type certified passenger capacity threshold that defines a large aeropne for the purpose of Fuel Tank Safety Training under CAR 145 Appendix VIII?
-
-GOLD SPAN (must answer the question, verbatim from the page):
-  > Large aeroplanes as defined as maximum type certified passenger capacity of 30 or more
-
-RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
-  | CAR 145 
-  | Issue 3, R0, 31st July 2024 
-  |  
-  |  168 
-  |  
-  | Appendix VIII - Appendix to AMC 145.A.30 (e) Fuel Tank Safety Training 
-  |  
-  | This appendix includes general instructions for providing training on Fuel Tank 
-  | Safety issues. 
-  | A) Effectivity: 
-  | - 
-  | >>>SPAN>>>Large aeroplanes as defined as maximum type certified passenger 
-  | capacity of 30 or more<<<SPAN<<< or a maximum certified payload capacity of 7500 
-  | lbs (3402 kg) cargo or more. 
-  |  
-  | B) Affected organisations: 
-  | - 
-  | CAR-145 
-  | approved 
-  | maintenance 
-  | organisations 
-  | involved 
-  | in 
-  | the 
-  | maintenance of aeroplanes specified in paragraph A) and fuel system 
-  | components installed on such aeroplanes when the maintenance data are 
-  | affected by CDCCL. 
-  |  
-  | C) Persons from affected organisations who should receive training: 
-  | Phase 1 on
-
-  ACCEPT / REJECT: ______    notes: ______________________________
-
-==============================================================================
-[20]  P018   stratum=prose   span=64 norm chars   prompt=v1_generic
+[19]  P018   gold_stratum=prose   page_stratum=prose   span=64 norm chars   prompt=v1_generic
       icao_doc9859_safety_management_manual.pdf  page 43
 ------------------------------------------------------------------------------
 QUESTION:
@@ -1058,6 +1124,38 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | Whether an organization realizes it or not, it will have a number of different “safety cultures” that reflect 
   | group-level attitudes and behaviours. No two organizations are identical, and even within the same organization, 
   | different groups may have various ways of thinking about
+
+  ACCEPT / REJECT: ______    notes: ______________________________
+
+==============================================================================
+[20]  T009   gold_stratum=prose   page_stratum=table   span=67 norm chars   prompt=v2_label_plus_value
+      icao_environment_report.pdf  page 477
+------------------------------------------------------------------------------
+QUESTION:
+  What is the estimated percentage of global greenhouse gas emissions attributed to international aviation according to the UNFCCC-ICAO cooperation context?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > emissions from 
+  > international aviation—estimated at 1.2% of global GHG 
+  > emissions
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | Working Together for Net-Zero by 2050: UNFCCC and ICAO’s Joint Efforts
+  | CHAPTER SIXTEEN Multistakeholder Cooperation
+  | 463
+  | under the UNFCCC and are not included in national totals; 
+  | instead, they are reported separately.2
+  | While under the UNFCCC process, the focus has been 
+  | on emissions from domestic sources, >>>SPAN>>>emissions from 
+  | international aviation—estimated at 1.2% of global GHG 
+  | emissions<<<SPAN<<<​3— are addressed through ICAO as recognized 
+  | in both UNFCCC and Paris Agreement negotiations. This 
+  | distinction underpins the division of responsibilities: 
+  | countries account for domestic emissions under their 
+  | NDCs, while international aviation emissions are managed 
+  | through ICAO-led initiatives, including the ICAO Long-
+  | Term Aspirational Goal (LTAG) and Carbon Offsetting and 
+  | Reduction Scheme for International Avi
 
   ACCEPT / REJECT: ______    notes: ______________________________
 
