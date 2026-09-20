@@ -120,18 +120,6 @@
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
   {
-    "question_id": "T013",
-    "question": "Under the 'Leveling and weighing' category for sailplanes, which specific task is listed immediately after 'Level the sailplane'?",
-    "gold_span": "Level the sailplane \nx \nWeighing, weight & balance sheet",
-    "gold_span_norm_len": 44,
-    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
-    "page_number": 208,
-    "page_stratum": "table",
-    "gold_stratum": "table",
-    "prompt_version": "v2_label_plus_value",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
-  },
-  {
     "question_id": "T014",
     "question": "What is the title of Task C.05 in the CAEP/13 WG4 Work Programme?",
     "gold_span": "C.05\nWork on the ICAO CORSIA CO2 Estimation and \nReporting Tool (CERT)",

@@ -25,6 +25,14 @@ from fresh_pool import DEICTIC, parse_json, SPAN_MIN_NORM, SPAN_CAP_NORM
 from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_DROP
 
 OUT = Path("ablation/out")
+
+# Rejected at the hand-check stage (HANDCHECK_20.txt, model-annotated at the
+# author's instruction). Listed here so a re-run of this script cannot
+# resurrect them. Reason recorded beside each id.
+HANDCHECK_REJECTS = {
+    "T013": "layout/order question, not regulatory; span straddles two reconstructed rows",
+}
+
 TARGET_TABLE = 45
 TARGET_PROSE = 45
 TOTAL_TABLE_PAGES = 199
@@ -125,6 +133,8 @@ def main():
     dropped = [a["question_id"] for a in accepted if a["page_stratum"] != a["gold_stratum"]]
     n_before = len(accepted)
     accepted = [a for a in accepted if a["page_stratum"] == a["gold_stratum"]]
+    hc_dropped = [a["question_id"] for a in accepted if a["question_id"] in HANDCHECK_REJECTS]
+    accepted = [a for a in accepted if a["question_id"] not in HANDCHECK_REJECTS]
     n_page_tab = sum(1 for a in accepted if a["page_stratum"] == "table")
     n_tab = sum(1 for a in accepted if a["gold_stratum"] == "table")
     n_pro = len(accepted) - n_tab
@@ -162,6 +172,11 @@ def main():
     w("  it mixed two generator prompts inside one stratum. Dropping keeps each")
     w("  stratum on a single prompt. IDs were assigned before the drop, so the")
     w("  remaining table IDs have gaps where these three were.")
+    w("")
+    w(f"  DROPPED {len(hc_dropped)} at the hand-check stage (HANDCHECK_20.txt, model-annotated at")
+    w("  the author's instruction - not a human review):")
+    for qid in hc_dropped:
+        w(f"    {qid}: {HANDCHECK_REJECTS[qid]}")
     w("")
     w(f"  acceptance rate on real table-page responses (after the drop): {n_tab}/{n_real} = "
       f"{n_tab/max(n_real,1):.3f}")
