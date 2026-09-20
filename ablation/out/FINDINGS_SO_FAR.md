@@ -3,7 +3,8 @@
 Branch `structure-ablation`. Written before any retrieval has been run.
 
 **Retrieval has now been run; the deltas are in `RESULTS.md`** (headline pool
-n = 38; see its notices before quoting). Everything below was established before
+n = 29 after three model review passes, 13 table / 16 prose; see its notices
+before quoting). Everything below was established before
 retrieval and does not depend on those deltas.
 
 What follows are results that are complete as they stand, because they are
