@@ -5,9 +5,9 @@ Hybrid retrieval-augmented generation over Indian civil aviation regulation — 
 [![Live Demo](https://img.shields.io/badge/Streamlit-Live_Demo-FF4B4B?logo=streamlit)](https://aviation-rag-by-prabhat.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22382810.svg)](https://doi.org/10.5281/zenodo.22382810)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22382809.svg)](https://doi.org/10.5281/zenodo.22382809)
 
-**Paper:** *AeroRAG: A Domain-Adaptive Hybrid Retrieval-Augmented Generation System for Civil Aviation Regulatory Intelligence* — [10.5281/zenodo.22382810](https://doi.org/10.5281/zenodo.22382810)
+**Paper:** *AeroRAG: Hybrid Retrieval over Civil Aviation Regulations and the Table Evidence Lost at Ingestion* — [10.5281/zenodo.22382809](https://doi.org/10.5281/zenodo.22382809) (concept DOI, resolves to the latest version; v2 carries an erratum on the table/prose result)
 
 ---
 
@@ -15,7 +15,7 @@ Hybrid retrieval-augmented generation over Indian civil aviation regulation — 
 
 Ask a regulatory question, get a cited answer. But the interesting part of this repo isn't the system — it's the measurement.
 
-**Tables are where regulation keeps its binding values, and retrieval handles them badly.** Queries whose answer lives in a table retrieve at **0.675** Recall@5 against **0.925** for prose (p = 0.010). Dense retrieval alone drops to **0.500** (p = 0.0006). Neither score fusion nor cross-encoder reranking closes the gap.
+**Tables are where regulation keeps its binding values, and on the original benchmark they retrieved badly.** Queries whose answer lives in a table retrieved at **0.675** Recall@5 against **0.925** for prose (p = 0.010); dense retrieval alone at **0.500** (p = 0.0006). **Corrected (Sept 2026):** that gap is carried by chunk *length*, not by tables as such — table chunks under the embedder's 256-token limit retrieve at 1.000, indistinguishable from prose. See the caveat under Results and the first bullet of Limitations.
 
 **And the standard PDF extraction path destroys tables before retrieval ever runs.** `page.get_text("text")` flattens a table into newline-separated lines with no column boundaries — a tariff row and a paragraph become the same object. With structure-aware ingestion the index holds 368 table-derived chunks; without it, no table exists in the index *as a table*.
 
@@ -85,7 +85,7 @@ Every component is explicit. No framework abstraction sits between the code and 
 | Hybrid (RRF) | 0.625 | 0.900 | −0.275 | **0.0075** |
 | Full pipeline | 0.675 | 0.925 | −0.250 | **0.0103** |
 
-**Read with the length caveat in Limitations.** Table-derived gold chunks are systematically longer than prose-derived ones (median 834 vs 498 characters); 21 of 40 exceed the 256-token input limit of `all-MiniLM-L6-v2`, no prose chunk does. Split at that limit, the 19 table chunks within it retrieve at 1.000 / 0.789 / 0.947 (full / dense / sparse), not measurably different from prose (p = 0.54 / 0.45 / 1.00). The 21 longer ones retrieve at 0.381 / 0.238 / 0.429. The gap in this table is carried by chunk length, which the chunker sets — tables up to 1,500 characters, prose 512 — rather than by evidence type as such.
+**Read with the length caveat in Limitations.** Table-derived gold chunks are systematically longer than prose-derived ones (median 834 vs 497.5 characters); 21 of 40 exceed the 256-token input limit of `all-MiniLM-L6-v2`, no prose chunk does. Split at that limit, the 19 table chunks within it retrieve at 1.000 / 0.789 / 0.947 (full / dense / sparse), not measurably different from prose (p = 0.54 / 0.45 / 1.00). The 21 longer ones retrieve at 0.381 / 0.238 / 0.429. The gap in this table is carried by chunk length, which the chunker sets — tables up to 1,500 characters, prose 512 — rather than by evidence type as such.
 
 Every configuration is significantly worse on table evidence. Dense retrieval is worst: `all-MiniLM-L6-v2` finds half of table answers against seven-eighths of prose answers.
 
@@ -117,6 +117,19 @@ Not measurably, on either slice. MRR@10 rises from 0.655 to 0.725, so the cross-
 
 ---
 
+### Structure ablation: preserving tables vs flattening them
+
+A follow-up experiment (branch `structure-ablation`, merged) indexes the same 43 PDFs two ways — Arm A, the pipeline above; Arm B, flat `get_text("text")` with a fixed 92-token window and no table detection — through the identical retrieval stack, and scores both on a question pool built independently of either chunker (gold = a short verbatim span, required to fit inside a single chunk in *both* arms).
+
+| pool | n | Arm A R@10 | Arm B R@10 | Δ | discordant | McNemar p |
+|---|---|---|---|---|---|---|
+| independent (headline) | 29 | 0.828 | 0.828 | 0.000 | 2 / 2 | 1.00 |
+| original 80 (chunker-derived) | 80 | 0.863 | 0.525 | +0.338 | 28 / 1 | < 0.001 |
+
+Same two indexes, same retriever: no detectable difference on the independent pool, a 34-point "advantage" on the pool whose questions were written from Arm A's own chunks. The difference is the benchmark, not the retriever. Read [`ablation/out/RESULTS.md`](ablation/out/RESULTS.md) before quoting — n = 29 is powered only for large effects, the pool was generated via Arm B's extraction path, and the question review was two model passes rather than a human one. Full method and pre-retrieval findings in [`ablation/out/FINDINGS_SO_FAR.md`](ablation/out/FINDINGS_SO_FAR.md).
+
+---
+
 ## What ingestion loses before retrieval runs
 
 Three distinct forms of evidence loss, all occurring before any retrieval component executes, none visible in a recall metric.
@@ -139,7 +152,7 @@ The four absent documents are `aic_2024_02_open_sky_policy_cargo`, `aic_2025_15_
 
 Read these before citing any number above.
 
-- **Gold chunk length is confounded with evidence type, and accounts for the measured gap.** `chunk_table` emits chunks up to 1,500 characters; `chunk_text` caps prose at 512. Table-gold chunks are therefore longer (median 834 vs 498 characters) and 21 of 40 exceed the embedder's 256-token window, so only a prefix is embedded. Within the table slice — same generation prompt throughout — chunks under 256 tokens retrieve at 1.000 / 0.789 / 0.947 (full / dense / sparse, n = 19) and chunks over it at 0.381 / 0.238 / 0.429 (n = 21); Fisher p = 0.00002 / 0.0012 / 0.0006. Short table chunks are not measurably worse than prose in any mode. This is a post-hoc split on n = 40 and length is not the only difference between long and short table chunks, but it means the bi-encoder-and-numerals explanation above is not supported by these data: BM25, which does not truncate, shows the same drop. The defensible reading is that long chunks retrieve poorly under every configuration, and that this chunker makes table chunks long.
+- **Gold chunk length is confounded with evidence type, and accounts for the measured gap.** `chunk_table` emits chunks up to 1,500 characters; `chunk_text` caps prose at 512. Table-gold chunks are therefore longer (median 834 vs 497.5 characters) and 21 of 40 exceed the embedder's 256-token window, so only a prefix is embedded. Within the table slice — same generation prompt throughout — chunks under 256 tokens retrieve at 1.000 / 0.789 / 0.947 (full / dense / sparse, n = 19) and chunks over it at 0.381 / 0.238 / 0.429 (n = 21); Fisher p = 0.00002 / 0.0012 / 0.0006. Short table chunks are not measurably worse than prose in any mode. This is a post-hoc split on n = 40 and length is not the only difference between long and short table chunks, but it means the bi-encoder-and-numerals explanation offered in earlier versions of this README and in v1 of the preprint is not supported by these data: BM25, which does not truncate, shows the same drop. The defensible reading is that long chunks retrieve poorly under every configuration, and that this chunker makes table chunks long.
 - **Question style is confounded with evidence type.** This is the most serious one. Table questions were generated by a prompt demanding a specific value lookup; prose questions by a general prompt. Part of the 25-point gap may reflect value-lookup questions being intrinsically harder, rather than table evidence being harder to retrieve. This design cannot separate the two. Settling it needs a human-written benchmark with question styles matched across both slices.
 - **Synthetic evaluation only.** Questions are LLM-generated from sampled chunks; ground truth is the source chunk, which favours retrievers matching surface wording. Real-world figures on naturalistic queries would be lower.
 - **No generation-quality evaluation.** Faithfulness, hallucination rate and citation accuracy are unmeasured — the LLM-judge stage is disabled by default to stay within API quota. (The `answer_accuracy` column has therefore been removed from the released result files; with the judge off it only duplicated `recall_at_5`.)
@@ -238,11 +251,12 @@ MIT — see [LICENSE](LICENSE).
 
 ```bibtex
 @misc{jha2026aerorag,
-  title  = {AeroRAG: A Domain-Adaptive Hybrid Retrieval-Augmented Generation
-            System for Civil Aviation Regulatory Intelligence},
+  title  = {AeroRAG: Hybrid Retrieval over Civil Aviation Regulations and the
+            Table Evidence Lost at Ingestion},
   author = {Jha, Prabhat Kumar},
   year   = {2026},
-  doi    = {10.5281/zenodo.22382810},
-  url    = {https://doi.org/10.5281/zenodo.22382810}
+  note   = {v2 (erratum on the table/prose result). Concept DOI resolves to the latest version.},
+  doi    = {10.5281/zenodo.22382809},
+  url    = {https://doi.org/10.5281/zenodo.22382809}
 }
 ```
