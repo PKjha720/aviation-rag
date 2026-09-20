@@ -9,3 +9,9 @@ Thumbs.db
 data/raw/
 vectorstore/
 data/processed/
+# structure-ablation: regenerable chunk dumps (8MB each)
+ablation/out/arm_a_chunks.json
+ablation/out/arm_b_chunks.json
+ablation/index_*/
+ablation/out/fresh_raw.jsonl
+ablation/out/fresh_raw_v2.jsonl
