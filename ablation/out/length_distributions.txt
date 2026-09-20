@@ -1,0 +1,36 @@
+CHUNK LENGTH DISTRIBUTIONS (characters)
+======================================================================
+
+ARM A  (table-preserving + page boundaries, current pipeline)
+        n: 10,572
+     mean: 414.2
+   median: 453.0
+      p10: 170.0
+      p25: 324.0
+      p75: 511.0
+      p90: 512.0
+      max: 1,688
+      min: 1
+      std: 187.8
+
+  same chunks measured in MiniLM tokens:
+    mean=90.7 median=87.0 p90=112.9 max=722
+
+
+ARM B  (flat extraction, 92-token window, 12-token overlap)
+        n: 10,294
+     mean: 409.5
+   median: 455.0
+      p10: 156.0
+      p25: 361.0
+      p75: 502.0
+      p90: 535.0
+      max: 743
+      min: 15
+      std: 133.5
+
+
+PARITY
+  mean   : Arm A 414.2 vs Arm B 409.5  (-1.1%)
+  median : Arm A 453.0 vs Arm B 455.0  (+0.4%)
+  count  : Arm A 10,572 vs Arm B 10,294
