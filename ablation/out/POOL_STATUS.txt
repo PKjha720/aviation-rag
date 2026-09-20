@@ -13,9 +13,9 @@ RUN WAS CUT SHORT BY AN EXTERNAL QUOTA, NOT BY THE CORPUS.
     pages never attempted   : 80
 
   POOL COUNTS (page_stratum == gold_stratum for every item):
-    TABLE : 21   (target 45;  v2 label+value prompt)
+    TABLE : 20   (target 45;  v2 label+value prompt)
     PROSE : 18   (target 45;  v1 generic prompt, carry-over)
-    TOTAL : 39
+    TOTAL : 38
 
   DROPPED 3 of 42 validated items whose gold sits in a PROSE chunk
   although they were sampled from a table-bearing page:
@@ -25,8 +25,12 @@ RUN WAS CUT SHORT BY AN EXTERNAL QUOTA, NOT BY THE CORPUS.
   stratum on a single prompt. IDs were assigned before the drop, so the
   remaining table IDs have gaps where these three were.
 
-  acceptance rate on real table-page responses (after the drop): 21/105 = 0.200
-  projection if all 199 table pages were swept at that rate: 40
+  DROPPED 1 at the hand-check stage (HANDCHECK_20.txt, model-annotated at
+  the author's instruction - not a human review):
+    T013: layout/order question, not regulatory; span straddles two reconstructed rows
+
+  acceptance rate on real table-page responses (after the drop): 20/105 = 0.190
+  projection if all 199 table pages were swept at that rate: 38
   That projection is an ARITHMETIC EXTRAPOLATION, not a measurement, and
   must not be reported as a result.
 
