@@ -1,0 +1,90 @@
+LENGTH-CONFOUND ANALYSIS - table vs prose Recall@5
+==========================================================================
+inputs : results_v2.csv (320 rows), eval_dataset_v2.json (80 questions), gold_chunks_v2.json (80 chunks)
+embedder input limit : 256 tokens (sentence-transformers/all-MiniLM-L6-v2 default max_seq_length)
+test : two-sided Fisher exact on hit counts
+
+1. PUBLISHED RESULT, REPRODUCED
+   mode              table R@5   prose R@5     gap         p
+   Dense            0.500 (20/40)  0.875 (35/40)  -0.375    0.0006
+   Sparse (BM25)    0.675 (27/40)  0.925 (37/40)  -0.250    0.0103
+   Hybrid (RRF)     0.625 (25/40)  0.900 (36/40)  -0.275    0.0075
+   Full pipeline    0.675 (27/40)  0.925 (37/40)  -0.250    0.0103
+
+2. GOLD CHUNK LENGTH BY SLICE
+   slice      n  chars med  chars max  tok med  tok max  > 256 tok
+   table     40        834       1499      263      625     21/40
+   prose     40        498        512       95      129      0/40
+   medians shown rounded half-up to whole units; exact values (mean of the
+   two middle values, n=40): chars table 834.0, prose 497.5; tokens table 263.0, prose 94.5.
+   Prose chunks are capped at 512 characters by chunk_text; table chunks may
+   run to 1,500 by chunk_table. The strata differ in length by construction.
+
+3. TABLE SLICE SPLIT AT 256 TOKENS  (same generation prompt on both sides)
+   mode                   <= limit         > limit   p long vs short
+                            (n=19)          (n=21)
+   Dense              0.789 (15/19)    0.238 (5/21)           0.00123
+   Sparse (BM25)      0.947 (18/19)    0.429 (9/21)           0.00057
+   Hybrid (RRF)       0.895 (17/19)    0.381 (8/21)           0.00107
+   Full pipeline      1.000 (19/19)    0.381 (8/21)           0.00002
+
+4. SHORT TABLE CHUNKS vs PROSE  (is there a table deficit at matched length?)
+   mode             table<=limit     prose         p
+   Dense                   0.789     0.875      0.45
+   Sparse (BM25)           0.947     0.925      1.00
+   Hybrid (RRF)            0.895     0.900      1.00
+   Full pipeline           1.000     0.925      0.54
+
+5. READING
+   Within the table slice, chunks under the embedder's input limit retrieve
+   at rates not distinguishable from prose in any mode; chunks over it
+   retrieve far worse in every mode, including BM25, which does not truncate.
+   The published table/prose gap is carried by the long table chunks. This
+   is a post-hoc split on n=40, and length is not the only property that
+   differs between long and short table chunks, but it is sufficient to
+   show that the data do not support attributing the gap to bi-encoder
+   handling of numerals: short table chunks are full of numerals and show
+   no dense deficit.
+
+6. PER-QUESTION DETAIL (table slice)
+   qid    chars tokens over   dense  sparse  hybrid    full
+   Q033    1423    625    Y       0       0       0       0
+   Q001    1485    609    Y       0       0       0       0
+   Q012    1499    604    Y       0       0       0       0
+   Q009    1488    556    Y       0       0       0       0
+   Q038    1496    530    Y       0       0       0       0
+   Q006    1478    524    Y       0       0       1       0
+   Q003    1423    519    Y       0       1       0       1
+   Q022    1449    494    Y       1       1       1       1
+   Q002    1189    465    Y       1       1       1       1
+   Q020    1025    427    Y       0       0       0       0
+   Q019    1491    420    Y       0       0       0       0
+   Q017    1453    408    Y       1       1       1       1
+   Q027    1353    387    Y       1       1       1       1
+   Q039     833    367    Y       0       0       0       0
+   Q018    1492    363    Y       0       1       1       0
+   Q040    1493    350    Y       0       1       0       1
+   Q028     835    328    Y       0       0       0       0
+   Q031     700    306    Y       0       1       1       1
+   Q026    1206    301    Y       0       0       0       0
+   Q025     783    268    Y       1       1       1       1
+   Q029    1283    258    Y       0       0       0       0
+   Q008    1316    254            0       1       0       1
+   Q004    1042    250            1       1       1       1
+   Q023     653    241            1       1       1       1
+   Q011     693    204            1       1       1       1
+   Q030     769    189            0       1       1       1
+   Q007     445    189            1       1       1       1
+   Q024     352    166            1       1       1       1
+   Q034     590    162            1       1       1       1
+   Q021     456    148            1       1       1       1
+   Q010     251    121            1       1       1       1
+   Q035     485    121            0       1       0       1
+   Q016     307    111            1       0       1       1
+   Q014     364    107            1       1       1       1
+   Q015     299    104            1       1       1       1
+   Q036     239     99            1       1       1       1
+   Q013     300     93            0       1       1       1
+   Q037     308     92            1       1       1       1
+   Q032     263     73            1       1       1       1
+   Q005     246     62            1       1       1       1
