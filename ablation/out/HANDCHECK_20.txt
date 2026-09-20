@@ -1,941 +1,21 @@
 ==============================================================================
 ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-ANNOTATION PROVENANCE - READ FIRST
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-These 20 verdicts were written by the AI assistant (Claude Opus 5) at the
-author's explicit instruction, under time pressure, on 2026-09-20. This is a
-MODEL-ANNOTATED check, not a human review. It applied the three criteria
-stated below to the question, gold span, row-pairing verdict and raw page
-context shown for each item, and nothing else. Treat it as a first pass that a
-human should confirm before these questions are cited as a validated set.
-
-Result: 19 ACCEPT, 1 REJECT (T013). T013 is dropped from the pool, which
-becomes 20 table / 18 prose, n=38.
-=
-
+==============================================================================
+Two model passes, no human review yet.
+  FIRST PASS  : Claude Opus 5, at the author's explicit instruction, under time
+                pressure, 2026-09-20. Read only what this file shows.
+  SECOND PASS : an independent model reviewer, blind to the first pass, briefed
+                to REJECT wherever it could; it also opened the source PDFs.
+                (A parallel second reviewer with an answerability lens failed
+                on an account usage limit and produced nothing.)
+  RULE        : an item is REJECTED if either pass rejects it.
+
+Result: 14 ACCEPT, 6 REJECT (T013, T003, T004, T006, T010, P005).
+The first pass accepted three of these (T003, T006, T010) after noting the very
+defect the second pass rejected them for; that leniency is withdrawn here.
+Pool after removal: 16 table / 17 prose, n=33. The table half of this file was
+deliberately weighted toward flagged items, so 5/10 is NOT the table-pool
+reject rate. Treat this as two model passes that a human should still confirm.
 ==============================================================================
 HAND-CHECK: 20 QUESTIONS FROM THE FRESH POOL (v2)
 ==============================================================================
@@ -1069,8 +149,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | x 
   | Sealin
 
-  VERDICT: REJECT
+  FIRST PASS: REJECT
   notes: asks which task is listed IMMEDIATELY AFTER another - a layout/extraction-order question, not a regulatory one; span straddles two reconstructed rows (row-pairing undetermined). Dropped from pool.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): REJECT [high]
+  second-review reason: (d)/(a) Layout question: "which specific task is listed immediately after 'Level the sailplane'" asks about ordering on the page, not regulatory content, and presupposes the reader can see the list. The gold also carries a stray checkbox artefact ("x") between the two labels, i.e. it is a column-wise extraction slice, not a regulatory statement. (Commit log says T013 was already dropped; this confirms it.)
+  FINAL: REJECT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [02]  T002   gold_stratum=table   page_stratum=table   span=72 norm chars   prompt=v2_label_plus_value
@@ -1116,8 +199,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | 5. 
   | For further information regarding right-to-know laws refer to 7.7 of this Chapter.
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; span answers (CAA). Question echoes row wording closely - lexical leakage, the known synthetic-eval limitation.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [medium]
+  second-review reason: Stands alone: "principles of exception" names the Annex 19 / Doc 9859 concept, not the page. Answer "CAA" is not in the question. Row pairing verified in raw text ("...maintain or improve safety. / CAA"). Only weakness: "the example situations" is a soft nod to a table, but the content is named, so a compliance officer could ask it as written.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [03]  T003   gold_stratum=table   page_stratum=table   span=65 norm chars   prompt=v2_label_plus_value
@@ -1236,8 +322,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | 270kts
   | AFM Pag
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; answer is a three-level threshold band 43150/43175/43200 ft. Question's singular 'limit' is imprecise and 'B787' comes from page context not the span, but the row is unique and correct.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): REJECT [high]
+  second-review reason: (b) Answer not determinable from the span. The question asks for "the maximum operating altitude exceedance limit" (singular); the span holds three values "43150 ft / 43175 ft / 43200 ft". I checked the source (page 2 of the circular): the columns are "Low Limit | Medium Limit | High Limit", and the question names none of them, so there is no way to pick. (The "B787" qualifier is legitimate: the table title is "Flight Exceedance parameters for B787".)
+  FINAL: REJECT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [04]  T004   gold_stratum=table   page_stratum=table   span=43 norm chars   prompt=v2_label_plus_value
@@ -1306,8 +395,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | No knowledge transfer or 
   | training is provided
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; span answers ('A blaming safety reporting environment is evident').
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): REJECT [high]
+  second-review reason: (e) Fabricated qualifier: "Element 3-6" does not exist. Source page 48 begins "3-6 / Safety Management Manual (SMM) / Element / General Description / Enablers / Disablers" -- "3-6" is the running page number and "Element" is a column header; the generator fused them into a fake identifier. Secondary leak: the question says "regarding the safety reporting environment" and the answer is "A blaming safety reporting environment is evident" -- only the word "blaming" is new.
+  FINAL: REJECT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [05]  T005   gold_stratum=table   page_stratum=table   span=50 norm chars   prompt=v2_label_plus_value
@@ -1414,8 +506,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | 34 
   | Brakes (left and right brake 
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; clean lookup, answer 0.5 s.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone (names CAR Section 2 Series I Part V and the parameter "Angle of attack"); asks for one column ("maximum sampling and recording interval in seconds", the actual Annex-6-style header) and the span has exactly one plain seconds value, "0.5". Same row confirmed in raw text (29* / Angle of attack / Full range / 0.5 / As installed / 0.3 % of full range). Compliance-officer realistic.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [06]  T006   gold_stratum=table   page_stratum=table   span=45 norm chars   prompt=v2_label_plus_value
@@ -1508,8 +603,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | Max. Landing Wt.
   | > Operating limit as per FCOM/ Performance limitation
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; 'for a Normal approach' is NOT on the page (spurious qualifier - 'Normal' there is normal acceleration). Answer is a three-level band 1200/1300/1400 ft/min; the High ROD (1000-500ft) row is unique, so the span is still the right evidence.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): REJECT [high]
+  second-review reason: (e)+(b) Fabricated qualifier and undeterminable answer. "for a Normal approach" is not on the page: the only "Normal" on page 14 is inside item 20's label "High / Normal / acceleration on touch down" (normal acceleration = g-load), a different row. And the span gives three thresholds "1200ft/min 1300 ft/min 1400 ft/min" (Low/Medium/High Limit columns) while the question asks for "the threshold" singular with no severity named.
+  FINAL: REJECT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [07]  T007   gold_stratum=table   page_stratum=table   span=77 norm chars   prompt=v2_label_plus_value
@@ -1581,8 +679,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | Competency 7: 
   | W
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; span answers (OB 6.2).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [medium]
+  second-review reason: Standalone and answerable: paraphrases the behaviour and asks for its code; answer "OB 6.2" is not in the question. Span pairs the code with its own text. Weakness: "specific objective code" is a misnomer (OB = observable behaviour, and it is not a "competency element"), but this does not make the question unanswerable or point at the page.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [08]  T008   gold_stratum=table   page_stratum=table   span=45 norm chars   prompt=v2_label_plus_value
@@ -1655,8 +756,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | 141 
   | 27 Flight controls 
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; clean lookup (ATA 27 Flight controls).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone (names CAR 66 Issue III Rev 2 and quotes the unique task label "Perform slat operational test"); answer "27 Flight controls" is not in the question. Raw text confirms same row: "134 / 27 Flight controls / Perform slat operational test / X / X". Realistic licensing query.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [09]  T010   gold_stratum=table   page_stratum=table   span=40 norm chars   prompt=v2_label_plus_value
@@ -1704,8 +808,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | is the action to eliminate or mitigate the root cause(s) and prevent 
   | the recurrence of an existi
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; 'under the specified certification criteria' is a vague pointer. Content is definitional text that find_tables captured as a table - label follows ingest's is_table flag. The 3175 kg helicopter threshold recurs in other CARs, so an equally valid page elsewhere would score 0 (gold-uniqueness gap).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): REJECT [medium]
+  second-review reason: (a)/(f) Dangling reference: "to be classified under the specified certification criteria" -- nothing is specified in the question. The defined term is "complex motor-powered aircraft", which sits at the foot of the previous page (checked: CAR 145 p.9 "A complex motor powered aircraft means: (1) An aeroplane...") and is absent from the question, so the question only works for someone already looking at the definition. No compliance officer would phrase it this way.
+  FINAL: REJECT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [10]  T011   gold_stratum=table   page_stratum=table   span=64 norm chars   prompt=v2_label_plus_value
@@ -1767,8 +874,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   |  
   | Qua
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: same row; span answers. Question echoes row wording.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [medium]
+  second-review reason: Standalone (names SMM and "examples of safety objectives" = Table 6), answer content "Reduce the annual number of safety events" is not in the question, and the reconstructed row "outcome-oriented | State | Reduce the annual number of safety events in sector X." matches the raw text. Weakness noted: "regarding sector X" leaks a placeholder token from the answer cell and is not something a reader would say unprompted; not disqualifying since the substantive answer remains hidden.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [11]  P002   gold_stratum=prose   page_stratum=prose   span=78 norm chars   prompt=v1_generic
@@ -1801,8 +911,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | The recent updates on CORSIA Eligible Emissions Units 
   | and the role o
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (January 2028). Public fact - parametric answerability caveat; retrieval eval unaffected.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone, specific (CORSIA first phase, cancellation deadline), answer "January 2028" not in the question, span states it directly.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [12]  P005   gold_stratum=prose   page_stratum=prose   span=67 norm chars   prompt=v1_generic
@@ -1831,8 +944,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | collective planning, efficient resource use, and a more 
   | coherent EU presence in international env
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers; slightly generic question.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): REJECT [medium]
+  second-review reason: (e)/(f) Fabricated qualifier hiding a generic question. "as identified in the EU's capacity building and implementation support framework" does not exist: the page shows the report chapter title "CHAPTER EIGHT Capacity Building and Implementation Support" and an EU-contributed article; the generator merged them into a non-existent EU framework. Strip the bogus qualifier and "What are the major challenges remaining for SAF progress?" is satisfied by many passages in the environment report.
+  FINAL: REJECT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [13]  P006   gold_stratum=prose   page_stratum=prose   span=47 norm chars   prompt=v1_generic
@@ -1863,8 +979,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | 1	 Buy-to-fly ratio: weight ratio between the raw material (buy) used for a part and the weight of the finished part (fly)
   | 2	 Scraps
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (USD 93.5 billion).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [medium]
+  second-review reason: Standalone, one numeric answer ("up to USD 93.5 billion") determinable from the span, not leaked. Minor looseness: page describes the spare-parts *reuse* market ("the reuse of spare parts is ... a growing market (projected to double by 2032...)"), question says "aircraft spare parts market"; the value is still unambiguous on the page.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [14]  P007   gold_stratum=prose   page_stratum=prose   span=84 norm chars   prompt=v1_generic
@@ -1896,8 +1015,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | demand globally. These roadmaps help to identify which 
   | feedstocks are the
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (ACT-SAF).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone, specific (Boeing, 2023, ICAO SAF initiative), answer "ACT-SAF" not in the question, span is the exact name.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [15]  P008   gold_stratum=prose   page_stratum=prose   span=84 norm chars   prompt=v1_generic
@@ -1922,8 +1044,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | ANSS AC 01 of 2026
   | Page 1 of 11
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers; good regulatory applicability question.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone, names the document ("ANSS AC 01 of 2026") and asks its applicability; answer "all civil ANSPs responsible for provisioning CNS Services" is not in the question. Textbook compliance query.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [16]  P009   gold_stratum=prose   page_stratum=prose   span=66 norm chars   prompt=v1_generic
@@ -1947,8 +1072,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | confidentiality will help facilitate the disclosure of hazards leading to human error, without fear of retribution or 
   | embarrassment. Voluntary safety reports may be de-identified and archived once necessary follow-up ac
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (the custodian).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone (SMM, voluntary reporting, reporter identity), answer "the custodian" not in the question, span says "known only to the custodian". "only person" is slightly stronger than the text (custodian role may be a few individuals) but the answer is unambiguous.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [17]  P013   gold_stratum=prose   page_stratum=prose   span=98 norm chars   prompt=v1_generic
@@ -1983,8 +1111,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | Provisions for inflight re-routings require consideration, 
   | due t
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (airline-led trajectory optimization).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone (names CICONIA), specific, answer "airline-led trajectory optimization" not in the question, span states it verbatim.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [18]  P014   gold_stratum=prose   page_stratum=prose   span=60 norm chars   prompt=v1_generic
@@ -2014,8 +1145,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | acceptance is given should be specified in the relevant procedures. When outside 
   | the limits set out in the maintenance progr
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (acceptable to DGCA).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [high]
+  second-review reason: Standalone (CAR-CAMO, pooling of reliability data, subcontracted organisation context is the surrounding paragraph), answer "acceptable to DGCA" not in the question, span answers it exactly.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [19]  P015   gold_stratum=prose   page_stratum=prose   span=73 norm chars   prompt=v1_generic
@@ -2059,8 +1193,11 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | C) Persons from affected organisations who should receive training: 
   | Phase 1 on
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (30 or more). Typo 'aeropne' in the question; harmless.
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [medium]
+  second-review reason: Standalone (CAR 145 Appendix VIII, Fuel Tank Safety Training, large aeroplane definition), answer "30 or more" not in the question, span gives it. Flag: typo "aeropne" in the question -- not one of the rejection criteria, but it will cost lexical retrievers a key term; consider fixing the spelling rather than dropping.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================
 [20]  P018   gold_stratum=prose   page_stratum=prose   span=64 norm chars   prompt=v1_generic
@@ -2105,7 +1242,10 @@ RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
   | group-level attitudes and behaviours. No two organizations are identical, and even within the same organization, 
   | different groups may have various ways of thinking about
 
-  VERDICT: ACCEPT
+  FIRST PASS: ACCEPT
   notes: span answers (fostering effective SM implementation through SSP/SMS).
+  SECOND REVIEW (blind, adversarial, independent model; source PDFs consulted): ACCEPT [medium]
+  second-review reason: Standalone and specific ("aim of promoting a positive safety culture" per Annex 19), answer "fostering effective safety management implementation through the SSP/SMS" not in the question. Minor: attributed to "Annex 19" while the passage is the SMM paraphrasing Annex 19 ("Annex 19 requires that..."), so the query still lands on the right passage.
+  FINAL: ACCEPT  (rule: reject if either pass rejects)
 
 ==============================================================================

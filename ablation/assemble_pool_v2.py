@@ -30,7 +30,14 @@ OUT = Path("ablation/out")
 # author's instruction). Listed here so a re-run of this script cannot
 # resurrect them. Reason recorded beside each id.
 HANDCHECK_REJECTS = {
+    # first pass (Claude, at the author's instruction)
     "T013": "layout/order question, not regulatory; span straddles two reconstructed rows",
+    # second pass (independent blind adversarial model review; source PDFs consulted)
+    "T003": "question asks for 'the limit' (singular); span holds three severity thresholds (Low/Medium/High Limit columns) with no way to pick",
+    "T004": "'Element 3-6' is fabricated - page number fused with a column header; question also leaks 'safety reporting environment'",
+    "T006": "'for a Normal approach' is not on the page (the only 'Normal' is normal acceleration); span holds three thresholds, question singular",
+    "T010": "'under the specified certification criteria' is a dangling pointer; the defined term (complex motor-powered aircraft) is on the previous page and absent from the question",
+    "P005": "'EU's capacity building and implementation support framework' is fabricated from a chapter title; stripped, the question is generic",
 }
 
 TARGET_TABLE = 45
