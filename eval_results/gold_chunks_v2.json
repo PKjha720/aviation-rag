@@ -1,0 +1,642 @@
+[
+ {
+  "chunk_id": "f1e1ea462879",
+  "text": "| OJT TASK SELECTION |  |  |  |  |  |  |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  | B1 |  |  |  |  |  | B2 |  |  |  |  |  |\n| ATA Chapters |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | INS | FOT | SGH | R/I | MEL | TS | INS | FOT | SGH | R/I | ME | TS |\n|  |  |  |  |  |  |  |  |  |  |  | L |  |\n| Requirements: | 75% | 50 % | 50 % | 50 % | 25 % | 25 % | 75% | 50% | 50% | 50% | 25% | 25 % |\n| % of task |  |  |  |  |  |  |  |  |  |  |  |  |\n| categories |  |  |  |  |  |  |  |  |  |  |  |  |\n| 49-90 Oil | — | — | X | — | — | — | — | — | — | — | — | — |\n| Turbine engines: |  |  |  |  |  |  |  |  |  |  |  |  |\n| 70 Standard |  |  |  |  |  |  |  |  |  |  |  |  |\n| practices and | X | — | — | — | — | X | — | — | — | — | — | — |\n| engine |  |  |  |  |  |  |  |  |  |  |  |  |\n| performance |  |  |  |  |  |  |  |  |  |  |  |  |\n| 71 Power plant | X | — | X | — | — | — | — | — | — | — | — | — |\n| 71-10 Cowling | X | — | X | X |  |  | — | — | — | — | — | — |\n| 71-20 Mounts | X | — | — | — | — | — | — | — | — | — | — | — |\n| 71-30 Fire seals | X | — | — | — | — | — | — | — | — | — | — | — |\n| 71-40 Attach | X | — | — | — | — | — | — | — | — | — | — | — |\n| fittings |  |  |  |  |  |  |  |  |  |  |  |  |\n| 71-50 Electrical | X | X | — | X | — | — | X | — | — | — | — | X |\n| harness |  |  |  |  |  |  |  |  |  |  |  |  |\n| 71-60 Air intakes | X | — | — |  | — | — | — | — | — | — | — | — |\n| 72T Engine turbine / |  |  |  |  |  |  |  |  |  |  |  |  |",
+  "char_count": 1485,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 224
+ },
+ {
+  "chunk_id": "c1bebb780ad6",
+  "text": "| Sl. No. |  | Event Description | Low Limit |  | Medium |  | High Limit | Reference |  |\n|---|---|---|---|---|---|---|---|---|---|\n|  |  |  |  |  | Limit |  |  |  |  |\n| A. TAXI |  |  |  |  |  |  |  |  |  |\n| 1 |  | High speed Taxi Straight | 31kts | 33kts |  |  | 35kts | SOP 2-9 (AI), Company limitation |  |\n| 2 |  | High speed taxi in turn | 10kts | 12kts |  |  | 15kts | Company limitation, FCTM 2.9 [For turn >90 deg. Further lower speed would require to open up more power] |  |\n|  | B. TAKE-OFF |  |  |  |  |  |  |  |  |\n| 3 |  | Early Rotation | Vr-1kts | Vr-3kts |  |  | Vr-5kts | FCTM 3.10, 3.25 |  |\n| 4 |  | Late Rotation | Vr+10kts | Vr+12kts |  |  | Vr+15kts | FCTM 3.10, 3.25 |  |\n| 5 |  | Exceedance of Flaps/Slat Limit Speed | VFE -05kts | VFE -02kts |  |  | VFE -00kts | AFM Page 17 C. Limitation |  |\n| 6 |  | Tyre Limit Speed High | 194 Knots | 199 Knots |  |  | 204 Knots | FCOM B787-9 variant |  |\n| 7 |  | Pitch High at Lift Off | 7° | 8° |  |  | 9° | FCTM 3.8, IATA FDX value 9 B787-9 variant |  |\n|  |  |  | 8° | 9° |  |  | 10° | FCTM 3.8, IATA FDX value 10 B787-8 variant |  |\n| 8 |  | High Pitch Rate lift-off | 3°/sec | 3.5°/sec |  |  | 4°/sec | FCTM 3.7 |  |",
+  "char_count": 1189,
+  "is_table": true,
+  "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
+  "page_number": 2
+ },
+ {
+  "chunk_id": "ac74fa8ae0b0",
+  "text": "|  | MODULE 11 AEROPLANE AERODYNAMICS, STRUCTURES AND |  |  | Nr of questions |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  | SYSTEMS |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  | A1 |  |  | A2 |  |  | B1.1 |  |  | B1.2 |  |  | B3 |  |\n|  | Total number for the module: |  |  | 108 |  |  | 72 |  |  | 140 |  |  | 100 |  |  | 60 |  |\n|  | 11.1 Theory of flight: |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | (a) Aeroplane aerodynamics and flight controls; |  |  | 2 |  |  | 2 |  |  | 2 |  |  | 2 |  |  | 2 |  |\n|  | (b) Aeroplane, other aerodynamic devices. |  |  | 2 |  |  | 2 |  |  | 2 |  |  | 2 |  |  | 2 |  |\n|  | 11.2 Airframe structures (ATA 51): |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | (a) General concepts; |  |  | 3 |  |  | 3 |  |  | 4 |  |  | 3 |  |  | 2 |  |\n|  | (b) Airworthiness requirements for structural strength; |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 3 |  |  | 1 |  |\n|  | (c) Construction methods. |  |  | 1 |  |  | 1 |  |  | 3 |  |  | 2 |  |  | 1 |  |\n|  | 11.3 Airframe structures aeroplanes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | 11.3.1 Fuselage, doors, windows (ATA 52/53/56): |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  |  |  |  | 1 |  |  | 1 |  |  | 2 |  |  | 2 |  |  | 2 |  |\n|  | (a) Construction principles; |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |",
+  "char_count": 1423,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 116
+ },
+ {
+  "chunk_id": "6838cdc05156",
+  "text": "| Amendment | Rationale |\n|---|---|\n| Goal 3 – A new Target 3.1 was established for all States to assess the level of implementation of their State safety programme (SSP) by 2026. It replaces Target 3.1 from the 2023–2025 edition (By 2023, all States to implement the foundation of an SSP). | There is limited information on SSP implementation globally. Therefore, this new target focuses on States’ completion of self-assessments by (end of) 2026 to determine a baseline on SSP implementation. |\n| Goal 3 – A new Target 3.2 (By 2028, all States to establish an SSP) replaces Target 3.3 from the 2023–2025 edition (All States to work towards an effective SSP), which was removed. | Changes to the previous Target 3.3 were made to align with Annex 19 – Safety Management and the guidance provided in the Safety Management Manual (Doc 9859) to promote the effective implementation of the SSP-related Standards and Recommended Practices (SARPs), which incorporate the notion of a continuous improvement of the SSP. The concept of SSP “maturity |",
+  "char_count": 1042,
+  "is_table": true,
+  "source_file": "icao_gasp_global_safety_plan.pdf",
+  "page_number": 9
+ },
+ {
+  "chunk_id": "4565d756efca",
+  "text": "| Structures | Wooden/metal tube and |\n|---|---|\n| Pitot/static system: Removal — Installation — Test | x |\n| Flight instruments: Removal — Installation | x |\n| Installation of approved equipment | x |\n| Compass: Installation — Compensation | x |",
+  "char_count": 246,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 208
+ },
+ {
+  "chunk_id": "093ba73b5574",
+  "text": "|  | MODULE 8L – POWER PLANT |  |  |  |  |  | Piston |  |  | Turbine |  |  | Electric |  |  | Level |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  |  |  |  |  |  |  |  |  |  |  |  |  | al |  |  |  |  |\n|  | 8L.1 |  |  | General engine fundamentals |  |  | X |  |  | X |  |  | X |  |  | 2 |  |\n|  | 8L.2 |  |  | Piston engine fundamentals and performance |  |  | X |  |  |  |  |  |  |  |  | 2 |  |\n|  | 8L.3 |  |  | Piston engine construction |  |  | X |  |  |  |  |  |  |  |  | 2 |  |\n|  | 8L.4 |  |  | Piston engine fuel system (non-electronic) |  |  | X |  |  |  |  |  |  |  |  | 2 |  |\n|  | 8L.5 |  |  | Starting and ignition system |  |  | X |  |  |  |  |  |  |  |  | 2 |  |\n|  | 8L.6 |  |  | Air intake, exhaust and cooling system |  |  | X |  |  |  |  |  |  |  |  | 2 |  |\n|  | 8L.7 |  |  | Supercharging/turbocharging |  |  | X |  |  |  |  |  |  |  |  | 2 |  |\n|  | 8L.8 |  |  | Lubrication systems of piston engines |  |  | X |  |  |  |  |  |  |  |  | 2 |  |\n|  | 8L.9 |  |  | Engine indication systems |  |  | X |  |  | X |  |  | X |  |  | 2 |  |\n|  | 8L.10 |  |  | Electric aircraft engines |  |  |  |  |  |  |  |  | X |  |  | 2 |  |\n|  | 8L.11 |  |  | Turbine engine fundamentals and performance |  |  |  |  |  | X |  |  |  |  |  | 2 |  |\n|  | 8L.12 |  |  | Inlet and compressor |  |  |  |  |  | X |  |  |  |  |  | 2 |  |\n|  | 8L.13 |  |  | Combustion chamber, starting and ignition system |  |  |  |  |  | X |  |  |  |  |  | 2 |  |",
+  "char_count": 1478,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 172
+ },
+ {
+  "chunk_id": "488e693fd05c",
+  "text": "|  | MODULE 8L – POWER PLANT |  |  |  |  |  | Piston |  |  | Turbine |  |  | Electric |  |  | Level |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  |  |  |  |  |  |  |  |  |  |  |  |  | al |  |  |  |  |\n|  | 8L.21 |  |  | Engine monitoring and ground operation |  |  | X |  |  | X |  |  | X |  |  | 2 |  |\n|  | 8L.22 |  |  | Engine/propeller storage and preservation |  |  | X |  |  | X |  |  | X |  |  | 2 |  |",
+  "char_count": 445,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 173
+ },
+ {
+  "chunk_id": "ad8191ead6b7",
+  "text": "| G-HRC | Examples of contributing factors1 |\n|---|---|\n| MAC | – Traffic conditions: considerations include traffic density, complexity and the mixture of aircraft types and capabilities – Air traffic control (ATC) performance: factors such as workload, competence, teamwork and adherence to procedures. Additionally, the influence of the air navigation services provider’s (ANSP) safety management system (SMS) – Flight crew training and organizational (corporate) culture: aspects such as workload management, competence, teamwork, adherence to procedures and the impact of the operator’s SMS – ATC systems: elements such as flight data processing, communication systems, short-term conflict alert (STCA) systems, as well as the interaction between the human operators and the aircraft systems and the procurement policies of ANSPs – Aircraft equipment: considerations include autopilot systems, transponders and airborne collision avoidance system (ACAS), as well as aircraft performance characteristics (such as rate-of-climb) and their physical dimension – Surveillance systems: coverage and quality of surveillance technologies used to monitor aircraft positions and movements – Flight plan processing: the efficiency and reliability of processes related to flight plan submission, approval and distribution |",
+  "char_count": 1316,
+  "is_table": true,
+  "source_file": "icao_gasp_global_safety_plan.pdf",
+  "page_number": 31
+ },
+ {
+  "chunk_id": "7d2dd88a933b",
+  "text": "|  |  | Nr of questions |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|\n| MODULE 3 – ELECTRICAL FUNDAMENTALS |  | A |  | B1 |  |  |  | B3 |\n|  |  |  |  | B2 |  |  |  |  |\n|  |  |  |  | B2L |  |  |  |  |\n| Total number for the module: |  |  |  |  |  |  |  |  |\n|  |  | 20 |  | 52 |  |  |  | 24 |\n| 3.1 Electron theory |  | 2 |  | 2 |  |  |  | 2 |\n| 3.2 Static electricity and conduction |  | 3 |  | 3 |  |  |  | 2 |\n| 3.3 Electrical terminology |  | 3 |  | 2 |  |  |  | 2 |\n|  | 3.4 Generation of electricity |  | 3 |  |  | 2 |  | 2 |\n| 3.5 Sources of DC electricity |  | 3 |  | 3 |  |  |  | 3 |\n| 3.6 DC circuits |  | 1 |  | 2 |  |  |  | 1 |\n| 3.7 Resistance/resistor: |  |  |  |  |  |  |  |  |\n|  |  | ─ |  | 3 |  |  |  | 1 |\n| (a) Resistance; |  |  |  |  |  |  |  |  |\n| (b) Resistors. |  |  |  |  |  |  |  |  |\n|  |  | ─ |  | 2 |  |  |  | ─ |\n|  | 3.8 Power |  | ─ |  | 3 |  |  | 1 |\n| 3.9 Capacitance/capacitor |  | ─ |  | 4 |  |  |  | 1 |\n| 3.10 Magnetism: |  |  |  |  |  |  |  |  |\n|  |  | ─ |  | 3 |  |  |  | 1 |\n| (a) Theory of magnetism; |  |  |  |  |  |  |  |  |\n| (b) Magnetomotive force. |  | ─ |  | 1 |  |  |  | 1 |\n| 3.11 Inductance/inductor |  | ─ |  | 4 |  |  |  | 1 |\n| 3.12 DC motor/generator theory |  | ─ |  | 3 |  |  |  | 1 |\n| 3.13 AC theory |  | 5 |  | 3 |  |  |  | 1 |\n| 3.14 Resistive (R), capacitive (C) and inductive (L) circuits |  | ─ |  | 3 |  |  |  | 1 |\n| 3.15 Transformers |  | ─ |  | 3 |  |  |  | 1 |\n| 3.16 Filters |  | ─ |  | 1 |  |  |  | ─ |",
+  "char_count": 1488,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 111
+ },
+ {
+  "chunk_id": "dec883199f98",
+  "text": "|  | LEVEL |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|\n| 13.8 Instruments (ATA 31) | 3 | — | — | 3 | — | — | — |\n| 13.9 Lights (ATA 33) | 3 | 3 | — | — | — | — | — |\n| 13.10 On-board maintenance systems (ATA 45) | 3 | — | — | — | — | — | — |",
+  "char_count": 251,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 59
+ },
+ {
+  "chunk_id": "9d56b31c37c3",
+  "text": "| MODULE 10 AVIATION LEGISLATION | Nr of questions |  |\n|---|---|---|\n|  |  | B1 |\n|  |  | B2 |\n|  | A |  |\n|  |  | B2L |\n|  |  | B3 |\n| Total number for the module: | 32 | 44 |\n| 10.1 Regulatory framework | 5 | 5 |\n| 10.2 Certifying staff maintenance | 7 | 7 |\n| 10.3 Approved maintenance organisations | 6 | 6 |\n| 10.4 Independent certifying staff | - | 4 |\n| 10.5 Air operations | 4 | 4 |\n| 10.6 Certification of aircraft, parts, and appliances | 1 | 4 |\n| 10.7 Continuing airworthiness | 6 | 7 |\n| 10.8 Oversight principles in continuing airworthiness | 2 | 3 |\n| 10.9 Maintenance and certification beyond the current regulations (if not superseded by |  | 3 |\n| DGCA requirements) |  |  |",
+  "char_count": 693,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 116
+ },
+ {
+  "chunk_id": "d46e91776689",
+  "text": "| OJT TASK SELECTION |  |  |  |  |  |  |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  | B1 |  |  |  |  |  | B2 |  |  |  |  |  |\n| ATA Chapters |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | INS | FOT | SGH | R/I | MEL | TS | INS | FOT | SGH | R/I | ME | TS |\n|  |  |  |  |  |  |  |  |  |  |  | L |  |\n| Requirements: | 75% | 50 % | 50 % | 50 % | 25 % | 25 % | 75% | 50% | 50% | 50% | 25% | 25 % |\n| % of task |  |  |  |  |  |  |  |  |  |  |  |  |\n| categories |  |  |  |  |  |  |  |  |  |  |  |  |\n| 25-10 Flight | X | X | X | X | X | — | X | X | — | — | — | — |\n| compartment |  |  |  |  |  |  |  |  |  |  |  |  |\n| 25-20 | X | — | — | X | — | — | — | — | — | — | — | — |\n| Passenger |  |  |  |  |  |  |  |  |  |  |  |  |\n| compartment |  |  |  |  |  |  |  |  |  |  |  |  |\n| 25-30 Galley | X | X | — | X | — | — | X | X | — | — | — | — |\n| 25-40 Lavatories | X | X | — | — | — | — | X | — | — | — | — | — |\n| 25-50 | X | X | — | — | — | — | — | — | — | — | — | — |\n| Additional |  |  |  |  |  |  |  |  |  |  |  |  |\n| compartments |  |  |  |  |  |  |  |  |  |  |  |  |\n| 50-00 Cargo |  |  |  |  |  |  |  |  |  |  |  |  |\n| accessory | X | — | — | — | — | — | — | — | — | — | — | — |\n| compartment |  |  |  |  |  |  |  |  |  |  |  |  |\n| 50-10 Cargo | X | — | — | — | — | — | — | — | — | — | — | — |\n| compartments |  |  |  |  |  |  |  |  |  |  |  |  |\n| 50-20 Cargo | X | X | — | — | — | X | — | X | — | — | — | X |\n| loading systems |  |  |  |  |  |  |  |  |  |  |  |  |",
+  "char_count": 1499,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 218
+ },
+ {
+  "chunk_id": "f8bf6903be63",
+  "text": "| 12.4 Transmission | 3 | 6 |\n|---|---|---|\n| (a) Overall system description and theory; |  |  |\n| (b) Typical system layouts. | 1 | 1 |\n| 12.18 Onboard maintenance systems (ATA 45) | 2 | 3 |\n| Central maintenance computers; |  |  |\n| Data-loading system; |  |  |\n| Electronic library system. |  |  |",
+  "char_count": 300,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 119
+ },
+ {
+  "chunk_id": "bb8f085f2a7b",
+  "text": "| Aviation MET equipment | Schedule of calibration |\n|---|---|\n| Anemometer and wind vane/Wind equipment | Once in six months |\n| Thermometer | Once in a year |\n| Barometer | Once in a year |\n| Hygrometer | Once in a Year |\n| Psychrometer | Once in a Year |\n| RVR Instruments | Once in six months and prior to onset of FOG season |\n| Ceilometers | Once in a Year |",
+  "char_count": 364,
+  "is_table": true,
+  "source_file": "circular_air_nav_2024_01_installation.pdf",
+  "page_number": 4
+ },
+ {
+  "chunk_id": "a497b17c9336",
+  "text": "|  | Nr of questions |  |  |\n|---|---|---|---|\n| MODULE 5 DIGITAL TECHNIQUES / ELECTRONIC INSTRUMENT | A | B1 | B2 |\n| SYSTEMS |  |  | B2L |\n| 5.9 Multiplexing |  |  | 4 |\n| 5.10 Fibre optics | ─ | 3 | 3 |\n| 5.11 Electronic displays | 2 | 2 | 4 |\n| 5.12 Electrostatic sensitive devices | 6 | 4 | 5 |",
+  "char_count": 299,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 113
+ },
+ {
+  "chunk_id": "8524fcecdcea",
+  "text": "|  | 7L.23 Aircraft weight and balance |  |  | 2 |  |\n|---|---|---|---|---|---|\n|  | 7L.24 Workshop practices and tools |  |  | 2 |  |\n|  | 7L.25 Disassembly, inspection, repair and assembly techniques |  |  | 2 |  |\n|  | 7L.26 Abnormal events |  |  | 2 |  |\n|  | 7L.27 Maintenance procedures |  |  | 2 |  |",
+  "char_count": 307,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 172
+ },
+ {
+  "chunk_id": "f1a4cb3502cb",
+  "text": "| 29 | 21-20 Distribution | Replace recirculation filter | X | — |\n|---|---|---|---|---|\n| 30 | 21-40 Heating | Replace combustion heater | X | — |\n| 31 | 21-20 Distribution | Clean outflow valve | X | — |\n| 32 | 21-20 Distribution | Replace outflow valve | X | — |\n| 33 | 21-50 Cooling | Replace ACM / Air cycle unit | X | — |\n| 34 | 21-50 Cooling | Replace heat exchanger | X | — |\n| 35 | 21-30 Pressurisation control | Replace pressurisation controller | X | X |\n| 36 | 21-30 Pressurisation control | Perform pressurisation system functional test | X | X |\n| 37 | 21-20 Distribution | Perform equipment cooling system functional | X | X |\n|  |  | test |  |  |\n| 38 | 21-20 Distribution | Check configuration of AVX compartment | X | X |\n|  |  | ventilation system |  |  |\n| 39 | 21-30 Pressurisation control | Perform air-conditioning system functional | X | X |\n|  |  | test |  |  |\n| 40 | 21-60 Temperature control | Perform temperature control system | X | X |\n|  |  | functional test |  |  |\n| 41 | 21 Air conditioning | Troubleshoot faulty system | X | X |\n| 42 | 22 Autoflight | Replacement of autothrottle | X | — |\n|  |  | servomechanisms components |  |  |\n| 43 | 22 Autoflight | Replace actuator | X | — |\n| 44 | 22 Autoflight | Replace controller | X | X |\n| 45 | 22 Autoflight | Replace amplifier | X | X |\n| 46 | 22 Autoflight | Replace autoflight system LRU | X | X |\n| 47 | 22 Autoflight | Perform yam damper operational test | X | X |",
+  "char_count": 1453,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 229
+ },
+ {
+  "chunk_id": "cf58fbebd606",
+  "text": "| Aircraft rating requirements |  |  |  |\n|---|---|---|---|\n|  | + skill test) on at least 2 aircraft |  | type training or type |\n|  | representative of that |  | examination on at least 2 |\n|  | manufacturer subgroup |  | aircraft representative of |\n|  |  |  | that manufacturer subgroup |\n| Group 3 aircraft | (For B1.2) | (For B2) |  |\n| Piston engine aeroplanes | Individual TYPE RATING | Individual TYPE RATING | Individual TYPE |\n| (except those classified |  |  | RATING |\n| in Group 1) | (type training + OJT(**) | (type training + OJT(**)) or |  |\n|  | Or (type examination + | (type examination + | type training or type |\n|  | practical experience + | practical experience + | evaluation |\n|  | skill test) | skill test) |  |\n|  |  | (For B2 and B2L) |  |\n|  | Full GROUP 3 RATING | Full GROUP 3 RATING |  |\n|  |  |  | Full GROUP 3 RATING |\n|  | based on demonstration of | based on demonstration of |  |\n|  | practical experience and | appropriate experience | based on demonstration of |\n|  | complying with the aircraft type |  | practical experience and |\n|  | rating endorsement of atleast |  | complying with the aircraft |\n|  | three aircraft types from |  | type rating endorsement of |\n|  | different manufactures |  | atleast three aircraft types |\n|  | which combined are |  | from different manufactures |\n|  | representative of the applicable |  | which combined are |\n|  | group. |  | Representative of the |\n|  |  |  | applicable group. |\n|  | Limitations: |  |  |",
+  "char_count": 1492,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 36
+ },
+ {
+  "chunk_id": "de3e17e3bbcc",
+  "text": "| Serial number | Parameter | Applicability | Measurement range | Maximum sampling and recording interval (seconds) | Accuracy limits (sensor input compared to FDR read- out) | Recording resolution |\n|---|---|---|---|---|---|---|\n| 73* | Cockpit trim control input position, Roll |  | Full range | 1 | ±5% | 0.2% of full range or as installed |\n| 74* | Cockpit trim control input position, Yaw |  | Full range | 1 | ±5% | 0.2% of full range or as installed |\n| 75* | All cockpit flight control input forces (control wheel, control column, rudder pedal) |  | Full range (±311 N (±70 lbf), ± 378 N (±85 lbf), ± 734 N (±165 lbf)) | 1 | ±5% | 0.2% of full range or as installed |\n| 76* | Event marker |  | Discrete | 1 |  |  |\n| 77* | Date |  | 365 days | 64 |  |  |\n| 78* | ANP or EPE or EPU |  | As installed | 4 | As installed |  |\n| 79* | Cabin pressure altitude | Application for type certification submitted to on or after 1 January 2023 | As installed (0 ft to 40 000 ft recommended) | 1 | As installed | 100 ft |\n| 80* | Aeroplane computed weight | Application for type certification submitted on or after 1 January 2023 | As installed | 64 | As installed | 1% of full range |\n| 81* | Flight director command | Application for type certification submitted on or after 1 January 2023 | Full range | 1 | ± 2° | 0.5° |\n| 82* | Vertical speed | Application for type certification submitted on or after 1 January 2023 | As installed | 0.25 | As installed (32 ft/min recommended) | 16 ft/min |",
+  "char_count": 1491,
+  "is_table": true,
+  "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+  "page_number": 26
+ },
+ {
+  "chunk_id": "44f2f0f093cc",
+  "text": "|  |  |  |  | B1.1 |  |  | B1.2 |  |  | B1.3 |  |  | B1.4 |  |  | B3 |  |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  | 5. DIGITAL TECHNIQUES/ |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |\n|  | ELECTRONIC |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | INSTRUMENT SYS TEMS |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | 6. MATERIALS AND |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |\n|  | HARDWARE |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | 7. MAINTENANCE |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |\n|  | PRACTICES |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | 8. BASIC AERODYNAMICS |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |\n|  | 9. HUMAN FACTORS |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |  | X |  |",
+  "char_count": 1025,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 48
+ },
+ {
+  "chunk_id": "a5196b4662e6",
+  "text": "|  | Nr of |  |\n|---|---|---|\n|  | questions |  |\n| MODULE 17 PROPELLER | A1 | B1.1 |\n|  | A2 | B1.2 |\n|  |  | B3 |\n| Total number for the module: | 20 | 32 |\n| 17.1 Fundamentals of propellers | 5 | 8 |\n| 17.2 Propeller construction | 4 | 5 |\n| 17.3 Propeller pitch control | 4 | 6 |\n| 17.4 Propeller synchronising |  | 2 |\n| 17.5 Propeller ice protection | 2 | 3 |\n| 17.6 Propeller maintenance | 3 | 6 |\n| 17.7 Propeller storage and preservation | 2 | 2 |",
+  "char_count": 456,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 124
+ },
+ {
+  "chunk_id": "0e952f2b083c",
+  "text": "|  | to 2000 Ft |  |  |  |\n|---|---|---|---|---|\n| 35 | Exceedances of max. operating altitude | - | 25000 Ft | FCOM, Revision 29.4 Lim 1, Section 5 |\n| PHASE | APPROACH AND LANDING |  |  |  |\n| 36 | Excess Banking (1000 to 500 ft.) | 30 Deg > 5 Sec | 35 Deg >5 Sec |  |\n| 37 | Excess Banking (500 ft to 100ft.) | 15 Deg > 3 Sec | 17 Deg > 3 Sec |  |\n| 38 | Excess Banking (100 ft to 0ft.) | 10 Deg > 3 Sec | 12 Deg > 3 Sec |  |\n| 39 | Flap Placard Speed exceedance flap -30 | 150 Kts | 150 Kts 5 sec | FCOM, Revision 29.4 Lim 3, Section 1.3 |\n| 40 | Flap Placard Speed exceedance flap -15 | 185 Kts | 185 Kts 5 sec | FCOM, Revision 29.4 Lim 3, Section 1.4 |\n| 41 | Late landing flap selection | - | Non-Precision Approach 1000 Ft AGL |  |\n|  |  | - | ILS Approach 1000 Ft AGL |  |\n|  |  | - | Visual Approach 500 Ft AGL |  |\n| 42 | Approach speed high below 1000 ft AGL | Vapp + 20 Kts for 3 Sec | Vapp + 25 Kts for 3 Sec |  |\n| 43 | Approach speed high below 500to50ft | Vapp + 15 Kts for 3 Sec | Vapp + 20 Kts for 3 Sec |  |\n| 44 | Approach speed high below 50 ft AGL | Vapp +11 Kts | Vapp +15 Kts |  |\n| 45 | Approach speed high at touch down | Vapp +5 kts | Vapp +10 kts |  |\n| 46 | Deviation above/below glide slope (1000 Ft - MDA) | >½ Dot>5 Sec | >1 Dot>5 Sec |  |\n| 47 | Localiser deviation (Alt. < 1000 feet) | >½ Dot>5 Sec | >1 Dot>5 Sec |  |\n| 48 | Approach speed low below 1000 feet. | VAPP - 2Kts for 5 Sec | VAPP - 5Kts for 3 Sec |  |",
+  "char_count": 1449,
+  "is_table": true,
+  "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
+  "page_number": 17
+ },
+ {
+  "chunk_id": "acf146124a04",
+  "text": "| JANUARY 2023 |  | FEBRUARY 2023 |  | MARCH 2023 |  |\n|---|---|---|---|---|---|\n| AVIATION FUEL SAVED (KG) | CO2 EMISSION SAVED (KG) | AVIATION FUEL SAVED (KG) | CO2 EMISSION SAVED (KG) | AVIATION FUEL SAVED (KG) | CO2 EMISSION SAVED (KG) |\n| 36200.54 | 114731.56 | 35901.854 | 113787.206 | 42536.848 | 134415.736 |\n| AVIATION FUEL SAVED (3 Months) |  | 114,639.242 Kg |  |  |  |\n| CO2 EMISSION SAVED (3 Months) |  | 362,934.502 Kg |  |  |  |\n| AVERAGE MONTHLY AVIATION FUEL SAVED |  | 114,639.242 kg = 38,213.081 Kg (Prorated) 3 months |  |  |  |\n| AVERAGE MONTHLY CO2 EMISSION SAVED |  | 362,934.502 kg = 120,978.167 Kg (Prorated) 3 months |  |  |  |",
+  "char_count": 653,
+  "is_table": true,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 275
+ },
+ {
+  "chunk_id": "741d97625942",
+  "text": "|  | MODULE 11 AEROPLANE AERODYNAMICS, STRUCTURES AND |  |  | Nr of questions |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  | (b) Airborne towing devices; |  |  | 1 |  |  | 1 |  |  | 1 |  |  | 1 |  |  | 1 |  |\n|  | (c) Doors. |  |  | 1 |  |  | 1 |  |  | 1 |  |  | 1 |  |  | - |  |",
+  "char_count": 352,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 116
+ },
+ {
+  "chunk_id": "3e5029da75cc",
+  "text": "| MODULES 10L – BALLOONS – GAS (FREE/TETHERED) BALLOONS |  |  | Level |  |  |\n|---|---|---|---|---|---|\n| 10L.1 Theory of flight – gas balloons |  |  | 1 |  |  |\n| 10L.2 General airframe of gas balloons |  |  | 2 |  |  |\n| 10L.3 Envelope |  |  | 3 |  |  |\n| 10L.4 Netting |  |  | 3 |  |  |\n| 10L.5 Valves, parachutes and other related systems |  |  | 3 |  |  |\n| 10L.6 Load ring |  |  | 3 |  |  |\n| 10L.7 Basket (including alternative devices) |  |  | 3 |  |  |\n| 10L.8 Ropes and lines |  |  | 3 |  |  |\n| 10L.9 Instruments |  |  | 2 |  |  |\n| 10L.10 Tethered gas balloon (TGB) systems |  |  | 3 |  |  |\n| 10L.11 Equipment |  |  | 2 |  |  |\n| 10L.12 Gas balloon handling and storage |  |  | 2 |  |  |\n|  | 10L.13 Disassembly, inspection, repair and assembly techniques |  |  | 3 |  |",
+  "char_count": 783,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 173
+ },
+ {
+  "chunk_id": "3f925a3c3460",
+  "text": "| Website/ Reference | Link | Link | Link | Link | Link |\n|---|---|---|---|---|---|\n| SAF Accounting Methodology Used | Voluntary Well- to-wake (WtW) accounting methodology | Voluntary Well- to-wake (WtW) accounting methodology | Voluntary Well- to-wake (WtW) accounting methodology | EU Renewable Energy Directive (EU RED) and EU Emissions Trading System (EU ETS) | ICAO accounting methodology for CORSIA-eligible fuels (CEFs) |\n| Development Status | Active since April 2024 | Active since December 2023 | Active since June 2022 | Active since January 2024 | Active since June 2022 |\n| Market Supported | Voluntary | Voluntary | Voluntary | Regulatory | Regulatory |\n| Developer(s) | International Sustainability & Carbon Certi i fcation (ISCC) | Rocky Mountain Institute (RMI), Sustainable Aviation Buyers Alliance (SABA), and Environmental Defense Fund (EDF) and is operated by Energy Web. | Shell, Accenture, American Express Global Business Travel (AMEC GBT) | EU Commission, DG Energy, and EU ETS administrators | International Civil Aviation Organization (ICAO) |\n| System Name | ISCC SAF Credit Transfer System | SAFc Registry | Avelia | Union Database (UDB) | ICAO CORSIA Central Registry (CCR) |",
+  "char_count": 1206,
+  "is_table": true,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 203
+ },
+ {
+  "chunk_id": "75b965c61dbf",
+  "text": "| Serial number | Parameter | Applicability | Measurement range | Maximum sampling and recording interval (seconds) | Accuracy limits (sensor input compared to FDR read- out) | Recording resolution |\n|---|---|---|---|---|---|---|\n|  |  |  | and reverse |  |  |  |\n| 13* | Ground spoiler/speed brake selection (selection and position) |  | Full range or each discrete position | 1 | ±2% unless higher accuracy uniquely required | 0.2% of full range |\n| 14 | Outside air temperature |  | Sensor range | 2 | ±2°C | 0.3°C |\n| 15* | Autopilot/auto throttle/AFCS mode and engagement status |  | A suitable combination of discretes | 1 |  |  |\n| 16 | Longitudinal acceleration (Note 8) | Application for type certification submitted before 1 January 2016 | ±1 g | 0.25 | ±0.015 g excluding a datum error of ±0.05 g | 0.004 g |\n|  |  | Application for type certification submitted on or after 1 January 2016 | ±1 g | 0.0625 | ±0.015 g excluding a datum error of ±0.05 g | 0.004 g |\n| 17 | Lateral acceleration (Note 3 8) | Application for type certification submitted to a Contracting State before 1 January 2016 | ±1 g | 0.25 | ±0.015 g excluding a datum error of ±0.05 g | 0.004 g |\n|  |  | Application for type certification submitted to a Contracting State on or after 1 January 2016 | ±1 g | 0.0625 | ±0.015 g excluding a datum error of ±0.05 g | 0.004 g |",
+  "char_count": 1353,
+  "is_table": true,
+  "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+  "page_number": 23
+ },
+ {
+  "chunk_id": "79b138bce80b",
+  "text": "| State Report | CORSIA First Phase |  |  | CORSIA Second Phase |  |  |\n|---|---|---|---|---|---|---|\n|  | 2024 | 2025 | 2026 | 2027 | 2028 | 2029 |\n| Aeroplane Operators | 30 Nov (2024 AOs) | 30 Nov (2025 AOs) | 30 Nov (2026 AOs) | 30 Nov (2027 AOs) | 30 Nov (2028 AOs) | 30 Nov (2029 AOs) |\n| Verification Bodies | 30 Nov (2024 VBs) | 30 Nov (2025 VBs) | 30 Nov (2026 VBs) | 30 Nov (2027 VBs) | 30 Nov (2028 VBs) | 30 Nov (2029 VBs) |\n| CO2 Emissions | 31 Jul (2023 Emissions) | 31 Jul (2024 Emissions) | 31 Jul (2025 Emissions) | 31 Jul (2026 Emissions) | 31 Jul (2027 Emissions) | 31 Jul (2028 Emissions) |\n| CORSIA Eligible Fuels* | 31 Jul (2023 CEF) | 31 Jul (2024 CEF) | 31 Jul (2025 CEF) | 31 Jul (2024-2026 CEF) | 31 Jul (2027 CEF) | 31 Jul (2028 CEF) |\n| Cancelled Emissions Units |  |  |  |  | 31 Jul (2024 – 2026 CEUs) |  |",
+  "char_count": 835,
+  "is_table": true,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 229
+ },
+ {
+  "chunk_id": "2abdda2d7e38",
+  "text": "| Just culture | means a culture in which front-line operators or other persons are not punished for actions, omissions or decisions taken by them that are commensurate with their experience and training, but in which gross negligence, wilful violations and destructive acts are not tolerated; |\n|---|---|\n| Oversight planning cycle | refers to the time frame within which all areas of the approval and all processes should be reviewed by DGCA by means of audits and inspections. |\n| Oversight programme | refers to the detailed oversight schedule that defines the number of audits and inspections, the scope and duration of each audit and inspection, including details of product audits and locations, as appropriate, to be performed by DGCA, and the tentative time frame for performing each audit and inspection. |\n| Pre-flight inspection | means the inspection carried out before flight to ensure that the aircraft is fit for the intended flight |\n| Preventive action | is the action to eliminate the cause of a potential non-compliance or other undesirable potential situations. |\n| Risk assessment | is an evaluation based on engineering and operational judgement and/or analysis methods in order to establish whether the achieved or perceived risk is acceptable or tolerable. |",
+  "char_count": 1283,
+  "is_table": true,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 11
+ },
+ {
+  "chunk_id": "5e207135f644",
+  "text": "| CAR -145 APPROVAL RECOMMENDATION REPORT CA FORM 6 |  |  |\n|---|---|---|\n| 3.16 |  | Concession control for deviations from the organisation’s procedures |\n| 3.17 |  | Qualification procedure for specialised activities such as NDT, welding, etc. |\n| 3.18 |  | Management of external working teams |\n| 3.19 |  | Competency assessment of personnel |\n| 3.20 |  | Training procedures for on-the-job training as per Section 6 of Appendix III to CAR-66 |\n| 3.21 |  | Procedure for the issue of a recommendation to DGCA for the issue of a CAR-66 licence |\n| 3.22 |  | Management system record-keeping |\n| PART 4 Relationship with customer/operators |  |  |\n| 4.1 |  | List of the commercial operators to which the organisation provides regular aircraft maintenance services |",
+  "char_count": 769,
+  "is_table": true,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 160
+ },
+ {
+  "chunk_id": "4ab11f07621f",
+  "text": "|  | 13.14 Hydraulic power (ATA 29) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  | (a) System layout; |  |  | 1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1 |  |\n|  | (b) System operation (1); |  |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4 |  |\n|  | (c) System operation (2). |  |  | 5 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4 |  |\n|  | 13.15 Ice and rain protection (ATA 30) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | (a) Principles; |  |  | 1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1 |  |",
+  "char_count": 700,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 121
+ },
+ {
+  "chunk_id": "846b65b21ad2",
+  "text": "| ICAO aspirational safety goal “zero fatalities by 2030 and beyond” |  |  |  |\n|---|---|---|---|\n| Goal | Target |  | Indicators |\n|  |  |  | safety risks, including HRCs – Percentage of States in each region that need assistance to address other safety issues |",
+  "char_count": 263,
+  "is_table": true,
+  "source_file": "icao_gasp_global_safety_plan.pdf",
+  "page_number": 44
+ },
+ {
+  "chunk_id": "b1f5e78e29c4",
+  "text": "|  | B1/B2 | B1 |  |  |  |  | B2 |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| Chapters |  |  |  |  |  |  |  |  |  |  |  |\n|  | LOC | FOT | SG | R/I | ME | TS | FO | SG | R/I | M | T |\n|  |  |  | H |  |  |  |  | H |  | E | S |\n|  |  |  |  |  | L |  | T |  |  | L |  |\n| 76 Engine Controls | X/-- | X | -- | -- | -- | X | -- | -- | -- | -- | - |\n| 77 Engine Indicating | X/X | X | -- | -- | X | X | X | -- | -- | X | X |\n| 78 Exhaust | X/-- | X | -- | -- | X | -- | -- | -- | -- | -- | - |\n| 79 Oil | X/-- | -- | X | X | -- | -- | -- | -- | -- | -- | - |\n| 80 Starting | X/-- | X | -- | -- | X | X | -- | -- | -- | -- | - |\n| 82 Water Injection | X/-- | X | -- | -- | -- | -- | -- | -- | -- | -- | - |\n| 83 Accessory Gearboxes | X/-- | -- | X | -- | -- | -- | -- | -- | -- | -- | - |\n| 84 Propulsion Augmentation | X/-- | X | -- | -- | -- | -- | -- | -- | -- | -- | - |\n| Auxiliary Power Units (APUs): |  |  |  |  |  |  |  |  |  |  |  |\n| 49 Auxiliary Power Units (APUs) | X/-- | X | X | -- | -- | X | -- | -- | -- | -- | - |\n| Piston Engines: |  |  |  |  |  |  |  |  |  |  |  |\n| 70 Standard Practices — Engines — only type particular | -- | -- | X | -- | -- | -- | -- | X | -- | -- | - |\n| 70A Constructional arrangement and operation (Installation Inlet, Compressors, Combustion Section, Turbine Section, Bearings and Seals, Lubrication Systems) | X/X | -- | -- | -- | -- | -- | -- | -- | -- | - | - |",
+  "char_count": 1423,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 140
+ },
+ {
+  "chunk_id": "bbaa9b2eed21",
+  "text": "|  | LEVEL |\n|---|---|\n|  | B2 |\n| MODULE 14 PROPULSION |  |\n|  | B2L Instruments |\n|  | B2L Airframe & |\n|  | Systems |\n| 14.1 Engines |  |\n| (a) Constructional arrangement and operation of turbojet, | 1 |\n| turbofan, turboshaft, and turboprop engines. |  |\n| (b) Constructional arrangement and operation of auxiliary power |  |\n|  | 1 |\n| units (APUs). |  |\n| (c) Constructional arrangement and operation of piston engines. |  |\n|  | 1 |\n| (d) Constructional arrangement and operation of electric and |  |\n|  | 2 |\n| hybrid engines, their electric energy storage and control systems. |  |",
+  "char_count": 590,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 100
+ },
+ {
+  "chunk_id": "107e4282aa92",
+  "text": "| Global Stocktake (GST) outcomes | LTAG and ICAO Global Framework for SAF, LCAF and other Aviation Cleaner Energies |\n|---|---|\n| Nationally Determined Contributions | State Action Plans |\n| Article 6 mechanisms | CORSIA |\n| New Collective Quantified Goal (NCQG) | ICAO Finvest Hub |\n| Transparency Framework and BTRs | LTAG monitoring and reporting, CORSIA Monitoring, Reporting and Verification (MRV) |\n| Adaptation Framework | Aviation adaptation work (e.g., resilience planning) |",
+  "char_count": 485,
+  "is_table": true,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 477
+ },
+ {
+  "chunk_id": "3ddb0014be0d",
+  "text": "|  | to 2000 Ft |  |  |  |\n|---|---|---|---|---|\n| 49 | Pitch Attitude High at Touch down | 6.5 Deg | 7 Deg |  |\n| 50 | Pitch Attitude low at Touch down | -1.5 Deg | -2 Deg |  |\n| 51 | Pitch Rate High at Touch down | 4°/sec | 4.5°/sec |  |",
+  "char_count": 239,
+  "is_table": true,
+  "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
+  "page_number": 17
+ },
+ {
+  "chunk_id": "55733c4fdfb8",
+  "text": "| AIRCRAFT | A3 | SINGLE ENGINED HELICOPTER OF 3175 KG MTOM OR LESS |\n|---|---|---|\n| AIRCRAFT | A4 | NO LIMITATIONS |\n| ENGINES | B2 | LESS THAN 450 HP |\n| COMPONENTS OTHER THAN COMPLETE ENGINES OR APUs | C1 TO C22 | AS PER CAPABILITY LIST |\n| SPECIALISED SERVICES | D1 NDT | NDT METHOD(S) TO BE SPECIFIED |",
+  "char_count": 308,
+  "is_table": true,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 148
+ },
+ {
+  "chunk_id": "27c57a1e5c26",
+  "text": "|  |  |  |  | Serum Uric Acid |  |  | 63 | 58 |  | 63 |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|  |  |  |  | LFT |  |  | 259 | 259 |  | 259 |  |  |\n|  |  |  |  | Serum PSA |  |  | 431 | 431 |  | 431 |  |  |\n|  |  |  |  | USG Abdomen |  |  | 380 | 380 |  | 371 |  |  |\n|  |  |  |  | USG Pelvis |  |  | 300 | 300 |  | 293 |  |  |\n|  |  |  |  | PTA |  |  | 198 | 198 |  | 198 |  |  |\n|  |  |  |  | TMT |  |  | * | * |  | * |  |  |\n|  |  |  |  | 2D Echocardiography |  |  | * | * |  | * |  |  |\n| Total |  |  |  |  |  |  | 2323 | 2284 |  | 2307 | R/off – Rs.2305/- |  |\n| *TMT/2D ECHO/SERUM PSA to be mandatorily conducted at any NABL/NABH/ISO Accredited laboratory and reports to be submitted on eGCA module along with the investigations conducted at IAF Boarding Centres. ** Cases of diagnosed IGT/ Pre Diabetes and Body Mass Index above 25 kg/m2 shall undergo Blood Sugar – F & 2 hrs after 75 g glucose & HbA1C |  |  |  |  |  |  |  |  |  |  |  |  |\n| COMMON INVESTIGATIONS WITH CGHS RATE LIST IN RUPEES FOR IAF BOARDING CENTRE ONLY (IF AVAILABLE AT IAF BOARDING CENTRES) |  |  |  |  |  |  |  |  |  |  |  |  |\n| Sl. No. |  | Name of Investigation |  |  | Delhi | Bengaluru |  | Jorhat | Average |  |  | R/off Total |\n| 1 |  | Sleep Study (Poly Somnography) |  |  | 750 | 750 |  | 734 | 744.6667 |  |  | 745/- |\n| 2 |  | Stress Thallium Scan |  |  | 10868 | 9781 |  | 10868 | 10505.67 |  |  | 10506/- |\n| 3 |  | Holter ECG |  |  | 1000 | 1000 |  | 978 | 992.6667 |  |  | 993/- |",
+  "char_count": 1496,
+  "is_table": true,
+  "source_file": "circular_flight_crew_2025_01_medical.pdf",
+  "page_number": 6
+ },
+ {
+  "chunk_id": "971a911f44cb",
+  "text": "|  | B1/B2 | B1 |  |  |  |  | B2 |  |  |  |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| 28 Fuel Systems | X/X | X | X | X | X | X | X | X | -- | X | - |\n| 28A Fuel Systems — Monitoring and indicating | X/X | X | -- | -- | -- | -- | X | -- | X | -- | X |\n| 29 Hydraulic Power | X/X | X | X | X | X | X | X | X | -- | X | - |\n| 29A Hydraulic Power — Monitoring and indicating | X/X | X | -- | X | X | X | X | -- | X | X | X |\n| 30 Ice and Rain Protection | X/X | X | X | -- | X | X | X | X | -- | X | X |\n| 31 Indicating/Recording Systems X | X/X | X | X | X | X | X | X | X | X | X | X |\n| 31A Instrument Systems | X/X | X | X | X | X | X | X | X | X | X | X |\n| 32 Landing Gear | X/X | X | X | X | X | X | X | X | X | X | - |\n| 32A Landing Gear — Monitoring and indicating | X/X | X | -- | X | X | X | X | -- | X | X | X |",
+  "char_count": 833,
+  "is_table": true,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 138
+ },
+ {
+  "chunk_id": "f7c50e55a7a8",
+  "text": "| CAR -145 APPROVAL RECOMMENDATION REPORT CA FORM 6 |  |  |\n|---|---|---|\n| PART 3: Compliance with 145.A.70 Maintenance organisation exposition (MOE) Please either tick (✓) the box if satisfied with compliance; or if not satisfied with compliance and specify the reference of the Part 4 finding; or enter ‘N/A’ where an item is not applicable, or ‘N/R’ when applicable but not reviewed. |  |  |\n| 2.15 |  | Rectification of defects arising during maintenance |\n| 2.16 |  | Release to service procedure |\n| 2.17 |  | Records for the person or organisation that ordered maintenance |\n| 2.18 |  | Occurrence reporting |\n| 2.19 |  | Return of defective aircraft components to store. |\n| 2.20 |  | Defective components to outside contractors |\n| 2.21 |  | Control of computer maintenance record systems |\n| 2.22 |  | Control of man-hour planning versus scheduled maintenance work. |\n| 2.23 |  | Critical maintenance tasks and error-capturing methods |\n| 2.24 |  | Reference to specific procedures |\n| 2.25 |  | Procedures to detect and rectify maintenance errors. |\n| 2.26 |  | Shift / task handover procedures. |\n| 2.27 |  | Procedures for notification of maintenance data inaccuracies and ambiguities |\n| 2.28 |  | Production planning and organising of maintenance activities |\n| 2.31 |  | Procedure for component maintenance under aircraft or engine rating |\n| 2.32 |  | Maintenance away from approved locations |\n| 2.33 |  | Procedure for assessment of work scope as line or base maintenance |",
+  "char_count": 1493,
+  "is_table": true,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 159
+ },
+ {
+  "chunk_id": "e47f923061a9",
+  "text": "mitigation measures to \nsupport the implementation of the LTAG.\n\nIn addition, the APAC Regional Office supports States in \nincorporating quantified data into their SAPs, highlighting \ntheir individual contributions toward the achievement of \nICAO’s global aspirational goals. These efforts are further \ncomplemented by APAC’s participation in and support of \nvarious environmental events held in the region, as well as \nrepresentation in relevant regional and international forums \nto promote further collaborat",
+  "char_count": 511,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 288
+ },
+ {
+  "chunk_id": "95ccd05ac95c",
+  "text": "mpacts\n\nCHAPTER FOUR Climate Change Mitigation — Operations\b\n149\n\nregions. Lufthansa Systems and PACE have each added a \nmodule to their software for flight planning (Lido Flight \n4D), pre- and in-flight optimization (FPO cloud) to avoid \nclimate-sensitive regions. The integration of climate-\nrelevant data into operational tools and processes raises \nthe question of the quality of the overall process for \ncalculating climate-optimized flight routes, and requires \nconcepts on further developments, e.g. maski",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 163
+ },
+ {
+  "chunk_id": "de7780ba4ae2",
+  "text": "ievements \nof all of ICAO’s Regional Offices in advancing ICAO’s \nenvironmental objectives. Through a range of activities, \nincluding enhancing regional development of State Action \nPlans, assisting States with their involvement in the ACT-SAF \nProgramme, and supporting States with the implementation \nof CORSIA, the Regional Offices are actively driving progress \ntoward reducing aviation’s carbon footprint and ensuring \na sustainable future for international aviation. This report \nhighlights the key initiat",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 287
+ },
+ {
+  "chunk_id": "301c5093b108",
+  "text": "and limitations \n- \nunderstanding of the AMO’s personnel authorization and limitations; \n- \nbeing familiar with AMO’s documents/forms (work packages , work order, work card etc); \n- \nbeing familiar with AMO’s release – to – service procedures: use of aircraft technical logbook \n(ATLB), deferral of items and dispatch under MEL/CDL \n- \naccess, use and control of the required tools and equipment; \n- \naccess, use and control of the required ICAs (AMM, TSM, SRM, etc.). \nOJT content and OJT logbook \n \nIf the air",
+  "char_count": 511,
+  "is_table": false,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 154
+ },
+ {
+  "chunk_id": "e98b631a1102",
+  "text": "ndication \nthat it was carried out on time as planned. Such information should subsequently be \ntransferred to the certifying staff and to the support staff records as required by point \n145.A.55(d)(3). \n \nAMC1 145.A.35(f) Certifying staff and support staff \n \nAs stated in point 145.A.35(f), except where any of the unforeseen cases of point \n145.A.30(j)(5) applies, all prospective certifying staff and support staff should be \nassessed for theircompetency related to their intended duties. Said assessment \nsh",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 53
+ },
+ {
+  "chunk_id": "55025b74d1a4",
+  "text": "commences and competency is controlled on a \ncontinuous basis. \n\n \nCompetency should be assessed by the evaluation of: \n \n\n— \non-the-job performance and/or testing of knowledge by appropriately \nqualified personnel, and \n \n— \nrecords for basic, organisational, or tasks training and/or product type and \ndifferences training, and \n\n— \nexperience records.",
+  "char_count": 354,
+  "is_table": false,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 29
+ },
+ {
+  "chunk_id": "7fe652c7231b",
+  "text": "isation exposition (MOE) \n\n \n1. The purpose of the (MOE) is to: \n\n \n−specify the scope of work and show how the organisation intends to comply \nwith this Annex; and \n−provide all the necessary information and procedures for the personnel of the \norganisation to perform their duties. \n \n2. Complying with its contents will ensure that the organisation remains in",
+  "char_count": 362,
+  "is_table": false,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 99
+ },
+ {
+  "chunk_id": "af2d2a6569c9",
+  "text": "safety \nmanagement components, building upon the existing management system, rather \nthan adding them as a separate framework. \n \nThis approach is intended to encourage organisations to embed safety management \nand risk-based decision-making into all their activities, instead of super imposing \nanother system onto their existing management system and governance structure. In \naddition, if the organisation holds multiple organisation certificates under the Aircraft \nRules, 1937, it may choose to implement a",
+  "char_count": 511,
+  "is_table": false,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 114
+ },
+ {
+  "chunk_id": "4ee3d6a5e24e",
+  "text": "the \nfirst 48 parameters listed in Table-2 of Appendix I. \n \n \n4.3.4 \nAll turbine-engined helicopters of a maximum certificated take-off mass of \nover 2250 kg, up to and including 3175 kg for which the application for type \ncertification was submitted to a contracting state on or after 1 January 2018 \nshall be equipped with: \n \n\na) an FDR which shall record at least the first 48 parameters in Table-2 of \n\nAppendix I; or \n \n\nb) a Class C AIR or AIRS which shall record at least the flight path and",
+  "char_count": 500,
+  "is_table": false,
+  "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+  "page_number": 6
+ },
+ {
+  "chunk_id": "75b9c7eaabff",
+  "text": "impacts are a tangible risk \nfor most of the survey respondents.\n\nFIGURE 1: Do you expect to be impacted by climate change \nnow or in the future?\n\nOf the nine impact categories included in the survey, \nthe three that survey respondents expect to be most \nimpacted by are:\n\n•\t Higher Average and Extreme Temperatures: 247 of",
+  "char_count": 323,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 413
+ },
+ {
+  "chunk_id": "0fe828893c42",
+  "text": "nce of clear reporting lines, both for occurrence reporting and \n\nprogress reporting; \n \n(4) the possibility for staff to directly notify the organisation of any hazard that \n\nsuggests an obviously unacceptable safety risk as a result of the potential \nconsequences of this hazard. \n \n(d) The safety risk management processes should ensure that there is regular",
+  "char_count": 361,
+  "is_table": false,
+  "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+  "page_number": 34
+ },
+ {
+  "chunk_id": "eb5b1f7662ec",
+  "text": "defined time frame. The principal \nfunctions of the feedback system are to ensure that all findings resulting from \nthe independent audits of the organisation are properly investigated and \ncorrected in a timely manner, and to enable the accountable manager to be \nkept informed of any safety issues and the extent of compliance with CAR-\nCAMO. \n \n(d) \nThe independent audit reports referred to in AMC2 CAMO.A.200(a)(6) should \nbe sent to the relevant department(s) for corrective action, giving target closure",
+  "char_count": 510,
+  "is_table": false,
+  "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+  "page_number": 40
+ },
+ {
+  "chunk_id": "4f91ac5e006f",
+  "text": "demonstrable safety value. Importantly, for \nservice providers that do not benefit from the common acceptance of their certification, authorization or approval, the \nintroduction of SMS has exacerbated the situation. States should try to achieve the benefits of implementation without \nimposing additional undue burden on service providers. \n \n8.4.7.9 \nFurther, States are encouraged to apply the requirements equally when granting certificates, authorizations \nor approvals to other States’ service providers, w",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "icao_doc9859_safety_management_manual.pdf",
+  "page_number": 125
+ },
+ {
+  "chunk_id": "6c6b18a71e3e",
+  "text": "in a range of \ntemperature increase pathways (Figure 1), from about 1.6°C \nto 2.3°C, depending on the exact emissions trajectory.2 \nWhile the LTAG does not assign country-level emissions \ngoals, it is clear from roadmaps that aggressive action will \nbe needed from across the sector in order to reach net-\nzero CO2 emissions by 2050.\n\nFIGURE 1: Historical and projected CO2 emissions from aviation, 1980 to 2050, normalized to 2019 (Mithal and Rutherford, 2023).",
+  "char_count": 462,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 278
+ },
+ {
+  "chunk_id": "6560d94f515c",
+  "text": "2.2.5 \nA number of models have been created to support the assessment of human factors on safety \nperformance. The SHELL Model is well known and useful to illustrate the impact and interaction of the different system \ncomponents on the human, and emphasizes the need to consider human factors as an integrated part of SRM. \n \n2.2.6 \nFigure 2-2 illustrates the relationship between the human (at the centre of the model) and workplace \ncomponents. The SHELL Model contains four satellite components: \n \n \na) \nSoft",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "icao_doc9859_safety_management_manual.pdf",
+  "page_number": 26
+ },
+ {
+  "chunk_id": "0547fde9548c",
+  "text": "ibited, unless one of the principles of \nexception applies. \n \n \n\n7.4.3 Protection of mandatory reporting systems \n \n7.4.3.1 \nAnnex 19 specifies different requirements for the protection of safety data, safety information and related \nsources captured by voluntary and mandatory safety reporting systems. Protecting safety data and safety information \ncaptured by voluntary safety reporting systems is a Standard, to ensure the continued availability and greater uniformity \namong States, whereas for mandatory s",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "icao_doc9859_safety_management_manual.pdf",
+  "page_number": 98
+ },
+ {
+  "chunk_id": "b10c7fdc4b3c",
+  "text": "145.A.85 Changes to the organization \n\n \nMANAGEMENT OF CHANGES \n\n \nThe organisation should manage changes to the organisation in accordance with point \n(e) of AMC1 145.A.200(a)(3). For changes requiring prior approval, it should conduct \na risk assessment and provide it to DGCA upon request. \n\n \nGM1 145.A.85 Changes to the organization \n\n \nCHANGES REQUIRING OR NOT REQUIRING PRIOR APPROVAL \n\n \nPoint 145.A.85 is structured as follows:",
+  "char_count": 436,
+  "is_table": false,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 108
+ },
+ {
+  "chunk_id": "e9556652ade4",
+  "text": "Global Landscape of SAF Accounting Methodology and Registry Systems\n\nCHAPTER FIVE Climate Change Mitigation — Aviation Cleaner Energies\b\n188\n\nAppendix\n\nTABLE 1: Summary of Global SAF Registries and Accounting Systems",
+  "char_count": 216,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 202
+ },
+ {
+  "chunk_id": "08eb085f8ba6",
+  "text": "population is fundamental to effective \nsafety management. \n \n \n\n7.5.2 Proceedings \n \n7.5.2.1 \nAnnex 19 requires States to ensure that safety data and safety information are not used in disciplinary, civil, \nadministrative and criminal proceedings against employees, operational personnel or organizations, unless a principle of \nexception applies. \n \n7.5.2.2 \nThe term “proceeding” may be more comprehensive and broader in scope than the term “action”. It may \nalso refer rather more narrowly to the processes",
+  "char_count": 510,
+  "is_table": false,
+  "source_file": "icao_doc9859_safety_management_manual.pdf",
+  "page_number": 101
+ },
+ {
+  "chunk_id": "6a139b3b0c9f",
+  "text": "and most efficient aero \nengine technology demonstrator. This project exemplifies \nadvancements in fuel efficiency and emission reductions, \naligning with the UK’s commitment to sustainable aviation.\n\nFIGURE 1: Rolls-Royce’s UltraFan.",
+  "char_count": 234,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 341
+ },
+ {
+  "chunk_id": "a55d3fff170f",
+  "text": "CAR 145 \n\nIssue 3, R0, 31st July 2024 \n \n 54 \n \n\n(theoretical plus practical hands-on) and examination/assessment for these \nadditional tasks is still required. \n\n3. \nWhen the certifying staff authorisation intends to cover several aircraft types, \nthe experience may be combined within a single 6-month period.",
+  "char_count": 311,
+  "is_table": false,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 54
+ },
+ {
+  "chunk_id": "3be7e3d3318e",
+  "text": "s (DLR, ONERA, Imperial \nCollege of London, UPC, NLR, ENAC, Breakthrough \nEnergy), MET providers (METEO FRANCE, IAGOS), aircraft \nmanufacturers (AIRBUS and BOEING), airlines including \ntheir pilots and their dispatchers in Operational Control \nCentre (OCC) (AIR FRANCE, SWISS, EASYJET), the Network \nManager (NM) and Air Navigation Service Providers (ANSP) \n(NATS, DSNA) and their air traffic controllers.",
+  "char_count": 405,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 165
+ },
+ {
+  "chunk_id": "b97ca0038772",
+  "text": "planning and better tools to plan, measure and manage \nimpact.\n\nIn response to aviation’s complex challenge to decarbonize, \nBoeing developed the Cascade Climate Impact Model1: \nA data modeling and visualization tool designed to help \ndecision-makers, and the entire aviation ecosystem explore \nand compare the most effective strategies for reducing \naviation’s carbon emissions. Cascade can be used to guide \ncritical decisions towards ICAO’s and civil aviation’s shared \naspiration of net zero emissions by 2",
+  "char_count": 510,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 98
+ },
+ {
+  "chunk_id": "01ddc52fcca9",
+  "text": "ng and Reduction Scheme for International Aviation (CORSIA)\b\n217\n\nincreasing its coverage to a historic record of 99% of total \nCO2 emissions. In accordance with Annex 16, Volume IV, \nthe ICAO Secretariat filled the CO2 emissions gap for 15 \nStates (which represent the remaining 1.0% of the total \n2023 CO2 emissions) that did not submit data through \nthe CCR. This high coverage reflects the effectiveness of \nthe CCR in capturing and reporting aviation emissions \ndata, as well as the accountability in the se",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 231
+ },
+ {
+  "chunk_id": "6a44fddc7b0c",
+  "text": "B1 \nB3 \n\nB2 \nB2L \n\n7.1 Safety precautions aircraft and workshop \n\nAspects of safe working practices including precautions to be taken when \nworking with electricity, gases (especially oxygen), oils, and chemicals. \nFuel tank safety and fuel tank entry procedures and precautions. Awareness \nand precautions regarding aircraft equipped with ballistic recovery systems. \nAlso, instructions for the remedial action to be taken in the event of a fire or \nanother accident with one or more of these hazards, including",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 74
+ },
+ {
+  "chunk_id": "93a79577d88e",
+  "text": "differences e.g. accent of the\n\noperational personnel involved.\n\nConfusion caused by lack of clarity in instructions, markings, signage,\nlighting and publications.\nLoss of situational awareness.\n\nDistractions and excessive workload.\nWorking under mental anguish or pressure. The involved person should\n\ncarefully consider whether it is appropriate to take on operational duties\nunder such situations.\n\n4. Runway Safety Team(RST)",
+  "char_count": 428,
+  "is_table": false,
+  "source_file": "circular_air_safety_2024_01_mitigation.pdf",
+  "page_number": 4
+ },
+ {
+  "chunk_id": "b8cb7b80a36a",
+  "text": "ical maintenance experience on operating aircraft, covering the \n\ncorresponding system rating, and having acquired a Degree in Aircraft Maintenance or \nDegree in Engineering from a recognised University; or \n\n(iii) one year of practical maintenance experience on operating aircraft, covering the \n\ncorresponding system rating, and having successfully completed basic aircraft \nmaintenance training conducted by a training organisation approved under rule 133B.",
+  "char_count": 460,
+  "is_table": false,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 26
+ },
+ {
+  "chunk_id": "be405181df36",
+  "text": "proved flight \n\nenvelope following a critical change of thrust. \n\n(g) The aircraft must be capable of a controlled emergency landing, following a condition when the \n\naircraft can no longer provide the commanded power or thrust required for continued safe flight \nand landing, by gliding or autorotation, or an equivalent means to mitigate the risk of loss of power \nor thrust. \n \nVCA.2110 Minimum safe speed \n\n(a) The applicant must determine the aircraft minimum safe speed for each flight condition",
+  "char_count": 501,
+  "is_table": false,
+  "source_file": "circular_aircraft_eng_2024_01_advisory.pdf",
+  "page_number": 5
+ },
+ {
+  "chunk_id": "29f410a6e660",
+  "text": "CORSIA Emissions Units: Key updates, the role of the Technical Advisory Body and Future Direction\n\nCHAPTER SIX Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA)\b\n221\n\nCORSIA Emissions Units: \nKey updates, the role of the \nTechnical Advisory Body and \nFuture Direction\n\nBy Grégoire Baribeau (Canada) and Rachid Rahim (Qatar)1\n\n1\t Grégoire Baribeau served as Chairperson of the Technical Advisory Body (TAB) of the ICAO Council until March 2025. Rachid Rahim is",
+  "char_count": 484,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 235
+ },
+ {
+  "chunk_id": "884e67a062eb",
+  "text": "ers that satisfy the requirements for FDRs, are listed in Table \n\n2.The number of parameters to be recorded shall depend on helicopter \ncomplexity. The parameters without an asterisk (*)are mandatory parameters \nwhich shall be recorded regardless of helicopter complexity. In addition, the \nparameters designated by an asterisk (*) shall be recorded if an information \ndata source for the parameter is used by helicopter systems or the flight crew \nto operate the helicopter. However, other parameters may be sub",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+  "page_number": 19
+ },
+ {
+  "chunk_id": "3dddd520520a",
+  "text": "d height of cloud base \nshould be sited to give the best practicable \nindications of the cloud amount and height of cloud \nbase at the threshold of the runway in use. For that \npurpose, a sensor should be installed at a distance \nof less than 1200m (4000 ft) before the landing \nthreshold. \n \nFor detailed siting requirements refer to Guide to \nMeteorological Observing and Information Distribution \nSystems for Aviation Weather Services WMO-No. 731",
+  "char_count": 449,
+  "is_table": false,
+  "source_file": "circular_air_nav_2024_01_installation.pdf",
+  "page_number": 3
+ },
+ {
+  "chunk_id": "135f896242a3",
+  "text": "rivate Pilot's licence (PPL) endorsed for the type of aircraft; \n\nwith \n(b) at least 500 hours total flying experience which shall include:- \n \n\n(i) at least 200 hours as PIC, of which \n \n\n(ii) at least 100 hours shall be on type; and \n\n \n\n(iii) at least 10 hours as PIC on type or similar aircraft types within a period of \n\nsix months immediately preceding the date of flight test. \n \n 10.2.2 Test flight of aircraft other than piston engined aircraft having maximum take-off",
+  "char_count": 477,
+  "is_table": false,
+  "source_file": "car_s2_t_p2_flight_testing.pdf",
+  "page_number": 8
+ },
+ {
+  "chunk_id": "7e40998e9390",
+  "text": "ed with the following (as \napplicable to the licence category): \n\n(a) \nPropulsion systems (piston or turboprop or turbofan or turboshaft or jet-engine or push \npropellers); and \n\n(b) Flight control systems (only mechanical controls or hydro-mechanically powered controls or \n\nelectro-mechanically powered controls); and \n\n(c) \nAvionic systems (analog systems or digital systems); and \n\n(d) Structure (manufactured of metal or composite or wood). For licenses endorsed with (sub) \n\ngroup ratings:",
+  "char_count": 495,
+  "is_table": false,
+  "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+  "page_number": 22
+ },
+ {
+  "chunk_id": "4d48b579ad4d",
+  "text": "and Technology, 2025, https://doi.org/10.1021/acsestair.5c00053\n\nsuch compounds are found in very low concentrations in \nengine exhaust, mainly at low power, but nevertheless it is \nimportant to know, whether their concentration changes \nwith the type of fuel.4",
+  "char_count": 261,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 372
+ },
+ {
+  "chunk_id": "b549fea06e5d",
+  "text": "liance findings against applicable \nrequirement and procedures. \n\n(l) \nOrganisations with a maximum of 10 maintenance staff actively engaged in \ncarrying out maintenance may subcontract the whole independent audit \nelement of the compliance monitoring function to another organisation or \ncontract a qualified and competent person tobecome responsible for this \nelement, with the agreement of DGCA. \n \nThis does not prevent a larger organisation from occasionally using external \nsupport forconducting particular",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+  "page_number": 127
+ },
+ {
+  "chunk_id": "9f26b27904d4",
+  "text": "Per Passenger'for the Control Period.\n-aeronautical Revenue' and\n\niii) To issue in public domain the proposal of the Authority in the form of\nConsultation Paper for\nsoliciting\nfeedback/comments/views of the\nstakeholders.\n\nrv) Analysis of all the\nand counter comments.\n\n6{Et\nOrder no. o8/zoz5-26\n\nF,egtr!atctt|\n\n,L\nPage 3 of 14",
+  "char_count": 326,
+  "is_table": false,
+  "source_file": "aic_2025_12_tariff_noida_nia.pdf",
+  "page_number": 4
+ },
+ {
+  "chunk_id": "4f1c667d0093",
+  "text": "requirements \nfor the intended flight (MCF/ Demo/ positioning). \n\nNote 2: Lessors are only be permitted for normal routine flight for Demo \npurposes. For demonstration flight, Lessor and Lessee representative(s) as \nrequired shall only be permitted on board. \n \n4. \nProcedure \n \n4.1 \nThe owner/ operator seeking a special flight permit shall submit an application as \nper Appendix I. The operator shall substantiate how the aircraft can be flown \nsafely and the steps taken for safe flight. The application shall",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "car_s2_f_p7_special_flight_permits.pdf",
+  "page_number": 3
+ },
+ {
+  "chunk_id": "552efeddbc3f",
+  "text": "aintaining or continuously improving safety \nperformance. \n \n \n \n\n8.3.5 Specific operating regulations \n \n8.3.5.1 \nGuidance on specific operating regulations (CE-2), including adapting or adopting regulations from another \nState can be found in Doc 9734, Part A. \n \n \nPrescriptive and performance-based regulations \n \n8.3.5.2 \nSafety regulations are an important tool that can be used by States to control safety risks. With the \ntransition to safety management, there has also been a trend towards introducing p",
+  "char_count": 512,
+  "is_table": false,
+  "source_file": "icao_doc9859_safety_management_manual.pdf",
+  "page_number": 115
+ },
+ {
+  "chunk_id": "73062e789bca",
+  "text": "ntaining a particular \naircraft type in the organisation approval is whether the organisation continuously \nfulfils all the CAR-CAMO requirements (facilities, documentation, qualified \npersonnel, management system, etc.) required for initial approval \n\nGM1 CAMO.A.125(f) Terms of approval and privileges \n\nReserved \n\n \nCAMO.A.130 Changes to the organization \n \n\n(a) The following changes to the organisation shall require prior approval:",
+  "char_count": 437,
+  "is_table": false,
+  "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+  "page_number": 17
+ },
+ {
+  "chunk_id": "ed9886559250",
+  "text": "n — Aircraft Technologies\b\n116\n\nStartup advantage and innovation\n\nNewer startups benefit from their agility and freedom to \nexplore innovative solutions without the constraints faced \nby established players. These companies can shorten \ncycles from concept to flight validation and adopt an \nagile approach that includes extensive testing. This can \nenable them to bring disruptive innovations to maturity \nmore quickly and cost-effectively.",
+  "char_count": 441,
+  "is_table": false,
+  "source_file": "icao_environment_report.pdf",
+  "page_number": 130
+ }
+]
