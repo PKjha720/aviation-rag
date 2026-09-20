@@ -2,9 +2,9 @@
 
 Branch `structure-ablation`. Written before any retrieval has been run.
 
-**No retrieval delta has been computed.** No index has been built for either arm,
-no query has been issued, and no nDCG, Recall or MRR figure exists for this
-experiment. Nothing below depends on one.
+**Retrieval has now been run; the deltas are in `RESULTS.md`** (headline pool
+n = 38; see its notices before quoting). Everything below was established before
+retrieval and does not depend on those deltas.
 
 What follows are results that are complete as they stand, because they are
 properties of ingestion and of eval-set construction, measured before retrieval
