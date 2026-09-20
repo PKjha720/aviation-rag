@@ -1,0 +1,17 @@
+ARM A REBUILD VERIFICATION
+============================================================
+Produced by ablation/verify_arm_a.py.
+Arm A rebuilt from the PDFs using functions imported from ingest.py,
+compared against the index already on disk
+(data/processed/chunks_metadata.json).
+
+  chunk count      : live=10572  rebuilt=10572  MATCH
+  ids only in live : 0
+  ids only in new  : 0
+  shared ids       : 10572
+  shared, text differs: 0
+  is_table chunks  : live=368  rebuilt=368  MATCH
+
+  REPRODUCES EXACTLY: True
+
+  eval_dataset_v2 golds resolvable in rebuilt Arm A: 80/80

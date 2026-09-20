@@ -1,0 +1,312 @@
+[
+  {
+    "question_id": "F001",
+    "question": "What is the title of the section in CAR-66 that details the endorsements inherited from a previous AME licence?",
+    "gold_span": "XIV (a) LICENCE ENDORSEMENTS INHERITED FROM THE AME LICENCE HELD PRIOR TO CAR-66 LICENCE",
+    "gold_span_norm_len": 72,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 165,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F002",
+    "question": "Which ATA chapter is associated with the task 'Perform engine compressor inspection' in CAR 66?",
+    "gold_span": "391 \n72 Engine \nPerform engine compressor inspection",
+    "gold_span_norm_len": 44,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 239,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F003",
+    "question": "Under CAR 66, which ATA chapter is associated with the task of replacing a hydraulic filter?",
+    "gold_span": "171 \n29 Hydraulic power \nReplace hydraulic filter",
+    "gold_span_norm_len": 41,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 233,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F004",
+    "question": "How many questions are allocated to the 'Engine monitoring and ground operation' topic under Module 15 Gas-Turbine Engine for the B1.3 category?",
+    "gold_span": "15.21 Engine monitoring and ground operation \n4 \n7",
+    "gold_span_norm_len": 40,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 123,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F005",
+    "question": "Under CAR 66, which maintenance tasks in ATA chapter 27 (Flight controls) require both B1.1 and B2 certification?",
+    "gold_span": "110 \n27 Flight controls \nPerform horizontal stabiliser operational test \nX \nX",
+    "gold_span_norm_len": 63,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 231,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F006",
+    "question": "How many e-publications have been published on the ICAO Environment website as part of the Eco-Airport Toolkit e-collection?",
+    "gold_span": "To date, 13 e-publications have been published on the website",
+    "gold_span_norm_len": 50,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 392,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F007",
+    "question": "How many multiple-choice questions and how many minutes are allowed for the Category B2L examination in Module 14 (Propulsion)?",
+    "gold_span": "Category B2L: 32 multiple-choice questions and time allowed is 40 minutes.",
+    "gold_span_norm_len": 61,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 110,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F008",
+    "question": "What is the description for Competency 3 (LTW) in the Indian civil aviation regulatory framework?",
+    "gold_span": "Influences others to contribute to a shared purpose",
+    "gold_span_norm_len": 44,
+    "source_file": "circular_cabin_safety_2025_01_training.pdf",
+    "page_number": 4,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F009",
+    "question": "According to CAR-66, what is the minimum number of hours required for the 'Introduction module' chapter for B1 Level 1 personnel on Turbine Aeroplane types?",
+    "gold_span": "Introduction module: \n05 Time limits/ maintenance \nchecks \n1 \n1 \n1 \n1 \n1 \n1 \n1 \n1 \n1",
+    "gold_span_norm_len": 56,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 129,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F010",
+    "question": "What is the assigned value for the 'Catastrophic' severity category in the example safety risk severity table?",
+    "gold_span": "Catastrophic \n• \nAircraft / equipment destroyed \n\n• \nMultiple deaths \nA",
+    "gold_span_norm_len": 53,
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "page_number": 37,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F011",
+    "question": "What is the maximum take-off mass limitation for a single-engined helicopter under CAR 145 category A3?",
+    "gold_span": "SINGLE ENGINED HELICOPTER OF 3175 KG MTOM OR LESS",
+    "gold_span_norm_len": 41,
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "page_number": 148,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F012",
+    "question": "Under CAR 66, which maintenance task number corresponds to the replacement of the inertial reference unit?",
+    "gold_span": "265 34 Navigation Replace inertial reference unit — X",
+    "gold_span_norm_len": 44,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 235,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F013",
+    "question": "What is the minimum waiting period before a failed CAR-66 module examination can be retaken?",
+    "gold_span": "A failed module may not be retaken for at least 30 days following the date of the failed module examination.",
+    "gold_span_norm_len": 88,
+    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
+    "page_number": 107,
+    "page_stratum": "table",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F014",
+    "question": "What specific regulatory change was made to CAR 145 Issue 02 Revision 5 regarding acceptable equivalent documents?",
+    "gold_span": "The CAR 145 Issue 02 Rev 05 is amended to include UK CAA Form 1 as an acceptable equivalent document.",
+    "gold_span_norm_len": 81,
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "page_number": 8,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F015",
+    "question": "What is the deadline for aeroplane operators to cancel emissions units for the first phase of CORSIA?",
+    "gold_span": "January 2028 deadline for aeroplane operators to cancel emissions units for the first phase",
+    "gold_span_norm_len": 78,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 238,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F016",
+    "question": "What percentage of total aviation fuel demand is projected to be provided by sustainable aviation fuels (SAFs) by 2035 in the IEA's Net Zero Emissions by 2050 Scenario?",
+    "gold_span": "depends on SAFs providing near 25% of total aviation fuel demand by 2035",
+    "gold_span_norm_len": 59,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 194,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F017",
+    "question": "According to the ICF-led study, what is the potential SAF production capacity for Japan by 2030?",
+    "gold_span": "identified potential for Japan to produce up to 441 million gallons (1.67 billion liters) of SAF by 2030.",
+    "gold_span_norm_len": 84,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 321,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F018",
+    "question": "What are the major challenges remaining for Sustainable Aviation Fuel (SAF) progress as identified in the EU's capacity building and implementation support framework?",
+    "gold_span": "High SAF costs, infrastructure gaps, policy uncertainty, financing constraints.",
+    "gold_span_norm_len": 67,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 306,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F019",
+    "question": "What is the projected market value of the aircraft spare parts market by 2032?",
+    "gold_span": "projected to double by 2032 to reach up to USD 93.5 billion",
+    "gold_span_norm_len": 47,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 439,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F020",
+    "question": "What is the specific name of the ICAO initiative that Boeing joined in 2023 to support sustainable aviation fuels?",
+    "gold_span": "ICAO Assistance, Capacity-building and Training for Sustainable Aviation Fuels (ACT-SAF) initiative",
+    "gold_span_norm_len": 84,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 320,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F021",
+    "question": "To which entities is Advisory Circular ANSS AC 01 of 2026 regarding the installation and maintenance of CNS equipment applicable?",
+    "gold_span": "This Advisory Circular is applicable to all civil ANSPs responsible for provisioning CNS Services.",
+    "gold_span_norm_len": 84,
+    "source_file": "circular_air_nav_2026_01_installation.pdf",
+    "page_number": 1,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F022",
+    "question": "According to the Safety Management Manual, who is the only person allowed to know the identifying information of a reporter in a voluntary safety reporting system?",
+    "gold_span": "any identifying information about the reporter is known only to the custodian",
+    "gold_span_norm_len": 66,
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "page_number": 156,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F023",
+    "question": "What is the maximum volume percentage of aromatic compounds that can constitute jet fuel?",
+    "gold_span": "Aromatic compounds, which can constitute up to 25% by volume of jet fuel",
+    "gold_span_norm_len": 58,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 378,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F024",
+    "question": "Under which rule of the Aircraft Rules, 1937, was the Civil Aviation Requirement for Flight Data Recorders and related systems issued?",
+    "gold_span": "This CAR has been issued under the provisions of Rule 29C of the Aircraft Rules, 1937.",
+    "gold_span_norm_len": 69,
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "page_number": 1,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F025",
+    "question": "What specific data does a Class “B” AIR or AIRS capture according to the Civil Aviation Requirements?",
+    "gold_span": "A Class “B” AIR or AIRS captures data link message displays.",
+    "gold_span_norm_len": 47,
+    "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
+    "page_number": 12,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F026",
+    "question": "According to CICONIA, what is considered the most promising short-term approach to non-CO2 climate impact mitigation?",
+    "gold_span": "airline-led trajectory optimization is the most promising short term approach to non-CO2 climate impact mitigation",
+    "gold_span_norm_len": 98,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 167,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F027",
+    "question": "Under CAR-CAMO, what condition must be met for the pooling of reliability data by a subcontracted organisation to be permitted?",
+    "gold_span": "The pooling of reliability data is permitted if it is acceptable to DGCA.",
+    "gold_span_norm_len": 60,
+    "source_file": "car_s2_e_camo_continuing_airworthiness_mgmt.pdf",
+    "page_number": 90,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F028",
+    "question": "What is the maximum type certified passenger capacity threshold that defines a large aeropne for the purpose of Fuel Tank Safety Training under CAR 145 Appendix VIII?",
+    "gold_span": "Large aeroplanes as defined as maximum type certified passenger capacity of 30 or more",
+    "gold_span_norm_len": 73,
+    "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
+    "page_number": 168,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F029",
+    "question": "According to Annex 19, what is the specific requirement regarding the scope of the safety training programme in relation to an individual's involvement in the SMS?",
+    "gold_span": "the scope of the safety training programme be appropriate to each individual’s involvement in the SMS",
+    "gold_span_norm_len": 85,
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "page_number": 169,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F030",
+    "question": "What interim emission reduction targets has iGA Istanbul Airport set for 2030 and 2040 in alignment with ICAO's Long-Term Aspirational Goal?",
+    "gold_span": "setting interim goals to reduce emissions by 45% by 2030 and 73% by 2040",
+    "gold_span_norm_len": 57,
+    "source_file": "icao_environment_report.pdf",
+    "page_number": 403,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  },
+  {
+    "question_id": "F031",
+    "question": "According to Annex 19, what is the aim of promoting a positive safety culture for States and service providers?",
+    "gold_span": "fostering effective safety management implementation through the SSP/SMS",
+    "gold_span_norm_len": 64,
+    "source_file": "icao_doc9859_safety_management_manual.pdf",
+    "page_number": 43,
+    "page_stratum": "prose",
+    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
+  }
+]
