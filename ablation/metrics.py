@@ -10,7 +10,7 @@ unioned over gold positions). Upper bound: page-match.
 Metrics at k=10: Recall@10 (hit), MRR@10, nDCG@10. With one relevant chunk
 nDCG@10 is exactly 1/log2(rank+1) - a re-expression of MRR, not independent
 evidence. Overlapping windows can make more than one chunk relevant, in which
-case IDCG uses the number of relevant chunks in that arm for that query.
+case IDCG uses the number of relevant chunks in the whole arm.
 
 Paired tests, same queries in both arms: McNemar exact (binomial on discordant
 pairs) for Recall@10; paired bootstrap 95% CI (seed 0, 10 000 resamples) for
@@ -79,11 +79,27 @@ def main():
             "B": json.loads((OUT / "arm_b_chunks.json").read_text(encoding="utf-8"))}
     retr = {"A": ra, "B": rb}
 
-    # Chunks by source file per arm, normalized once, for n_rel.
-    by_file = {arm: defaultdict(list) for arm in arms}
-    for arm, chunks in arms.items():
-        for c in chunks:
-            by_file[arm][c["source_file"]].append(normalize(c["text"]))
+    # All chunks per arm, normalized once. n_rel (for IDCG and reachability)
+    # must be counted over the WHOLE arm, not the gold page: a retrieved chunk
+    # from another page can partially cover a span (repeated headers, boiler-
+    # plate), and if DCG credits it while IDCG does not, nDCG exceeds 1.
+    all_norm = {arm: [normalize(c["text"]) for c in chunks] for arm, chunks in arms.items()}
+
+    def corpus_covs(gn: str, norms: list[str]) -> list[float]:
+        """Contiguous coverage of gn by every chunk, with an exact prefilter.
+        A common substring of length >= 0.4*len(gn) must contain at least one
+        aligned probe of length L = floor(0.2*len(gn)) taken at stride L, so a
+        chunk containing no probe has coverage < 0.40 and is skipped. Substring
+        tests are C-speed; SequenceMatcher runs only on survivors."""
+        L = max(4, int(0.2 * len(gn)))
+        probes = {gn[i:i + L] for i in range(0, len(gn) - L + 1, L)} | {gn[-L:]}
+        out = []
+        for cn in norms:
+            if any(p in cn for p in probes):
+                out.append(coverage(gn, cn))
+            else:
+                out.append(0.0)
+        return out
 
     queries = []
     for q in fresh:
@@ -101,7 +117,8 @@ def main():
     for q in queries:
         gn = normalize(q["gold"])
         for arm in ("A", "B"):
-            n_rel = {t: sum(1 for cn in by_file[arm][q["file"]] if coverage(gn, cn) >= t) for t in THRESHOLDS}
+            cc_ = corpus_covs(gn, all_norm[arm])
+            n_rel = {t: sum(1 for c in cc_ if c >= t) for t in THRESHOLDS}
             for mode, _ in MODES:
                 hits = retr[arm][q["qid"]][mode][:K]
                 covs = [coverage(gn, normalize(h["text"])) for h in hits]
@@ -113,6 +130,7 @@ def main():
                     first = next((i + 1 for i, r in enumerate(rel) if r), None)
                     dcg = sum(1 / math.log2(i + 2) for i, r in enumerate(rel) if r)
                     idcg = sum(1 / math.log2(i + 2) for i in range(min(n_rel[t], K)))
+                    assert dcg <= idcg + 1e-9, (q["qid"], arm, mode, t, dcg, idcg, n_rel[t])
                     rows.append({
                         "pool": q["pool"], "qid": q["qid"], "stratum": q["stratum"], "arm": arm,
                         "mode": mode, "t": t,
@@ -270,7 +288,6 @@ def main():
     w("Files: results_per_query.csv (every query × arm × mode × threshold), results_summary.csv (every aggregate cell).")
 
     (OUT / "RESULTS.md").write_text("\n".join(L) + "\n", encoding="utf-8")
-    print("\n".join(L[:60]))
     print(f"\n... wrote {OUT/'RESULTS.md'}, results_per_query.csv ({len(df)} rows), results_summary.csv ({len(S)} rows)")
 
 
