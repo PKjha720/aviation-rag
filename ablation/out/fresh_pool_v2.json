@@ -1,17 +1,5 @@
 [
   {
-    "question_id": "T001",
-    "question": "According to CAR-66 Issue III, Rev 2, what is the nominal average time allowed per question for the theoretical element examination of aircraft type training?",
-    "gold_span": "the time for answering is based upon a nominal average of \n90 seconds per question.",
-    "gold_span_norm_len": 67,
-    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
-    "page_number": 141,
-    "page_stratum": "table",
-    "gold_stratum": "prose",
-    "prompt_version": "v2_label_plus_value",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
-  },
-  {
     "question_id": "T002",
     "question": "According to the example situations for principles of exception, which competent authority is designated when action is to be taken by a regulatory authority to maintain or improve safety?",
     "gold_span": "Where action is to be taken by a regulatory authority to \nmaintain or improve safety. \nCAA",
@@ -92,18 +80,6 @@
     "page_number": 232,
     "page_stratum": "table",
     "gold_stratum": "table",
-    "prompt_version": "v2_label_plus_value",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
-  },
-  {
-    "question_id": "T009",
-    "question": "What is the estimated percentage of global greenhouse gas emissions attributed to international aviation according to the UNFCCC-ICAO cooperation context?",
-    "gold_span": "emissions from \ninternational aviation—estimated at 1.2% of global GHG \nemissions",
-    "gold_span_norm_len": 67,
-    "source_file": "icao_environment_report.pdf",
-    "page_number": 477,
-    "page_stratum": "table",
-    "gold_stratum": "prose",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -224,18 +200,6 @@
     "page_number": 4,
     "page_stratum": "table",
     "gold_stratum": "table",
-    "prompt_version": "v2_label_plus_value",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
-  },
-  {
-    "question_id": "T020",
-    "question": "What is the risk level assigned to the Runway exposed element under the RCP 2.6 scenario for extreme heat events with a 50-year return period?",
-    "gold_span": "Specifically, the “Runway” \nshows a “Low” risk for the RCP2.6 scenario",
-    "gold_span_norm_len": 53,
-    "source_file": "icao_environment_report.pdf",
-    "page_number": 431,
-    "page_stratum": "table",
-    "gold_stratum": "prose",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },

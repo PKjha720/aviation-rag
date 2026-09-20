@@ -21,7 +21,7 @@ import pandas as pd
 
 from arms import list_pdfs, extract_flat
 from judgments import _NON_ALNUM
-from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_RELABEL
+from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_DROP
 
 OUT = Path("ablation/out")
 CONTEXT = 420
@@ -108,7 +108,7 @@ def main():
     w("")
     w(PROMPT_ASYMMETRY)
     w("")
-    w(STRATUM_RELABEL)
+    w(STRATUM_DROP)
     w("")
     w(ATTRIBUTION)
     w("")

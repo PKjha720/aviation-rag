@@ -22,7 +22,7 @@ import pandas as pd
 
 from judgments import normalize, coverage
 from fresh_pool import DEICTIC, parse_json, SPAN_MIN_NORM, SPAN_CAP_NORM
-from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_RELABEL
+from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_DROP
 
 OUT = Path("ablation/out")
 TARGET_TABLE = 45
@@ -119,11 +119,16 @@ def main():
                                          normalize(q["gold_span"]))
         accepted.append(q)
 
+    # DROP any item whose gold stratum disagrees with its page stratum. Moving
+    # them across strata (an earlier revision did) mixes generator prompts
+    # within a stratum. IDs are assigned before the drop so they stay stable.
+    dropped = [a["question_id"] for a in accepted if a["page_stratum"] != a["gold_stratum"]]
+    n_before = len(accepted)
+    accepted = [a for a in accepted if a["page_stratum"] == a["gold_stratum"]]
     n_page_tab = sum(1 for a in accepted if a["page_stratum"] == "table")
     n_tab = sum(1 for a in accepted if a["gold_stratum"] == "table")
     n_pro = len(accepted) - n_tab
-    relabelled = [a["question_id"] for a in accepted
-                  if a["page_stratum"] == "table" and a["gold_stratum"] == "prose"]
+    assert all(a["page_stratum"] == a["gold_stratum"] for a in accepted)
 
     (OUT / "fresh_pool_v2.json").write_text(
         json.dumps(accepted, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -145,25 +150,23 @@ def main():
     w(f"    empty (post-quota)      : {n_empty}   <- failures, not samples")
     w(f"    pages never attempted   : {TOTAL_TABLE_PAGES - len(table_recs)}")
     w("")
-    w("  COUNTS BY GOLD STRATUM (the label every table-vs-prose comparison uses):")
-    w(f"    TABLE-gold : {n_tab}   (target {TARGET_TABLE})")
-    w(f"    PROSE-gold : {n_pro}   (target {TARGET_PROSE})")
-    w(f"    POOL TOTAL : {len(accepted)}")
+    w("  POOL COUNTS (page_stratum == gold_stratum for every item):")
+    w(f"    TABLE : {n_tab}   (target {TARGET_TABLE};  v2 label+value prompt)")
+    w(f"    PROSE : {n_pro}   (target {TARGET_PROSE};  v1 generic prompt, carry-over)")
+    w(f"    TOTAL : {len(accepted)}")
     w("")
-    w("  COUNTS BY PAGE STRATUM (sampling provenance only):")
-    w(f"    from table-bearing pages : {n_page_tab}  (v2 label+value prompt)")
-    w(f"    from prose-only pages    : {len(accepted) - n_page_tab}  (v1 generic prompt, carry-over)")
+    w(f"  DROPPED {len(dropped)} of {n_before} validated items whose gold sits in a PROSE chunk")
+    w("  although they were sampled from a table-bearing page:")
+    w(f"    {', '.join(dropped) if dropped else '(none)'}")
+    w("  An earlier revision MOVED these into the prose stratum. That is RETRACTED:")
+    w("  it mixed two generator prompts inside one stratum. Dropping keeps each")
+    w("  stratum on a single prompt. IDs were assigned before the drop, so the")
+    w("  remaining table IDs have gaps where these three were.")
     w("")
-    w(f"  {len(relabelled)} item(s) sampled from table-bearing pages have a gold span that")
-    w("  sits in a PROSE chunk. They are counted as PROSE-gold above, not dropped:")
-    w(f"    {', '.join(relabelled) if relabelled else '(none)'}")
-    w("  The prose-gold stratum therefore mixes two prompts; prompt_version records")
-    w("  which for every item.")
-    w("")
-    w(f"  acceptance rate on real table-page responses: {n_page_tab}/{n_real} = "
-      f"{n_page_tab/max(n_real,1):.3f}")
+    w(f"  acceptance rate on real table-page responses (after the drop): {n_tab}/{n_real} = "
+      f"{n_tab/max(n_real,1):.3f}")
     w(f"  projection if all {TOTAL_TABLE_PAGES} table pages were swept at that rate: "
-      f"{n_page_tab/max(n_real,1)*TOTAL_TABLE_PAGES:.0f}")
+      f"{n_tab/max(n_real,1)*TOTAL_TABLE_PAGES:.0f}")
     w("  That projection is an ARITHMETIC EXTRAPOLATION, not a measurement, and")
     w("  must not be reported as a result.")
     w("")
@@ -178,7 +181,7 @@ def main():
     w("")
     w(PROMPT_ASYMMETRY)
     w("")
-    w(STRATUM_RELABEL)
+    w(STRATUM_DROP)
     w("")
     w(ATTRIBUTION)
 
