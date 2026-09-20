@@ -7,6 +7,7 @@
     "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
     "page_number": 141,
     "page_stratum": "table",
+    "gold_stratum": "prose",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -18,6 +19,7 @@
     "source_file": "icao_doc9859_safety_management_manual.pdf",
     "page_number": 103,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -29,6 +31,7 @@
     "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
     "page_number": 4,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -40,6 +43,7 @@
     "source_file": "icao_doc9859_safety_management_manual.pdf",
     "page_number": 48,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -51,6 +55,7 @@
     "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
     "page_number": 24,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -62,6 +67,7 @@
     "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
     "page_number": 14,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -73,6 +79,7 @@
     "source_file": "circular_cabin_safety_2025_01_training.pdf",
     "page_number": 5,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -84,6 +91,7 @@
     "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
     "page_number": 232,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -95,6 +103,7 @@
     "source_file": "icao_environment_report.pdf",
     "page_number": 477,
     "page_stratum": "table",
+    "gold_stratum": "prose",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -106,6 +115,7 @@
     "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
     "page_number": 10,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -117,6 +127,7 @@
     "source_file": "icao_doc9859_safety_management_manual.pdf",
     "page_number": 54,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -128,6 +139,7 @@
     "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
     "page_number": 10,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -139,6 +151,7 @@
     "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
     "page_number": 208,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -150,6 +163,7 @@
     "source_file": "icao_environment_report.pdf",
     "page_number": 223,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -161,6 +175,7 @@
     "source_file": "car_s2_i_p5_flight_data_recorders.pdf",
     "page_number": 36,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -172,6 +187,7 @@
     "source_file": "circular_flight_crew_2025_01_medical.pdf",
     "page_number": 6,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -183,6 +199,7 @@
     "source_file": "icao_gasp_global_safety_plan.pdf",
     "page_number": 45,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -194,6 +211,7 @@
     "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
     "page_number": 62,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -205,6 +223,7 @@
     "source_file": "circular_air_nav_2024_01_installation.pdf",
     "page_number": 4,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -216,6 +235,7 @@
     "source_file": "icao_environment_report.pdf",
     "page_number": 431,
     "page_stratum": "table",
+    "gold_stratum": "prose",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -227,6 +247,7 @@
     "source_file": "icao_gasp_global_safety_plan.pdf",
     "page_number": 43,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -238,6 +259,7 @@
     "source_file": "icao_environment_report.pdf",
     "page_number": 229,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -249,6 +271,7 @@
     "source_file": "icao_doc9859_safety_management_manual.pdf",
     "page_number": 74,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -260,6 +283,7 @@
     "source_file": "icao_doc9859_safety_management_manual.pdf",
     "page_number": 36,
     "page_stratum": "table",
+    "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
@@ -272,7 +296,8 @@
     "page_number": 8,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P002",
@@ -283,7 +308,8 @@
     "page_number": 238,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P003",
@@ -294,7 +320,8 @@
     "page_number": 194,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P004",
@@ -305,7 +332,8 @@
     "page_number": 321,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P005",
@@ -316,7 +344,8 @@
     "page_number": 306,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P006",
@@ -327,7 +356,8 @@
     "page_number": 439,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P007",
@@ -338,7 +368,8 @@
     "page_number": 320,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P008",
@@ -349,7 +380,8 @@
     "page_number": 1,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P009",
@@ -360,7 +392,8 @@
     "page_number": 156,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P010",
@@ -371,7 +404,8 @@
     "page_number": 378,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P011",
@@ -382,7 +416,8 @@
     "page_number": 1,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P012",
@@ -393,7 +428,8 @@
     "page_number": 12,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P013",
@@ -404,7 +440,8 @@
     "page_number": 167,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P014",
@@ -415,7 +452,8 @@
     "page_number": 90,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P015",
@@ -426,7 +464,8 @@
     "page_number": 168,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P016",
@@ -437,7 +476,8 @@
     "page_number": 169,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P017",
@@ -448,7 +488,8 @@
     "page_number": 403,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   },
   {
     "question_id": "P018",
@@ -459,6 +500,7 @@
     "page_number": 43,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic"
+    "prompt_version": "v1_generic",
+    "gold_stratum": "prose"
   }
 ]

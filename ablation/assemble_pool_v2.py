@@ -22,7 +22,7 @@ import pandas as pd
 
 from judgments import normalize, coverage
 from fresh_pool import DEICTIC, parse_json, SPAN_MIN_NORM, SPAN_CAP_NORM
-from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY
+from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_RELABEL
 
 OUT = Path("ablation/out")
 TARGET_TABLE = 45
@@ -34,10 +34,21 @@ def main():
     arm_a = json.loads((OUT / "arm_a_chunks.json").read_text(encoding="utf-8"))
     arm_b = json.loads((OUT / "arm_b_chunks.json").read_text(encoding="utf-8"))
     ap, bp = defaultdict(list), defaultdict(list)
+    a_chunks_by_page = defaultdict(list)
     for c in arm_a:
         ap[(c["source_file"], c["page_number"])].append(normalize(c["text"]))
+        a_chunks_by_page[(c["source_file"], c["page_number"])].append(c)
     for c in arm_b:
         bp[(c["source_file"], c["page_number"])].append(normalize(c["text"]))
+
+    def gold_stratum(k, span_norm):
+        """'table' if the gold span sits inside an Arm A chunk that ingest
+        flagged is_table, else 'prose'. This is the analysis label; the page
+        the item was sampled from is kept separately as page_stratum."""
+        for c in a_chunks_by_page.get(k, []):
+            if coverage(span_norm, normalize(c["text"])) >= 1.0:
+                return "table" if c["is_table"] else "prose"
+        return "prose"
 
     recs = [json.loads(l) for l in
             (OUT / "fresh_raw_v2.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
@@ -92,7 +103,8 @@ def main():
         accepted.append({
             "question_id": f"T{got:03d}", "question": q, "gold_span": span,
             "gold_span_norm_len": len(sn), "source_file": k[0], "page_number": k[1],
-            "page_stratum": "table", "prompt_version": "v2_label_plus_value",
+            "page_stratum": "table", "gold_stratum": gold_stratum(k, sn),
+            "prompt_version": "v2_label_plus_value",
             "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
         })
 
@@ -103,10 +115,15 @@ def main():
         q = dict(q)
         q["question_id"] = f"P{i:03d}"
         q["prompt_version"] = "v1_generic"
+        q["gold_stratum"] = gold_stratum((q["source_file"], q["page_number"]),
+                                         normalize(q["gold_span"]))
         accepted.append(q)
 
-    n_tab = sum(1 for a in accepted if a["page_stratum"] == "table")
+    n_page_tab = sum(1 for a in accepted if a["page_stratum"] == "table")
+    n_tab = sum(1 for a in accepted if a["gold_stratum"] == "table")
     n_pro = len(accepted) - n_tab
+    relabelled = [a["question_id"] for a in accepted
+                  if a["page_stratum"] == "table" and a["gold_stratum"] == "prose"]
 
     (OUT / "fresh_pool_v2.json").write_text(
         json.dumps(accepted, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -128,14 +145,25 @@ def main():
     w(f"    empty (post-quota)      : {n_empty}   <- failures, not samples")
     w(f"    pages never attempted   : {TOTAL_TABLE_PAGES - len(table_recs)}")
     w("")
-    w(f"  TABLE accepted : {n_tab}   (target {TARGET_TABLE})")
-    w(f"  PROSE accepted : {n_pro}   (target {TARGET_PROSE}, v1 carry-over, never re-run)")
-    w(f"  POOL TOTAL     : {len(accepted)}")
+    w("  COUNTS BY GOLD STRATUM (the label every table-vs-prose comparison uses):")
+    w(f"    TABLE-gold : {n_tab}   (target {TARGET_TABLE})")
+    w(f"    PROSE-gold : {n_pro}   (target {TARGET_PROSE})")
+    w(f"    POOL TOTAL : {len(accepted)}")
     w("")
-    w(f"  acceptance rate on real responses: {n_tab}/{n_real} = "
-      f"{n_tab/max(n_real,1):.3f}")
+    w("  COUNTS BY PAGE STRATUM (sampling provenance only):")
+    w(f"    from table-bearing pages : {n_page_tab}  (v2 label+value prompt)")
+    w(f"    from prose-only pages    : {len(accepted) - n_page_tab}  (v1 generic prompt, carry-over)")
+    w("")
+    w(f"  {len(relabelled)} item(s) sampled from table-bearing pages have a gold span that")
+    w("  sits in a PROSE chunk. They are counted as PROSE-gold above, not dropped:")
+    w(f"    {', '.join(relabelled) if relabelled else '(none)'}")
+    w("  The prose-gold stratum therefore mixes two prompts; prompt_version records")
+    w("  which for every item.")
+    w("")
+    w(f"  acceptance rate on real table-page responses: {n_page_tab}/{n_real} = "
+      f"{n_page_tab/max(n_real,1):.3f}")
     w(f"  projection if all {TOTAL_TABLE_PAGES} table pages were swept at that rate: "
-      f"{n_tab/max(n_real,1)*TOTAL_TABLE_PAGES:.0f}")
+      f"{n_page_tab/max(n_real,1)*TOTAL_TABLE_PAGES:.0f}")
     w("  That projection is an ARITHMETIC EXTRAPOLATION, not a measurement, and")
     w("  must not be reported as a result.")
     w("")
@@ -149,6 +177,8 @@ def main():
     w(BIAS)
     w("")
     w(PROMPT_ASYMMETRY)
+    w("")
+    w(STRATUM_RELABEL)
     w("")
     w(ATTRIBUTION)
 

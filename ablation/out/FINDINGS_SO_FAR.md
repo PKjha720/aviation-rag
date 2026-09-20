@@ -21,7 +21,7 @@ The two arms, for reference:
 Arm A was rebuilt from the PDFs using functions imported from `ingest.py` rather
 than reimplemented, and reproduces the index on disk exactly: 10,572 chunks, 0
 chunk ids differing, 0 shared ids whose text differs, 368 table chunks in both
-(`ARM_A_VERIFICATION.txt`). Arm B's window was chosen so the two arms match on
+(`ARM_A_VERIFICATION.txt`, written by `verify_arm_a.py`). Arm B's window was chosen so the two arms match on
 chunk length: mean 409.5 vs 414.2 characters (−1.1%), median 455.0 vs 453.0
 (+0.4%), from `parity_sweep.csv` and `length_distributions.txt`. Five windows
 (84–100 tokens) satisfied the 10% band; 92 minimises combined error.
@@ -77,12 +77,13 @@ inside a single chunk in **both** arms before it is accepted.
 
 ---
 
-## 2. Gold-length reachability: 12 of 40 table golds are unreachable by arithmetic
+## 2. Gold-length reachability: 12 of 40 table golds cannot be fully held by one Arm B chunk
 
-Arm A's `chunk_table` permits chunks up to 1,500 characters and produces one of
-1,375 normalized characters. Arm B is bounded by its 92-token window at 550
-normalized characters. A gold longer than 550 cannot be covered by any single
-Arm B chunk at any threshold.
+Arm A's `chunk_table` has a `max_chars=1500` **soft** cap — a single long row
+can exceed it, and one does: Arm A's longest chunk is 1,688 raw / 1,375
+normalized characters. Arm B is bounded by its 92-token window at 550 normalized
+characters. A gold longer than 550 cannot be **fully** covered by any single
+Arm B chunk.
 
 From `ceiling_contiguous.csv`:
 
@@ -92,19 +93,34 @@ From `ceiling_contiguous.csv`:
 | table-gold | 40 | 397 | 1079 | 1.000 | 0.700 |
 | prose-gold | 40 | 384 | 428 | 1.000 | 1.000 |
 
-**12 of 40 table golds exceed Arm B's maximum chunk length.** Their Arm B
-per-chunk coverage cannot reach 0.60, and does not: that subgroup reaches 0.60 at
-a rate of exactly 0.000, against 0.765 for golds that do fit.
+**12 of 40 table golds exceed Arm B's maximum chunk length.** That subgroup was
+*measured* at a 0.60-reach rate of 0.000, against 0.765 for golds that do fit.
 
-This is arithmetic, not retrieval. Corpus-level chunk-length parity holds (§ above),
-but parity on the *corpus* does not imply parity on the *golds*: Arm A's length
-distribution has a right tail that Arm B structurally cannot have, and the table
-golds are drawn disproportionately from that tail. Any comparison on this pool
-would be measuring that, in part, rather than structure.
+Two distinct facts are in that sentence, and they must not be merged. How much of
+a too-long gold one Arm B chunk *could* hold at best is `550 / gold_length`,
+recorded per gold in the column `armB_max_possible_cov`:
 
-n = 40 per slice. This is a deterministic property of the two chunkings, not a
-sampled estimate, so sampling error does not apply to the 12/40 count itself —
-but the count describes *this* pool of golds and does not generalise to another.
+| of the 12 too-long table golds | count |
+|---|---|
+| max possible coverage < 0.60 — arithmetically barred from the 0.60 threshold | **7** |
+| max possible coverage ≥ 0.60 — *could* reach 0.60, measured not to | **5** |
+| arithmetically barred at 0.50 or 0.40 | **0** |
+
+So: 7 of the 12 are arithmetically barred from 0.60; the other 5 (Q002, Q038, Q004,
+Q022, Q026; max possible 0.921 down to 0.608) could have and did not. Their zero
+is an observation about alignment, not a ceiling. None of the 12 is barred at
+0.40 or 0.50, where the ratio 550/1079 = 0.51 is the floor. The per-gold table is
+in `DIAGNOSTICS.txt` §(2).
+
+Corpus-level chunk-length parity holds (§ above), but parity on the *corpus* does
+not imply parity on the *golds*: Arm A's length distribution has a right tail
+that Arm B structurally cannot have, and the table golds are drawn
+disproportionately from that tail. Any comparison on this pool would be
+measuring that, in part, rather than structure.
+
+n = 40 per slice. The 12/40 and 7/12 counts are deterministic properties of the
+two chunkings, not sampled estimates, so sampling error does not apply to them —
+but they describe *this* pool of golds and do not generalise to another.
 
 ---
 
@@ -121,19 +137,20 @@ the signature of column-wise reading. `coverage()` in `judgments.py` is the
 contiguous measure and is the only one used for any relevance decision;
 `coverage_blocks()` is diagnostic and never decides anything.
 
-Why table golds fail in Arm B, from `ceiling_contiguous.csv` and
-`scatter_per_query.csv`, n = 40, categories mutually exclusive:
+Where the 40 table golds land in Arm B, from `ceiling_contiguous.csv` and
+`scatter_per_query.csv`, buckets structurally exclusive:
 
-| cause | count |
+| bucket | count |
 |---|---|
-| gold too long for any Arm B chunk | 12 |
+| gold longer than any single Arm B chunk | 12 |
 | fits, contiguous coverage below 0.60 | 13 |
 | fits, but cells scattered | 2 |
 | reaches 0.60 in Arm B | 13 |
 
-**Cell scattering explains 2 of 40.** Gold length explains 12 and plain low
-contiguous coverage 13. Any summary of this experiment must attribute the effect
-that way and must not describe scattering as the mechanism.
+27 of 40 fail to reach 0.60; 13 reach it. **Cell scattering explains 2 of the 27
+failures.** Gold length explains 12 (7 of them barred by arithmetic, § 2) and
+plain low contiguous coverage 13. Any summary of this experiment must attribute
+the effect that way and must not describe scattering as the mechanism.
 
 Scattering is nonetheless real, and the prose control establishes that it tracks
 table structure rather than some general property of long chunks:
@@ -202,8 +219,16 @@ estimate; an Arm B advantage measured on this pool would be uninterpretable.
 This label is carried in `notes.py` and injected into every artifact the pool
 touches.
 
-Current state (`POOL_STATUS.txt`): **42 accepted questions, 24 table and 18
-prose**, against a target of 45 and 45.
+Current state (`POOL_STATUS.txt`): **42 accepted questions, 21 table-gold and 21
+prose-gold**, against a target of 45 and 45.
+
+Those counts key on the *gold*, not the page it was sampled from. Three items
+(T001, T009, T020) came from table-bearing pages but their gold span sits in a
+prose chunk; an earlier draft called that benign, which was wrong for a
+table-versus-prose comparison. They are now counted as prose-gold, not dropped.
+`page_stratum` retains the sampling provenance (24 from table pages, 18 from
+prose pages) and `prompt_version` records that those three were generated with
+the table prompt, so the prose-gold stratum now mixes two prompts.
 
 The table sweep stopped at 119 of 199 table-bearing pages because Groq's free
 tier daily token quota was exhausted (`Limit 200000, Used 199856`). Fourteen
@@ -217,8 +242,8 @@ Two constraints surfaced that do not depend on how the run finishes:
 (`validation_yield.csv`, no API cost) shows that at the 40-character floor,
 raising the cap from 98 to 240 characters moves total yield only from 31 to 50,
 while spans that fit no single Arm B chunk rise from 4 to 9. Dropping the floor to
-zero raises the count but 29 of those spans match more than one page, at which
-point "relevant" stops being well defined.
+zero raises the count but, at the 98-character cap in use, 28 of those spans
+match more than one page, at which point "relevant" stops being well defined.
 
 **The two strata behave oppositely.** Table pages yield spans with a median of 22
 normalized characters — the model quotes a bare cell — while prose pages yield a
@@ -231,22 +256,36 @@ longer generated by the same instruction. That asymmetry is recorded in
 and its value, and because flat text is column-ordered, a span can pass every
 deterministic check while pairing a label from one row with a value from another.
 `row_pairing_check.csv` reconstructs each page row-wise with `find_tables()` and
-reports, over the 24 table items: 20 same row, 0 different row, 4 undetermined.
-Of the four undetermined, three are prose golds on pages that merely contain a
-table elsewhere, which is benign, and one is tabular content that could not be
-placed. `find_tables()` is Arm A's own view of the page, so these verdicts are
-evidence rather than ground truth, and nothing was dropped on their strength.
+reports, over the 21 table-gold items: 20 same row, 0 different row, 1
+undetermined. The one undetermined is tabular content that could not be placed
+in any reconstructed row and is worth a look. `find_tables()` is Arm A's own view
+of the page, so these verdicts are evidence rather than ground truth, and nothing
+was dropped on their strength.
 
 ---
 
-## Power, stated plainly
+## Power, computed
 
-At n = 42 — and at the target n ≈ 90 — a paired comparison of binary retrieval
-outcomes can detect only a large difference. On 80 paired queries a difference
-below roughly 10 percentage points of Recall is not reliably distinguishable from
-noise, and the per-stratum slices are weaker still. Nothing in this document is a
-retrieval result, but the same limit will apply when one exists, and it should be
-reported alongside any delta rather than after it.
+Both arms answer the same queries and each scores 0/1 on Recall, so the test is
+McNemar's on the discordant pairs. Its power depends on the discordant rate,
+which is unknown until retrieval runs, so `power.py` computes the minimum
+detectable difference exactly (binomial on discordant pairs, α = 0.05 two-sided,
+80% power, stdlib only) across a grid of plausible rates. From `power_mde.csv`:
+
+| n | discordant 10% | 20% | 30% | 40% |
+|---|---|---|---|---|
+| 42 | no rejection region (d = 4) | 0.189 | 0.228 | 0.250 |
+| 80 | 0.095 | 0.141 | 0.178 | 0.213 |
+| 90 | 0.082 | 0.130 | 0.173 | 0.194 |
+
+Read: at n = 42 with a 20% discordant rate there are 8 usable pairs and the arms
+must differ by at least 19 points of Recall before the test can see it; at 10%
+they cannot disagree enough for any result to reach α = 0.05. At the target
+n ≈ 90 the detectable difference is 8–19 points depending on how often the arms
+disagree. Per-stratum slices halve n and are weaker still. These are properties
+of the test, not measurements of this data; the discordant count and the test
+statistic must be reported next to any delta, because a delta with few
+discordant pairs is one the test cannot see.
 
 One further caution for when metrics are computed: with a single binary gold per
 query, nDCG@10 is a deterministic function of the gold's rank, `1/log2(rank+1)`.
@@ -260,13 +299,18 @@ overstate what has been measured.
 
 | file | contents |
 |---|---|
-| `ARM_A_VERIFICATION.txt` | Arm A rebuild vs the index on disk |
+| `ARM_A_VERIFICATION.txt` | Arm A rebuild vs the index on disk (`verify_arm_a.py`) |
 | `parity_sweep.csv`, `length_distributions.txt` | chunk-length parity, all windows tried |
 | `anchors.json` | re-grounded text judgments for the original 80 |
-| `ceiling_contiguous.csv`, `DIAGNOSTICS.txt` | reachability, gold length, scatter analysis |
+| `ceiling_contiguous.csv`, `DIAGNOSTICS.txt` | reachability, gold length (with `armB_max_possible_cov`), scatter analysis |
 | `scatter_per_query.csv` | per-query scatter gaps |
-| `fresh_pool_v2.json`, `POOL_STATUS.txt` | the fresh pool and why it is incomplete |
+| `fresh_pool_v2.json`, `POOL_STATUS.txt` | the fresh pool (with `gold_stratum`) and why it is incomplete |
 | `fresh_pool_rejects.csv`, `fresh_pool_v2_rejects.csv` | every rejection with its stage |
 | `validation_yield.csv` | offline replay across span-length bands |
-| `row_pairing_check.csv` | row-pairing verdicts for the table stratum |
+| `row_pairing_check.csv` | row-pairing verdicts for the table-gold items |
+| `power_mde.csv`, `POWER.txt` | minimum detectable effect, McNemar exact, by n and discordant rate |
 | `HANDCHECK_20.txt` | 20 questions awaiting human review |
+
+Removed: `ceiling.csv` and `ceiling_report.txt`. They were written by an earlier
+`reground.py` using the pre-contiguity-fix coverage measure and were superseded
+by `ceiling_contiguous.csv`; the code path that produced them has been deleted.

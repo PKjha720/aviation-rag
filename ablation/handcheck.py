@@ -21,7 +21,7 @@ import pandas as pd
 
 from arms import list_pdfs, extract_flat
 from judgments import _NON_ALNUM
-from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY
+from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_RELABEL
 
 OUT = Path("ablation/out")
 CONTEXT = 420
@@ -69,8 +69,11 @@ def main():
     else:
         print("row-pairing check NOT found - table entries will show 'not run'")
 
-    tab = [q for q in pool if q["page_stratum"] == "table"]
-    pro = [q for q in pool if q["page_stratum"] == "prose"]
+    # Split on the GOLD, not the page. Older pool files lack gold_stratum;
+    # fall back to page_stratum so the script still runs on them.
+    strat = lambda q: q.get("gold_stratum", q["page_stratum"])
+    tab = [q for q in pool if strat(q) == "table"]
+    pro = [q for q in pool if strat(q) == "prose"]
 
     def priority(q):
         v = rp.get(q["question_id"], {})
@@ -81,7 +84,7 @@ def main():
         if verdict == "undetermined" and in_tab:
             return 1                      # tabular content we could not place
         if verdict == "undetermined":
-            return 2                      # prose on a table page: benign
+            return 2                      # only reachable on pool files lacking gold_stratum
         return 3                          # same_row
     tab.sort(key=lambda q: (priority(q), q["question_id"]))
     rng = random.Random(0)
@@ -104,6 +107,8 @@ def main():
     w(BIAS)
     w("")
     w(PROMPT_ASYMMETRY)
+    w("")
+    w(STRATUM_RELABEL)
     w("")
     w(ATTRIBUTION)
     w("")
@@ -143,14 +148,14 @@ def main():
             marker = ""
 
         v = rp.get(q["question_id"], {})
-        verdict = v.get("verdict", "not run" if q["page_stratum"] == "table" else "n/a")
+        verdict = v.get("verdict", "not run" if strat(q) == "table" else "n/a")
 
         w("=" * 78)
-        w(f"[{i:02d}]  {q['question_id']}   stratum={q['page_stratum']}   "
-          f"span={q['gold_span_norm_len']} norm chars   "
+        w(f"[{i:02d}]  {q['question_id']}   gold_stratum={strat(q)}   "
+          f"page_stratum={q['page_stratum']}   span={q['gold_span_norm_len']} norm chars   "
           f"prompt={q.get('prompt_version', 'v1_generic')}")
         w(f"      {q['source_file']}  page {q['page_number']}")
-        if q["page_stratum"] == "table":
+        if strat(q) == "table":
             extra = ""
             if v:
                 extra = (f"   (best-row token coverage {v.get('best_row_cov')}, "
@@ -171,7 +176,7 @@ def main():
             w(f"  {marker}")
         w("")
 
-        if q["page_stratum"] == "table" and v:
+        if strat(q) == "table" and v:
             w("find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):")
             br = str(v.get("best_row_text", "") or "").strip()
             pr_ = str(v.get("pair_row_text", "") or "").strip()
@@ -185,9 +190,9 @@ def main():
                     w("  ^^ the gold IS tabular content but could not be placed in any")
                     w("     reconstructed row. Worth your attention.")
                 else:
-                    w("  ^^ the gold is PROSE on a page that happens to contain a table")
-                    w("     elsewhere, so there is no row to match. Benign - undetermined")
-                    w("     here is expected, not a warning.")
+                    w("  ^^ the gold is PROSE, so there is no row to match. This item")
+                    w("     should be counted in the prose-gold stratum, not here; if it")
+                    w("     appears, the pool file predates the gold_stratum relabel.")
             w("")
 
         w("RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):")
