@@ -23,10 +23,14 @@ from arms import list_pdfs, extract_flat
 from judgments import _NON_ALNUM
 from notes import ATTRIBUTION, BIAS, PROMPT_ASYMMETRY, STRATUM_DROP
 
+import os
 OUT = Path("ablation/out")
 CONTEXT = 420
 N_TABLE = 10
 N_PROSE = 10
+# HANDCHECK_ONLY="qid,qid,..." renders exactly those items; HANDCHECK_OUT names the file.
+ONLY = [q for q in os.environ.get("HANDCHECK_ONLY", "").split(",") if q]
+OUT_NAME = os.environ.get("HANDCHECK_OUT", "HANDCHECK_20.txt")
 
 
 def norm_map(text):
@@ -88,8 +92,12 @@ def main():
         return 3                          # same_row
     tab.sort(key=lambda q: (priority(q), q["question_id"]))
     rng = random.Random(0)
-    pick_t = tab[:N_TABLE]
-    pick_p = rng.sample(pro, min(N_PROSE, len(pro)))
+    if ONLY:
+        pick_t = [q for q in tab if q["question_id"] in ONLY]
+        pick_p = [q for q in pro if q["question_id"] in ONLY]
+    else:
+        pick_t = tab[:N_TABLE]
+        pick_p = rng.sample(pro, min(N_PROSE, len(pro)))
     pick = pick_t + sorted(pick_p, key=lambda q: q["question_id"])
 
     flat = {}
@@ -203,8 +211,8 @@ def main():
         w("")
 
     w("=" * 78)
-    (OUT / "HANDCHECK_20.txt").write_text("\n".join(L), encoding="utf-8")
-    print(f"wrote {OUT/'HANDCHECK_20.txt'} - {len(pick)} questions "
+    (OUT / OUT_NAME).write_text("\n".join(L), encoding="utf-8")
+    print(f"wrote {OUT/OUT_NAME} - {len(pick)} questions "
           f"({len(pick_t)} table / {len(pick_p)} prose)")
     if rp:
         shown = [str(rp.get(q["question_id"], {}).get("verdict")) for q in pick_t]

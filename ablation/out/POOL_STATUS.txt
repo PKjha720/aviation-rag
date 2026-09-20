@@ -13,9 +13,9 @@ RUN WAS CUT SHORT BY AN EXTERNAL QUOTA, NOT BY THE CORPUS.
     pages never attempted   : 80
 
   POOL COUNTS (page_stratum == gold_stratum for every item):
-    TABLE : 16   (target 45;  v2 label+value prompt)
-    PROSE : 17   (target 45;  v1 generic prompt, carry-over)
-    TOTAL : 33
+    TABLE : 13   (target 45;  v2 label+value prompt)
+    PROSE : 16   (target 45;  v1 generic prompt, carry-over)
+    TOTAL : 29
 
   DROPPED 3 of 42 validated items whose gold sits in a PROSE chunk
   although they were sampled from a table-bearing page:
@@ -25,17 +25,21 @@ RUN WAS CUT SHORT BY AN EXTERNAL QUOTA, NOT BY THE CORPUS.
   stratum on a single prompt. IDs were assigned before the drop, so the
   remaining table IDs have gaps where these three were.
 
-  DROPPED 6 at the hand-check stage (HANDCHECK_20.txt, model-annotated at
+  DROPPED 10 at the hand-check stage (HANDCHECK_20.txt, model-annotated at
   the author's instruction - not a human review):
     T003: question asks for 'the limit' (singular); span holds three severity thresholds (Low/Medium/High Limit columns) with no way to pick
     T004: 'Element 3-6' is fabricated - page number fused with a column header; question also leaks 'safety reporting environment'
     T006: 'for a Normal approach' is not on the page (the only 'Normal' is normal acceleration); span holds three thresholds, question singular
     T010: 'under the specified certification criteria' is a dangling pointer; the defined term (complex motor-powered aircraft) is on the previous page and absent from the question
+    T012: question identifies the column by the span's own value (0.82M) - answer leakage, and a pointer only meaningful with the table in view
     T013: layout/order question, not regulatory; span straddles two reconstructed rows
+    T016: 'the CGHS rate' - span holds five numbers (Delhi/Bengaluru/Jorhat/Average/Rounded) with no way to pick
+    T018: span holds two proficiency levels (1, 3) for two licence columns whose headers are not in the span; which is B1.3 is not determinable
     P005: 'EU's capacity building and implementation support framework' is fabricated from a chapter title; stripped, the question is generic
+    P016: question restates the answer almost verbatim ('scope of the safety training programme ... individual's involvement in the SMS'); only 'appropriate' is new
 
-  acceptance rate on real table-page responses (after the drop): 16/105 = 0.152
-  projection if all 199 table pages were swept at that rate: 30
+  acceptance rate on real table-page responses (after the drop): 13/105 = 0.124
+  projection if all 199 table pages were swept at that rate: 25
   That projection is an ARITHMETIC EXTRAPOLATION, not a measurement, and
   must not be reported as a result.
 
