@@ -60,18 +60,6 @@
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
   {
-    "question_id": "T012",
-    "question": "What is the speed limit for Gear Extension Speed for the aircraft category associated with the 0.82M Mach number threshold?",
-    "gold_span": "8 \nGear Extension Speed >265 kts or 0.815M \n>270 kts or 0.82M",
-    "gold_span_norm_len": 44,
-    "source_file": "circular_air_safety_2023_01_flight_data_analysis.pdf",
-    "page_number": 10,
-    "page_stratum": "table",
-    "gold_stratum": "table",
-    "prompt_version": "v2_label_plus_value",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
-  },
-  {
     "question_id": "T014",
     "question": "What is the title of Task C.05 in the CAEP/13 WG4 Work Programme?",
     "gold_span": "C.05\nWork on the ICAO CORSIA CO2 Estimation and \nReporting Tool (CERT)",
@@ -96,36 +84,12 @@
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
   },
   {
-    "question_id": "T016",
-    "question": "What is the CGHS rate in rupees for a Stress Thallium Scan at IAF Boarding Centres?",
-    "gold_span": "2 Stress Thallium Scan \n10868 \n9781 \n10868 \n10505.67 \n10506/-",
-    "gold_span_norm_len": 45,
-    "source_file": "circular_flight_crew_2025_01_medical.pdf",
-    "page_number": 6,
-    "page_stratum": "table",
-    "gold_stratum": "table",
-    "prompt_version": "v2_label_plus_value",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
-  },
-  {
     "question_id": "T017",
     "question": "What is the specific target year for all States to publish an updated national aviation safety plan (NASP) under Goal 5 of the Global Aviation Safety Plan?",
     "gold_span": "5.2 \nBy 2027, all States to publish an updated \nnational aviation safety plan (NASP)",
     "gold_span_norm_len": 65,
     "source_file": "icao_gasp_global_safety_plan.pdf",
     "page_number": 45,
-    "page_stratum": "table",
-    "gold_stratum": "table",
-    "prompt_version": "v2_label_plus_value",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH"
-  },
-  {
-    "question_id": "T018",
-    "question": "What is the proficiency level required for the 'Engine monitoring and ground operation' task under Module 15 (Gas Turbine Engine) for the B1.3 category?",
-    "gold_span": "15.21 Engine monitoring and ground operation \n1 \n3",
-    "gold_span_norm_len": 40,
-    "source_file": "car_s2_l_car66_maintenance_engineer_licensing.pdf",
-    "page_number": 62,
     "page_stratum": "table",
     "gold_stratum": "table",
     "prompt_version": "v2_label_plus_value",
@@ -354,18 +318,6 @@
     "gold_span_norm_len": 73,
     "source_file": "car_s2_e_car145_maintenance_org_2025.pdf",
     "page_number": 168,
-    "page_stratum": "prose",
-    "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
-    "prompt_version": "v1_generic",
-    "gold_stratum": "prose"
-  },
-  {
-    "question_id": "P016",
-    "question": "According to Annex 19, what is the specific requirement regarding the scope of the safety training programme in relation to an individual's involvement in the SMS?",
-    "gold_span": "the scope of the safety training programme be appropriate to each individual’s involvement in the SMS",
-    "gold_span_norm_len": 85,
-    "source_file": "icao_doc9859_safety_management_manual.pdf",
-    "page_number": 169,
     "page_stratum": "prose",
     "generated_from": "get_text('text') raw page - ARM B EXTRACTION PATH",
     "prompt_version": "v1_generic",

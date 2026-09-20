@@ -1,0 +1,1231 @@
+==============================================================================
+ANNOTATION PROVENANCE - READ FIRST
+==============================================================================
+These are the 19 pool items that NO earlier pass had seen (HANDCHECK_20.txt
+sampled 20 of the original 39). Reviewed by Claude Opus 5 at the author's
+instruction on 2026-09-20, applying the stricter standard the blind second
+reviewer used on the first 20: fabricated qualifiers, one-of-several values,
+dangling pointers, answer leakage. SINGLE model pass - an independent blind
+second pass was not available (account usage limit). Not a human review.
+
+Result: 15 ACCEPT, 4 REJECT (T012, T016, T018, P016).
+Pool after removal: 13 table / 16 prose, n=29.
+==============================================================================
+
+==============================================================================
+HAND-CHECK: THE 19 REMAINING POOL ITEMS
+==============================================================================
+
+BIAS LABEL — FRESH POOL
+  Questions are generated from page.get_text("text"), which IS ARM B's
+  extraction path. This pool is BIASED TOWARD ARM B. It is not neutral and must
+  never be called unbiased or bias-free. The bias runs against the expected
+  effect, so a surviving Arm A advantage is a lower bound, not an estimate. An
+  Arm B advantage measured on this pool would be uninterpretable.
+
+PROMPT ASYMMETRY — TABLE vs PROSE STRATUM
+  The table stratum was regenerated with a prompt requiring the span to carry a
+  row LABEL plus its VALUE, because the original generic prompt returned bare
+  cell values (median 22 normalized chars, from replay_validation.py console
+  output) that fell under the 40-char floor. The prose stratum keeps the
+  original generic prompt, unchanged and un-rerun. Both strata see only raw flat
+  page text, and both pass identical deterministic validation. Compare strata
+  with this difference in mind.
+
+STRATUM LABELS AND THE THREE DROPPED ITEMS
+  page_stratum : which sampling frame the page came from (table-bearing page or
+                 prose-only page). Provenance only.
+  gold_stratum : whether the gold span sits inside an Arm A chunk that ingest
+                 flagged is_table. This is the label every table-vs-prose
+                 comparison uses.
+  Three items sampled from table-bearing pages (T001, T009, T020) had prose
+  golds. They are DROPPED from the pool. An earlier revision moved them into
+  the prose stratum instead; that decision is RETRACTED, because it made the
+  prose stratum a mix of two generator prompts and reintroduced exactly the
+  asymmetry the strata are meant to avoid. Every remaining item has
+  page_stratum == gold_stratum.
+
+MECHANISM ATTRIBUTION — REQUIRED IN ANY SUMMARY OF THIS EXPERIMENT
+  Of 40 table golds, 27 fail to reach 0.60 contiguous
+  coverage in Arm B and 13 reach it. The 40 split into
+  mutually exclusive categories:
+      gold longer than any single Arm B chunk ... 12
+          (of these, 7 are arithmetically barred from 0.60;
+           the other 5 could reach it and were
+           measured not to)
+      fits, contiguous coverage < 0.60 ......... 13
+      fits, but cells scattered ................  2
+      reaches 0.60 in Arm B .................... 13
+  Cell scattering explains 2 of the 27 failures. Gold length
+  explains 12 and plain low coverage 13. Scattering is REAL
+  (prose control: 1/40 at scatter gap > 0.20 against
+  10/40 for tables) but it is NOT the mechanism. Do not
+  describe it as the mechanism.
+
+------------------------------------------------------------------------------
+SELECTION: the table half is NOT random. It is weighted toward items the
+row-pairing check flagged different_row or undetermined, because those are
+the ones where the gold may be WRONG rather than merely weak. The prose
+half is a seeded random sample. Do NOT read the flag rate in this file as
+the pool's flag rate - row_pairing_check.csv has that.
+
+ROW-PAIRING VERDICTS ARE EVIDENCE, NOT GROUND TRUTH. find_tables() is Arm
+A's own view of the page and can itself be wrong. Nothing was dropped on
+the strength of a verdict.
+
+Check each one:
+  1. Does the question stand alone, with no pointer to a page you cannot see?
+  2. Does the gold span actually answer it?
+  3. TABLE ITEMS: does the span pair a label with the value from the SAME
+     row? Compare the raw text against the reconstruction shown above it.
+
+Mark any you reject and I will drop them and recount before retrieval runs.
+------------------------------------------------------------------------------
+
+==============================================================================
+[01]  T012   gold_stratum=table   page_stratum=table   span=44 norm chars   prompt=v2_label_plus_value
+      circular_air_safety_2023_01_flight_data_analysis.pdf  page 10
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the speed limit for Gear Extension Speed for the aircraft category associated with the 0.82M Mach number threshold?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 8 
+  > Gear Extension Speed >265 kts or 0.815M 
+  > >270 kts or 0.82M
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : 8 | Gear Extension Speed | >265 kts or 0.815M | >270 kts or 0.82M
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | 0 
+  | 2 
+  | 245 
+  | 245 
+  | 245 2 
+  | 250 
+  | 250 
+  | 250 
+  | 5 
+  | 245 
+  | 245 
+  | 245 5 
+  | 250 
+  | 250 
+  | 250 
+  |  
+  | 10 205 
+  | 200 
+  | 205 10 210 
+  | 205 
+  | 210 
+  | 15 195 
+  | 195 
+  | 190 15 200 
+  | 200 
+  | 195 
+  | 25 185 
+  | 190 
+  | 165 25 190 
+  | 195 
+  | 170 
+  |  
+  | 30 175 
+  | 180 
+  | 165 
+  |  
+  | 40 162/166 170 
+  | 156 
+  | 5 
+  | Flap/ Slat Altitude 
+  | Exceedance 
+  | >19,800 ft 
+  | >20,000 ft 
+  | 6 
+  | Late Landing Flap 
+  | Selection 
+  | Airline may set their own value <1000 ft 
+  | 7 
+  | Gear Extended Speed >315 kts or 0.815M 
+  | >320 kts or 0.82M 
+  | >>>SPAN>>>8 
+  | Gear Extension Speed >265 kts or 0.815M 
+  | >270 kts or 0.82M<<<SPAN<<< 
+  | 9 
+  | Approach Speed High 
+  | (1000 ft to 500 ft) 
+  | >Vref+20 kts, for >3 sec 
+  | >Vref+25 kts, for >3 sec 
+  | 10 
+  | Approach Speed High 
+  | (500 ft to 50 ft) 
+  | >Vref+18 kts, for >3 sec 
+  | >Vref+20 kts, for >3 sec 
+  | 11 
+  | Approach Speed High 
+  | (<50 ft) 
+  | >Vref+15 kts, for >3 sec 
+  | >Vref+18 kts, for >3 sec 
+  | 12 
+  | Approach speed high 
+  | at touchdown 
+  | Airline may set their own value >VRef+20kts 
+  | 13 
+  | Approach Speed Low 
+  | (<1000 ft) 
+  | <Vref-2 kts, for >
+
+  VERDICT: REJECT
+  notes: question locates the answer column via the span's own value '0.82M' (answer leakage) and 'the aircraft category associated with' is a pointer that only works with the table in view.
+
+==============================================================================
+[02]  T014   gold_stratum=table   page_stratum=table   span=55 norm chars   prompt=v2_label_plus_value
+      icao_environment_report.pdf  page 223
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the title of Task C.05 in the CAEP/13 WG4 Work Programme?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > C.05
+  > Work on the ICAO CORSIA CO2 Estimation and 
+  > Reporting Tool (CERT)
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : C.05 | Work on the ICAO CORSIA CO2 Estimation and Reporting Tool (CERT)
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | he CAEP/13 cycle (2022-2025), the 
+  | WG4 Work Programme consisted of a total of eight tasks 
+  | (see Table 1).
+  | TABLE 1: CAEP/13 WG4 Work Programme
+  | Task 
+  | Number
+  | Task Title
+  | C.01
+  | Maintenance of Annex 16, Volume IV and related 
+  | guidance material
+  | C.02
+  | Development of further material on monitoring, 
+  | reporting and verification (MRV) in CORSIA
+  | C.03
+  | Identification of CORSIA implementation issues and 
+  | solutions
+  | C.04
+  | EUC Management
+  | >>>SPAN>>>C.05
+  | Work on the ICAO CORSIA CO2 Estimation and 
+  | Reporting Tool (CERT<<<SPAN<<<)
+  | C.06
+  | Supply, Demand and Price of Units
+  | C.07
+  | Technical Analysis Support
+  | C.08
+  | Support Council on the 2025 CORSIA periodic review
+  | Work was concluded at the CAEP/13 Meeting (Montreal, 
+  | Canada, 17 to 28 February 2025) with the presentation 
+  | of the final outcomes for each work item. The meeting 
+  | agreed that WG4 had satisfactorily fulfilled the Work 
+  | Programme of WG4 for the CAEP/13 cycle. This article will 
+  | present the m
+
+  VERDICT: ACCEPT
+  notes: standalone lookup; same row; answer not in question.
+
+==============================================================================
+[03]  T015   gold_stratum=table   page_stratum=table   span=73 norm chars   prompt=v2_label_plus_value
+      car_s2_i_p5_flight_data_recorders.pdf  page 36
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the minimum recording resolution for the Free power turbine speed (Nf) parameter in the Civil Aviation Requirements Section 2 Series I Part V?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 19 
+  > Free power turbine 
+  > speed (Nf)(*) 
+  > 0-150% 
+  > Each engine 
+  > each second 
+  > As installed 
+  > 0.2% of 
+  > full range
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : 19 | Free power turbine speed (Nf)(*) | 0-150% | Each engine each second | As installed | 0.2% of full range | * Only for turbine- engined helicopters
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  |  4th November 2022 
+  |  
+  | 36 
+  | No. 
+  | Parameter name 
+  | Minimum 
+  | recording 
+  | range 
+  | Maximum 
+  | recording 
+  | interval in 
+  | seconds 
+  | Minimum 
+  | recording 
+  | accuracy 
+  | Minimum 
+  | recording 
+  | resolution 
+  | Remarks 
+  | overspeed 
+  | should be 
+  | provided. Only 
+  | for turbine-
+  | engined 
+  | helicopters 
+  |  
+  |  18 
+  | Engine gas 
+  | generator speed 
+  | (Ng) (*) 
+  | 0-150% 
+  | Each engine 
+  | each second 
+  | As installed 
+  | 0.2% of 
+  | full range 
+  | * Only for 
+  | turbine-
+  | engined 
+  | helicopters 
+  |  
+  | >>>SPAN>>>19 
+  | Free power turbine 
+  | speed (Nf)(*) 
+  | 0-150% 
+  | Each engine 
+  | each second 
+  | As installed 
+  | 0.2% of 
+  | full range<<<SPAN<<< 
+  | * Only for 
+  | turbine-
+  | engined 
+  | helicopters 
+  |  20 
+  | Collective Pitch 
+  | Full range 
+  | 0.5 
+  | As installed 
+  |  
+  | 0.1% of 
+  | full range 
+  |  
+  |  21 
+  | Coolant 
+  | temperature 
+  | Full range 
+  | 1 
+  | As installed 
+  | (±5°C 
+  | recommended) 
+  | 1° C 
+  | * Only for 
+  | piston-engined 
+  | helicopters 
+  | 22 
+  | Main voltage 
+  | Full range 
+  | Each engine 
+  | each second 
+  | As installed 
+  | 1 Volt 
+  |  
+  |  23 
+  | Cylinder head 
+  | temperature (*) 
+  | Full range 
+  | Each 
+  | cylinder 
+  | each second 
+  | As installed 
+
+  VERDICT: ACCEPT
+  notes: column headers visible on page (range / interval / accuracy / resolution); question asks resolution, answer '0.2% of full range' is determinable; same row.
+
+==============================================================================
+[04]  T016   gold_stratum=table   page_stratum=table   span=45 norm chars   prompt=v2_label_plus_value
+      circular_flight_crew_2025_01_medical.pdf  page 6
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the CGHS rate in rupees for a Stress Thallium Scan at IAF Boarding Centres?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 2 Stress Thallium Scan 
+  > 10868 
+  > 9781 
+  > 10868 
+  > 10505.67 
+  > 10506/-
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : 2 |  | Stress Thallium Scan |  |  | 10868 | 9781 |  | 10868 | 10505.67 |  |  | 10506/-
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | ntres. 
+  | ** Cases of diagnosed IGT/ Pre Diabetes and Body Mass Index above 25 kg/m2 shall undergo 
+  | Blood Sugar – F & 2 hrs after 75 g glucose & HbA1C 
+  | COMMON INVESTIGATIONS WITH CGHS RATE LIST IN RUPEES FOR IAF BOARDING CENTRE 
+  | ONLY (IF AVAILABLE AT IAF BOARDING CENTRES) 
+  | Sl. 
+  | No. 
+  | Name of Investigation 
+  | Delhi 
+  | Bengaluru 
+  | Jorhat 
+  | Average 
+  | R/off Total 
+  | 1 Sleep Study (Poly 
+  | Somnography) 
+  | 750 
+  | 750 
+  | 734 
+  | 744.6667 
+  | 745/- 
+  | >>>SPAN>>>2 Stress Thallium Scan 
+  | 10868 
+  | 9781 
+  | 10868 
+  | 10505.67 
+  | 10506<<<SPAN<<</- 
+  | 3 Holter ECG 
+  | 1000 
+  | 1000 
+  | 978 
+  | 992.6667 
+  | 993/- 
+  | 4 Stress ECHO 
+  | 1725 
+  | 1553 
+  | 1725 
+  | 1667.667 
+  | 1668/- 
+  | 5 24 hour Ambulatory BP 
+  | 690 
+  | 690 
+  | 675 
+  | 685 
+  | 685/- 
+  | 6 ESR 
+  | 29 
+  | 29 
+  | 29 
+  | 29 
+  | 29/- 
+  | 7 Thyroid Profile 
+  | 230 
+  | 207 
+  | 230 
+  | 222.3333 
+  | 222/- 
+  | 8 EEG 
+  | 350 
+  | 350 
+  | 343 
+  | 347.6667 
+  | 348/- 
+  | 9 HCV 
+  | 150 
+  | 150 
+  | 147 
+  | 149 
+  | 149/- 
+  | 10 HIV I & II 
+  | 173 
+  | 173 
+  | 173 
+  | 173 
+  | 173/- 
+  | 11 HbsAg 
+  | 120 
+  | 120 
+  | 117 
+  | 119 
+  | 119/- 
+  |  
+  | Note: 
+  | (a) All investigation re
+
+  VERDICT: REJECT
+  notes: 'the CGHS rate' - span holds Delhi 10868 / Bengaluru 9781 / Jorhat 10868 / Average 10505.67 / Rounded 10506 with no way to pick; no column header in span.
+
+==============================================================================
+[05]  T017   gold_stratum=table   page_stratum=table   span=65 norm chars   prompt=v2_label_plus_value
+      icao_gasp_global_safety_plan.pdf  page 45
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the specific target year for all States to publish an updated national aviation safety plan (NASP) under Goal 5 of the Global Aviation Safety Plan?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 5.2 
+  > By 2027, all States to publish an updated 
+  > national aviation safety plan (NASP)
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : | 5.2 | By 2027, all States to publish an updated national aviation safety plan (NASP), taking into consideration the 2026–2028 edition of the GASP and their corresponding RASP | – Number of States that published an updated NASP – Number of NASPs developed in consultation with industry – Number of
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | rengthen 
+  | aviation safety 
+  | planning 
+  | 5.1 
+  | By 2026, all regions to publish an updated 
+  | regional aviation safety plan (RASP), 
+  | taking into consideration the 2026–2028 
+  | edition of the GASP 
+  | – 
+  | Number of regions having published an 
+  | updated RASP 
+  | – 
+  | Number of RASPs developed in 
+  | consultation with industry 
+  | – 
+  | Number of regions reporting provision of 
+  | safety information by industry to assist in 
+  | the development of RASPs 
+  | >>>SPAN>>>5.2 
+  | By 2027, all States to publish an updated 
+  | national aviation safety plan (NASP<<<SPAN<<<), 
+  | taking into consideration the 2026–2028 
+  | edition of the GASP and their 
+  | corresponding RASP 
+  | – 
+  | Number of States that published an 
+  | updated NASP 
+  | – 
+  | Number of NASPs developed in 
+  | consultation with industry 
+  | – 
+  | Number of States reporting provision of 
+  | safety information by industry to assist in 
+  | the development of NASPs 
+  | Goal 6: 
+  | Expand the 
+  | use of industry 
+  | evaluation 
+  | programmes 
+  | and safety 
+  | data sharing 
+  | program
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (2027). Template twin of T021 (adjacent GASP goals) - reduces independence, not a rejection criterion.
+
+==============================================================================
+[06]  T018   gold_stratum=table   page_stratum=table   span=40 norm chars   prompt=v2_label_plus_value
+      car_s2_l_car66_maintenance_engineer_licensing.pdf  page 62
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the proficiency level required for the 'Engine monitoring and ground operation' task under Module 15 (Gas Turbine Engine) for the B1.3 category?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 15.21 Engine monitoring and ground operation 
+  > 1 
+  > 3
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : 15.21 Engine monitoring and ground operation | 1 | 3
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | 
+  | Lubricants and fuels 
+  | 1 
+  | 2 
+  | 15.10 Lubrication systems 
+  | 1 
+  | 2 
+  | 15.11 Fuel systems 
+  | 1 
+  | 2 
+  | 15.12 Air systems 
+  | 1 
+  | 2 
+  | 15.13 Starting and ignition systems 
+  | 1 
+  | 2 
+  | 15.14 Engine indication systems 
+  | 1 
+  | 2 
+  | 15.15 Alternate turbine constructions 
+  | — 
+  | 1 
+  | 15.16 Turboprop engines 
+  | 1 
+  | 2 
+  | 15.17 Turboshaft engines 
+  | 1 
+  | 2 
+  | 15.18 Auxiliary power units (APUs) 
+  | 1 
+  | 2 
+  | 15.19 Power plant installation 
+  | 1 
+  | 2 
+  | 15.20 Fire protection systems 
+  | 1 
+  | 2 
+  | >>>SPAN>>>15.21 Engine monitoring and ground operation 
+  | 1 
+  | 3<<<SPAN<<< 
+  | 15.22 Engine storage and preservation 
+  | — 
+  | 2 
+  |  
+  | MODULE 16. PISTON ENGINE 
+  |  
+  | MODULE 16. PISTON ENGINE 
+  | LEVEL 
+  | A2 
+  | A4 
+  | B1.2 
+  | B1.4 
+  | B3 
+  | 16.1 
+  | Fundamentals 
+  | 1 
+  | 2 
+  | 16.2 
+  | Engine performance 
+  | 1 
+  | 2
+
+  VERDICT: REJECT
+  notes: span '15.21 ... | 1 | 3' - two licence columns whose headers are not in the span; which value is B1.3 is not determinable. Question also contains every content token of the span.
+
+==============================================================================
+[07]  T019   gold_stratum=table   page_stratum=table   span=55 norm chars   prompt=v2_label_plus_value
+      circular_air_nav_2024_01_installation.pdf  page 4
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the required calibration schedule for RVR Instruments according to the aviation MET equipment calibration requirements?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > RVR Instruments 
+  >  
+  > Once in six months and prior 
+  > to onset of FOG season
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : RVR Instruments | Once in six months and prior to onset of FOG season
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  |  charge of the MET station at an airport is responsible for the 
+  | timely calibrations of all MET instruments utilized for provisioning of Aviation MET 
+  | services. 
+  |  
+  | Aviation MET equipment 
+  | Schedule of calibration 
+  |  
+  | Anemometer and wind vane/Wind equipment 
+  |  
+  |  
+  | Once in six months 
+  |  
+  | Thermometer 
+  |  
+  |  
+  | Once in a year 
+  |  
+  | Barometer 
+  |  
+  | Once in a year 
+  |  
+  |  
+  | Hygrometer 
+  |  
+  |  
+  | Once in a Year 
+  |  
+  | Psychrometer 
+  |  
+  |  
+  | Once in a Year 
+  |  
+  | >>>SPAN>>>RVR Instruments 
+  |  
+  |  
+  | Once in six months and prior 
+  | to onset of FOG season<<<SPAN<<< 
+  |  
+  |  
+  | Ceilometers 
+  |  
+  |  
+  | Once in a Year
+
+  VERDICT: ACCEPT
+  notes: standalone; same row; clean. Note: the same calibration table exists in the 2024 and 2026 revisions of the circular; V8 confirmed this exact span occurs on one Arm A page.
+
+==============================================================================
+[08]  T021   gold_stratum=table   page_stratum=table   span=59 norm chars   prompt=v2_label_plus_value
+      icao_gasp_global_safety_plan.pdf  page 43
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the target year for all States to assess the level of implementation of their State Safety Programmes (SSP) under Goal 3, Target 3.1?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > 3.1 
+  > By 2026, all States to assess the level of 
+  > implementation of their SSP
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : Goal 3: Establish and manage State safety programmes (SSPs) | 3.1 | By 2026, all States to assess the level of implementation of their SSP | – Percentage of States having completed their SSP PQ self-assessment, using the ICAO online framework (OLF)
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  |  
+  | less than the baseline global average4 
+  | 2.3 
+  | By 2028, all States to improve their EI 
+  | score for the resolution of safety issues 
+  | (CE-8) in AGA with a further commitment 
+  | that no State has a score of less than the 
+  | baseline global average4 
+  | – 
+  | Number of States that meet the EI score 
+  | of equal or greater than the baseline 
+  | global average for CE-8/AGA 
+  | Goal 3: 
+  | Establish and 
+  | manage State 
+  | safety 
+  | programmes 
+  | (SSPs) 
+  | >>>SPAN>>>3.1 
+  | By 2026, all States to assess the level of 
+  | implementation of their SSP<<<SPAN<<< 
+  | – 
+  | Percentage of States having completed 
+  | their SSP PQ self-assessment, using the 
+  | ICAO online framework (OLF) 
+  | 3.2 
+  | By 2028, all States to establish an SSP 
+  | – 
+  | Percentage of States having established 
+  | an SSP 
+  | – 
+  | Percentage of States having established 
+  | a safety data collection and processing 
+  | system (SDCPS) 
+  | – 
+  | Percentage of States having established 
+  | a framework for the protection of safety 
+  | data and safety infor
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (2026). Template twin of T017.
+
+==============================================================================
+[09]  T022   gold_stratum=table   page_stratum=table   span=48 norm chars   prompt=v2_label_plus_value
+      icao_environment_report.pdf  page 229
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the deadline for States to report CO2 Emissions for the 2024 CORSIA First Phase year?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > CO2 Emissions
+  > 31 Jul
+  > (2023 
+  > Emissions)
+  > 31 Jul
+  > (2024 
+  > Emissions)
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : CO2 Emissions | 31 Jul (2023 Emissions) | 31 Jul (2024 Emissions) | 31 Jul (2025 Emissions) | 31 Jul (2026 Emissions) | 31 Jul (2027 Emissions) | 31 Jul (2028 Emissions)
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | ICAO through the CCR and associated deadlines 
+  | (Annex 16, Volume IV, Appendix 1).
+  | State Report
+  | CORSIA First Phase
+  | CORSIA Second Phase
+  | 2024
+  | 2025
+  | 2026
+  | 2027
+  | 2028
+  | 2029
+  | Aeroplane Operators
+  | 30 Nov
+  | (2024 AOs)
+  | 30 Nov
+  | (2025 AOs)
+  | 30 Nov
+  | (2026 AOs)
+  | 30 Nov
+  | (2027 AOs)
+  | 30 Nov
+  | (2028 AOs)
+  | 30 Nov
+  | (2029 AOs)
+  | Verification Bodies
+  | 30 Nov
+  | (2024 VBs)
+  | 30 Nov
+  | (2025 VBs)
+  | 30 Nov
+  | (2026 VBs)
+  | 30 Nov
+  | (2027 VBs)
+  | 30 Nov
+  | (2028 VBs)
+  | 30 Nov
+  | (2029 VBs)
+  | >>>SPAN>>>CO2 Emissions
+  | 31 Jul
+  | (2023 
+  | Emissions)
+  | 31 Jul
+  | (2024 
+  | Emissions<<<SPAN<<<)
+  | 31 Jul
+  | (2025 
+  | Emissions)
+  | 31 Jul
+  | (2026 
+  | Emissions)
+  | 31 Jul
+  | (2027 
+  | Emissions)
+  | 31 Jul
+  | (2028 
+  | Emissions)
+  | CORSIA Eligible Fuels*
+  | 31 Jul
+  | (2023 CEF)
+  | 31 Jul
+  | (2024 CEF)
+  | 31 Jul
+  | (2025 CEF)
+  | 31 Jul
+  | (2024-2026 
+  | CEF)
+  | 31 Jul
+  | (2027 CEF)
+  | 31 Jul
+  | (2028 CEF)
+  | Cancelled Emissions Units
+  | 31 Jul
+  | (2024 – 2026 
+  | CEUs)
+  | *Information can be reported annually or once at the end of each three-year compliance cycle depending on the frequency of repor
+
+  VERDICT: ACCEPT
+  notes: answer is '31 Jul' in every column, so the reporting-year vs emissions-year ambiguity in '2024' does not change the answer; same row.
+
+==============================================================================
+[10]  T023   gold_stratum=table   page_stratum=table   span=74 norm chars   prompt=v2_label_plus_value
+      icao_doc9859_safety_management_manual.pdf  page 74
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the year of initial adoption or approval for the reporting system associated with Doc 9815, Manual on Laser Emitters and Flight Safety?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Laser emission reporting 
+  > Doc 9815, Manual on Laser Emitters and 
+  > Flight Safety 
+  > State 
+  > 2003
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : Laser emission reporting | Doc 9815, Manual on Laser Emitters and Flight Safety | State | 2003
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | c 9426, Air Traffic Services Planning 
+  | Manual, Part 2 
+  | Service provider 
+  | 1984 
+  | Wild-life/bird strike reporting 
+  | Doc 9332, Manual on the ICAO Bird Strike 
+  | Information System (IBIS) 
+  | Service provider 
+  | 1989 
+  | Annex 14 — Aerodromes, Volume I — 
+  | Aerodrome Design and Operations 
+  | State and service 
+  | provider 
+  | 1990 
+  | Doc 9137, Airport Services Manual, Part 3 — 
+  | Wildlife Control and Reduction 
+  | State and service 
+  | provider 
+  | 1991 
+  | >>>SPAN>>>Laser emission reporting 
+  | Doc 9815, Manual on Laser Emitters and 
+  | Flight Safety 
+  | State 
+  | 2003<<<SPAN<<< 
+  | Fatigue reporting 
+  | Annex 6 — Operation of Aircraft, Part I — 
+  | International Commercial Air Transport — 
+  | Aeroplanes 
+  | Service provider 
+  | 2011 
+  | Doc 9966, Manual for the Oversight of 
+  | Fatigue Management Approaches 
+  | Service provider 
+  | 2012 
+  | Service difficulty reporting 
+  | Doc 9760, Airworthiness Manual 
+  | State 
+  | 2014 
+  | Aerodrome safety reporting 
+  | Doc 9981, Procedures for Air Navigation 
+  | Services (PANS) - Aerodromes 
+  | Service pr
+
+  VERDICT: ACCEPT
+  notes: standalone; same row; answer 2003 not in question.
+
+==============================================================================
+[11]  T024   gold_stratum=table   page_stratum=table   span=50 norm chars   prompt=v2_label_plus_value
+      icao_doc9859_safety_management_manual.pdf  page 36
+      ROW-PAIRING: SAME_ROW   (best-row token coverage 1.0, two-row 1.0)
+      GOLD SITS IN: a TABLE chunk
+------------------------------------------------------------------------------
+QUESTION:
+  What is the numerical value assigned to the 'Remote' likelihood category in the Safety risk probability table of the Safety Management Manual?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Remote 
+  > Unlikely to occur, but possible (has occurred rarely) 
+  > 3
+
+find_tables() ROW-WISE RECONSTRUCTION (Arm A's view of this page):
+  best-matching row : Remote | Unlikely to occur, but possible (has occurred rarely) | 3
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | 2-14 
+  | Safety Management Manual (SMM) 
+  |  
+  | Table 1. Safety risk probability table 
+  |  
+  | Likelihood 
+  | Meaning 
+  | Value 
+  | Frequent 
+  | Likely to occur many times (has occurred frequently) 
+  | 5 
+  | Occasional 
+  | Likely to occur sometimes (has occurred infrequently) 
+  | 4 
+  | >>>SPAN>>>Remote 
+  | Unlikely to occur, but possible (has occurred rarely) 
+  | 3<<<SPAN<<< 
+  | Improbable 
+  | Very unlikely to occur (not known to have occurred) 
+  | 2 
+  | Extremely improbable 
+  | Almost inconceivable that the event will occur 
+  | 1 
+  |  
+  |  
+  | Note.— This is an example only. The level of detail and complexity of tables and matrices should be 
+  | adapted to the particular needs and complexities of each organization. It should also be noted that organizations might 
+  | include both qualitative and quantitative criteria.
+
+  VERDICT: ACCEPT
+  notes: standalone; same row; answer 3 not in question.
+
+==============================================================================
+[12]  P001   gold_stratum=prose   page_stratum=prose   span=81 norm chars   prompt=v1_generic
+      car_s2_e_car145_maintenance_org_2025.pdf  page 8
+------------------------------------------------------------------------------
+QUESTION:
+  What specific regulatory change was made to CAR 145 Issue 02 Revision 5 regarding acceptable equivalent documents?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > The CAR 145 Issue 02 Rev 05 is amended to include UK CAA Form 1 as an acceptable equivalent document.
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | irements. References of CAR 
+  | (Sec- Series “L” Part-X and Series “L” Part-XIV have been deleted as these 
+  | requirements/ procedures are now covered in CAR 66 (Sub Part-C) and AAC 2 of 
+  | 2017 respectively. 
+  |  
+  | Issue 02 (Revision 4) 12th June 2020 
+  |  
+  | The CAR 145 Issue 02 Rev 04 is amended to harmonise with amended CAR M and 
+  | with the latest revisions of EASA Part 145 regulations. 
+  |  
+  | Issue 02 (Revision 5) 15th June 2021 
+  |  
+  | >>>SPAN>>>The CAR 145 Issue 02 Rev 05 is amended to include UK CAA Form 1 as an 
+  | acceptable equivalent document<<<SPAN<<<. 
+  |  
+  | Issue 03 31st July 2024 
+  |  
+  | 1. CAR 145 Issue 03 is amended to harmonise with the latest revision of EASA 
+  | Part 145 dated 02nd December 2022. 
+  |  
+  | 2. Quality system has been redefined and restructured. 
+  | 3. SMS system and requirements of SMS manager are included. 
+  | 4. References of new CARs provided where ever needed.
+
+  VERDICT: ACCEPT
+  notes: span answers (UK CAA Form 1); 'regarding acceptable equivalent documents' narrows heavily but the substantive answer is new.
+
+==============================================================================
+[13]  P003   gold_stratum=prose   page_stratum=prose   span=59 norm chars   prompt=v1_generic
+      icao_environment_report.pdf  page 194
+------------------------------------------------------------------------------
+QUESTION:
+  What percentage of total aviation fuel demand is projected to be provided by sustainable aviation fuels (SAFs) by 2035 in the IEA's Net Zero Emissions by 2050 Scenario?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > depends on SAFs providing near 25% of total aviation fuel demand by 2035
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | pproaching 5% of global 
+  | aviation demand by 2030. Such growth would make a 
+  | significant contribution toward ICAO’s aspirational target 
+  | of a 5% reduction in international aviation CO₂ emissions 
+  | by 2030, with announced SAF projects offering more than 
+  | enough capacity to meet this level of demand. However, 
+  | even this more optimistic trajectory falls well short of 
+  | the IEA’s Net Zero Emissions by 2050 Scenario, which 
+  | >>>SPAN>>>depends on SAFs providing near 25% of total aviation 
+  | fuel demand by 2035<<<SPAN<<<.
+  | FIGURE 1: Sustainable aviation fuel demand, 2023 to 2035 main, accelerated case and announced capacity. Source: IEA (2024) 
+  | Renewables 20242, IEA (2024) Oil 20243 and IEA (2024) World Energy Outlook4. Announced project capacity adapted from 
+  | Argus Direct5 (2024) Global sustainable aviation fuel & renewable diesel refinery database. Note: “Commercial” includes HEFA 
+  | and “Emerging” includes alcohol-to-jet and Fischer
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (near 25%).
+
+==============================================================================
+[14]  P004   gold_stratum=prose   page_stratum=prose   span=84 norm chars   prompt=v1_generic
+      icao_environment_report.pdf  page 321
+------------------------------------------------------------------------------
+QUESTION:
+  According to the ICF-led study, what is the potential SAF production capacity for Japan by 2030?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > identified potential for Japan to produce up to 441 million gallons (1.67 billion liters) of SAF by 2030.
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | gional 
+  | paths towards net zero is provided by the Boeing Cascade 
+  | Climate Impact Model, a digital tool that quantifies the 
+  | potential of commercial aviation’s strategies to reduce 
+  | carbon emissions.
+  | Key takeaways from a few Boeing-
+  | sponsored SAF roadmaps:
+  | Japan
+  | •	 A SAF feedstock study in Japan1, undertaken by 
+  | strategic consultancy firm ICF and led by Boeing, 
+  | Mitsubishi Heavy Industries and SMBC Aviation Capital, 
+  | >>>SPAN>>>identified potential for Japan to produce up to 441 
+  | million gallons (1.67 billion liters) of SAF by 2030<<<SPAN<<<.
+  | •	 Promising feedstocks include woody biomass, municipal 
+  | solid waste and renewable electricity.
+  | •	 Scaling up local production of SAF could allow Japan 
+  | to nearly meet its 2030 goal of using 10% SAF for 
+  | international flights.
+  | Southeast Asia
+  | •	 RSB’s report on Southeast Asia2 noted the region 
+  | boasts significant potential to produce SAF due to 
+  | its abundant bio-based feedstock resources such as 
+  | agricultural resid
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (441 million gallons).
+
+==============================================================================
+[15]  P010   gold_stratum=prose   page_stratum=prose   span=58 norm chars   prompt=v1_generic
+      icao_environment_report.pdf  page 378
+------------------------------------------------------------------------------
+QUESTION:
+  What is the maximum volume percentage of aromatic compounds that can constitute jet fuel?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > Aromatic compounds, which can constitute up to 25% by volume of jet fuel
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | 20
+  | 3	 Holladay et al., 2020
+  | 4	 Schripp et al. 2022
+  | Introduction
+  | Aircraft engines combust fuel imperfectly and incompletely, 
+  | emitting combustion side products derived from fuel 
+  | impurities and high-temperature reactions with air. Among 
+  | these products, fine particulate matter with aerodynamic 
+  | diameters of 2.5 microns and below (PM2.5) have an 
+  | outsized impact on regional air quality, public health and 
+  | the climate.
+  | >>>SPAN>>>Aromatic compounds, which can constitute up to 25% 
+  | by volume of jet fuel<<<SPAN<<<, are responsible for substantial non-
+  | volatile PM2.5 formation, a primary or direct source of 
+  | particulate matter.1 Low levels of sulphur compounds in jet 
+  | fuel are responsible for sulphur dioxide (SO2) formation, 
+  | a volatile particulate matter (vPM) that is the precursor 
+  | of sulphate aerosols, a potent secondary PM2.5.2
+  | Interventions focused on jointly reducing jet fuel aromatic 
+  | and sulphur content present an oppo
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (up to 25%). Public fact - parametric answerability caveat; retrieval eval unaffected.
+
+==============================================================================
+[16]  P011   gold_stratum=prose   page_stratum=prose   span=69 norm chars   prompt=v1_generic
+      car_s2_i_p5_flight_data_recorders.pdf  page 1
+------------------------------------------------------------------------------
+QUESTION:
+  Under which rule of the Aircraft Rules, 1937, was the Civil Aviation Requirement for Flight Data Recorders and related systems issued?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > This CAR has been issued under the provisions of Rule 29C of the Aircraft Rules, 1937.
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | ed. 
+  |  
+  | This part of Civil Aviation Requirement lays down the requirements for fitment of 
+  | Flight Data Recorders, Combination Recorders, Data link Recorders, Airborne Image 
+  | Recorders, Airborne Image Recording System and Aircraft Data Recording System 
+  | on aircraft registered in India. All aircraft imported/ purchased or leased for operation 
+  | in India shall meet the applicability requirements laid down in this CAR. 
+  |  
+  | >>>SPAN>>>This CAR has been issued under the provisions of Rule 29C of the Aircraft Rules, 
+  | 1937<<<SPAN<<<. 
+  |  
+  | 2. 
+  | DEFINITIONS: 
+  |  
+  | Flight Recorder: Any type of recorder installed in the aircraft for the purpose of 
+  | complementing accident/incident investigation. 
+  |  
+  | Automatic deployable flight recorder (ADFR): A combination flight recorder 
+  | installed on the aircraft which is capable of automatically deploying from the aircraft. 
+  |  
+  | Commercial Operation: An aircraft operation involving the transport of passengers,
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (Rule 29C). Many CARs cite Rule 29C, but the question names the FDR CAR and V8 confirmed the exact span is unique.
+
+==============================================================================
+[17]  P012   gold_stratum=prose   page_stratum=prose   span=47 norm chars   prompt=v1_generic
+      car_s2_i_p5_flight_data_recorders.pdf  page 12
+------------------------------------------------------------------------------
+QUESTION:
+  What specific data does a Class “B” AIR or AIRS capture according to the Civil Aviation Requirements?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > A Class “B” AIR or AIRS captures data link message displays.
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | CIVIL AVIATION REQUIREMENTS 
+  | SECTION 2 
+  | SERIES I PART V 30th October, 2018 
+  | Rev. 2, 4th November 2022 
+  |  
+  | 12 
+  |  
+  | 6.6.2.1 A Class “A” AIR or AIRS captures the general cockpit area in order to 
+  | provide data supplemental to conventional flight recorders. 
+  |  
+  | 6.6.2.2 >>>SPAN>>>A Class “B” AIR or AIRS captures data link message displays<<<SPAN<<<. 
+  |  
+  | 6.6.2.3 A Class “C” AIR or AIRS captures instruments and control panels. 
+  |  
+  | Note 1-There are no provisions for Class “A” AIRs or AIRS in this CAR. 
+  |  
+  | Note2- 
+  | A Class C AIR or AIRS may be considered as a means for 
+  | recording flight data where it is not practical or is prohibitively 
+  | expensive to record on an FDR or an ADRS or where an FDR is 
+  | not required. 
+  |  
+  | Note3- To respect crew privacy, the cockpit area view 
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (data link message displays).
+
+==============================================================================
+[18]  P016   gold_stratum=prose   page_stratum=prose   span=85 norm chars   prompt=v1_generic
+      icao_doc9859_safety_management_manual.pdf  page 169
+------------------------------------------------------------------------------
+QUESTION:
+  According to Annex 19, what is the specific requirement regarding the scope of the safety training programme in relation to an individual's involvement in the SMS?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > the scope of the safety training programme be appropriate to each individual’s involvement in the SMS
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | rategic direction from the 
+  | top of the organization and the enabling of “bottom-up” communication that encourages open and constructive feedback 
+  | from all personnel. 
+  |  
+  |  
+  | 9.6.4 Training and education 
+  |  
+  | 9.6.4.1 
+  | Annex 19 requires that “the service provider shall develop and maintain a safety training programme that 
+  | ensures that personnel are trained and competent to perform their SMS duties.” It also requires that “>>>SPAN>>>the scope of the 
+  | safety training programme be appropriate to each individual’s involvement in the SMS<<<SPAN<<<.” The safety manager is 
+  | responsible for ensuring there is a suitable safety training programme in place. This includes providing appropriate 
+  | safety information relevant to specific safety issues met by the organization. Personnel who are trained and competent 
+  | to perform their SMS duties, regardless of their level in the organization, is an indication of management’s commitment 
+  | to an effective SMS. The training p
+
+  VERDICT: REJECT
+  notes: near-total answer leakage: question already states 'scope of the safety training programme ... in relation to an individual's involvement in the SMS'; the span adds only 'appropriate to'. Criterion (e).
+
+==============================================================================
+[19]  P017   gold_stratum=prose   page_stratum=prose   span=57 norm chars   prompt=v1_generic
+      icao_environment_report.pdf  page 403
+------------------------------------------------------------------------------
+QUESTION:
+  What interim emission reduction targets has iGA Istanbul Airport set for 2030 and 2040 in alignment with ICAO's Long-Term Aspirational Goal?
+
+GOLD SPAN (must answer the question, verbatim from the page):
+  > setting interim goals to reduce emissions by 45% by 2030 and 73% by 2040
+
+RAW PAGE CONTEXT (column-wise extraction, as the generator saw it):
+  | irational Goal (LTAG) of net-zero 
+  | carbon emissions by 2050, iGA has adopted energy 
+  | efficiency as a core strategy. This approach extends beyond 
+  | operational improvements to encompass governance, 
+  | technology, and behavioural change, contributing directly 
+  | to the United Nations Sustainable Development Goals 
+  | (SDGs), particularly SDG 7, SDG 9, and SDG 13.
+  | iGA’s decarbonization roadmap aligns with ICAO’s LTAG, 
+  | setting >>>SPAN>>>interim goals to reduce emissions by 45% by 2030 
+  | and 73% by 2040. Yet, it is<<<SPAN<<< not targets but the systemic 
+  | integration of sustainability, into infrastructure, training, 
+  | operations, and partnerships, that drives lasting impact.
+  | Through investments in real-time analytics, electrification, 
+  | sustainable architecture, and behavioural, approaches, 
+  | iGA is advancing a greener, smarter, and more human-
+  | centred airport model. This article outlines our journey 
+  | and aims to contribute insights to the 
+
+  VERDICT: ACCEPT
+  notes: standalone; span answers (45% by 2030, 73% by 2040); span slightly over-runs into the next sentence, harmless.
+
+==============================================================================
