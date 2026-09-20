@@ -1,0 +1,37 @@
+[A] 10572 chunks
+[B] 10294 chunks
+pools: FRESH=39  OLD80_CONTAMINATED=80
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+[A] embedded 100/10572  (9s)
+[A] embedded 2100/10572  (78s)
+[A] embedded 4100/10572  (153s)
+[A] embedded 6100/10572  (220s)
+[A] embedded 8100/10572  (286s)
+[A] embedded 10100/10572  (365s)
+[A] chroma count = 10572
+[A] index built in 400s -> ablation\index_A
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+[A] retrieved FRESH: 39 queries x 3 modes
+[A] retrieved OLD80_CONTAMINATED: 80 queries x 3 modes
+[A] wrote ablation\out\retrieval_A.json
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionAddEvent: capture() takes 1 positional argument but 3 were given
+[B] embedded 100/10294  (3s)
+[B] embedded 2100/10294  (51s)
+[B] embedded 4100/10294  (99s)
+[B] embedded 6100/10294  (148s)
+[B] embedded 8100/10294  (196s)
+[B] embedded 10100/10294  (244s)
+[B] chroma count = 10294
+[B] index built in 252s -> ablation\index_B
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+[B] retrieved FRESH: 39 queries x 3 modes
+[B] retrieved OLD80_CONTAMINATED: 80 queries x 3 modes
+[B] wrote ablation\out\retrieval_B.json
+DONE
+EXIT 0
