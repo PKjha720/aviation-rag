@@ -59,23 +59,28 @@ STYLES = """
 
   --text:          #dbe3ef;
   --text-muted:    #8a99af;
-  --text-faint:    #5c6a7e;
+  /* Was #5c6a7e, which measured 3.20:1 on --surface: below the 4.5:1 AA floor
+     for the 11-13px labels this token carries. Lifted in place, hue and
+     saturation preserved, to 4.62:1 against the lightest surface it sits on. */
+  --text-faint:    #74849a;
 
+  /* The accent is the only vivid hue in the interface and belongs to chrome.
+     Category colours below are data, so they are desaturated and kept off the
+     accent's hue: blue must not mean "emphasis" and "AIC" at the same time. */
   --accent:        #4c8dff;
-  --accent-wash:   rgba(76,141,255,.10);
 
-  --c-dgca:  #3fb950;
-  --c-aic:   #4c8dff;
-  --c-icao:  #a371f7;
-  --c-notam: #d29922;
+  --c-dgca:  #4cac5a;
+  --c-aic:   #4e99b5;
+  --c-icao:  #9d84c7;
+  --c-notam: #b88f44;
 
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 
   --fs-xs: 11px;  --fs-sm: 12px;  --fs-md: 13px;
-  --fs-base: 14px; --fs-lg: 16px; --fs-xl: 21px;
+  --fs-base: 14px; --fs-xl: 21px;
 
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px;
-  --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
+  --sp-4: 16px; --sp-5: 24px;
 
   --radius: 6px;
 }
@@ -83,7 +88,7 @@ STYLES = """
 .stApp { background: var(--bg); }
 
 /* Numerals in data positions must not jitter between reruns. */
-.mono, .metric-value, .src-score, .statusline, .kv-value {
+.metric-value, .src-score, .statusline, .kv-value {
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
 }
@@ -204,6 +209,8 @@ section[data-testid="stSidebar"] > div { padding-top: var(--sp-4); }
 }
 .src-index { color: var(--text-faint); font-family: var(--mono); margin-right: 6px; }
 .src-score { font-size: var(--fs-sm); color: var(--text-muted); white-space: nowrap; }
+/* A bare 0.891 means nothing without a name for the scale. */
+.src-score-label { color: var(--text-faint); font-size: var(--fs-xs); margin-right: 3px; }
 .src-meta {
   font-size: var(--fs-sm);
   color: var(--text-faint);
@@ -432,7 +439,8 @@ def render_sources(sources: list[dict]) -> None:
                 f'<span class="src-file"><span class="src-index">'
                 f'{int(src.get("source_number", 0)):02d}</span>'
                 f'{html.escape(str(src.get("file", "unknown")))}</span>'
-                f'<span class="src-score">{src.get("relevance_score", 0):.3f}</span>'
+                '<span class="src-score"><span class="src-score-label">rel</span>'
+                f'{src.get("relevance_score", 0):.3f}</span>'
                 "</div>"
                 f'<div class="src-meta">{"".join(f"<span>{part}</span>" for part in meta)}</div>'
                 f'<div class="src-quote">{html.escape(str(src.get("preview", "")))}</div>'
