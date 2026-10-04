@@ -1,7 +1,8 @@
 """
-Aviation RAG — Streamlit Interface
-====================================
-Production-grade aviation regulatory document Q&A system.
+Aviation RAG — Streamlit interface.
+
+Hybrid retrieval (BM25 Okapi + dense bi-encoder, reciprocal rank fusion,
+cross-encoder reranking) over Indian civil aviation regulatory documents.
 """
 
 import os
@@ -10,399 +11,503 @@ import logging
 from pathlib import Path
 
 # ─── Auto-ingestion on cloud ──────────────────────────────────────────────
-bm25_exists = Path("data/processed/bm25_index.pkl").exists()
-vs_exists = Path("vectorstore").exists() and any(Path("vectorstore").iterdir()) if Path("vectorstore").exists() else False
+INDEX_PATHS = (Path("data/processed/bm25_index.pkl"), Path("vectorstore"))
 
-if not bm25_exists or not vs_exists:
-    if os.path.exists("/mount/src"):  # Streamlit Cloud
-        logging.info("Running ingestion on cloud...")
-        # Add current directory to path
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        from ingest import run_ingestion
-        run_ingestion()
+
+def indexes_present() -> bool:
+    """True when both the BM25 index and a non-empty vectorstore exist."""
+    bm25, store = INDEX_PATHS
+    return bm25.exists() and store.is_dir() and any(store.iterdir())
+
+
+if not indexes_present() and os.path.exists("/mount/src"):  # Streamlit Cloud
+    logging.info("Indexes absent on cloud instance, running ingestion")
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from ingest import run_ingestion
+
+    run_ingestion()
 
 # ─── Main App ─────────────────────────────────────────────────────────────
-import streamlit as st
+import html
 import time
+
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# ─── Page Config ───────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Aviation RAG — Regulatory Intelligence",
-    page_icon="✈️",
+    page_title="AeroRAG — Aviation Regulatory Intelligence",
+    page_icon="✈",
     layout="wide",
-    initial_sidebar_state="expanded",
+    # "auto" keeps the sidebar open on desktop but collapsed on narrow screens,
+    # where "expanded" would cover the conversation on load.
+    initial_sidebar_state="auto",
 )
 
-# ─── Custom CSS ────────────────────────────────────────────────────────────
-st.markdown("""
+# ─── Design tokens ─────────────────────────────────────────────────────────
+# One palette, one type scale, one spacing scale. Every value below is drawn
+# from these; nothing is hand-tuned at the call site.
+STYLES = """
 <style>
-    /* Global */
-    .stApp {
-        background-color: #0a0f1a;
-    }
-    
-    /* Sidebar always visible fix */
-    section[data-testid="stSidebar"] {
-        min-width: 300px !important;
-        max-width: 300px !important;
-        transform: none !important;
-        background-color: #0f172a;
-        border-right: 1px solid #1e3a5f;
-    }
-    
-    /* Sidebar toggle always visible */
-    [data-testid="collapsedControl"],
-    [data-testid="stSidebarCollapsedControl"] {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        color: #e2e8f0 !important;
-        z-index: 9999999 !important;
-    }
-    
-    /* Header */
-    .main-header {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        border: 1px solid #1e3a5f;
-        border-radius: 12px;
-        padding: 1.5rem 2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-    .main-header h1 {
-        color: #e2e8f0;
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin: 0;
-        letter-spacing: 0.5px;
-    }
-    .main-header p {
-        color: #94a3b8;
-        font-size: 0.9rem;
-        margin: 0.3rem 0 0 0;
-    }
-    
-    /* Tech badges */
-    .tech-stack {
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 0.8rem;
-    }
-    .tech-badge {
-        background: rgba(59, 130, 246, 0.15);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        color: #60a5fa;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-size: 0.7rem;
-        font-weight: 500;
-    }
+:root {
+  --bg:            #0b0f16;
+  --surface:       #121926;
+  --surface-sunk:  #0d131d;
+  --border:        #212c3d;
+  --border-bright: #2d3b52;
 
-    /* Stats cards */
-    .stat-card {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        border: 1px solid #1e3a5f;
-        border-radius: 10px;
-        padding: 1rem;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-    .stat-card .stat-value {
-        color: #60a5fa;
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
-    .stat-card .stat-label {
-        color: #94a3b8;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    
-    /* Source cards */
-    .source-card {
-        background: #1e293b;
-        border: 1px solid #334155;
-        border-radius: 8px;
-        padding: 0.8rem 1rem;
-        margin-bottom: 0.5rem;
-        font-size: 0.85rem;
-    }
-    .source-card .source-header {
-        color: #60a5fa;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-    }
-    .source-card .source-meta {
-        color: #94a3b8;
-        font-size: 0.75rem;
-    }
-    .source-card .source-preview {
-        color: #cbd5e1;
-        font-size: 0.8rem;
-        margin-top: 0.4rem;
-        padding: 0.5rem;
-        background: #0f172a;
-        border-radius: 4px;
-        border-left: 3px solid #3b82f6;
-    }
+  --text:          #dbe3ef;
+  --text-muted:    #8a99af;
+  --text-faint:    #5c6a7e;
 
-    /* Category pills */
-    .category-pill {
-        display: inline-block;
-        padding: 2px 8px;
-        border-radius: 10px;
-        font-size: 0.7rem;
-        font-weight: 500;
-        margin-right: 4px;
-    }
-    .cat-dgca { background: #1e3a2f; color: #4ade80; border: 1px solid #166534; }
-    .cat-aic { background: #1e2a3f; color: #60a5fa; border: 1px solid #1e40af; }
-    .cat-icao { background: #2a1e3f; color: #a78bfa; border: 1px solid #5b21b6; }
-    .cat-notam { background: #3f2a1e; color: #fb923c; border: 1px solid #9a3412; }
-    
-    /* Chat */
-    .stChatMessage {
-        background-color: #1e293b !important;
-        border: 1px solid #334155 !important;
-        border-radius: 10px !important;
-    }
-    
-    /* Remove streamlit branding */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+  --accent:        #4c8dff;
+  --accent-wash:   rgba(76,141,255,.10);
+
+  --c-dgca:  #3fb950;
+  --c-aic:   #4c8dff;
+  --c-icao:  #a371f7;
+  --c-notam: #d29922;
+
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --fs-xs: 11px;  --fs-sm: 12px;  --fs-md: 13px;
+  --fs-base: 14px; --fs-lg: 16px; --fs-xl: 21px;
+
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px;
+  --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
+
+  --radius: 6px;
+}
+
+.stApp { background: var(--bg); }
+
+/* Numerals in data positions must not jitter between reruns. */
+.mono, .metric-value, .src-score, .statusline, .kv-value {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────── */
+section[data-testid="stSidebar"] {
+  background: var(--surface-sunk);
+  border-right: 1px solid var(--border);
+}
+section[data-testid="stSidebar"] > div { padding-top: var(--sp-4); }
+
+.side-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 var(--sp-1);
+}
+.side-sub {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin: 0 0 var(--sp-4);
+}
+.side-label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: var(--sp-5) 0 var(--sp-2);
+}
+
+/* ── Metrics ───────────────────────────────────────────────────────────── */
+.metrics { display: flex; gap: var(--sp-2); }
+.metric {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+}
+.metric-value {
+  display: block;
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.1;
+}
+.metric-label {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-top: var(--sp-1);
+}
+
+/* ── Key/value rows (architecture) ─────────────────────────────────────── */
+.kv { display: flex; justify-content: space-between; gap: var(--sp-3); padding: 5px 0; }
+.kv + .kv { border-top: 1px solid var(--border); }
+.kv-key { font-size: var(--fs-sm); color: var(--text-faint); white-space: nowrap; }
+.kv-value {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-align: right;
+  word-break: break-all;
+}
+
+/* ── Index composition bars ────────────────────────────────────────────── */
+.comp-row { margin-bottom: var(--sp-3); }
+.comp-head {
+  display: flex; justify-content: space-between;
+  font-size: var(--fs-sm); margin-bottom: 5px;
+}
+.comp-name { color: var(--text-muted); }
+.comp-count { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--text-faint); }
+.comp-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.comp-fill { height: 100%; border-radius: 2px; }
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+.app-head {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+.app-head h1 {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -.01em;
+}
+.app-head p {
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  margin: var(--sp-2) 0 0;
+  max-width: 68ch;
+}
+
+/* ── Source cards ──────────────────────────────────────────────────────── */
+.src {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-2);
+}
+.src-top {
+  display: flex; align-items: baseline;
+  justify-content: space-between; gap: var(--sp-3);
+}
+.src-file {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text);
+  word-break: break-word;
+}
+.src-index { color: var(--text-faint); font-family: var(--mono); margin-right: 6px; }
+.src-score { font-size: var(--fs-sm); color: var(--text-muted); white-space: nowrap; }
+.src-meta {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+  margin-top: 5px;
+  display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;
+}
+.src-quote {
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-top: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--surface-sunk);
+  border-left: 2px solid var(--border-bright);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  white-space: pre-wrap;
+}
+
+/* ── Chips ─────────────────────────────────────────────────────────────── */
+.chip {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .03em;
+  padding: 1px 7px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  opacity: .9;
+}
+.chip-dgca  { color: var(--c-dgca); }
+.chip-aic   { color: var(--c-aic); }
+.chip-icao  { color: var(--c-icao); }
+.chip-notam { color: var(--c-notam); }
+
+/* ── Status line under an answer ───────────────────────────────────────── */
+.statusline {
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+.statusline span + span::before { content: "·"; margin: 0 var(--sp-2); opacity: .5; }
+
+/* ── Streamlit surfaces ────────────────────────────────────────────────── */
+[data-testid="stChatMessage"] {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-3) var(--sp-4);
+}
+[data-testid="stExpander"] details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-sunk);
+}
+[data-testid="stExpander"] summary { font-size: var(--fs-md); color: var(--text-muted); }
+
+/* Streamlit's default avatars ship in its own brand red/orange, which fights
+   this palette. Neutralise them and keep only a role distinction. */
+[data-testid="stChatMessageAvatarUser"],
+[data-testid="stChatMessageAvatarAssistant"] {
+  background: var(--surface) !important;
+  border: 1px solid var(--border);
+  color: var(--text-faint) !important;
+}
+[data-testid="stChatMessageAvatarAssistant"] {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+
+#MainMenu, footer { visibility: hidden; }
+[data-testid="stAppDeployButton"], [data-testid="stToolbarActions"] { display: none; }
+header[data-testid="stHeader"] { background: transparent; }
+
+@media (max-width: 640px) {
+  .metrics { flex-direction: column; }
+  .src-top { flex-direction: column; gap: var(--sp-1); }
+}
 </style>
-""", unsafe_allow_html=True)
+"""
+st.markdown(STYLES, unsafe_allow_html=True)
 
 
-# ─── Initialize Engine ─────────────────────────────────────────────────────
+# ─── Category presentation ────────────────────────────────────────────────
+CATEGORIES = {
+    "dgca_cars":     ("DGCA CAR",     "chip-dgca",  "var(--c-dgca)"),
+    "aai_circulars": ("AIC/Circular", "chip-aic",   "var(--c-aic)"),
+    "icao":          ("ICAO",         "chip-icao",  "var(--c-icao)"),
+    "notams":        ("NOTAM",        "chip-notam", "var(--c-notam)"),
+}
+
+
+def category_meta(category: str) -> tuple[str, str, str]:
+    """Display label, chip class and bar colour for a corpus category."""
+    fallback = (category.replace("_", " ").upper(), "chip-aic", "var(--c-aic)")
+    return CATEGORIES.get(category, fallback)
+
+
+def chip(category: str) -> str:
+    label, css_class, _ = category_meta(category)
+    return f'<span class="chip {css_class}">{html.escape(label)}</span>'
+
+
+# ─── Engine ───────────────────────────────────────────────────────────────
 @st.cache_resource(show_spinner=False)
 def load_engine():
-    """Load RAG engine (cached across reruns)."""
+    """Load the RAG engine once per process."""
     from rag_engine import AviationRAGEngine
+
     return AviationRAGEngine()
 
 
-def get_category_pill(category: str) -> str:
-    cat_class = {
-        "dgca_cars": "cat-dgca",
-        "aai_circulars": "cat-aic",
-        "icao": "cat-icao",
-        "notams": "cat-notam",
-    }.get(category, "cat-aic")
-    
-    cat_label = {
-        "dgca_cars": "DGCA CAR",
-        "aai_circulars": "AIC/Circular",
-        "icao": "ICAO",
-        "notams": "NOTAM",
-    }.get(category, category.upper())
-    
-    return f'<span class="category-pill {cat_class}">{cat_label}</span>'
-
-
-# ─── Sidebar ───────────────────────────────────────────────────────────────
-def render_sidebar(engine):
+# ─── Sidebar ──────────────────────────────────────────────────────────────
+def render_sidebar(engine) -> tuple[str, str | None]:
     with st.sidebar:
-        st.markdown("## ✈️ Aviation RAG")
-        st.markdown("---")
-        
+        st.markdown(
+            '<p class="side-title">AeroRAG</p>'
+            '<p class="side-sub">Indian civil aviation regulatory corpus</p>',
+            unsafe_allow_html=True,
+        )
+
         stats = engine.get_stats()
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown(f"""
-            <div class="stat-card">
-                <div class="stat-value">{stats['total_documents']}</div>
-                <div class="stat-label">Documents</div>
-            </div>
-            """, unsafe_allow_html=True)
-        with col2:
-            st.markdown(f"""
-            <div class="stat-card">
-                <div class="stat-value">{stats['total_chunks']}</div>
-                <div class="stat-label">Chunks</div>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        st.markdown("---")
-        
-        st.markdown("### ⚙️ Search Settings")
-        
+
+        st.markdown(
+            '<div class="metrics">'
+            f'<div class="metric"><span class="metric-value">{stats["total_documents"]:,}</span>'
+            '<span class="metric-label">Documents</span></div>'
+            f'<div class="metric"><span class="metric-value">{stats["total_chunks"]:,}</span>'
+            '<span class="metric-label">Chunks</span></div>'
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+        st.markdown('<p class="side-label">Retrieval</p>', unsafe_allow_html=True)
         search_mode = st.selectbox(
-            "Retrieval Mode",
+            "Mode",
             ["hybrid", "dense", "sparse"],
             index=0,
-            help="Hybrid = Dense + Sparse + Reranking (best quality)"
+            help=(
+                "hybrid: BM25 + dense, fused by RRF, then cross-encoder reranked. "
+                "dense: bi-encoder only. sparse: BM25 only."
+            ),
+            label_visibility="collapsed",
         )
-        
-        category_options = ["All Categories"] + list(stats.get("chunks_per_category", {}).keys())
-        category = st.selectbox(
-            "Filter by Category",
-            category_options,
-            index=0,
+
+        per_category = stats.get("chunks_per_category", {})
+        options = ["All categories"] + list(per_category)
+        selected = st.selectbox("Category filter", options, index=0)
+        category_filter = None if selected == "All categories" else selected
+
+        if per_category:
+            st.markdown('<p class="side-label">Index composition</p>', unsafe_allow_html=True)
+            largest = max(per_category.values())
+            rows = []
+            for name, count in sorted(per_category.items(), key=lambda kv: -kv[1]):
+                label, _, colour = category_meta(name)
+                width = (count / largest * 100) if largest else 0
+                rows.append(
+                    '<div class="comp-row">'
+                    f'<div class="comp-head"><span class="comp-name">{html.escape(label)}</span>'
+                    f'<span class="comp-count">{count:,}</span></div>'
+                    f'<div class="comp-track"><div class="comp-fill" '
+                    f'style="width:{width:.1f}%;background:{colour}"></div></div>'
+                    "</div>"
+                )
+            st.markdown("".join(rows), unsafe_allow_html=True)
+
+        st.markdown('<p class="side-label">Pipeline</p>', unsafe_allow_html=True)
+        pipeline = [
+            ("Embeddings", stats["embedding_model"]),
+            ("Reranker", stats.get("reranker_model", "cross-encoder")),
+            ("Generation", stats["llm_model"]),
+            ("Vector store", "ChromaDB"),
+            ("Lexical", "BM25 Okapi"),
+            ("Fusion", "RRF (k=60)"),
+        ]
+        st.markdown(
+            "".join(
+                f'<div class="kv"><span class="kv-key">{html.escape(key)}</span>'
+                f'<span class="kv-value">{html.escape(str(value))}</span></div>'
+                for key, value in pipeline
+            ),
+            unsafe_allow_html=True,
         )
-        category_filter = None if category == "All Categories" else category
-        
-        st.markdown("---")
-        
-        st.markdown("### 🏗️ Architecture")
-        st.markdown(f"""
-        - **Embeddings:** `{stats['embedding_model']}`
-        - **Reranker:** Cross-Encoder
-        - **LLM:** `{stats['llm_model']}`
-        - **Vector DB:** ChromaDB
-        - **Sparse:** BM25 (Okapi)
-        - **Fusion:** Reciprocal Rank
-        """)
-        
-        st.markdown("---")
-        
-        st.markdown("### 📊 Document Breakdown")
-        for cat, count in stats.get("chunks_per_category", {}).items():
-            cat_display = {
-                "dgca_cars": "🟢 DGCA CARs",
-                "aai_circulars": "🔵 AICs/Circulars",
-                "icao": "🟣 ICAO",
-                "notams": "🟠 NOTAMs",
-                "aip": "⚪ AIP",
-            }.get(cat, cat)
-            st.markdown(f"{cat_display}: **{count}** chunks")
-        
-        st.markdown("---")
-        
-        if st.button("🗑️ Clear Chat", use_container_width=True):
+
+        st.markdown('<p class="side-label">Session</p>', unsafe_allow_html=True)
+        if st.button("Clear conversation", use_container_width=True):
             st.session_state.messages = []
             st.session_state.chat_history = []
             st.rerun()
-        
-        st.markdown("---")
-        st.markdown(
-            '<p style="color:#64748b;font-size:0.7rem;text-align:center;">'
-            'Built by Prabhat<br>AAI Junior Executive<br>'
-            'Aviation Domain × AI/ML Engineering</p>',
-            unsafe_allow_html=True
-        )
-    
+
     return search_mode, category_filter
 
 
-# ─── Main Chat Interface ──────────────────────────────────────────────────
-def render_header():
-    st.markdown("""
-    <div class="main-header">
-        <h1>✈️ Aviation Regulatory Intelligence System</h1>
-        <p>AI-powered Q&A over DGCA CARs, AICs, Circulars & ICAO Standards</p>
-        <div class="tech-stack">
-            <span class="tech-badge">Hybrid Search</span>
-            <span class="tech-badge">BM25 + Dense</span>
-            <span class="tech-badge">Cross-Encoder Reranking</span>
-            <span class="tech-badge">Groq LLM</span>
-            <span class="tech-badge">ChromaDB</span>
-            <span class="tech-badge">No LangChain</span>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+# ─── Main surfaces ────────────────────────────────────────────────────────
+def render_header() -> None:
+    st.markdown(
+        '<div class="app-head">'
+        "<h1>Aviation Regulatory Intelligence</h1>"
+        "<p>Question answering over DGCA Civil Aviation Requirements, AAI circulars, "
+        "aeronautical information circulars and ICAO standards. Every answer cites the "
+        "source document and page it was drawn from.</p>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
 
-def render_sources(sources: list[dict]):
+def render_sources(sources: list[dict]) -> None:
+    """Render retrieved chunks. All document-derived text is escaped: the corpus
+    is third-party PDF text and will contain angle brackets and ampersands."""
     if not sources:
         return
-    
-    with st.expander(f"📚 Sources ({len(sources)} documents referenced)", expanded=False):
+
+    with st.expander(f"Sources — {len(sources)} retrieved", expanded=False):
         for src in sources:
-            pill = get_category_pill(src.get("category", ""))
-            score_display = f"{src.get('relevance_score', 0):.4f}"
-            
-            st.markdown(f"""
-            <div class="source-card">
-                <div class="source-header">
-                    [Source {src['source_number']}] {src['file']}
-                </div>
-                <div class="source-meta">
-                    {pill} Page {src['page']} · {src.get('section', '')} · Relevance: {score_display}
-                </div>
-                <div class="source-preview">
-                    {src.get('preview', '')}
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+            page = html.escape(str(src.get("page", "?")))
+            section = str(src.get("section") or "").strip()
+            meta = [chip(src.get("category", "")), f"p. {page}"]
+            if section:
+                meta.append(html.escape(section))
+
+            st.markdown(
+                '<div class="src">'
+                '<div class="src-top">'
+                f'<span class="src-file"><span class="src-index">'
+                f'{int(src.get("source_number", 0)):02d}</span>'
+                f'{html.escape(str(src.get("file", "unknown")))}</span>'
+                f'<span class="src-score">{src.get("relevance_score", 0):.3f}</span>'
+                "</div>"
+                f'<div class="src-meta">{"".join(f"<span>{part}</span>" for part in meta)}</div>'
+                f'<div class="src-quote">{html.escape(str(src.get("preview", "")))}</div>'
+                "</div>",
+                unsafe_allow_html=True,
+            )
 
 
-def main():
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-    if "chat_history" not in st.session_state:
-        st.session_state.chat_history = []
-    
-    vectorstore_exists = Path("vectorstore").exists() and any(Path("vectorstore").iterdir()) if Path("vectorstore").exists() else False
-    bm25_exists = Path("data/processed/bm25_index.pkl").exists()
-    
-    if not vectorstore_exists or not bm25_exists:
+def render_statusline(elapsed: float, mode: str, num_chunks: int) -> None:
+    st.markdown(
+        '<div class="statusline">'
+        f"<span>{elapsed:.2f}s</span>"
+        f"<span>{html.escape(mode)} retrieval</span>"
+        f"<span>{num_chunks} chunks in context</span>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
+
+
+def main() -> None:
+    st.session_state.setdefault("messages", [])
+    st.session_state.setdefault("chat_history", [])
+
+    if not indexes_present():
         render_header()
-        st.error("⚠️ Vectorstore not found! Run ingestion first:")
+        st.error("No search index found. Build it before starting the app.")
         st.code("python ingest.py", language="bash")
-        st.info("This will process all PDFs in data/raw/ and build the search indexes.")
+        st.caption(
+            "Ingestion reads every PDF under data/raw/, extracts tables and prose "
+            "separately, and writes the ChromaDB collection and BM25 index."
+        )
         return
-    
-    with st.spinner("Loading Aviation RAG Engine..."):
+
+    with st.spinner("Loading retrieval engine"):
         engine = load_engine()
-    
+
     search_mode, category_filter = render_sidebar(engine)
     render_header()
-    
+
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
             if msg["role"] == "assistant" and "sources" in msg:
                 render_sources(msg["sources"])
-    
-    if prompt := st.chat_input("Ask about aviation regulations..."):
+
+    if prompt := st.chat_input("Ask about aviation regulations"):
         with st.chat_message("user"):
             st.markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
-        
+
         with st.chat_message("assistant"):
-            with st.spinner("Searching & analyzing..."):
-                start_time = time.time()
-                
+            with st.spinner("Retrieving and generating"):
+                started = time.perf_counter()
                 response = engine.query(
                     question=prompt,
                     mode=search_mode,
                     category_filter=category_filter,
                     chat_history=st.session_state.chat_history,
                 )
-                
-                elapsed = time.time() - start_time
-            
+                elapsed = time.perf_counter() - started
+
             st.markdown(response.answer)
-            
-            st.markdown(
-                f'<p style="color:#64748b;font-size:0.75rem;margin-top:0.5rem;">'
-                f'⚡ {elapsed:.1f}s · {response.retrieval_mode} search · '
-                f'{response.num_chunks_used} sources</p>',
-                unsafe_allow_html=True
-            )
-            
+            render_statusline(elapsed, response.retrieval_mode, response.num_chunks_used)
             render_sources(response.sources)
-        
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": response.answer,
-            "sources": response.sources,
-        })
-        
-        st.session_state.chat_history.append({"role": "user", "content": prompt})
-        st.session_state.chat_history.append({"role": "assistant", "content": response.answer})
-        
-        if len(st.session_state.chat_history) > 6:
-            st.session_state.chat_history = st.session_state.chat_history[-6:]
+
+        st.session_state.messages.append(
+            {"role": "assistant", "content": response.answer, "sources": response.sources}
+        )
+        st.session_state.chat_history.extend(
+            [
+                {"role": "user", "content": prompt},
+                {"role": "assistant", "content": response.answer},
+            ]
+        )
+        st.session_state.chat_history = st.session_state.chat_history[-6:]
 
 
 if __name__ == "__main__":

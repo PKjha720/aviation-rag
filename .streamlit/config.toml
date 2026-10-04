@@ -1,8 +1,11 @@
+# Theme values mirror the design tokens in app.py (:root). Keep them in sync:
+# Streamlit paints its own widgets from here, the CSS paints everything else.
 [theme]
-primaryColor = "#3b82f6"
-backgroundColor = "#0a0f1a"
-secondaryBackgroundColor = "#1e293b"
-textColor = "#e2e8f0"
+base = "dark"
+primaryColor = "#4c8dff"
+backgroundColor = "#0b0f16"
+secondaryBackgroundColor = "#121926"
+textColor = "#dbe3ef"
 font = "sans serif"
 
 [server]
