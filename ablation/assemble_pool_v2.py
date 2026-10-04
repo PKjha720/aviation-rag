@@ -30,7 +30,7 @@ OUT = Path("ablation/out")
 # author's instruction). Listed here so a re-run of this script cannot
 # resurrect them. Reason recorded beside each id.
 HANDCHECK_REJECTS = {
-    # first pass (Claude, at the author's instruction)
+    # first pass (an LLM, at the author's instruction)
     "T013": "layout/order question, not regulatory; span straddles two reconstructed rows",
     # second pass (independent blind adversarial model review; source PDFs consulted)
     "T003": "question asks for 'the limit' (singular); span holds three severity thresholds (Low/Medium/High Limit columns) with no way to pick",
@@ -38,7 +38,7 @@ HANDCHECK_REJECTS = {
     "T006": "'for a Normal approach' is not on the page (the only 'Normal' is normal acceleration); span holds three thresholds, question singular",
     "T010": "'under the specified certification criteria' is a dangling pointer; the defined term (complex motor-powered aircraft) is on the previous page and absent from the question",
     "P005": "'EU's capacity building and implementation support framework' is fabricated from a chapter title; stripped, the question is generic",
-    # third pass: the 19 items no earlier pass had seen (Claude, single pass; a blind second pass was not available - usage limit)
+    # third pass: the 19 items no earlier pass had seen (an LLM, single pass; a blind second pass was not available - usage limit)
     "T012": "question identifies the column by the span's own value (0.82M) - answer leakage, and a pointer only meaningful with the table in view",
     "T016": "'the CGHS rate' - span holds five numbers (Delhi/Bengaluru/Jorhat/Average/Rounded) with no way to pick",
     "T018": "span holds two proficiency levels (1, 3) for two licence columns whose headers are not in the span; which is B1.3 is not determinable",

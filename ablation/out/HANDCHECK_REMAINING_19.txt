@@ -2,7 +2,7 @@
 ANNOTATION PROVENANCE - READ FIRST
 ==============================================================================
 These are the 19 pool items that NO earlier pass had seen (HANDCHECK_20.txt
-sampled 20 of the original 39). Reviewed by Claude Opus 5 at the author's
+sampled 20 of the original 39). Reviewed by an LLM at the author's
 instruction on 2026-09-20, applying the stricter standard the blind second
 reviewer used on the first 20: fabricated qualifiers, one-of-several values,
 dangling pointers, answer leakage. SINGLE model pass - an independent blind

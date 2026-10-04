@@ -2,7 +2,7 @@
 ANNOTATION PROVENANCE - READ FIRST
 ==============================================================================
 Two model passes, no human review yet.
-  FIRST PASS  : Claude Opus 5, at the author's explicit instruction, under time
+  FIRST PASS  : an LLM, at the author's explicit instruction, under time
                 pressure, 2026-09-20. Read only what this file shows.
   SECOND PASS : an independent model reviewer, blind to the first pass, briefed
                 to REJECT wherever it could; it also opened the source PDFs.
