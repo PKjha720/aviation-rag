@@ -57,28 +57,31 @@ st.set_page_config(
 STYLES = """
 <style>
 :root {
-  --bg:            #0b0f16;
-  --surface:       #121926;
-  --surface-sunk:  #0d131d;
-  --border:        #212c3d;
-  --border-bright: #2d3b52;
+  /* Light theme. Cards sit on white so they lift off the page ground; the
+     sunk tone is for quoted source text, which should recede rather than
+     compete with the answer above it. */
+  --bg:            #f2f5f9;
+  --surface:       #ffffff;
+  --surface-sunk:  #e9eef5;
+  --border:        #d5dde7;
+  --border-bright: #aab8c8;
 
-  --text:          #dbe3ef;
-  --text-muted:    #8a99af;
-  /* Was #5c6a7e, which measured 3.20:1 on --surface: below the 4.5:1 AA floor
-     for the 11-13px labels this token carries. Lifted in place, hue and
-     saturation preserved, to 4.62:1 against the lightest surface it sits on. */
-  --text-faint:    #74849a;
+  --text:          #0f1823;
+  --text-muted:    #55687e;
+  /* On a light ground the binding constraint flips: white (--surface) is the
+     lightest background any of these sit on, so each value is darkened until
+     it clears 4.5:1 there. Checked, not guessed. */
+  --text-faint:    #5e6c7e;
 
   /* The accent is the only vivid hue in the interface and belongs to chrome.
-     Category colours below are data, so they are desaturated and kept off the
-     accent's hue: blue must not mean "emphasis" and "AIC" at the same time. */
-  --accent:        #4c8dff;
+     Category colours below are data, so they are kept off the accent's hue:
+     blue must not mean "emphasis" and "AIC" at the same time. */
+  --accent:        #035eff;
 
-  --c-dgca:  #4cac5a;
-  --c-aic:   #4e99b5;
-  --c-icao:  #9d84c7;
-  --c-notam: #b88f44;
+  --c-dgca:  #367a40;
+  --c-aic:   #3a748a;
+  --c-icao:  #7d5bb4;
+  --c-notam: #866832;
 
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 
