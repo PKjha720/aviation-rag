@@ -5,6 +5,12 @@ Hybrid retrieval (BM25 Okapi + dense bi-encoder, reciprocal rank fusion,
 cross-encoder reranking) over Indian civil aviation regulatory documents.
 """
 
+# Annotations stay unevaluated, so `str | None` and friends do not require
+# Python 3.10 at import time. Streamlit Cloud chooses its own interpreter
+# version unless one is pinned, and a TypeError here stops the app booting
+# at all rather than failing visibly.
+from __future__ import annotations
+
 import os
 import sys
 import logging
